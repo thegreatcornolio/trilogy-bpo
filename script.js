@@ -58,7 +58,7 @@ const statObserver = new IntersectionObserver(
   { threshold: 0.5 }
 );
 
-document.querySelectorAll(".stat-number").forEach((el) => statObserver.observe(el));
+document.querySelectorAll("[data-count]").forEach((el) => statObserver.observe(el));
 
 // Contact form (front-end only — wire up to a backend or form service later)
 const form = document.getElementById("contactForm");
@@ -69,7 +69,7 @@ form.addEventListener("submit", (e) => {
 
   if (!form.checkValidity()) {
     formNote.textContent = "Please fill in all fields with a valid email.";
-    formNote.style.color = "#ff8a8a";
+    formNote.style.color = "#ffb4a8";
     return;
   }
 
