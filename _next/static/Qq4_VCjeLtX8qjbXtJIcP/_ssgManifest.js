@@ -1,0 +1,1 @@
+self.__SSG_MANIFEST=new Set(["\u002Fcorporate\u002Finsights\u002F[slug]"]);self.__SSG_MANIFEST_CB&&self.__SSG_MANIFEST_CB()

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+  <circle cx="12" cy="12" r="11" fill="#2B7DE9"/>
+  <rect x="6.5" y="8" width="11" height="7.5" rx="2" fill="#fff"/>
+  <text x="12" y="13.4" text-anchor="middle" font-family="Arial,sans-serif" font-size="4.2" font-weight="700" fill="#2B7DE9">SMS</text>
+</svg>
