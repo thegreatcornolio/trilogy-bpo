@@ -833,7 +833,7 @@ export default function HomePage() {
             </Link>
           </div>
           <div
-            className="rise"
+            className="rise insights-papers"
             style={{
               display: "grid",
               gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
@@ -968,6 +968,7 @@ export default function HomePage() {
         @media (max-width: 900px) {
           .demo-grid, .why-wrap { grid-template-columns: 1fr !important; }
           .insight-row { grid-template-columns: 1fr !important; }
+          .insights-papers { grid-template-columns: 1fr !important; }
           .why-secondary { grid-template-columns: 1fr 1fr !important; }
         }
         @media (max-width: 600px) {

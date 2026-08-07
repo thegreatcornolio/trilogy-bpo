@@ -152,18 +152,19 @@ export function Header() {
           gap: 20,
         }}
       >
-        <Link href="/" aria-label="Trilogy home" style={{ display: "inline-flex", flex: "none", alignItems: "center" }}>
+        <Link href="/" aria-label="Trilogy home" className="header-logo-link" style={{ display: "inline-flex", flex: "none", alignItems: "center", minWidth: 0 }}>
           <Image
             src="/logo/trilogy-logo.png"
             alt="Trilogy"
             width={5280}
             height={1100}
             priority
-            style={{ height: 68, width: "auto" }}
+            className="header-logo"
+            style={{ height: 68, width: "auto", maxWidth: "100%" }}
           />
         </Link>
 
-        <nav style={{ display: "flex", alignItems: "center", gap: 18 }}>
+        <nav className="header-nav" style={{ display: "flex", alignItems: "center", gap: 18, flex: "none" }}>
           <div className="nav-desktop" style={{ display: "flex", alignItems: "center", gap: 18 }}>
             {nav.map((item) =>
               item.children ? (
@@ -211,6 +212,7 @@ export function Header() {
               justifyContent: "center",
               flexDirection: "column",
               gap: 4,
+              flex: "none",
             }}
           >
             <span style={{ display: "block", width: 16, height: 2, background: "#0E1B2A" }} />
