@@ -21,7 +21,7 @@ export default function ServiceHero({
   video,
   poster,
   ctaHref = "/#contact",
-  ctaLabel = "Book a session",
+  ctaLabel = "Get in Touch",
   meta,
   objectPosition = "center",
 }: Props) {

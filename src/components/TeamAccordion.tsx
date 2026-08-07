@@ -8,7 +8,7 @@ type Member = {
   name: string;
   role: string;
   img: string;
-  linkedin: string;
+  linkedin?: string;
 };
 
 export default function TeamAccordion({ members }: { members: readonly Member[] }) {
@@ -138,23 +138,25 @@ export default function TeamAccordion({ members }: { members: readonly Member[] 
                 Part of the operator team that built 30+ centres and scaled thousands of seats — available to clients
                 as principals, not a sales layer.
               </p>
-              <a
-                href={member.linkedin}
-                target="_blank"
-                rel="noreferrer"
-                className="mono"
-                style={{
-                  display: "inline-flex",
-                  marginTop: 18,
-                  fontSize: 11,
-                  letterSpacing: ".12em",
-                  color: "rgba(247,245,240,.7)",
-                  borderBottom: `1px solid ${slate}`,
-                  paddingBottom: 3,
-                }}
-              >
-                LinkedIn profile →
-              </a>
+              {member.linkedin ? (
+                <a
+                  href={member.linkedin}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="mono"
+                  style={{
+                    display: "inline-flex",
+                    marginTop: 18,
+                    fontSize: 11,
+                    letterSpacing: ".12em",
+                    color: "rgba(247,245,240,.7)",
+                    borderBottom: `1px solid ${slate}`,
+                    paddingBottom: 3,
+                  }}
+                >
+                  LinkedIn profile →
+                </a>
+              ) : null}
             </div>
           </div>
         );

@@ -17,7 +17,7 @@ import {
   insightsPapers,
   insightsPosts,
   site,
-  team,
+  teamGroups,
   whySa,
 } from "@/lib/content";
 
@@ -217,59 +217,111 @@ export default function HomePage() {
             operational sites in under six weeks. They know what it takes to get customer experience right, first
             time.
           </p>
-          <div
-            className="team-grid rise"
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
-              gap: 22,
-              marginTop: 48,
-            }}
-          >
-            {team.map((member) => (
-              <a
-                key={member.name}
-                href={member.linkedin}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={`${member.name} on LinkedIn`}
-                style={{ display: "block" }}
+          {teamGroups.map((group) => (
+            <div key={group.title} style={{ marginTop: 48 }}>
+              <div
+                className="mono rise"
+                style={{
+                  fontSize: 12,
+                  letterSpacing: ".14em",
+                  textTransform: "uppercase",
+                  color: "#0E7C46",
+                  fontWeight: 700,
+                  marginBottom: 22,
+                }}
               >
-                <div
-                  style={{
-                    position: "relative",
-                    width: "60%",
-                    aspectRatio: "4/5",
-                    borderRadius: 14,
-                    overflow: "hidden",
-                    background: "#fff",
-                  }}
-                >
-                  <Image
-                    src={member.img}
-                    alt={member.name}
-                    fill
-                    sizes="144px"
-                    style={
-                      member.name === "Jason Luboyera"
-                        ? {
-                            objectFit: "cover",
-                            objectPosition: "center 48%",
-                            transform: "scale(1.22) translateY(12%)",
-                            transformOrigin: "center center",
-                            background: "#fff",
+                {group.title}
+              </div>
+              <div
+                className="team-grid rise"
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
+                  gap: 22,
+                }}
+              >
+                {group.members.map((member) => {
+                  const inner = (
+                    <>
+                      <div
+                        style={{
+                          position: "relative",
+                          width: "60%",
+                          aspectRatio: "4/5",
+                          borderRadius: 14,
+                          overflow: "hidden",
+                          background: "#fff",
+                        }}
+                      >
+                        <Image
+                          src={member.img}
+                          alt={member.name}
+                          fill
+                          sizes="144px"
+                          style={
+                            member.name === "Jason Luboyera"
+                              ? {
+                                  objectFit: "cover",
+                                  objectPosition: "center 48%",
+                                  transform: "scale(1.22) translateY(12%)",
+                                  transformOrigin: "center center",
+                                  background: "#fff",
+                                }
+                              : member.name === "Brandon Grant"
+                                ? {
+                                    objectFit: "cover",
+                                    objectPosition: "center center",
+                                    background: "#1c1c1c",
+                                  }
+                                : { objectFit: "cover", background: "#fff" }
                           }
-                        : { objectFit: "cover", background: "#fff" }
-                    }
-                  />
-                </div>
-                <div style={{ marginTop: 12, fontSize: 15.5, fontWeight: 500 }}>{member.name}</div>
-                <div className="mono" style={{ marginTop: 4, fontSize: 11, color: "rgba(14,27,42,.5)" }}>
-                  {member.role}
-                </div>
-              </a>
-            ))}
-          </div>
+                        />
+                      </div>
+                      <div style={{ marginTop: 12, fontSize: 15.5, fontWeight: 500 }}>{member.name}</div>
+                      <div className="mono" style={{ marginTop: 4, fontSize: 11, color: "rgba(14,27,42,.5)" }}>
+                        {member.role}
+                      </div>
+                      {member.bio ? (
+                        <div
+                          style={{
+                            marginTop: 8,
+                            fontSize: 13,
+                            lineHeight: 1.45,
+                            color: "rgba(14,27,42,.58)",
+                            fontWeight: 300,
+                            maxWidth: "28ch",
+                          }}
+                        >
+                          {member.bio}
+                        </div>
+                      ) : null}
+                    </>
+                  );
+
+                  if (member.linkedin) {
+                    return (
+                      <a
+                        key={`${group.title}-${member.name}`}
+                        href={member.linkedin}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label={`${member.name} on LinkedIn`}
+                        style={{ display: "block" }}
+                      >
+                        {inner}
+                      </a>
+                    );
+                  }
+
+                  return (
+                    <div key={`${group.title}-${member.name}`} style={{ display: "block" }}>
+                      {inner}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -868,7 +920,7 @@ export default function HomePage() {
                 fontWeight: 600,
               }}
             >
-              Book a session
+              Get in Touch
             </a>
             <a
               href={site.whatsapp}

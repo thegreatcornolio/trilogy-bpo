@@ -712,7 +712,7 @@ export default function TrilogyGccPage() {
           </p>
           <div className="rise" style={{ marginTop: 36, display: "flex", flexWrap: "wrap", gap: 14, alignItems: "center" }}>
             <Link
-              href={company.booking}
+              href="/#contact"
               style={{
                 display: "inline-flex",
                 alignItems: "center",
@@ -727,7 +727,7 @@ export default function TrilogyGccPage() {
                 fontWeight: 600,
               }}
             >
-              Book a GCC session
+              Get in Touch
             </Link>
             <Link
               href="/trilogy-digital"

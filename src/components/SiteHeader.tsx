@@ -121,8 +121,8 @@ export default function SiteHeader() {
             </svg>
           </button>
 
-          <a
-            href={company.booking}
+          <Link
+            href="/#contact"
             className="nav-cta"
             style={mono({
               flex: "none",
@@ -136,8 +136,8 @@ export default function SiteHeader() {
               textDecoration: "none",
             })}
           >
-            Book a session
-          </a>
+            Get in Touch
+          </Link>
         </div>
       </div>
 

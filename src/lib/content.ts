@@ -18,20 +18,11 @@ export type NavItem =
     };
 
 export const navLinks: NavItem[] = [
-  {
-    label: "Services",
-    children: [
-      { label: "Overview", href: "/#offerings" },
-      { label: "BPO", href: "/trilogy-bpo" },
-      { label: "GCC", href: "/trilogy-gcc" },
-      { label: "Ai", href: "/trilogy-ai" },
-    ],
-  },
   { label: "Trilogy Digital", href: "/trilogy-digital" },
+  { label: "Trilogy GCC", href: "/trilogy-gcc" },
   { label: "Team", href: "/#team" },
   { label: "Partners", href: "/#partners" },
-  { label: "About", href: "/about" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Get in Touch", href: "/#contact" },
 ];
 
 export const heroStats = [
@@ -75,7 +66,6 @@ export const offerings: Offering[] = [
     video: "/video/offer-bpo.mp4",
     imageAlt:
       "A contact-centre floor at night, rows of human agents in headsets lit by the green glow of their monitors, with an android among them.",
-    href: "/trilogy-bpo",
   },
   {
     index: "02",
@@ -111,7 +101,6 @@ export const offerings: Offering[] = [
     video: "/video/offer-ai.mp4",
     imageAlt:
       "A human hand and a robotic hand reaching toward a single glowing green point of light.",
-    href: "/trilogy-ai",
   },
 ];
 
@@ -155,75 +144,126 @@ export const demoConversation: DemoTurn[] = [
   },
 ];
 
-export const team = [
+export type TeamMember = {
+  name: string;
+  role: string;
+  img: string;
+  linkedin?: string;
+  bio?: string;
+};
+
+export const teamGroups: { title: string; members: TeamMember[] }[] = [
   {
-    name: "Kobus van der Westhuizen",
-    role: "CEO & Founder",
-    img: "/team/kobus.jpg",
-    linkedin:
-      "https://www.linkedin.com/in/kobus-van-der-westhuizen-trilogy-bpo/",
+    title: "Leadership Team",
+    members: [
+      {
+        name: "Kobus van der Westhuizen",
+        role: "CEO & Founder",
+        img: "/team/kobus.jpg",
+        linkedin:
+          "https://www.linkedin.com/in/kobus-van-der-westhuizen-trilogy-bpo/",
+      },
+      {
+        name: "Tanya Phillips",
+        role: "Chief Operating Officer",
+        img: "/team/tanya.jpg",
+        linkedin: "https://www.linkedin.com/in/tanya-phillips-sa/",
+      },
+      {
+        name: "Rudi Jansen",
+        role: "Director of People",
+        img: "/team/rudi.jpg",
+        linkedin: "https://www.linkedin.com/company/trilogybpo",
+      },
+      {
+        name: "Craig Shalekoff",
+        role: "CTO & Founder",
+        img: "/team/craig.jpg",
+        linkedin: "https://www.linkedin.com/in/craig-shalekoff-digital-tribe-bpo/",
+      },
+      {
+        name: "Vancyon van Zyl",
+        role: "Director of Transitions",
+        img: "/team/vancyon.jpg",
+        linkedin: "https://www.linkedin.com/company/trilogybpo",
+      },
+    ],
   },
   {
-    name: "Tanya Phillips",
-    role: "Chief Operating Officer",
-    img: "/team/tanya.jpg",
-    linkedin: "https://www.linkedin.com/in/tanya-phillips-sa/",
+    title: "Board Members",
+    members: [
+      {
+        name: "Kobus van der Westhuizen",
+        role: "CEO & Founder",
+        img: "/team/kobus.jpg",
+        linkedin:
+          "https://www.linkedin.com/in/kobus-van-der-westhuizen-trilogy-bpo/",
+      },
+      {
+        name: "Craig Shalekoff",
+        role: "CTO & Founder",
+        img: "/team/craig.jpg",
+        linkedin: "https://www.linkedin.com/in/craig-shalekoff-digital-tribe-bpo/",
+      },
+      {
+        name: "Frank Kilbourn",
+        role: "Non-Executive Director",
+        img: "/team/frank.jpg",
+        linkedin: "https://www.linkedin.com/in/frank-kilbourn-31ba97b9/",
+      },
+      {
+        name: "Jonathan Broll",
+        role: "Non-Executive Director",
+        img: "/team/jonathan.jpg",
+        linkedin: "https://www.linkedin.com/in/jonathan-broll-ab5a61b5/",
+      },
+      {
+        name: "Heather Wallace",
+        role: "Non-Executive Director",
+        img: "/team/heather.jpg",
+        linkedin: "https://www.linkedin.com/company/trilogybpo",
+      },
+    ],
   },
   {
-    name: "Craig Shalekoff",
-    role: "CTO & Founder",
-    img: "/team/craig.jpg",
-    linkedin: "https://www.linkedin.com/in/craig-shalekoff-digital-tribe-bpo/",
+    title: "Team",
+    members: [
+      {
+        name: "Keanu Vieira",
+        role: "Head of CX Solutions",
+        img: "/team/keanu.jpg",
+        linkedin: "https://www.linkedin.com/company/trilogybpo",
+      },
+      {
+        name: "Jason Luboyera",
+        role: "Head of Digital",
+        img: "/team/jason.png",
+        linkedin: "https://www.linkedin.com/company/trilogybpo",
+      },
+      {
+        name: "Tish Carruthers",
+        role: "Marketing & Intelligence Lead",
+        img: "/team/tish.jpg",
+        linkedin: "https://www.linkedin.com/company/trilogybpo",
+      },
+      {
+        name: "Brandon Grant",
+        role: "Head of Digital Contact",
+        img: "/team/brandon.jpg",
+        bio: "Digital transformation leader specializing in omnichannel solutions.",
+        linkedin: "https://www.linkedin.com/company/trilogybpo",
+      },
+      {
+        name: "Lizelle McLaughlin",
+        role: "Head of Projects",
+        img: "/team/lizelle.jpg",
+      },
+    ],
   },
-  {
-    name: "Rudi Jansen",
-    role: "Director of People",
-    img: "/team/rudi.jpg",
-    linkedin: "https://www.linkedin.com/company/trilogybpo",
-  },
-  {
-    name: "Vancyon van Zyl",
-    role: "Director of Transitions",
-    img: "/team/vancyon.jpg",
-    linkedin: "https://www.linkedin.com/company/trilogybpo",
-  },
-  {
-    name: "Keanu Vieira",
-    role: "Head of CX Solutions",
-    img: "/team/keanu.jpg",
-    linkedin: "https://www.linkedin.com/company/trilogybpo",
-  },
-  {
-    name: "Jason Luboyera",
-    role: "Head of Digital",
-    img: "/team/jason.png",
-    linkedin: "https://www.linkedin.com/company/trilogybpo",
-  },
-  {
-    name: "Tish Carruthers",
-    role: "Marketing & Intelligence Lead",
-    img: "/team/tish.jpg",
-    linkedin: "https://www.linkedin.com/company/trilogybpo",
-  },
-  {
-    name: "Frank Kilbourn",
-    role: "Non-Executive Director",
-    img: "/team/frank.jpg",
-    linkedin: "https://www.linkedin.com/in/frank-kilbourn-31ba97b9/",
-  },
-  {
-    name: "Jonathan Broll",
-    role: "Non-Executive Director",
-    img: "/team/jonathan.jpg",
-    linkedin: "https://www.linkedin.com/in/jonathan-broll-ab5a61b5/",
-  },
-  {
-    name: "Heather Wallace",
-    role: "Non-Executive Director",
-    img: "/team/heather.jpg",
-    linkedin: "https://www.linkedin.com/company/trilogybpo",
-  },
-] as const;
+];
+
+/** Flat list kept for any consumers that still map a single team array. */
+export const team = teamGroups.flatMap((g) => g.members);
 
 export const whySaFeature = [
   {
@@ -1059,7 +1099,6 @@ export const digitalOfferings = [
     name: "Trilogy BPO",
     tag: "Your Contract, Your Choice",
     body: "Outsource your contact centre to Trilogy in South Africa. Modern technology platforms in a ready state — just add humans — spanning voice, digital channels and AI-powered automation at significantly reduced cost.",
-    href: "/trilogy-bpo",
   },
   {
     index: "02",
@@ -1073,7 +1112,6 @@ export const digitalOfferings = [
     name: "Trilogy Ai",
     tag: "Platform Access",
     body: 'License our award-winning AI-enabled digital and autonomous platforms for service, sales, marketing and collections — always deployed "human in the loop."',
-    href: "/trilogy-ai",
   },
 ] as const;
 

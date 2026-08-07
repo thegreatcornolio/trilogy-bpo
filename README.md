@@ -24,8 +24,8 @@ Open [http://localhost:3000](http://localhost:3000).
 | Route | Description |
 | --- | --- |
 | `/` | Homepage (offerings, team, SA, calculator, AI, partners, insights) |
-| `/about` | About / operators |
 | `/trilogy-digital` | Trilogy Digital JV overview |
+| `/trilogy-gcc` | Global Capability Centres |
 | `/corporate/insights` | Insights index |
 
 ## Build

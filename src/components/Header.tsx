@@ -192,7 +192,7 @@ export function Header() {
               whiteSpace: "nowrap",
             }}
           >
-            Book a session
+            Get in Touch
           </Link>
           <button
             type="button"

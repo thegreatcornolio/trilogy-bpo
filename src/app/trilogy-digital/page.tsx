@@ -309,32 +309,59 @@ export default function TrilogyDigitalPage() {
               marginTop: 28,
             }}
           >
-            {digitalOfferings.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                style={{
-                  display: "block",
-                  border: "1px solid rgba(14,27,42,.1)",
-                  borderRadius: 14,
-                  padding: 24,
-                  background: "#fff",
-                  color: "inherit",
-                  textDecoration: "none",
-                }}
-              >
-                <div className="mono" style={{ fontSize: 11, letterSpacing: ".12em", color: "#0E7C46" }}>
-                  {item.index} · {item.tag}
+            {digitalOfferings.map((item) => {
+              const body = (
+                <>
+                  <div className="mono" style={{ fontSize: 11, letterSpacing: ".12em", color: "#0E7C46" }}>
+                    {item.index} · {item.tag}
+                  </div>
+                  <h3 style={{ margin: "10px 0 0", fontSize: 18, fontWeight: 500 }}>{item.name}</h3>
+                  <p style={{ margin: "12px 0 0", fontSize: 14.5, lineHeight: 1.65, color: "rgba(14,27,42,.64)", fontWeight: 300 }}>
+                    {item.body}
+                  </p>
+                  {"href" in item && item.href ? (
+                    <span className="mono" style={{ display: "inline-block", marginTop: 14, fontSize: 11, letterSpacing: ".1em", color: "#0E7C46" }}>
+                      Explore →
+                    </span>
+                  ) : null}
+                </>
+              );
+
+              if ("href" in item && item.href) {
+                return (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    style={{
+                      display: "block",
+                      border: "1px solid rgba(14,27,42,.1)",
+                      borderRadius: 14,
+                      padding: 24,
+                      background: "#fff",
+                      color: "inherit",
+                      textDecoration: "none",
+                    }}
+                  >
+                    {body}
+                  </Link>
+                );
+              }
+
+              return (
+                <div
+                  key={item.name}
+                  style={{
+                    display: "block",
+                    border: "1px solid rgba(14,27,42,.1)",
+                    borderRadius: 14,
+                    padding: 24,
+                    background: "#fff",
+                  }}
+                >
+                  {body}
                 </div>
-                <h3 style={{ margin: "10px 0 0", fontSize: 18, fontWeight: 500 }}>{item.name}</h3>
-                <p style={{ margin: "12px 0 0", fontSize: 14.5, lineHeight: 1.65, color: "rgba(14,27,42,.64)", fontWeight: 300 }}>
-                  {item.body}
-                </p>
-                <span className="mono" style={{ display: "inline-block", marginTop: 14, fontSize: 11, letterSpacing: ".1em", color: "#0E7C46" }}>
-                  Explore →
-                </span>
-              </Link>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
