@@ -3,7 +3,8 @@ import Link from "next/link";
 import { AgentDemo } from "@/components/AgentDemo";
 import AwardsTimeline from "@/components/AwardsTimeline";
 import { AutoVideo } from "@/components/AutoVideo";
-import { BrandTabs } from "@/components/BrandTabs";
+import BoardAccordion from "@/components/BoardAccordion";
+import { BrandMarquee } from "@/components/BrandMarquee";
 import OfferingsTabs from "@/components/OfferingsTabs";
 import { SavingsCalculator } from "@/components/SavingsCalculator";
 import SectionKicker from "@/components/SectionKicker";
@@ -217,7 +218,9 @@ export default function HomePage() {
             operational sites in under six weeks. They know what it takes to get customer experience right, first
             time.
           </p>
-          {teamGroups.map((group) => (
+          {teamGroups
+            .filter((group) => group.title !== "Board Members")
+            .map((group) => (
             <div key={group.title} style={{ marginTop: 48 }}>
               <div
                 className="mono rise"
@@ -267,11 +270,13 @@ export default function HomePage() {
                                   transformOrigin: "center center",
                                   background: "#fff",
                                 }
-                              : member.name === "Brandon Grant"
+                              : member.name === "Brandon Grant" || member.name === "Lizelle McLaughlin"
                                 ? {
                                     objectFit: "cover",
-                                    objectPosition: "center center",
-                                    background: "#1c1c1c",
+                                    objectPosition: "center 22%",
+                                    transform: "scale(1.12)",
+                                    transformOrigin: "center top",
+                                    background: "#fff",
                                   }
                                 : { objectFit: "cover", background: "#fff" }
                           }
@@ -322,6 +327,9 @@ export default function HomePage() {
               </div>
             </div>
           ))}
+          <BoardAccordion
+            members={teamGroups.find((g) => g.title === "Board Members")?.members ?? []}
+          />
         </div>
       </section>
 
@@ -623,7 +631,7 @@ export default function HomePage() {
             offshore customer-service delivery, with deep vertical expertise across telecommunications, utilities,
             retail, fast food, insurance and technology.
           </p>
-          <BrandTabs />
+          <BrandMarquee />
         </div>
       </section>
 

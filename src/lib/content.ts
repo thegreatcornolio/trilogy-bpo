@@ -5,7 +5,7 @@ export const company = {
   email: "info@trilogybpo.com",
   phoneUk: "+44 7458 158591",
   phoneSa: "+27 73 668 6096",
-  whatsapp: "https://wa.me/27736686096",
+  whatsapp: "https://wa.me/27719691163?text=trilogy",
   booking: "mailto:info@trilogybpo.com?subject=Book%20a%20session",
 } as const;
 
@@ -190,6 +190,40 @@ export const teamGroups: { title: string; members: TeamMember[] }[] = [
     ],
   },
   {
+    title: "Team",
+    members: [
+      {
+        name: "Keanu Vieira",
+        role: "Head of CX Solutions",
+        img: "/team/keanu.jpg",
+        linkedin: "https://www.linkedin.com/company/trilogybpo",
+      },
+      {
+        name: "Jason Luboyera",
+        role: "Head of Digital",
+        img: "/team/jason.png",
+        linkedin: "https://www.linkedin.com/company/trilogybpo",
+      },
+      {
+        name: "Tish Carruthers",
+        role: "Marketing & Intelligence Lead",
+        img: "/team/tish.jpg",
+        linkedin: "https://www.linkedin.com/company/trilogybpo",
+      },
+      {
+        name: "Brandon Grant",
+        role: "Head of Digital Contact",
+        img: "/team/brandon.jpg",
+        linkedin: "https://www.linkedin.com/company/trilogybpo",
+      },
+      {
+        name: "Lizelle McLaughlin",
+        role: "Head of Projects",
+        img: "/team/lizelle.jpg",
+      },
+    ],
+  },
+  {
     title: "Board Members",
     members: [
       {
@@ -222,41 +256,6 @@ export const teamGroups: { title: string; members: TeamMember[] }[] = [
         role: "Non-Executive Director",
         img: "/team/heather.jpg",
         linkedin: "https://www.linkedin.com/company/trilogybpo",
-      },
-    ],
-  },
-  {
-    title: "Team",
-    members: [
-      {
-        name: "Keanu Vieira",
-        role: "Head of CX Solutions",
-        img: "/team/keanu.jpg",
-        linkedin: "https://www.linkedin.com/company/trilogybpo",
-      },
-      {
-        name: "Jason Luboyera",
-        role: "Head of Digital",
-        img: "/team/jason.png",
-        linkedin: "https://www.linkedin.com/company/trilogybpo",
-      },
-      {
-        name: "Tish Carruthers",
-        role: "Marketing & Intelligence Lead",
-        img: "/team/tish.jpg",
-        linkedin: "https://www.linkedin.com/company/trilogybpo",
-      },
-      {
-        name: "Brandon Grant",
-        role: "Head of Digital Contact",
-        img: "/team/brandon.jpg",
-        bio: "Digital transformation leader specializing in omnichannel solutions.",
-        linkedin: "https://www.linkedin.com/company/trilogybpo",
-      },
-      {
-        name: "Lizelle McLaughlin",
-        role: "Head of Projects",
-        img: "/team/lizelle.jpg",
       },
     ],
   },
@@ -377,7 +376,6 @@ export const brandGroups: BrandGroup[] = [
     label: "Local brands",
     logos: [
       { name: "Mercedes-Benz", src: "/pool/brands/mercedes-benz.png" },
-      { name: "BMW", src: "/pool/brands/bmw.png" },
       { name: "Nando's", src: "/pool/brands/nandos.png" },
       { name: "Vodacom", src: "/pool/brands/vodacom.png" },
       { name: "Burger King", src: "/pool/brands/burger-king.png" },
@@ -1460,6 +1458,9 @@ export const brands = {
     l.src.replace("/pool/brands/telco/", "").replace(".png", ""),
   ),
 };
+
+/** Flat logo list for the homepage marquee (no grouping). */
+export const brandLogos = brandGroups.flatMap((g) => g.logos);
 
 export const techStack = {
   categories: partnerCategories.map((cat) => ({
