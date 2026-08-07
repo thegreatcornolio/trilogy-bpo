@@ -1,0 +1,68 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+_mirror/
+_extracted/
+_archive_old_site/
+_live.html
+
+# Local backups of live newweb deploy
+_backup_newweb_*/
+
+_experiments/
+
+# Accidental static-export copies at repo root (canonical assets live in /public)
+/_next/
+/_not-found/
+/__next.*
+/404/
+/404.html
+/about/
+/corporate/
+/team/
+/trilogy-digital/
+/img/
+/logo/
+/pool/
+/video/
+/index.txt
+/7717357-hd_1280_720_25fps.mp4

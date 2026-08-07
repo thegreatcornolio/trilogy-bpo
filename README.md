@@ -1,35 +1,36 @@
-# Trilogy BPO — Website
+# Trilogy BPO — Corporate Website
 
-Marketing landing page for Trilogy BPO, a business process outsourcing company.
+Local replica of the Trilogy corporate marketing site (AI-enabled BPO · Cape Town).
 
 ## Stack
 
-Plain HTML, CSS, and JavaScript — no build tools or dependencies. Fast to load, easy to edit, deployable anywhere.
-
-## Structure
-
-| File | Purpose |
-| --- | --- |
-| `index.html` | Page content and structure (hero, services, why us, process, testimonials, contact) |
-| `styles.css` | All styling, design tokens, and responsive layout |
-| `script.js` | Mobile nav, scroll-reveal animations, stat counters, contact form handling |
+- Next.js 16 (App Router)
+- React 19
+- TypeScript
+- Tailwind CSS v4
+- Archivo + IBM Plex Mono
 
 ## Run locally
 
-Open `index.html` directly in a browser, or serve it:
-
 ```bash
-python3 -m http.server 8080
+npm install
+npm run dev
 ```
 
-Then visit http://localhost:8080.
+Open [http://localhost:3000](http://localhost:3000).
 
-## Deploy
+## Pages
 
-Upload the three files to any static host — Netlify, Vercel, GitHub Pages, Cloudflare Pages, or a plain web server.
+| Route | Description |
+| --- | --- |
+| `/` | Homepage (offerings, team, SA, calculator, AI, partners, insights) |
+| `/about` | About / operators |
+| `/trilogy-digital` | Trilogy Digital JV overview |
+| `/corporate/insights` | Insights index |
 
-## To do
+## Build
 
-- Replace placeholder contact details (email, phone) in the footer
-- Wire the contact form to a backend or form service (e.g. Formspree, Netlify Forms)
-- Swap testimonial placeholders for real client quotes
+```bash
+npm run build
+npm start
+```
