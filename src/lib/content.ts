@@ -213,7 +213,7 @@ export const teamGroups: { title: string; members: TeamMember[] }[] = [
       {
         name: "Brandon Grant",
         role: "Head of Digital Contact",
-        img: "/team/brandon.png",
+        img: "/team/brandon.jpg",
         linkedin: "https://www.linkedin.com/company/trilogybpo",
       },
       {
