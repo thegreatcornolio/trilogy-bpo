@@ -447,8 +447,12 @@ body {
 
 .td-ai {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.td-ai-suite .container {
+  text-align: left;
 }
 
 .td-check {
@@ -569,10 +573,22 @@ body {
 @media (max-width: 900px) {
   .td-do,
   .td-ai {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .td-offer {
     grid-template-columns: 1fr;
+  }
+
+  .td-ai-suite .container {
+    text-align: center;
+  }
+
+  .td-ai-suite .mono.rise {
+    justify-content: center;
+  }
+
+  .td-ai-suite .td-ai {
+    text-align: center;
   }
 }
 
