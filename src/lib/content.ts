@@ -903,7 +903,9 @@ export const partnerCategories: PartnerCategory[] = [
   },
 ];
 
-export const discoveryEngines = ["genii"] as const;
+export const discoveryEngines = [
+  { name: "genii", logo: "/pool/partners/genii.svg" },
+] as const;
 export const discoveryLabel = "Analytics and deep root cause engine";
 
 export const insightsPapers = [
@@ -1470,6 +1472,6 @@ export const techStack = {
   })),
   discovery: {
     label: discoveryLabel,
-    engines: [...discoveryEngines],
+    engines: discoveryEngines.map((e) => e.name),
   },
 };

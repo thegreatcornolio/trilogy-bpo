@@ -162,20 +162,18 @@ export function TechStackTrack() {
           {discoveryLabel}
         </span>
         {discoveryEngines.map((engine) => (
-          <span
-            key={engine}
+          <Image
+            key={engine.name}
+            src={engine.logo}
+            alt={engine.name}
+            width={120}
+            height={58}
             style={{
-              padding: "8px 14px",
-              borderRadius: 999,
-              background: "#C43B3B",
-              color: "#fff",
-              fontSize: 14,
-              fontWeight: 600,
-              fontStyle: "italic",
+              width: "auto",
+              height: 36,
+              objectFit: "contain",
             }}
-          >
-            {engine}
-          </span>
+          />
         ))}
       </div>
     </div>
