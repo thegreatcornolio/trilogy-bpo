@@ -264,18 +264,14 @@ export default function HomePage() {
                           style={
                             member.name === "Jason Luboyera"
                               ? {
-                                  objectFit: "cover",
-                                  objectPosition: "center 48%",
-                                  transform: "scale(1.22) translateY(12%)",
-                                  transformOrigin: "center center",
+                                  objectFit: "contain",
+                                  objectPosition: "center",
                                   background: "#fff",
                                 }
                               : member.name === "Brandon Grant" || member.name === "Lizelle McLaughlin"
                                 ? {
                                     objectFit: "cover",
-                                    objectPosition: "center 22%",
-                                    transform: "scale(1.12)",
-                                    transformOrigin: "center top",
+                                    objectPosition: "center top",
                                     background: "#fff",
                                   }
                                 : { objectFit: "cover", background: "#fff" }
