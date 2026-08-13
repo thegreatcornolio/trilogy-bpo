@@ -266,6 +266,8 @@ export default function HomePage() {
                               ? {
                                   objectFit: "contain",
                                   objectPosition: "center",
+                                  transform: "scale(1.35)",
+                                  transformOrigin: "center center",
                                   background: "#fff",
                                 }
                               : member.name === "Brandon Grant" || member.name === "Lizelle McLaughlin"
