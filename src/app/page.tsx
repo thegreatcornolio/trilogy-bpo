@@ -206,7 +206,6 @@ export default function HomePage() {
             className="rise"
             style={{
               margin: "18px 0 0",
-              maxWidth: "62ch",
               fontSize: 16.5,
               lineHeight: 1.7,
               color: "rgba(14,27,42,.64)",
