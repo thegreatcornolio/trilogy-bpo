@@ -840,9 +840,11 @@ export default function HomePage() {
             }}
           >
             {insightsPapers.map((paper) => (
-              <Link
+              <a
                 key={paper.title}
                 href={paper.href}
+                target="_blank"
+                rel="noreferrer"
                 style={{
                   display: "block",
                   background: "#fff",
@@ -850,50 +852,54 @@ export default function HomePage() {
                   borderRadius: 14,
                   padding: 24,
                   minHeight: 220,
+                  color: "inherit",
+                  textDecoration: "none",
                 }}
               >
-                <div className="mono" style={{ fontSize: 11.5, color: "rgba(14,27,42,.45)" }}>
+                <div className="mono" style={{ fontSize: 11.5, color: "rgba(14,27,42,.45)", textTransform: "uppercase" }}>
                   {paper.type} · {paper.pages}
                 </div>
                 <h3 style={{ margin: "14px 0 0", fontSize: 18, fontWeight: 500, lineHeight: 1.3 }}>{paper.title}</h3>
                 <p style={{ margin: "12px 0 0", fontSize: 14.5, lineHeight: 1.6, color: "rgba(14,27,42,.62)", fontWeight: 300 }}>
                   {paper.body}
                 </p>
-              </Link>
+              </a>
             ))}
           </div>
-          <div className="rise" style={{ marginTop: 18, display: "grid", gap: 12 }}>
-            {insightsPosts.map((post) => (
-              <Link
-                key={post.title}
-                href={`/corporate/insights/${post.slug}`}
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "140px 1fr auto",
-                  gap: 18,
-                  alignItems: "center",
-                  background: "#fff",
-                  border: "1px solid rgba(14,27,42,.08)",
-                  borderRadius: 14,
-                  padding: "18px 22px",
-                }}
-                className="insight-row"
-              >
-                <div className="mono" style={{ fontSize: 11.5, color: "rgba(14,27,42,.45)" }}>
-                  {post.type} · {post.mins}
-                </div>
-                <div>
-                  <div style={{ fontSize: 16, fontWeight: 500 }}>{post.title}</div>
-                  <div style={{ marginTop: 6, fontSize: 14, color: "rgba(14,27,42,.58)", fontWeight: 300 }}>
-                    {post.body}
+          {insightsPosts.length > 0 ? (
+            <div className="rise" style={{ marginTop: 18, display: "grid", gap: 12 }}>
+              {insightsPosts.map((post) => (
+                <Link
+                  key={post.title}
+                  href={`/corporate/insights/${post.slug}`}
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "140px 1fr auto",
+                    gap: 18,
+                    alignItems: "center",
+                    background: "#fff",
+                    border: "1px solid rgba(14,27,42,.08)",
+                    borderRadius: 14,
+                    padding: "18px 22px",
+                  }}
+                  className="insight-row"
+                >
+                  <div className="mono" style={{ fontSize: 11.5, color: "rgba(14,27,42,.45)" }}>
+                    {post.type} · {post.mins}
                   </div>
-                </div>
-                <div className="mono" style={{ fontSize: 11.5, color: "#0E7C46", whiteSpace: "nowrap" }}>
-                  {post.date} · Read →
-                </div>
-              </Link>
-            ))}
-          </div>
+                  <div>
+                    <div style={{ fontSize: 16, fontWeight: 500 }}>{post.title}</div>
+                    <div style={{ marginTop: 6, fontSize: 14, color: "rgba(14,27,42,.58)", fontWeight: 300 }}>
+                      {post.body}
+                    </div>
+                  </div>
+                  <div className="mono" style={{ fontSize: 11.5, color: "#0E7C46", whiteSpace: "nowrap" }}>
+                    {post.date} · Read →
+                  </div>
+                </Link>
+              ))}
+            </div>
+          ) : null}
         </div>
       </section>
 

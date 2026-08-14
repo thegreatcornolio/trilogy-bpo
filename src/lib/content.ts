@@ -911,53 +911,38 @@ export const discoveryLabel = "Analytics and deep root cause engine";
 export const insightsPapers = [
   {
     type: "White paper",
-    pages: "16 pages",
-    title: "The agent-in-the-loop playbook",
-    body: "Where autonomous CX delivers, where it must defer to a person, and how to wire the handover for judgement, escalation and compliance.",
-    href: "/corporate/insights",
+    pages: "6 pages",
+    title: "Choosing the Right Offshore Model in South Africa",
+    body: "EOR vs BPO vs GCC — an unbiased business case for leaders deciding how to build, buy, or borrow offshore capability.",
+    href: "/insights/offshore/Trilogy_Offshore_Models_White_Paper.pdf",
   },
   {
-    type: "White paper",
-    pages: "12 pages",
-    title: "Standing up a GCC in six weeks",
-    body: "Our DBIT method for designing, building, innovating and transferring a compliant Global Capability Centre at speed.",
-    href: "/corporate/insights",
+    type: "Industry report",
+    pages: "38 pages",
+    title: "The UK Contact Centre Outsourcing Report 2025",
+    body: "A CCMA research initiative on the UK contact centre outsourcing market — trends, buyer priorities and delivery models.",
+    href: "/insights/market/CCMA-Contact-Centre-Outsourcing-Report-May-2025.pdf",
   },
   {
-    type: "White paper",
-    pages: "18 pages",
-    title: "Offshoring to South Africa",
-    body: "A practical guide to talent, labour law, data protection and cost structure for UK and EMEA brands.",
-    href: "/corporate/insights",
+    type: "Industry report",
+    pages: "94 pages",
+    title: "South Africa's GBS Value Proposition",
+    body: "BPESA's June 2025 refresh on South Africa as a Global Business Services destination — talent, cost, capability and competitive position.",
+    href: "/insights/market/BPESA-South-Africa-GBS-Value-Proposition.pdf",
   },
 ] as const;
 
-export const insightsPosts = [
-  {
-    type: "Perspective",
-    mins: "5 min",
-    title: "Human empathy, AI efficiency: why it is not a contradiction",
-    body: "The brands winning on CX are not choosing between people and automation. They are designing the seam between them.",
-    date: "12 Jun 2026",
-    slug: "human-empathy-ai-efficiency",
-  },
-  {
-    type: "Operations",
-    mins: "6 min",
-    title: "Five signs your contact centre is ready for autonomous CX",
-    body: "Volume patterns, data hygiene and a clear escalation policy matter more than the model you pick.",
-    date: "29 May 2026",
-    slug: "five-signs-ready-autonomous-cx",
-  },
-  {
-    type: "Location",
-    mins: "4 min",
-    title: "What Cape Town offers UK and EMEA brands in 2026",
-    body: "Time-zone overlap, English fluency, a deep talent pool and a mature compliance regime, at a meaningful cost advantage.",
-    date: "14 May 2026",
-    slug: "cape-town-uk-emea-2026",
-  },
-] as const;
+export type InsightPost = {
+  type: string;
+  mins: string;
+  title: string;
+  body: string;
+  date: string;
+  slug: string;
+};
+
+/** Perspective posts — empty while we rebuild insights from real assets. */
+export const insightsPosts: readonly InsightPost[] = [];
 
 /* ---------------------------------- About --------------------------------- */
 
