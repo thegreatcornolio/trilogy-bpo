@@ -5,7 +5,7 @@ export const company = {
   email: "info@trilogybpo.com",
   phoneUk: "+44 7458 158591",
   phoneSa: "+27 73 668 6096",
-  whatsapp: "https://wa.me/27719691163?text=trilogy",
+  whatsapp: "https://wa.me/27719691163?text=hi",
   booking: "mailto:info@trilogybpo.com?subject=Book%20a%20session",
 } as const;
 
