@@ -22,7 +22,6 @@ export const navLinks: NavItem[] = [
   { label: "Trilogy GCC", href: "/trilogy-gcc" },
   { label: "Team", href: "/#team" },
   { label: "Partners", href: "/#partners" },
-  { label: "Get in Touch", href: "/#contact" },
 ];
 
 export const heroStats = [
