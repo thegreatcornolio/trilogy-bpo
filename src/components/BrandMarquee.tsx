@@ -3,6 +3,17 @@
 import Image from "next/image";
 import { brandLogos } from "@/lib/content";
 
+/** Logos that read small at the default size — scale them up in the marquee. */
+const LARGE_LOGOS = new Set([
+  "British Gas",
+  "Herotel",
+  "Vuma",
+  "hc",
+  "Pick n Pay",
+  "Iceland",
+  "John Lewis",
+]);
+
 /**
  * Continuous auto-scrolling brand logo strip (no category tabs).
  */
@@ -14,17 +25,27 @@ export function BrandMarquee() {
     <div className="rise brand-marquee" style={{ marginTop: 40 }}>
       <div className="brand-marquee-viewport">
         <div className="brand-marquee-track" aria-hidden={false}>
-          {logos.map((logo, i) => (
-            <div key={`${logo.src}-${i}`} className="brand-marquee-item">
-              <Image
-                src={logo.src}
-                alt={i < brandLogos.length ? logo.name : ""}
-                width={140}
-                height={48}
-                style={{ width: "auto", maxWidth: 120, height: 40, objectFit: "contain" }}
-              />
-            </div>
-          ))}
+          {logos.map((logo, i) => {
+            const large = LARGE_LOGOS.has(logo.name);
+            return (
+              <div
+                key={`${logo.src}-${i}`}
+                className={large ? "brand-marquee-item brand-marquee-item--large" : "brand-marquee-item"}
+              >
+                <Image
+                  src={logo.src}
+                  alt={i < brandLogos.length ? logo.name : ""}
+                  width={large ? 180 : 140}
+                  height={large ? 64 : 48}
+                  style={
+                    large
+                      ? { width: "auto", maxWidth: 148, height: 58, objectFit: "contain" }
+                      : { width: "auto", maxWidth: 120, height: 40, objectFit: "contain" }
+                  }
+                />
+              </div>
+            );
+          })}
         </div>
       </div>
 
@@ -54,6 +75,10 @@ export function BrandMarquee() {
           border-radius: 12px;
           background: #fff;
           border: 1px solid rgba(14,27,42,.08);
+        }
+        .brand-marquee-item--large {
+          width: 176px;
+          padding: 10px 14px;
         }
         @keyframes brand-marquee-scroll {
           from { transform: translateX(0); }
