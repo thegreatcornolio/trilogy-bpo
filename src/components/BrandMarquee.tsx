@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { brandLogos } from "@/lib/content";
 
-/** Logos that read small at the default size — scale them up in the marquee. */
+/** Logos that read small — zoom inside the same-sized frame as everyone else. */
 const LARGE_LOGOS = new Set([
   "British Gas",
   "Herotel",
@@ -28,20 +28,20 @@ export function BrandMarquee() {
           {logos.map((logo, i) => {
             const large = LARGE_LOGOS.has(logo.name);
             return (
-              <div
-                key={`${logo.src}-${i}`}
-                className={large ? "brand-marquee-item brand-marquee-item--large" : "brand-marquee-item"}
-              >
+              <div key={`${logo.src}-${i}`} className="brand-marquee-item">
                 <Image
                   src={logo.src}
                   alt={i < brandLogos.length ? logo.name : ""}
-                  width={large ? 180 : 140}
-                  height={large ? 64 : 48}
-                  style={
-                    large
-                      ? { width: "auto", maxWidth: 148, height: 58, objectFit: "contain" }
-                      : { width: "auto", maxWidth: 120, height: 40, objectFit: "contain" }
-                  }
+                  width={140}
+                  height={48}
+                  style={{
+                    width: "auto",
+                    maxWidth: large ? "100%" : 120,
+                    height: large ? 64 : 40,
+                    objectFit: "contain",
+                    transform: large ? "scale(1.35)" : undefined,
+                    transformOrigin: "center center",
+                  }}
                 />
               </div>
             );
@@ -75,10 +75,7 @@ export function BrandMarquee() {
           border-radius: 12px;
           background: #fff;
           border: 1px solid rgba(14,27,42,.08);
-        }
-        .brand-marquee-item--large {
-          width: 176px;
-          padding: 10px 14px;
+          overflow: hidden;
         }
         @keyframes brand-marquee-scroll {
           from { transform: translateX(0); }
