@@ -365,10 +365,11 @@ export const brandGroups: BrandGroup[] = [
       { name: "B&Q", src: "/pool/brands/b-and-q.png" },
       { name: "British Gas", src: "/pool/brands/british-gas.png" },
       { name: "Pizza Hut", src: "/pool/brands/pizza-hut.png" },
-      { name: "Gusto", src: "/pool/brands/gusto.png" },
       { name: "Virgin", src: "/pool/brands/virgin.png" },
       { name: "Peloton", src: "/pool/brands/peloton.png" },
       { name: "Iceland", src: "/pool/brands/iceland.png" },
+      { name: "DFS", src: "/pool/brands/dfs.png" },
+      { name: "PPL PRS", src: "/pool/brands/ppl-prs.png" },
     ],
   },
   {
@@ -381,6 +382,7 @@ export const brandGroups: BrandGroup[] = [
       { name: "hc", src: "/pool/brands/hc.png" },
       { name: "Sun International", src: "/pool/brands/sun-international.png" },
       { name: "KFC", src: "/pool/brands/kfc.png" },
+      { name: "Pick n Pay", src: "/pool/brands/pick-n-pay.png" },
     ],
   },
   {
@@ -395,7 +397,6 @@ export const brandGroups: BrandGroup[] = [
     label: "Telco brands",
     logos: [
       { name: "Cell C", src: "/pool/brands/telco/cellc.png" },
-      { name: "Telco", src: "/pool/brands/telco/telco.png" },
       { name: "Vuma", src: "/pool/brands/telco/vuma.png" },
       { name: "MTN", src: "/pool/brands/telco/mtn.png" },
       { name: "Telkom", src: "/pool/brands/telco/telkom.png" },
@@ -1445,8 +1446,27 @@ export const brands = {
   ),
 };
 
-/** Flat logo list for the homepage marquee (no grouping). */
-export const brandLogos = brandGroups.flatMap((g) => g.logos);
+/** Flat logo list for the homepage marquee — mixed (not grouped by category). */
+function shuffleBrands<T extends { name: string; src: string }>(items: T[]): T[] {
+  // Deterministic shuffle so SSR and client match
+  const arr = [...items];
+  let seed = 20260817;
+  const rand = () => {
+    seed = (seed * 1664525 + 1013904223) >>> 0;
+    return seed / 0xffffffff;
+  };
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(rand() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+export const brandLogos = shuffleBrands(
+  brandGroups
+    .flatMap((g) => g.logos)
+    .filter((logo, i, arr) => arr.findIndex((l) => l.name === logo.name) === i),
+);
 
 export const techStack = {
   categories: partnerCategories.map((cat) => ({
