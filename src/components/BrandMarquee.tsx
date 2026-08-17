@@ -12,6 +12,18 @@ const LARGE_LOGOS = new Set([
   "Pick n Pay",
   "Iceland",
   "John Lewis",
+  "Aldi",
+  "PPL PRS",
+  "MTN",
+  "Vodacom",
+  "JD",
+  "Mercedes-Benz",
+  "Peloton",
+  "KFC",
+  "Pizza Hut",
+  "B&Q",
+  "Burger King",
+  "Virgin",
 ]);
 
 /**
