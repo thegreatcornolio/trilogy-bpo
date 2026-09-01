@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { pageMetadata } from "@/lib/seo";
 import SectionKicker from "@/components/SectionKicker";
 import GccCostChart from "@/components/GccCostChart";
 import ServiceHero from "@/components/ServiceHero";
@@ -19,11 +20,12 @@ import {
   gccWhoBenefits,
 } from "@/lib/content";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Trilogy GCC — Design, Build, Innovate, Transfer",
   description:
     "Establish a Global Capability Centre in South Africa with Trilogy's DBIT methodology. From outsourcing to ownership — risk-mitigated, AI-ready, fully transferable.",
-};
+  path: "/trilogy-gcc/",
+});
 
 export default function TrilogyGccPage() {
   return (

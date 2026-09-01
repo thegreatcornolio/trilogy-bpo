@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { pageMetadata } from "@/lib/seo";
 import SectionKicker from "@/components/SectionKicker";
 import {
   awards,
@@ -11,11 +12,12 @@ import {
   digitalWhy,
 } from "@/lib/content";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Trilogy Digital — A Trilogy Group Company",
   description:
     "Trilogy Digital is a Trilogy Group company — a purpose-built CX joint venture delivering AI-enabled BPO from South Africa to the UK market.",
-};
+  path: "/trilogy-digital/",
+});
 
 export default function TrilogyDigitalPage() {
   return (

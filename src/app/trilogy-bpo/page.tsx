@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { pageMetadata } from "@/lib/seo";
 import SectionKicker from "@/components/SectionKicker";
 import ServiceHero from "@/components/ServiceHero";
 import {
@@ -13,11 +14,12 @@ import {
   company,
 } from "@/lib/content";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Trilogy BPO — Accelerated CX",
   description:
     "High-performance AI-enabled contact centre operations in South Africa. Decades of expertise, ready to scale — just add humans.",
-};
+  path: "/trilogy-bpo/",
+});
 
 export default function TrilogyBpoPage() {
   return (

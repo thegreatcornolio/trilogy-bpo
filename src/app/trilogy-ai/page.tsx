@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { pageMetadata } from "@/lib/seo";
 import SectionKicker from "@/components/SectionKicker";
 import AiMetrics from "@/components/AiMetrics";
 import ServiceHero from "@/components/ServiceHero";
@@ -14,11 +15,12 @@ import {
   company,
 } from "@/lib/content";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Trilogy Ai — Autonomous CX",
   description:
     "Agentic AI and digital solutions built inside real BPO constraints. Human-in-the-loop autonomous customer engagement for sales, service, marketing, collections and retention.",
-};
+  path: "/trilogy-ai/",
+});
 
 export default function TrilogyAiPage() {
   return (

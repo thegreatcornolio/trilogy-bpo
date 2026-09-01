@@ -1,5 +1,14 @@
+import type { Metadata } from "next";
 import { insightsPapers, insightsPosts } from "@/lib/content";
 import Link from "next/link";
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = pageMetadata({
+  title: "Insights — White Papers & Perspectives",
+  description:
+    "White papers and perspectives from Trilogy BPO on AI-enabled customer experience, contact centre operations and Global Capability Centres in South Africa.",
+  path: "/corporate/insights/",
+});
 
 export default function InsightsIndexPage() {
   return (
