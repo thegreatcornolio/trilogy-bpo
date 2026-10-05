@@ -5,11 +5,11 @@ import { company, site } from "@/lib/content";
  * Single source of truth for SEO / discoverability config.
  *
  * SITE_URL is the canonical production origin. It defaults to the live custom
- * domain (see the repo CNAME) and can be overridden per-environment with
+ * domain (https://www.trilogybpo.com) and can be overridden per-environment with
  * NEXT_PUBLIC_SITE_URL. Everything needing an absolute URL — canonical tags,
  * sitemap, robots, Open Graph — reads from here.
  */
-export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://newweb.trilogybpo.com").replace(/\/+$/, "");
+export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.trilogybpo.com").replace(/\/+$/, "");
 
 export const SITE_NAME = company.name; // "Trilogy BPO"
 
