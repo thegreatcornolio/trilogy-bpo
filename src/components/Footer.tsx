@@ -113,15 +113,27 @@ export function Footer() {
             color: "rgba(247,245,240,.45)",
           }}
         >
-          <span>© {new Date().getFullYear()} Trilogy BPO</span>
-          <div style={{ display: "flex", gap: 18, flexWrap: "wrap", alignItems: "center" }}>
-            <Link href="/privacy/" style={{ color: "rgba(247,245,240,.66)", fontSize: 12.5 }}>
-              Privacy Policy
-            </Link>
-            <span className="mono" style={{ fontSize: 11 }}>
-              Cape Town · UK · US · EMEA
+          <div style={{ display: "flex", gap: 16, flexWrap: "wrap", alignItems: "center" }}>
+            <span>© {new Date().getFullYear()} Trilogy BPO</span>
+            <span aria-hidden style={{ opacity: 0.35 }}>
+              ·
             </span>
+            <Link
+              href="/privacy/"
+              style={{
+                color: "rgba(247,245,240,.82)",
+                fontSize: 12.5,
+                fontWeight: 400,
+                textDecoration: "underline",
+                textUnderlineOffset: 3,
+              }}
+            >
+              Privacy
+            </Link>
           </div>
+          <span className="mono" style={{ fontSize: 11 }}>
+            Cape Town · UK · US · EMEA
+          </span>
         </div>
       </div>
       </footer>
