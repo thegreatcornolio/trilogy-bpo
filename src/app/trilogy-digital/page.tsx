@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { pageMetadata } from "@/lib/seo";
 import SectionKicker from "@/components/SectionKicker";
@@ -433,29 +434,60 @@ export default function TrilogyDigitalPage() {
             }}
           >
             {digitalComplianceCredentials.map((item) => (
-              <div key={item.name}>
+              <div
+                key={item.name}
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "72px 1fr",
+                  gap: 16,
+                  alignItems: "start",
+                }}
+              >
                 <div
-                  className="mono"
                   style={{
-                    fontSize: 11.5,
-                    letterSpacing: ".12em",
-                    color: "#0E7C46",
-                    fontWeight: 700,
+                    width: 72,
+                    height: 72,
+                    borderRadius: 12,
+                    border: "1px solid rgba(14,27,42,.08)",
+                    background: "#fff",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    padding: 8,
                   }}
                 >
-                  {item.term}
+                  <Image
+                    src={item.logo}
+                    alt={item.term}
+                    width={56}
+                    height={48}
+                    style={{ width: "100%", height: "auto", objectFit: "contain" }}
+                  />
                 </div>
-                <p
-                  style={{
-                    margin: "6px 0 0",
-                    fontSize: 15,
-                    lineHeight: 1.6,
-                    color: "rgba(14,27,42,.72)",
-                    fontWeight: 300,
-                  }}
-                >
-                  {item.body}
-                </p>
+                <div>
+                  <div
+                    className="mono"
+                    style={{
+                      fontSize: 11.5,
+                      letterSpacing: ".12em",
+                      color: "#0E7C46",
+                      fontWeight: 700,
+                    }}
+                  >
+                    {item.term}
+                  </div>
+                  <p
+                    style={{
+                      margin: "6px 0 0",
+                      fontSize: 15,
+                      lineHeight: 1.6,
+                      color: "rgba(14,27,42,.72)",
+                      fontWeight: 300,
+                    }}
+                  >
+                    {item.body}
+                  </p>
+                </div>
               </div>
             ))}
           </div>

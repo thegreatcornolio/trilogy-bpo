@@ -420,6 +420,9 @@ export const brandGroups: BrandGroup[] = [
 export const accreditations = [
   { name: "BPESA", src: "/pool/accreditations/bpesa.png" },
   { name: "ISO 27001", src: "/pool/accreditations/iso-27001.png" },
+  { name: "PCI DSS Compliant", src: "/pool/accreditations/pci-dss.png" },
+  { name: "UK GDPR Compliant", src: "/pool/accreditations/gdpr.png" },
+  { name: "POPIA Compliant", src: "/pool/accreditations/popia.png" },
   { name: "Broadbrand", src: "/pool/accreditations/broadbrand.png" },
   { name: "MVNE", src: "/pool/accreditations/mvne.png" },
   { name: "Cape BPO", src: "/pool/accreditations/capebpo.png" },
@@ -1167,21 +1170,25 @@ export const digitalComplianceCredentials = [
   {
     name: "ISO 27001",
     term: complianceTerms.iso27001,
+    logo: "/pool/accreditations/iso-27001.png",
     body: "Trilogy BPO is ISO 27001 certified, demonstrating our commitment to internationally recognised information security management standards.",
   },
   {
     name: "PCI DSS",
     term: complianceTerms.pciDss,
+    logo: "/pool/accreditations/pci-dss.png",
     body: "Trilogy BPO is PCI DSS compliant, supporting the secure handling and protection of payment card data across relevant customer operations.",
   },
   {
     name: "UK GDPR",
     term: complianceTerms.ukGdpr,
+    logo: "/pool/accreditations/gdpr.png",
     body: "Trilogy BPO is UK GDPR compliant, supporting the lawful and secure processing of personal data for our UK clients.",
   },
   {
     name: "POPIA",
     term: complianceTerms.popia,
+    logo: "/pool/accreditations/popia.png",
     body: "Our South African operations are POPIA compliant, supporting the responsible management and protection of personal information.",
   },
 ] as const;
