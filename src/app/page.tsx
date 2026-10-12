@@ -643,7 +643,8 @@ export default function HomePage() {
             className="rise"
             style={{
               margin: "18px 0 0",
-              maxWidth: "62ch",
+              maxWidth: "none",
+              width: "100%",
               fontSize: 16.5,
               lineHeight: 1.7,
               color: "rgba(14,27,42,.64)",
@@ -693,9 +694,9 @@ export default function HomePage() {
                   <Image
                     src={item.src}
                     alt={item.name}
-                    width={88}
-                    height={72}
-                    style={{ height: 64, width: "auto", objectFit: "contain" }}
+                    width={96}
+                    height={96}
+                    style={{ height: 72, width: "auto", maxWidth: "85%", objectFit: "contain" }}
                   />
                   <span
                     className="mono"
