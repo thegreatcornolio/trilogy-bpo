@@ -617,7 +617,7 @@ export const aiFailVsSucceed = {
     "Real agents, real customers, real constraints",
     "Continuous optimisation, not one-off installs",
     "Commercial models aligned to outcomes, not licenses",
-    "Fully compliant SLMs for GDPR and POPIA",
+    "Fully compliant SLMs for UK GDPR and POPIA",
     "Partnership with leading integrations partners in SA",
   ],
 } as const;
@@ -1147,12 +1147,51 @@ export const digitalAiSuite = [
   },
 ] as const;
 
+/** Shared compliance terminology used across the site. */
+export const complianceTerms = {
+  iso27001: "ISO 27001 certified",
+  pciDss: "PCI DSS compliant",
+  ukGdpr: "UK GDPR compliant",
+  popia: "POPIA compliant",
+} as const;
+
+/** Homepage copy under Accredited, awarded, trusted. */
+export const homepageComplianceBody =
+  "Security, compliance and trust are built into how we operate. Trilogy BPO is ISO 27001 certified and PCI DSS compliant, with operations aligned to the requirements of the UK General Data Protection Regulation (GDPR) and South Africa's Protection of Personal Information Act (POPIA). These standards support our commitment to information security, payment data protection and responsible handling of customer information.";
+
+/** Trilogy Digital — Technology, AI & security credentials. */
+export const digitalComplianceIntro =
+  "Trilogy BPO operates with information security and data protection at the core of its technology and customer operations.";
+
+export const digitalComplianceCredentials = [
+  {
+    name: "ISO 27001",
+    term: complianceTerms.iso27001,
+    body: "Trilogy BPO is ISO 27001 certified, demonstrating our commitment to internationally recognised information security management standards.",
+  },
+  {
+    name: "PCI DSS",
+    term: complianceTerms.pciDss,
+    body: "Trilogy BPO is PCI DSS compliant, supporting the secure handling and protection of payment card data across relevant customer operations.",
+  },
+  {
+    name: "UK GDPR",
+    term: complianceTerms.ukGdpr,
+    body: "Trilogy BPO is UK GDPR compliant, supporting the lawful and secure processing of personal data for our UK clients.",
+  },
+  {
+    name: "POPIA",
+    term: complianceTerms.popia,
+    body: "Our South African operations are POPIA compliant, supporting the responsible management and protection of personal information.",
+  },
+] as const;
+
 export const digitalSecurity = [
-  "We are ISO 27001 and PCI DSS certified",
-  "Cyber Essentials+ aligned with Huntress EPP for all our end points",
-  "Fully compliant with UK GDPR and POPIA",
-  "Technology strategic partnerships with InfoBip, AWS, Azure, Zendesk",
-  "System integration and dev partnership with BBD and Codified",
+  "ISO 27001 certified and PCI DSS compliant",
+  "Cyber Essentials+ aligned with Huntress EPP for endpoints",
+  "UK GDPR compliant and POPIA compliant",
+  "Strategic partnerships with InfoBip, AWS, Azure, Zendesk",
+  "System integration and development partnership with BBD and Codified",
 ] as const;
 
 export const digitalAwards = [

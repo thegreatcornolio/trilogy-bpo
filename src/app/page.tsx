@@ -15,6 +15,7 @@ import {
   aiProducts,
   evp,
   heroStats,
+  homepageComplianceBody,
   insightsPapers,
   insightsPosts,
   site,
@@ -641,15 +642,14 @@ export default function HomePage() {
             className="rise"
             style={{
               margin: "18px 0 0",
-              maxWidth: "58ch",
+              maxWidth: "62ch",
               fontSize: 16.5,
               lineHeight: 1.7,
               color: "rgba(14,27,42,.64)",
               fontWeight: 300,
             }}
           >
-            We are proud members of South Africa&apos;s most respected industry bodies and hold internationally
-            recognised certifications: a testament to our commitment to excellence, security and service quality.
+            {homepageComplianceBody}
           </p>
           <div
             className="rise"

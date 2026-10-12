@@ -5,6 +5,8 @@ import SectionKicker from "@/components/SectionKicker";
 import {
   awards,
   digitalAiSuite,
+  digitalComplianceCredentials,
+  digitalComplianceIntro,
   digitalDo,
   digitalOfferings,
   digitalSites,
@@ -419,12 +421,48 @@ export default function TrilogyDigitalPage() {
             }}
           >
             Technology-agnostic delivery as a virtual operational extension of your existing stack. Systems are 100%
-            cloud hosted on Microsoft Azure (UK South/West).
+            cloud hosted on Microsoft Azure (UK South/West). {digitalComplianceIntro}
           </p>
+          <div
+            className="rise"
+            style={{
+              marginTop: 28,
+              display: "grid",
+              gap: 16,
+              maxWidth: 720,
+            }}
+          >
+            {digitalComplianceCredentials.map((item) => (
+              <div key={item.name}>
+                <div
+                  className="mono"
+                  style={{
+                    fontSize: 11.5,
+                    letterSpacing: ".12em",
+                    color: "#0E7C46",
+                    fontWeight: 700,
+                  }}
+                >
+                  {item.term}
+                </div>
+                <p
+                  style={{
+                    margin: "6px 0 0",
+                    fontSize: 15,
+                    lineHeight: 1.6,
+                    color: "rgba(14,27,42,.72)",
+                    fontWeight: 300,
+                  }}
+                >
+                  {item.body}
+                </p>
+              </div>
+            ))}
+          </div>
           <ul
             className="rise"
             style={{
-              margin: "24px 0 0",
+              margin: "28px 0 0",
               padding: 0,
               listStyle: "none",
               display: "grid",
@@ -433,9 +471,7 @@ export default function TrilogyDigitalPage() {
             }}
           >
             {[
-              "ISO 27001 and PCI DSS certified",
               "Cyber Essentials+ aligned with Huntress EPP for endpoints",
-              "Fully compliant with UK GDPR and POPIA",
               "Strategic partnerships with InfoBip, AWS, Azure, Zendesk",
               "System integration and development partnership with BBD and Codified",
             ].map((item) => (
