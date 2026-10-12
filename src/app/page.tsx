@@ -10,14 +10,15 @@ import { SavingsCalculator } from "@/components/SavingsCalculator";
 import SectionKicker from "@/components/SectionKicker";
 import { TechStackTrack } from "@/components/TechStackTrack";
 import {
-  accreditations,
   aiJourney,
   aiProducts,
+  complianceMarks,
   evp,
   heroStats,
   homepageComplianceBody,
   insightsPapers,
   insightsPosts,
+  membershipMarks,
   site,
   teamGroups,
   whySa,
@@ -651,42 +652,112 @@ export default function HomePage() {
           >
             {homepageComplianceBody}
           </p>
-          <div
-            className="rise"
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              gap: 18,
-              alignItems: "center",
-              marginTop: 32,
-            }}
-          >
-            {accreditations.map((item) => (
-              <div
-                key={item.name}
-                style={{
-                  background: "#fff",
-                  borderRadius: 12,
-                  border: "1px solid rgba(14,27,42,.08)",
-                  padding: "14px 18px",
-                  height: 72,
-                  display: "flex",
-                  alignItems: "center",
-                }}
-              >
-                <Image
-                  src={item.src}
-                  alt={item.name}
-                  width={120}
-                  height={40}
-                  style={{ height: 40, width: "auto", objectFit: "contain" }}
-                />
-              </div>
-            ))}
+
+          <div className="rise" style={{ marginTop: 40 }}>
+            <div
+              className="mono"
+              style={{
+                fontSize: 11.5,
+                letterSpacing: ".14em",
+                color: "rgba(14,27,42,.45)",
+                marginBottom: 16,
+              }}
+            >
+              Security &amp; compliance
+            </div>
+            <div
+              className="compliance-marks"
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
+                gap: 14,
+              }}
+            >
+              {complianceMarks.map((item) => (
+                <div
+                  key={item.name}
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: 12,
+                    minHeight: 140,
+                    padding: "22px 14px 18px",
+                    borderRadius: 14,
+                    background: "#fff",
+                    border: "1px solid rgba(14,27,42,.08)",
+                    textAlign: "center",
+                  }}
+                >
+                  <Image
+                    src={item.src}
+                    alt={item.name}
+                    width={88}
+                    height={72}
+                    style={{ height: 64, width: "auto", objectFit: "contain" }}
+                  />
+                  <span
+                    className="mono"
+                    style={{
+                      fontSize: 10.5,
+                      letterSpacing: ".1em",
+                      color: "rgba(14,27,42,.55)",
+                      fontWeight: 600,
+                    }}
+                  >
+                    {item.name}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
-          <p className="mono rise" style={{ marginTop: 18, fontSize: 11.5, color: "rgba(14,27,42,.45)" }}>
-            Member: CCMG · BPESA · Cape BPO
-          </p>
+
+          <div className="rise" style={{ marginTop: 36 }}>
+            <div
+              className="mono"
+              style={{
+                fontSize: 11.5,
+                letterSpacing: ".14em",
+                color: "rgba(14,27,42,.45)",
+                marginBottom: 16,
+              }}
+            >
+              Industry membership
+            </div>
+            <div
+              className="membership-marks"
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(5, minmax(0, 1fr))",
+                gap: 14,
+              }}
+            >
+              {membershipMarks.map((item) => (
+                <div
+                  key={item.name}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    minHeight: 88,
+                    padding: "18px 16px",
+                    borderRadius: 14,
+                    background: "#fff",
+                    border: "1px solid rgba(14,27,42,.08)",
+                  }}
+                >
+                  <Image
+                    src={item.src}
+                    alt={item.name}
+                    width={140}
+                    height={44}
+                    style={{ height: 40, width: "auto", maxWidth: "100%", objectFit: "contain" }}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
           <p
             className="rise"
             style={{ margin: "28px 0 0", fontSize: 15, lineHeight: 1.65, color: "rgba(14,27,42,.62)", maxWidth: "58ch" }}

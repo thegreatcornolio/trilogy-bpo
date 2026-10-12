@@ -417,17 +417,25 @@ export const brandGroups: BrandGroup[] = [
   },
 ];
 
-export const accreditations = [
-  { name: "BPESA", src: "/pool/accreditations/bpesa.png" },
+/** Security / compliance seals shown as an equal grid. */
+export const complianceMarks = [
   { name: "ISO 27001", src: "/pool/accreditations/iso-27001.png" },
   { name: "PCI DSS Compliant", src: "/pool/accreditations/pci-dss.png" },
   { name: "UK GDPR Compliant", src: "/pool/accreditations/gdpr.png" },
   { name: "POPIA Compliant", src: "/pool/accreditations/popia.png" },
+] as const;
+
+/** Industry membership / partner marks. */
+export const membershipMarks = [
+  { name: "BPESA", src: "/pool/accreditations/bpesa.png" },
+  { name: "CCMG", src: "/pool/accreditations/ccmg.png" },
+  { name: "Cape BPO", src: "/pool/accreditations/capebpo.png" },
   { name: "Broadbrand", src: "/pool/accreditations/broadbrand.png" },
   { name: "MVNE", src: "/pool/accreditations/mvne.png" },
-  { name: "Cape BPO", src: "/pool/accreditations/capebpo.png" },
-  { name: "CCMG", src: "/pool/accreditations/ccmg.png" },
 ] as const;
+
+/** @deprecated Prefer complianceMarks + membershipMarks. Kept for any older imports. */
+export const accreditations = [...complianceMarks, ...membershipMarks] as const;
 
 export const awards = [
   {
