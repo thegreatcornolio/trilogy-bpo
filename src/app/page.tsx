@@ -9,6 +9,7 @@ import { BrandMarquee } from "@/components/BrandMarquee";
 import FaqJsonLd from "@/components/FaqJsonLd";
 import FaqSection from "@/components/FaqSection";
 import OfferingsTabs from "@/components/OfferingsTabs";
+import PageJsonLd from "@/components/PageJsonLd";
 import { SavingsCalculator } from "@/components/SavingsCalculator";
 import SectionKicker from "@/components/SectionKicker";
 import { TechStackTrack } from "@/components/TechStackTrack";
@@ -28,8 +29,10 @@ import {
 } from "@/lib/content";
 import { homeFaqs, pageMetadata } from "@/lib/seo";
 
+const homeTitle = "AI-Enabled BPO & GCC from South Africa";
+
 export const metadata: Metadata = pageMetadata({
-  title: "AI-Enabled BPO & GCC from South Africa",
+  title: homeTitle,
   description: site.description,
   path: "/",
   keywords: [
@@ -64,6 +67,7 @@ export default function HomePage() {
   return (
     <main>
       <FaqJsonLd faqs={homeFaqs} />
+      <PageJsonLd path="/" name={homeTitle} description={site.description} />
       {/* Hero */}
       <section style={{ position: "relative", minHeight: "92vh", color: "#fff", overflow: "hidden" }}>
         <div style={{ position: "absolute", inset: 0, background: "#0A121A" }}>
@@ -670,7 +674,11 @@ export default function HomePage() {
               fontWeight: 300,
             }}
           >
-            {homepageComplianceBody}
+            {homepageComplianceBody}{" "}
+            <Link href="/privacy/" style={{ color: "#0E7C46", fontWeight: 500 }}>
+              Read our Privacy Policy
+            </Link>
+            .
           </p>
 
           <div className="rise" style={{ marginTop: 40 }}>

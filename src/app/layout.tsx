@@ -96,7 +96,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="en-GB"
       className={`${archivo.variable} ${plexMono.variable} antialiased`}
     >
       <body style={{ margin: 0, minHeight: "100dvh", background: "#F7F5F0" }}>

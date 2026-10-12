@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { pageMetadata } from "@/lib/seo";
+import PageJsonLd from "@/components/PageJsonLd";
 import SectionKicker from "@/components/SectionKicker";
 import {
   awards,
@@ -14,11 +14,15 @@ import {
   digitalStats,
   digitalWhy,
 } from "@/lib/content";
+import { pageMetadata } from "@/lib/seo";
+
+const digitalTitle = "Trilogy Digital CX Joint Venture";
+const digitalDescription =
+  "Trilogy Digital delivers AI-enabled BPO from South Africa to the UK market — ISO 27001 certified, PCI DSS compliant, UK GDPR compliant and POPIA compliant CX operations.";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Trilogy Digital CX Joint Venture",
-  description:
-    "Trilogy Digital delivers AI-enabled BPO from South Africa to the UK market — ISO 27001 certified, PCI DSS compliant, UK GDPR compliant and POPIA compliant CX operations.",
+  title: digitalTitle,
+  description: digitalDescription,
   path: "/trilogy-digital/",
   keywords: [
     "Trilogy Digital",
@@ -31,6 +35,15 @@ export const metadata: Metadata = pageMetadata({
 export default function TrilogyDigitalPage() {
   return (
     <main>
+      <PageJsonLd
+        path="/trilogy-digital/"
+        name={digitalTitle}
+        description={digitalDescription}
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "Trilogy Digital", path: "/trilogy-digital/" },
+        ]}
+      />
       {/* Hero — Trilogy Group identity */}
       <section style={{ padding: "88px 0 64px", background: "#0E1B2A", color: "#F7F5F0" }}>
         <div className="container">
@@ -428,7 +441,11 @@ export default function TrilogyDigitalPage() {
             }}
           >
             Technology-agnostic delivery as a virtual operational extension of your existing stack. Systems are 100%
-            cloud hosted on Microsoft Azure (UK South/West). {digitalComplianceIntro}
+            cloud hosted on Microsoft Azure (UK South/West). {digitalComplianceIntro}{" "}
+            <Link href="/privacy/" style={{ color: "#0E7C46", fontWeight: 500 }}>
+              Read our Privacy Policy
+            </Link>
+            .
           </p>
           <div
             className="rise"

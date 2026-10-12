@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import PageJsonLd from "@/components/PageJsonLd";
 import { pageMetadata } from "@/lib/seo";
 import SectionKicker from "@/components/SectionKicker";
 import ServiceHero from "@/components/ServiceHero";
@@ -30,7 +31,13 @@ export const metadata: Metadata = pageMetadata({
 export default function TrilogyBpoPage() {
   return (
     <main>
-      <ServiceHero
+      <PageJsonLd
+        path="/trilogy-bpo/"
+        name="Outsourced Contact Centre Operations"
+        description={`High-performance AI-enabled contact centre outsourcing from South Africa. Voice, digital and back-office CX for UK, US and EMEA brands — ISO 27001 certified and PCI DSS compliant.`}
+        breadcrumbs={[{ name: "Home", path: "/" }, { name: "Trilogy BPO", path: "/trilogy-bpo/" }]}
+      />
+            <ServiceHero
         kicker={bpoHero.kicker}
         title={bpoHero.title}
         lead={bpoHero.lead}

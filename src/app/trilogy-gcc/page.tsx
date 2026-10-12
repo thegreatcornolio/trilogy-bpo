@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import PageJsonLd from "@/components/PageJsonLd";
 import { pageMetadata } from "@/lib/seo";
 import SectionKicker from "@/components/SectionKicker";
 import GccCostChart from "@/components/GccCostChart";
@@ -37,7 +38,13 @@ export const metadata: Metadata = pageMetadata({
 export default function TrilogyGccPage() {
   return (
     <main>
-      <ServiceHero
+      <PageJsonLd
+        path="/trilogy-gcc/"
+        name="Global Capability Centres in South Africa"
+        description={`Design, build, innovate and transfer a Global Capability Centre in South Africa with Trilogy’s DBIT method — from outsourcing to ownership, AI-ready and fully transferable.`}
+        breadcrumbs={[{ name: "Home", path: "/" }, { name: "Trilogy GCC", path: "/trilogy-gcc/" }]}
+      />
+            <ServiceHero
         kicker={gccHero.kicker}
         title={gccHero.title}
         lead={gccHero.lead}

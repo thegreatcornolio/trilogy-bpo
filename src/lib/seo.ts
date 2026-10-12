@@ -182,16 +182,36 @@ export function webPageLd({
   name: string;
   description: string;
 }) {
+  const normalised = path.endsWith("/") || path === "/" ? path : `${path}/`;
   return {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": `${SITE_URL}${path}#webpage`,
-    url: `${SITE_URL}${path}`,
+    "@id": `${SITE_URL}${normalised}#webpage`,
+    url: `${SITE_URL}${normalised}`,
     name,
     description,
     isPartOf: { "@id": `${SITE_URL}/#website` },
     about: { "@id": `${SITE_URL}/#organization` },
     inLanguage: "en-GB",
+  };
+}
+
+export type Crumb = { name: string; path: string };
+
+/** BreadcrumbList JSON-LD for nested / service pages. */
+export function breadcrumbLd(crumbs: Crumb[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: crumbs.map((crumb, index) => {
+      const path = crumb.path.endsWith("/") || crumb.path === "/" ? crumb.path : `${crumb.path}/`;
+      return {
+        "@type": "ListItem",
+        position: index + 1,
+        name: crumb.name,
+        item: `${SITE_URL}${path}`,
+      };
+    }),
   };
 }
 

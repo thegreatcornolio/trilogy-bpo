@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import PageJsonLd from "@/components/PageJsonLd";
 import { pageMetadata } from "@/lib/seo";
 import SectionKicker from "@/components/SectionKicker";
 import AiMetrics from "@/components/AiMetrics";
@@ -31,7 +32,13 @@ export const metadata: Metadata = pageMetadata({
 export default function TrilogyAiPage() {
   return (
     <main>
-      <ServiceHero
+      <PageJsonLd
+        path="/trilogy-ai/"
+        name="Autonomous CX & Human-in-the-Loop AI"
+        description={`Agentic AI for contact centres, built inside real BPO constraints. Human-in-the-loop autonomous customer engagement for sales, service, marketing, collections and retention.`}
+        breadcrumbs={[{ name: "Home", path: "/" }, { name: "Trilogy Ai", path: "/trilogy-ai/" }]}
+      />
+            <ServiceHero
         kicker={aiHero.kicker}
         title={aiHero.title}
         lead={aiHero.lead}

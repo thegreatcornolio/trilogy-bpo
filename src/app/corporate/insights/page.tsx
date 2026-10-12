@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { insightsPapers, insightsPosts } from "@/lib/content";
 import Link from "next/link";
+import PageJsonLd from "@/components/PageJsonLd";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
@@ -19,6 +20,15 @@ export const metadata: Metadata = pageMetadata({
 export default function InsightsIndexPage() {
   return (
     <main style={{ padding: "88px 0 96px", background: "#F7F5F0" }}>
+      <PageJsonLd
+        path="/corporate/insights/"
+        name="Insights & White Papers"
+        description="White papers and perspectives from Trilogy BPO on AI-enabled customer experience, contact centre outsourcing and Global Capability Centres in South Africa."
+        breadcrumbs={[
+          { name: "Home", path: "/" },
+          { name: "Insights", path: "/corporate/insights/" },
+        ]}
+      />
       <div className="container">
         <div className="mono" style={{ fontSize: 12, letterSpacing: ".14em", color: "rgba(14,27,42,.45)", textTransform: "uppercase" }}>
           Industry insights

@@ -18,8 +18,10 @@ export type NavItem =
     };
 
 export const navLinks: NavItem[] = [
+  { label: "Trilogy BPO", href: "/trilogy-bpo" },
   { label: "Trilogy Digital", href: "/trilogy-digital" },
   { label: "Trilogy GCC", href: "/trilogy-gcc" },
+  { label: "Trilogy Ai", href: "/trilogy-ai" },
   { label: "Team", href: "/#team" },
   { label: "Partners", href: "/#partners" },
 ];
@@ -65,6 +67,7 @@ export const offerings: Offering[] = [
     video: "/video/offer-bpo.mp4",
     imageAlt:
       "A contact-centre floor at night, rows of human agents in headsets lit by the green glow of their monitors, with an android among them.",
+    href: "/trilogy-bpo",
   },
   {
     index: "02",
@@ -100,6 +103,7 @@ export const offerings: Offering[] = [
     video: "/video/offer-ai.mp4",
     imageAlt:
       "A human hand and a robotic hand reaching toward a single glowing green point of light.",
+    href: "/trilogy-ai",
   },
 ];
 

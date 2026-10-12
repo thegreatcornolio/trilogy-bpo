@@ -4,6 +4,7 @@ import FaqJsonLd from "@/components/FaqJsonLd";
 import FaqSection from "@/components/FaqSection";
 import SectionKicker from "@/components/SectionKicker";
 import { company } from "@/lib/content";
+import PageJsonLd from "@/components/PageJsonLd";
 import { pageMetadata, privacyFaqs } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
@@ -158,7 +159,13 @@ export default function PrivacyPage() {
   return (
     <main>
       <FaqJsonLd faqs={privacyFaqs} path="/privacy/" />
-      <section style={{ padding: "88px 0 56px", background: "#0E1B2A", color: "#F7F5F0" }}>
+      <PageJsonLd
+        path="/privacy/"
+        name="Privacy Policy"
+        description={`How Trilogy BPO collects, uses and protects personal data under UK GDPR and POPIA — lawful basis, data subject rights, security, 72-hour breach response and third-party DPAs.`}
+        breadcrumbs={[{ name: "Home", path: "/" }, { name: "Privacy Policy", path: "/privacy/" }]}
+      />
+            <section style={{ padding: "88px 0 56px", background: "#0E1B2A", color: "#F7F5F0" }}>
         <div className="container" style={{ maxWidth: 860 }}>
           <SectionKicker onDark>Legal</SectionKicker>
           <h1
