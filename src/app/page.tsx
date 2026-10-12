@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { AgentDemo } from "@/components/AgentDemo";
@@ -5,6 +6,8 @@ import AwardsTimeline from "@/components/AwardsTimeline";
 import { AutoVideo } from "@/components/AutoVideo";
 import BoardAccordion from "@/components/BoardAccordion";
 import { BrandMarquee } from "@/components/BrandMarquee";
+import FaqJsonLd from "@/components/FaqJsonLd";
+import FaqSection from "@/components/FaqSection";
 import OfferingsTabs from "@/components/OfferingsTabs";
 import { SavingsCalculator } from "@/components/SavingsCalculator";
 import SectionKicker from "@/components/SectionKicker";
@@ -23,6 +26,21 @@ import {
   teamGroups,
   whySa,
 } from "@/lib/content";
+import { homeFaqs, pageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = pageMetadata({
+  title: "AI-Enabled BPO & GCC from South Africa",
+  description: site.description,
+  path: "/",
+  keywords: [
+    "AI-enabled BPO South Africa",
+    "contact centre outsourcing Cape Town",
+    "Global Capability Centre South Africa",
+    "ISO 27001 certified BPO",
+    "PCI DSS compliant contact centre",
+    "UK GDPR compliant BPO",
+  ],
+});
 
 function SectionTitle({ children }: { children: React.ReactNode }) {
   return (
@@ -45,6 +63,7 @@ function SectionTitle({ children }: { children: React.ReactNode }) {
 export default function HomePage() {
   return (
     <main>
+      <FaqJsonLd faqs={homeFaqs} />
       {/* Hero */}
       <section style={{ position: "relative", minHeight: "92vh", color: "#fff", overflow: "hidden" }}>
         <div style={{ position: "absolute", inset: 0, background: "#0A121A" }}>
@@ -767,6 +786,7 @@ export default function HomePage() {
             technology and social impact.
           </p>
           <AwardsTimeline />
+          <FaqSection title="Common questions about Trilogy BPO" faqs={homeFaqs} />
         </div>
       </section>
 

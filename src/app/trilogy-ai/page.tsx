@@ -16,10 +16,16 @@ import {
 } from "@/lib/content";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Trilogy Ai — Autonomous CX",
+  title: "Autonomous CX & Human-in-the-Loop AI",
   description:
-    "Agentic AI and digital solutions built inside real BPO constraints. Human-in-the-loop autonomous customer engagement for sales, service, marketing, collections and retention.",
+    "Agentic AI for contact centres, built inside real BPO constraints. Human-in-the-loop autonomous customer engagement for sales, service, marketing, collections and retention.",
   path: "/trilogy-ai/",
+  keywords: [
+    "autonomous CX",
+    "agentic AI contact centre",
+    "human-in-the-loop AI",
+    "AI customer service platform",
+  ],
 });
 
 export default function TrilogyAiPage() {

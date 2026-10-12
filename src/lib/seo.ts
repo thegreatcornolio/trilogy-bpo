@@ -23,10 +23,73 @@ export const OG_IMAGE = {
 
 const COMPANY_LINKEDIN = "https://www.linkedin.com/company/trilogybpo";
 
+export type FaqItem = { question: string; answer: string };
+
+/** Homepage FAQs — must match visible on-page copy for FAQ rich results / AEO. */
+export const homeFaqs: FaqItem[] = [
+  {
+    question: "What does Trilogy BPO do?",
+    answer:
+      "Trilogy BPO builds, staffs and runs AI-enabled contact centres and Global Capability Centres from Cape Town, South Africa, for UK, US and EMEA brands — combining human empathy with AI efficiency.",
+  },
+  {
+    question: "Is Trilogy BPO ISO 27001 certified?",
+    answer:
+      "Yes. Trilogy BPO is ISO 27001 certified, demonstrating commitment to internationally recognised information security management standards.",
+  },
+  {
+    question: "Is Trilogy BPO PCI DSS compliant?",
+    answer:
+      "Yes. Trilogy BPO is PCI DSS compliant, supporting the secure handling and protection of payment card data across relevant customer operations.",
+  },
+  {
+    question: "Is Trilogy BPO UK GDPR and POPIA compliant?",
+    answer:
+      "Yes. Trilogy BPO is UK GDPR compliant and POPIA compliant, supporting lawful, secure processing of personal data for UK clients and responsible protection of personal information in South Africa.",
+  },
+  {
+    question: "Where is Trilogy BPO based?",
+    answer:
+      "Trilogy BPO operates from Cape Town, South Africa (Block B, Brightway Park, Salt River), serving UK, US and EMEA clients with nearshore time-zone alignment.",
+  },
+  {
+    question: "How do I contact Trilogy BPO?",
+    answer: `Email ${company.email}, call UK ${company.phoneUk}, or SA ${company.phoneSa}.`,
+  },
+];
+
+/** Privacy-page FAQs aligned to the published privacy notice. */
+export const privacyFaqs: FaqItem[] = [
+  {
+    question: "How does Trilogy BPO protect personal data?",
+    answer:
+      "Trilogy BPO applies technical and organisational safeguards aligned with ISO 27001 certified information security management and PCI DSS compliant controls where relevant, including encryption, access controls, minimisation and staff privacy training.",
+  },
+  {
+    question: "What lawful bases does Trilogy use under UK GDPR?",
+    answer:
+      "Trilogy documents a lawful basis under Article 6 of the UK GDPR for each processing activity, which may include consent, contract, legitimate interests or legal obligation, plus additional safeguards for higher-risk data.",
+  },
+  {
+    question: "How can I exercise my data subject rights?",
+    answer: `You can request access, rectification, erasure, restriction, portability or objection by emailing ${company.email}. Trilogy aims to respond within one month, subject to applicable law.`,
+  },
+  {
+    question: "How does Trilogy handle personal data breaches?",
+    answer:
+      "Trilogy maintains an incident response plan and, where required, notifies the relevant supervisory authority without undue delay and within 72 hours of becoming aware of a personal data breach, and informs affected individuals when the law requires.",
+  },
+  {
+    question: "Does Trilogy use third-party processors?",
+    answer:
+      "Yes, where vendors handle personal data on Trilogy’s behalf. Trilogy carries out due diligence and puts Data Processing Agreements (DPAs) in place covering instructions, security, sub-processing, assistance with rights requests and deletion or return of data.",
+  },
+];
+
 /** Organization structured data — enables rich results / knowledge panel. */
 export const organizationLd = {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": ["Organization", "ProfessionalService"],
   "@id": `${SITE_URL}/#organization`,
   name: company.name,
   legalName: company.legalName,
@@ -35,6 +98,18 @@ export const organizationLd = {
   image: `${SITE_URL}/trilogy-appicon-512.png`,
   email: company.email,
   description: site.description,
+  slogan: site.tagline,
+  areaServed: ["GB", "US", "EU", "ZA"],
+  knowsAbout: [
+    "Business process outsourcing",
+    "AI-enabled contact centres",
+    "Global Capability Centres",
+    "ISO 27001",
+    "PCI DSS",
+    "UK GDPR",
+    "POPIA",
+    "Customer experience outsourcing",
+  ],
   address: {
     "@type": "PostalAddress",
     streetAddress: "Block B, Brightway Park, Salt River",
@@ -57,6 +132,12 @@ export const organizationLd = {
       areaServed: "ZA",
       availableLanguage: "en",
     },
+    {
+      "@type": "ContactPoint",
+      email: company.email,
+      contactType: "customer support",
+      availableLanguage: "en",
+    },
   ],
   sameAs: [COMPANY_LINKEDIN],
 };
@@ -68,9 +149,51 @@ export const websiteLd = {
   "@id": `${SITE_URL}/#website`,
   name: SITE_NAME,
   url: SITE_URL,
-  inLanguage: "en",
+  inLanguage: "en-GB",
+  description: site.description,
   publisher: { "@id": `${SITE_URL}/#organization` },
 };
+
+/** Build FAQPage JSON-LD from question/answer pairs. */
+export function faqPageLd(faqs: FaqItem[], path = "/") {
+  const normalised = path.endsWith("/") ? path : `${path}/`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": `${SITE_URL}${normalised}#faq`,
+    mainEntity: faqs.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
+}
+
+/** WebPage JSON-LD for key landing pages. */
+export function webPageLd({
+  path,
+  name,
+  description,
+}: {
+  path: string;
+  name: string;
+  description: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${SITE_URL}${path}#webpage`,
+    url: `${SITE_URL}${path}`,
+    name,
+    description,
+    isPartOf: { "@id": `${SITE_URL}/#website` },
+    about: { "@id": `${SITE_URL}/#organization` },
+    inLanguage: "en-GB",
+  };
+}
 
 /**
  * Builds a page's metadata with a unique title/description plus a self-
@@ -81,19 +204,22 @@ export function pageMetadata({
   title,
   description,
   path,
+  keywords,
 }: {
   title: string;
   description: string;
   path: string;
+  keywords?: string[];
 }): Metadata {
   return {
     title,
     description,
+    ...(keywords?.length ? { keywords } : {}),
     alternates: { canonical: path },
     openGraph: {
       type: "website",
       siteName: SITE_NAME,
-      title,
+      title: `${title} | ${SITE_NAME}`,
       description,
       url: path,
       locale: "en_GB",
@@ -101,7 +227,7 @@ export function pageMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title,
+      title: `${title} | ${SITE_NAME}`,
       description,
       images: [OG_IMAGE.url],
     },

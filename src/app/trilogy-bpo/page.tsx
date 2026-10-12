@@ -15,10 +15,16 @@ import {
 } from "@/lib/content";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Trilogy BPO — Accelerated CX",
+  title: "Outsourced Contact Centre Operations",
   description:
-    "High-performance AI-enabled contact centre operations in South Africa. Decades of expertise, ready to scale — just add humans.",
+    "High-performance AI-enabled contact centre outsourcing from South Africa. Voice, digital and back-office CX for UK, US and EMEA brands — ISO 27001 certified and PCI DSS compliant.",
   path: "/trilogy-bpo/",
+  keywords: [
+    "contact centre outsourcing South Africa",
+    "AI-enabled BPO",
+    "outsourced customer service",
+    "Cape Town contact centre",
+  ],
 });
 
 export default function TrilogyBpoPage() {

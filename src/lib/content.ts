@@ -1472,7 +1472,7 @@ export const site = {
   name: company.name,
   tagline: "Human empathy meets AI efficiency.",
   description:
-    "Making customer engagement offshoring easy. Trilogy BPO builds, staffs and runs AI-enabled contact centres and Global Capability Centres for UK, US and EMEA brands from South Africa.",
+    "AI-enabled BPO and Global Capability Centres from Cape Town. Trilogy BPO is ISO 27001 certified and PCI DSS, UK GDPR and POPIA compliant — contact centre outsourcing for UK, US and EMEA brands.",
   email: company.email,
   phones: { uk: company.phoneUk, sa: company.phoneSa },
   whatsapp: company.whatsapp,

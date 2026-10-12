@@ -16,10 +16,16 @@ import {
 } from "@/lib/content";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Trilogy Digital — A Trilogy Group Company",
+  title: "Trilogy Digital CX Joint Venture",
   description:
-    "Trilogy Digital is a Trilogy Group company — a purpose-built CX joint venture delivering AI-enabled BPO from South Africa to the UK market.",
+    "Trilogy Digital delivers AI-enabled BPO from South Africa to the UK market — ISO 27001 certified, PCI DSS compliant, UK GDPR compliant and POPIA compliant CX operations.",
   path: "/trilogy-digital/",
+  keywords: [
+    "Trilogy Digital",
+    "UK BPO South Africa",
+    "AI-enabled CX joint venture",
+    "ISO 27001 PCI DSS GDPR POPIA",
+  ],
 });
 
 export default function TrilogyDigitalPage() {

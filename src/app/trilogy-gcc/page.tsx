@@ -21,10 +21,17 @@ import {
 } from "@/lib/content";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Trilogy GCC — Design, Build, Innovate, Transfer",
+  title: "Global Capability Centres in South Africa",
   description:
-    "Establish a Global Capability Centre in South Africa with Trilogy's DBIT methodology. From outsourcing to ownership — risk-mitigated, AI-ready, fully transferable.",
+    "Design, build, innovate and transfer a Global Capability Centre in South Africa with Trilogy’s DBIT method — from outsourcing to ownership, AI-ready and fully transferable.",
   path: "/trilogy-gcc/",
+  keywords: [
+    "Global Capability Centre South Africa",
+    "GCC Cape Town",
+    "build a GCC",
+    "DBIT methodology",
+    "owned offshore contact centre",
+  ],
 });
 
 export default function TrilogyGccPage() {

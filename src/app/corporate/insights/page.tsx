@@ -4,10 +4,16 @@ import Link from "next/link";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Insights — White Papers & Perspectives",
+  title: "Insights & White Papers",
   description:
-    "White papers and perspectives from Trilogy BPO on AI-enabled customer experience, contact centre operations and Global Capability Centres in South Africa.",
+    "White papers and perspectives from Trilogy BPO on AI-enabled customer experience, contact centre outsourcing and Global Capability Centres in South Africa.",
   path: "/corporate/insights/",
+  keywords: [
+    "BPO white papers",
+    "contact centre insights",
+    "GCC South Africa research",
+    "AI customer experience",
+  ],
 });
 
 export default function InsightsIndexPage() {
