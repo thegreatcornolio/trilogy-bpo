@@ -18,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/trilogy-digital/", priority: 0.8 },
     { path: "/trilogy-gcc/", priority: 0.8 },
     { path: "/corporate/insights/", priority: 0.6 },
+    { path: "/privacy/", priority: 0.4 },
   ];
 
   return routes.map(({ path, priority }) => ({

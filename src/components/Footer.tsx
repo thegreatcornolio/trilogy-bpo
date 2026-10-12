@@ -108,14 +108,20 @@ export function Footer() {
             justifyContent: "space-between",
             gap: 16,
             flexWrap: "wrap",
+            alignItems: "center",
             fontSize: 12.5,
             color: "rgba(247,245,240,.45)",
           }}
         >
           <span>© {new Date().getFullYear()} Trilogy BPO</span>
-          <span className="mono" style={{ fontSize: 11 }}>
-            Cape Town · UK · US · EMEA
-          </span>
+          <div style={{ display: "flex", gap: 18, flexWrap: "wrap", alignItems: "center" }}>
+            <Link href="/privacy/" style={{ color: "rgba(247,245,240,.66)", fontSize: 12.5 }}>
+              Privacy Policy
+            </Link>
+            <span className="mono" style={{ fontSize: 11 }}>
+              Cape Town · UK · US · EMEA
+            </span>
+          </div>
         </div>
       </div>
       </footer>
