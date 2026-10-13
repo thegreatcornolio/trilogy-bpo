@@ -764,12 +764,13 @@ export default function HomePage() {
               {membershipMarks.map((item) => (
                 <div
                   key={item.name}
+                  className="membership-mark"
                   style={{
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    minHeight: 88,
-                    padding: "18px 16px",
+                    aspectRatio: "2.15 / 1",
+                    padding: "6px 8px",
                     borderRadius: 14,
                     background: "#fff",
                     border: "1px solid rgba(14,27,42,.08)",
@@ -778,9 +779,13 @@ export default function HomePage() {
                   <Image
                     src={item.src}
                     alt={item.name}
-                    width={140}
-                    height={44}
-                    style={{ height: 40, width: "auto", maxWidth: "100%", objectFit: "contain" }}
+                    width={240}
+                    height={120}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "contain",
+                    }}
                   />
                 </div>
               ))}
