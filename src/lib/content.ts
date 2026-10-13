@@ -431,7 +431,7 @@ export const complianceMarks = [
 
 /** Industry membership / partner marks. */
 export const membershipMarks = [
-  { name: "BPESA", src: "/pool/accreditations/bpesa.png" },
+  { name: "BPESA Proud Member", src: "/pool/accreditations/bpesa.png" },
   { name: "CCMG", src: "/pool/accreditations/ccmg.png" },
   { name: "Cape BPO", src: "/pool/accreditations/capebpo.png" },
   { name: "Broadbrand", src: "/pool/accreditations/broadbrand.png" },
