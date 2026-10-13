@@ -768,8 +768,8 @@ export default function HomePage() {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    minHeight: 104,
-                    padding: "12px 10px",
+                    minHeight: 96,
+                    padding: "10px 8px",
                     borderRadius: 14,
                     background: "#fff",
                     border: "1px solid rgba(14,27,42,.08)",
@@ -778,9 +778,9 @@ export default function HomePage() {
                   <Image
                     src={item.src}
                     alt={item.name}
-                    width={200}
-                    height={72}
-                    style={{ height: 64, width: "auto", maxWidth: "92%", objectFit: "contain" }}
+                    width={220}
+                    height={80}
+                    style={{ height: 72, width: "auto", maxWidth: "96%", objectFit: "contain" }}
                   />
                 </div>
               ))}
