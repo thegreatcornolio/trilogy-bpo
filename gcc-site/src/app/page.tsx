@@ -1,5 +1,6 @@
 import Image from "next/image";
 import SaMap from "@/components/SaMap";
+import TeamSection from "@/components/TeamSection";
 import {
   awards,
   benefits,
@@ -26,18 +27,6 @@ import {
   whoBenefits,
   whySa,
 } from "@/lib/content";
-
-function LinkedInIcon() {
-  return (
-    <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
-      <rect x="2" y="2" width="20" height="20" rx="3" fill="currentColor" />
-      <path
-        fill="#fff"
-        d="M7.2 9.4h2.1v7.2H7.2V9.4Zm1.05-3.4a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM11.1 9.4h2v1h.03c.28-.53.97-1.1 2-1.1 2.14 0 2.54 1.4 2.54 3.23v4.07h-2.1v-3.6c0-.86-.02-1.96-1.2-1.96-1.2 0-1.38.93-1.38 1.9v3.66h-2.1V9.4Z"
-      />
-    </svg>
-  );
-}
 
 function SectionLabel({ children, onDark = false }: { children: React.ReactNode; onDark?: boolean }) {
   return (
@@ -304,45 +293,7 @@ export default function HomePage() {
               including three successful companies later acquired by international groups.
             </Lead>
 
-            {teamGroups.map((group) => (
-              <div key={group.title}>
-                <p className="mono team-group-label rise">{group.title}</p>
-                <div className="team-grid rise">
-                  {group.members.map((m) => (
-                    <div key={`${group.title}-${m.name}`}>
-                      <div className="team-card__photo">
-                        <Image
-                          src={m.img}
-                          alt={m.name}
-                          fill
-                          sizes="108px"
-                          style={{
-                            objectFit: "cover",
-                            objectPosition: "center top",
-                            filter: "grayscale(1)",
-                          }}
-                        />
-                      </div>
-                      <div className="team-card__name-row">
-                        <div className="team-card__name">{m.name}</div>
-                        {m.linkedin ? (
-                          <a
-                            className="team-linkedin"
-                            href={m.linkedin}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label={`${m.name} on LinkedIn`}
-                          >
-                            <LinkedInIcon />
-                          </a>
-                        ) : null}
-                      </div>
-                      <div className="mono team-card__role">{m.role}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
+            <TeamSection groups={[...teamGroups]} />
           </div>
         </section>
 
