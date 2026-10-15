@@ -5,112 +5,214 @@ export const BRIEF_PDF = "/trilogy-dbot-solution-brief.pdf";
 export const nav = [
   { label: "Overview", href: "#overview" },
   { label: "Team", href: "#team" },
+  { label: "Journey", href: "#journey" },
   { label: "Why SA", href: "#why-sa" },
   { label: "DBIT", href: "#dbit" },
   { label: "Cases", href: "#cases" },
   { label: "Commercial", href: "#commercial" },
   { label: "Contact", href: "#contact" },
-];
+] as const;
+
+export const overviewIntro =
+  "Trilogy GCC allows you to move beyond outsourcing. Design, Build, Innovate, Transfer — your risk-mitigated roadmap to a fully-owned Center of Excellence in South Africa.";
+
+export const overviewBody =
+  "Establish a Global Capability Center in South Africa that functions as a seamless extension of your headquarters — transitioning from third-party dependency to a fully-owned global asset.";
 
 export const overviewStats = [
   { value: "30+", label: "Contact centres built worldwide" },
   { value: "10,000+", label: "Agent seats scaled globally" },
-  { value: "12 yrs", label: "Building AI/ML platforms" },
+  { value: "12", label: "Years experience in building AI/ML platforms" },
   { value: "25+ yrs", label: "Combined leadership experience" },
 ] as const;
 
 export const overviewBullets = [
-  "Build your own capability centre in South Africa.",
-  "DBIT assists international BPO or enterprise companies to establish GCCs in South Africa.",
-  "Captives provide 20%–30% cost savings versus offshore outsourcing.",
+  "Build your own capability center in South Africa.",
+  "DBIT assists international BPO or enterprise companies to establish global capability centers in South Africa.",
+  "Global capability centers or captives provide between 20%–30% cost savings versus offshore outsourcing.",
   "Trilogy also offers a unique digital and autonomous platform to reduce headcount.",
 ] as const;
 
-export const leadership = [
-  { name: "Kobus van der Westhuizen", role: "CEO & Founder", img: "/proposal/team/kobus-van-der-westhuizen.png" },
-  { name: "Tanya Phillips", role: "Chief Operating Officer", img: "/proposal/team/tanya-phillips.png" },
-  { name: "Rudi Jansen", role: "Director of People", img: "/proposal/team/rudi-jansen.png" },
-  { name: "Craig Shalekoff", role: "CTO & Founder", img: "/proposal/team/craig-shalekoff.png" },
-  { name: "Vancyon van Zyl", role: "Director of Transitions", img: "/proposal/team/vancyon-van-zyl.png" },
-  { name: "Keanu Vieira", role: "Head of CX Solutions", img: "/proposal/team/keanu-vieira.png" },
-  { name: "Jason Luboyera", role: "Head of Digital", img: "/proposal/team/jason-luboyera.png" },
-  { name: "Tish Carruthers", role: "Marketing & Intelligence Lead", img: "/proposal/team/tish-carruthers.png" },
-  { name: "Brandon Grant", role: "Head of Digital Contact", img: "/proposal/team/brandon-grant.png" },
-  { name: "Lizelle McLaughlin", role: "Head of Projects", img: "/proposal/team/lizelle-mclaughlin.png" },
-] as const;
+export type TeamMember = {
+  name: string;
+  role: string;
+  img: string;
+  linkedin?: string;
+};
 
-export const board = [
-  { name: "Kobus van der Westhuizen", role: "CEO & Founder", img: "/proposal/team/kobus-van-der-westhuizen.png" },
-  { name: "Craig Shalekoff", role: "CTO & Founder", img: "/proposal/team/craig-shalekoff.png" },
-  { name: "Frank Kilbourn", role: "Non-Executive Director", img: "/proposal/team/frank-kilbourn.png" },
-  { name: "Jonathan Broll", role: "Non-Executive Director", img: "/proposal/team/jonathan-broll.png" },
-  { name: "Heather Wallace", role: "Non-Executive Director", img: "/proposal/team/heather-wallace.png" },
-] as const;
-
-export const jvPartners = [
-  { name: "Yaron Assabi", role: "Founder, Digital Solutions Group", img: "/proposal/team/yaron-assabi.png" },
-  { name: "Brandon Mezaros", role: "CEO, Customer Experience Group", img: "/proposal/team/brandon-mezaros.png" },
-] as const;
+export const teamGroups: { title: string; members: TeamMember[] }[] = [
+  {
+    title: "Leadership Team",
+    members: [
+      {
+        name: "Kobus van der Westhuizen",
+        role: "CEO & Founder",
+        img: "/proposal/team/kobus-van-der-westhuizen.png",
+        linkedin: "https://www.linkedin.com/in/kobus-van-der-westhuizen-trilogy-bpo/",
+      },
+      {
+        name: "Tanya Phillips",
+        role: "Chief Operating Officer",
+        img: "/proposal/team/tanya-phillips.png",
+        linkedin: "https://www.linkedin.com/in/tanya-phillips-sa/",
+      },
+      {
+        name: "Rudi Jansen",
+        role: "Director of People",
+        img: "/proposal/team/rudi-jansen.png",
+        linkedin: "https://www.linkedin.com/company/trilogybpo",
+      },
+      {
+        name: "Craig Shalekoff",
+        role: "CTO & Founder",
+        img: "/proposal/team/craig-shalekoff.png",
+        linkedin: "https://www.linkedin.com/in/craig-shalekoff-digital-tribe-bpo/",
+      },
+      {
+        name: "Vancyon van Zyl",
+        role: "Director of Transitions",
+        img: "/proposal/team/vancyon-van-zyl.png",
+        linkedin: "https://www.linkedin.com/company/trilogybpo",
+      },
+    ],
+  },
+  {
+    title: "Team",
+    members: [
+      {
+        name: "Keanu Vieira",
+        role: "Head of CX Solutions",
+        img: "/proposal/team/keanu-vieira.png",
+        linkedin: "https://www.linkedin.com/company/trilogybpo",
+      },
+      {
+        name: "Jason Luboyera",
+        role: "Head of Digital",
+        img: "/proposal/team/jason-luboyera.png",
+        linkedin: "https://www.linkedin.com/company/trilogybpo",
+      },
+      {
+        name: "Tish Carruthers",
+        role: "Marketing & Intelligence Lead",
+        img: "/proposal/team/tish-carruthers.png",
+        linkedin: "https://www.linkedin.com/company/trilogybpo",
+      },
+      {
+        name: "Brandon Grant",
+        role: "Head of Digital Contact",
+        img: "/proposal/team/brandon-grant.png",
+        linkedin: "https://www.linkedin.com/company/trilogybpo",
+      },
+      {
+        name: "Lizelle McLaughlin",
+        role: "Head of Projects",
+        img: "/proposal/team/lizelle-mclaughlin.png",
+      },
+    ],
+  },
+  {
+    title: "Board Members",
+    members: [
+      {
+        name: "Kobus van der Westhuizen",
+        role: "CEO & Founder",
+        img: "/proposal/team/kobus-van-der-westhuizen.png",
+        linkedin: "https://www.linkedin.com/in/kobus-van-der-westhuizen-trilogy-bpo/",
+      },
+      {
+        name: "Craig Shalekoff",
+        role: "CTO & Founder",
+        img: "/proposal/team/craig-shalekoff.png",
+        linkedin: "https://www.linkedin.com/in/craig-shalekoff-digital-tribe-bpo/",
+      },
+      {
+        name: "Frank Kilbourn",
+        role: "Non-Executive Director",
+        img: "/proposal/team/frank-kilbourn.png",
+        linkedin: "https://www.linkedin.com/in/frank-kilbourn-31ba97b9/",
+      },
+      {
+        name: "Jonathan Broll",
+        role: "Non-Executive Director",
+        img: "/proposal/team/jonathan-broll.png",
+        linkedin: "https://www.linkedin.com/in/jonathan-broll-ab5a61b5/",
+      },
+      {
+        name: "Heather Wallace",
+        role: "Non-Executive Director",
+        img: "/proposal/team/heather-wallace.png",
+        linkedin: "https://www.linkedin.com/company/trilogybpo",
+      },
+    ],
+  },
+];
 
 export const awards = [
-  { year: "2016", text: "CCMG Best Outsourced Partnership Winner · BPESA Best Outsourced Winner & Best Use of Social Media" },
-  { year: "2017", text: "BPESA / CCMG Best Outsourced Contact Centre · Best Use of Social Media & Technology Innovation" },
-  { year: "2018–2019", text: "Best Outsourced Contact Centre Finalist · Best Outsourced Partnership (Engage UK) Finalist · BPESA Best Impact Sourcing & Service Provider Winner" },
-  { year: "2021", text: "Contact Centre World, Best Partnership — Ranked #1 EMEA · #2 Globally" },
-  { year: "2022–2023", text: "BPESA Best Partnership & Shared Services Finalist · Cape BPO Top Technical Innovation Finalist · BPESA & Cape BPO National Top Service Provider Winner" },
-  { year: "2025", text: "Cape BPO & BPESA Top Support Service Provider Finalist · BPESA Top BPO Operator Finalist & Runner-Up" },
+  {
+    year: "2016",
+    text: "CCMG Best Outsourced Partnership Winner · BPESA Best Outsourced Winner & Best Use of Social Media",
+  },
+  {
+    year: "2017",
+    text: "BPESA / CCMG Best Outsourced Contact Centre · Best Use of Social Media & Technology Innovation",
+  },
+  {
+    year: "2018 – 2019",
+    text: "Best Outsourced Contact Centre Finalist · Best Outsourced Partnership (Engage UK) Finalist · BPESA Best Impact Sourcing & Service Provider Winner",
+  },
+  {
+    year: "2021",
+    text: "Contact Centre World, Best Partnership",
+    pill: "Ranked #1 EMEA · #2 Globally",
+  },
+  {
+    year: "2022 – 2023",
+    text: "BPESA Best Partnership & Shared Services Finalist · Cape BPO Top Technical Innovation Finalist",
+    pill: "BPESA & Cape BPO National Top Service Provider, Winner",
+  },
+  {
+    year: "2025",
+    text: "CapeBPO & BPESA Top Support Service Provider Finalist · BPESA Top BPO Operator Finalist & Runner-Up",
+  },
 ] as const;
 
-export const membershipLogos = [
-  { name: "Cape BPO", src: "/proposal/badges/capebpo.svg" },
-  { name: "BPESA", src: "/proposal/badges/bpesa.svg" },
-  { name: "CCMG", src: "/proposal/badges/ccmg.svg" },
-  { name: "GBPO", src: "/proposal/badges/gbpo.svg" },
-] as const;
-
-export const certLogos = [
-  { name: "Cyber Essentials+", src: "/proposal/badges/cyber-essentials-plus.svg" },
-  { name: "PCI DSS", src: "/proposal/badges/pci-dss.svg" },
-  { name: "ISO 9001", src: "/proposal/badges/iso-9001.svg" },
-  { name: "ISO 27001", src: "/proposal/badges/iso-27001.svg" },
-] as const;
-
-export const footprintSites = [
-  {
-    name: "Mutual Park, Cape Town",
-    detail: "Old Mutual Park, Pinelands. Active, primary UK-client site. 5-star green-energy campus; scalable to 1,000+ seats.",
-  },
-  {
-    name: "Century City, Cape Town",
-    detail: "Active. 150+ FTE; scalable to 300 within 24 months.",
-  },
-  {
-    name: "Rosebank Quarters, Johannesburg",
-    detail: "158 Jan Smuts Avenue, Rosebank. Active. 200+ FTE; scalable to 400 within 24 months.",
-  },
-  {
-    name: "Maharishi Institute, Johannesburg",
-    detail: "Johannesburg CBD. Active. 100+ FTE; 750+ pre-assessed graduate pipeline per year.",
-  },
-  {
-    name: "National WFH continuity layer",
-    detail: "Nationwide (distributed). Active. 40–60% cloud-first from home for flex and BCP.",
-  },
+/** Featured badges shown large under the awards timeline (screenshot 3). */
+export const featuredBadges = [
+  { name: "CapeBPO", src: "/proposal/badges/capebpo.svg" },
+  { name: "BPESA Proud Member 2026 | 2027", src: "/proposal/badges/bpesa.svg" },
+  { name: "Cyber Essentials Plus", src: "/proposal/badges/cyber-essentials-plus.svg" },
+  { name: "PCI DSS Compliant", src: "/proposal/badges/pci-dss.svg" },
 ] as const;
 
 export const brandLogos = [
-  "british-gas",
-  "john-lewis",
-  "aldi",
-  "virgin",
-  "vodacom",
-  "mtn",
-  "mercedes-benz",
-  "kfc",
-  "nandos",
-  "b-and-q",
-  "fibertime",
-  "peloton",
+  { file: "ventrica", alt: "Ventrica" },
+  { file: "british-gas", alt: "British Gas" },
+  { file: "kliq", alt: "Kliq" },
+  { file: "cellc", alt: "Cell C" },
+  { file: "dfs", alt: "DFS" },
+  { file: "sun-international", alt: "Sun International" },
+  { file: "herotel", alt: "Herotel" },
+  { file: "mtn", alt: "MTN" },
+  { file: "vodacom", alt: "Vodacom" },
+  { file: "john-lewis", alt: "John Lewis" },
+  { file: "aldi", alt: "Aldi" },
+  { file: "virgin", alt: "Virgin" },
+  { file: "kfc", alt: "KFC" },
+  { file: "nandos", alt: "Nando's" },
+  { file: "mercedes-benz", alt: "Mercedes-Benz" },
+  { file: "burger-king", alt: "Burger King" },
+  { file: "iceland", alt: "Iceland" },
+  { file: "jd", alt: "JD" },
+  { file: "telkom", alt: "Telkom" },
+  { file: "afrihost", alt: "Afrihost" },
+  { file: "fibertime", alt: "Fibertime" },
+  { file: "peloton", alt: "Peloton" },
+  { file: "b-and-q", alt: "B&Q" },
+  { file: "ascensos", alt: "Ascensos" },
+  { file: "startek", alt: "Startek" },
+  { file: "pick-n-pay", alt: "Pick n Pay" },
+  { file: "rain", alt: "Rain" },
+  { file: "webafrica", alt: "Webafrica" },
 ] as const;
 
 export const whySa = [

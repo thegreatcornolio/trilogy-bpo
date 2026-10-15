@@ -1,25 +1,24 @@
 import Image from "next/image";
+import SaMap from "@/components/SaMap";
 import {
   awards,
   benefits,
-  board,
   brandLogos,
   caseStudies,
-  certLogos,
   commercialModels,
   costPath,
   dbitLayers,
   dbitPhases,
-  footprintSites,
+  featuredBadges,
   incentivePillars,
-  jvPartners,
-  leadership,
   locationWins,
-  membershipLogos,
   nav,
+  overviewBody,
   overviewBullets,
+  overviewIntro,
   overviewStats,
   provenResults,
+  teamGroups,
   trackRecord,
   turnkeyIt,
   turnkeySite,
@@ -27,6 +26,18 @@ import {
   whoBenefits,
   whySa,
 } from "@/lib/content";
+
+function LinkedInIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true">
+      <rect x="2" y="2" width="20" height="20" rx="3" fill="currentColor" />
+      <path
+        fill="#fff"
+        d="M7.2 9.4h2.1v7.2H7.2V9.4Zm1.05-3.4a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5ZM11.1 9.4h2v1h.03c.28-.53.97-1.1 2-1.1 2.14 0 2.54 1.4 2.54 3.23v4.07h-2.1v-3.6c0-.86-.02-1.96-1.2-1.96-1.2 0-1.38.93-1.38 1.9v3.66h-2.1V9.4Z"
+      />
+    </svg>
+  );
+}
 
 function SectionLabel({ children, onDark = false }: { children: React.ReactNode; onDark?: boolean }) {
   return (
@@ -223,53 +234,60 @@ export default function HomePage() {
         {/* Overview */}
         <section id="overview" style={{ padding: "96px 0", background: "var(--white)" }}>
           <div className="shell">
-            <SectionLabel>Company overview</SectionLabel>
-            <SectionTitle>Own your offshore operation.</SectionTitle>
-            <Lead>
-              Establish a Global Capability Centre in South Africa that functions as a seamless
-              extension of your headquarters — transitioning from third-party dependency to a
-              fully-owned global asset.
-            </Lead>
+            <SectionTitle max="18ch">From outsourcing to ownership.</SectionTitle>
+            <Lead>{overviewIntro}</Lead>
+            <p
+              className="rise"
+              style={{
+                margin: "18px 0 0",
+                maxWidth: "58ch",
+                fontSize: 16.5,
+                fontWeight: 300,
+                lineHeight: 1.7,
+                color: "var(--ink-muted)",
+              }}
+            >
+              {overviewBody}
+            </p>
 
             <ul
               className="rise"
-              style={{ margin: "28px 0 0", padding: 0, listStyle: "none", maxWidth: "58ch" }}
+              style={{ margin: "28px 0 0", padding: 0, listStyle: "none", maxWidth: "64ch" }}
             >
               {overviewBullets.map((item) => (
                 <li
                   key={item}
                   style={{
-                    padding: "12px 0",
-                    borderBottom: "1px solid rgba(14,27,42,0.08)",
+                    padding: "10px 0 10px 18px",
+                    position: "relative",
                     fontSize: 16,
                     fontWeight: 300,
                     lineHeight: 1.55,
                     color: "var(--ink)",
                   }}
                 >
-                  <span style={{ color: "var(--lime)", marginRight: 12 }}>▸</span>
+                  <span
+                    aria-hidden
+                    style={{
+                      position: "absolute",
+                      left: 0,
+                      top: "1.05em",
+                      width: 6,
+                      height: 6,
+                      borderRadius: "50%",
+                      background: "var(--lime)",
+                    }}
+                  />
                   {item}
                 </li>
               ))}
             </ul>
 
-            <div
-              className="proof-grid rise"
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
-                gap: 1,
-                marginTop: 56,
-                background: "var(--mist)",
-                border: "1px solid var(--mist)",
-              }}
-            >
+            <div className="overview-stats rise">
               {overviewStats.map((item) => (
-                <div key={item.label} style={{ background: "var(--fog)", padding: "28px 22px" }}>
-                  <div style={{ fontSize: 32, fontWeight: 400, letterSpacing: "-0.02em" }}>{item.value}</div>
-                  <p className="mono" style={{ margin: "10px 0 0", fontSize: 11, color: "var(--ink-muted)" }}>
-                    {item.label}
-                  </p>
+                <div key={item.label} style={{ textAlign: "center", padding: "4px 8px" }}>
+                  <div className="overview-stats__value">{item.value}</div>
+                  <p className="mono overview-stats__label">{item.label}</p>
                 </div>
               ))}
             </div>
@@ -286,98 +304,45 @@ export default function HomePage() {
               including three successful companies later acquired by international groups.
             </Lead>
 
-            <p className="mono rise" style={{ margin: "48px 0 16px", fontSize: 11, color: "var(--ink-muted)" }}>
-              Leadership team
-            </p>
-            <div
-              className="team-grid rise"
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(5, minmax(0, 1fr))",
-                gap: 20,
-              }}
-            >
-              {leadership.map((m) => (
-                <div key={m.name}>
-                  <div
-                    style={{
-                      position: "relative",
-                      aspectRatio: "4/5",
-                      overflow: "hidden",
-                      background: "#ddd",
-                    }}
-                  >
-                    <Image src={m.img} alt={m.name} fill sizes="160px" style={{ objectFit: "cover", objectPosition: "center top", filter: "grayscale(1)" }} />
-                  </div>
-                  <div style={{ marginTop: 10, fontSize: 14, fontWeight: 500 }}>{m.name}</div>
-                  <div className="mono" style={{ marginTop: 4, fontSize: 10, color: "var(--ink-muted)" }}>
-                    {m.role}
-                  </div>
+            {teamGroups.map((group) => (
+              <div key={group.title}>
+                <p className="mono team-group-label rise">{group.title}</p>
+                <div className="team-grid rise">
+                  {group.members.map((m) => (
+                    <div key={`${group.title}-${m.name}`}>
+                      <div className="team-card__photo">
+                        <Image
+                          src={m.img}
+                          alt={m.name}
+                          fill
+                          sizes="108px"
+                          style={{
+                            objectFit: "cover",
+                            objectPosition: "center top",
+                            filter: "grayscale(1)",
+                          }}
+                        />
+                      </div>
+                      <div className="team-card__name-row">
+                        <div className="team-card__name">{m.name}</div>
+                        {m.linkedin ? (
+                          <a
+                            className="team-linkedin"
+                            href={m.linkedin}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label={`${m.name} on LinkedIn`}
+                          >
+                            <LinkedInIcon />
+                          </a>
+                        ) : null}
+                      </div>
+                      <div className="mono team-card__role">{m.role}</div>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
-
-            <p className="mono rise" style={{ margin: "48px 0 16px", fontSize: 11, color: "var(--ink-muted)" }}>
-              Board
-            </p>
-            <div
-              className="team-grid rise"
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(5, minmax(0, 1fr))",
-                gap: 20,
-              }}
-            >
-              {board.map((m) => (
-                <div key={`board-${m.name}-${m.role}`}>
-                  <div
-                    style={{
-                      position: "relative",
-                      aspectRatio: "4/5",
-                      overflow: "hidden",
-                      background: "#ddd",
-                    }}
-                  >
-                    <Image src={m.img} alt={m.name} fill sizes="160px" style={{ objectFit: "cover", objectPosition: "center top", filter: "grayscale(1)" }} />
-                  </div>
-                  <div style={{ marginTop: 10, fontSize: 14, fontWeight: 500 }}>{m.name}</div>
-                  <div className="mono" style={{ marginTop: 4, fontSize: 10, color: "var(--ink-muted)" }}>
-                    {m.role}
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <p className="mono rise" style={{ margin: "48px 0 16px", fontSize: 11, color: "var(--ink-muted)" }}>
-              Joint venture partners
-            </p>
-            <div
-              className="rise"
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(2, minmax(0, 180px))",
-                gap: 20,
-              }}
-            >
-              {jvPartners.map((m) => (
-                <div key={m.name}>
-                  <div
-                    style={{
-                      position: "relative",
-                      aspectRatio: "4/5",
-                      overflow: "hidden",
-                      background: "#ddd",
-                    }}
-                  >
-                    <Image src={m.img} alt={m.name} fill sizes="180px" style={{ objectFit: "cover", objectPosition: "center top", filter: "grayscale(1)" }} />
-                  </div>
-                  <div style={{ marginTop: 10, fontSize: 14, fontWeight: 500 }}>{m.name}</div>
-                  <div className="mono" style={{ marginTop: 4, fontSize: 10, color: "var(--ink-muted)" }}>
-                    {m.role}
-                  </div>
-                </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </section>
 
@@ -391,126 +356,105 @@ export default function HomePage() {
               outsourcing, technology and social impact.
             </Lead>
 
-            <div style={{ marginTop: 40, display: "grid", gap: 0 }}>
-              {awards.map((item) => (
-                <div
-                  key={item.year}
-                  className="rise"
-                  style={{
-                    display: "grid",
-                    gridTemplateColumns: "120px 1fr",
-                    gap: 20,
-                    padding: "18px 0",
-                    borderBottom: "1px solid rgba(14,27,42,0.1)",
-                  }}
-                >
-                  <div className="mono" style={{ fontSize: 12, color: "var(--forest)" }}>
-                    {item.year}
-                  </div>
-                  <p style={{ margin: 0, fontSize: 15, fontWeight: 300, lineHeight: 1.55, color: "var(--ink)" }}>
-                    {item.text}
-                  </p>
-                </div>
-              ))}
+            <div className="awards-panel rise">
+              <ol className="awards-timeline" data-animate="timeline">
+                {awards.map((item) => (
+                  <li key={item.year} className="reveal-item">
+                    <div className="awards-timeline__year">{item.year}</div>
+                    <div className="awards-timeline__body">
+                      {item.text}
+                      {"pill" in item && item.pill ? (
+                        <span className="award-pill">{item.pill}</span>
+                      ) : null}
+                    </div>
+                  </li>
+                ))}
+              </ol>
             </div>
 
-            <div
-              className="own-grid rise"
-              style={{
-                display: "grid",
-                gridTemplateColumns: "1fr 1fr",
-                gap: 40,
-                marginTop: 48,
-              }}
-            >
-              <div>
-                <p className="mono" style={{ margin: "0 0 16px", fontSize: 11, color: "var(--ink-muted)" }}>
-                  Memberships
-                </p>
-                <div style={{ display: "flex", flexWrap: "wrap", gap: 16, alignItems: "center" }}>
-                  {membershipLogos.map((l) => (
-                    <Image key={l.name} src={l.src} alt={l.name} width={100} height={40} style={{ height: 36, width: "auto" }} />
-                  ))}
+            <div className="badge-row rise">
+              {featuredBadges.map((badge) => (
+                <div key={badge.name} className="badge-card">
+                  <Image src={badge.src} alt={badge.name} width={280} height={120} />
                 </div>
-              </div>
-              <div>
-                <p className="mono" style={{ margin: "0 0 16px", fontSize: 11, color: "var(--ink-muted)" }}>
-                  Certifications
-                </p>
-                <div style={{ display: "flex", flexWrap: "wrap", gap: 16, alignItems: "center" }}>
-                  {certLogos.map((l) => (
-                    <Image key={l.name} src={l.src} alt={l.name} width={100} height={40} style={{ height: 40, width: "auto" }} />
-                  ))}
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* Footprint */}
-        <section style={{ padding: "96px 0", background: "var(--fog)" }}>
+        {/* Footprint map */}
+        <section id="footprint" style={{ padding: "96px 0", background: "var(--fog)" }}>
           <div className="shell">
             <SectionLabel>South African footprint</SectionLabel>
-            <SectionTitle max="20ch">Four sites. One operated network.</SectionTitle>
+            <SectionTitle max="22ch">Cape Town and Johannesburg, live today.</SectionTitle>
             <Lead>
               More than 1,000 FTEs across Cape Town and Johannesburg. Every site is Trilogy owned or
               leased and operated directly — never via franchise or affiliate.
             </Lead>
-
-            <div style={{ marginTop: 40, display: "grid", gap: 0 }}>
-              {footprintSites.map((site) => (
-                <div
-                  key={site.name}
-                  className="rise"
-                  style={{
-                    padding: "20px 0",
-                    borderBottom: "1px solid rgba(14,27,42,0.1)",
-                  }}
-                >
-                  <h3 style={{ margin: 0, fontSize: 18, fontWeight: 500 }}>{site.name}</h3>
-                  <p style={{ margin: "8px 0 0", fontSize: 15, fontWeight: 300, lineHeight: 1.6, color: "var(--ink-muted)", maxWidth: "60ch" }}>
-                    {site.detail}
-                  </p>
-                </div>
-              ))}
-            </div>
+            <SaMap />
           </div>
         </section>
 
-        {/* Brands / UK experience */}
-        <section style={{ padding: "96px 0", background: "var(--white)" }}>
+        {/* Management Journey */}
+        <section id="journey" style={{ padding: "96px 0", background: "var(--white)" }}>
           <div className="shell">
-            <SectionLabel>UK & US client experience</SectionLabel>
-            <SectionTitle max="20ch">25 years behind the world’s brands.</SectionTitle>
+            <SectionLabel>Management Journey & UK Client Experience</SectionLabel>
+            <SectionTitle max="16ch">One team, 20 years.</SectionTitle>
             <Lead>
-              Our leadership has transferred, deployed and managed multiple Cape Town operations from
-              inception — including CX programmes for John Lewis & Partners, British Gas, Vodafone UK
-              and Aldi UK.
+              The same founders and EXCO team have worked together across every company in this
+              journey — from CCN through to Trilogy Digital.
             </Lead>
+            <figure className="journey-figure rise">
+              <Image
+                src="/proposal/one-team-20-years.png"
+                alt="Management Journey and UK Client Experience — One Team, 20 Years timeline"
+                width={1400}
+                height={720}
+                sizes="(max-width: 1120px) 100vw, 1120px"
+                style={{ width: "100%", height: "auto" }}
+              />
+            </figure>
+          </div>
+        </section>
 
-            <div
+        {/* Brands marquee */}
+        <section id="brands" style={{ padding: "96px 0", background: "var(--fog)" }}>
+          <div className="shell">
+            <SectionTitle max="20ch">Brands Our Leadership Has Delivered For</SectionTitle>
+            <p
               className="rise"
               style={{
-                display: "flex",
-                flexWrap: "wrap",
-                gap: 28,
-                alignItems: "center",
-                marginTop: 44,
-                padding: "28px 0",
-                borderTop: "1px solid rgba(14,27,42,0.1)",
-                borderBottom: "1px solid rgba(14,27,42,0.1)",
+                margin: "18px 0 0",
+                fontSize: 22,
+                fontWeight: 600,
+                letterSpacing: "-0.01em",
               }}
             >
-              {brandLogos.map((name) => (
-                <Image
-                  key={name}
-                  src={`/proposal/clients/${name}.png`}
-                  alt={name.replace(/-/g, " ")}
-                  width={120}
-                  height={40}
-                  style={{ height: 28, width: "auto", objectFit: "contain", opacity: 0.75, filter: "grayscale(1)" }}
-                />
-              ))}
+              25 years behind the world&apos;s brands.
+            </p>
+            <Lead>
+              Over the past 25 years, Trilogy&apos;s leadership has managed over 30 contact centres
+              for some of the world&apos;s most recognised brands. That gives us insight into the
+              challenges and opportunities of offshore customer-service delivery, with deep vertical
+              expertise across telecommunications, utilities, retail, fast food, insurance and
+              technology.
+            </Lead>
+          </div>
+
+          <div className="brand-marquee rise" aria-label="Brand logos">
+            <div className="brand-marquee__viewport">
+              <div className="brand-marquee__track">
+                {[...brandLogos, ...brandLogos].map((brand, i) => (
+                  <div key={`${brand.file}-${i}`} className="brand-marquee__item">
+                    <Image
+                      src={`/proposal/clients/${brand.file}.png`}
+                      alt={brand.alt}
+                      width={140}
+                      height={40}
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
