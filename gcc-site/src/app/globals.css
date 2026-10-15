@@ -1,0 +1,245 @@
+:root {
+  --ink: #0e1b2a;
+  --ink-deep: #081018;
+  --ink-soft: #162433;
+  --lime: #2fe85c;
+  --mint: #8ce081;
+  --forest: #0e7c46;
+  --fog: #eef3f6;
+  --mist: #d5dde4;
+  --white: #ffffff;
+  --ink-muted: rgba(14, 27, 42, 0.62);
+  --on-dark-muted: rgba(255, 255, 255, 0.68);
+  --font-sans: var(--font-archivo), "Archivo", sans-serif;
+  --font-mono: var(--font-plex-mono), "IBM Plex Mono", monospace;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-sans);
+  color: var(--ink);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font: inherit;
+}
+
+.shell {
+  width: min(1120px, calc(100% - 48px));
+  margin-inline: auto;
+}
+
+.mono {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+
+/* Motion */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-ken {
+  from {
+    transform: scale(1.08);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes line-draw {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.hero-media {
+  animation: hero-ken 8s cubic-bezier(0.16, 0.84, 0.44, 1) both;
+}
+
+.hero-copy > * {
+  opacity: 0;
+  animation: fade-up 0.9s cubic-bezier(0.16, 0.84, 0.44, 1) forwards;
+}
+
+.hero-copy > *:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.hero-copy > *:nth-child(2) {
+  animation-delay: 0.28s;
+}
+.hero-copy > *:nth-child(3) {
+  animation-delay: 0.42s;
+}
+.hero-copy > *:nth-child(4) {
+  animation-delay: 0.56s;
+}
+
+.accent-line {
+  transform-origin: left center;
+  animation: line-draw 1s 0.7s cubic-bezier(0.16, 0.84, 0.44, 1) both;
+}
+
+.rise {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 0.84, 0.44, 1),
+    transform 0.7s cubic-bezier(0.16, 0.84, 0.44, 1);
+}
+
+.rise.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 2px;
+  background: var(--lime);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 22px;
+  border-radius: 2px;
+  border: none;
+  background: var(--lime);
+  color: var(--ink);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  transition:
+    transform 0.25s cubic-bezier(0.16, 0.84, 0.44, 1),
+    background 0.25s;
+}
+
+.cta:hover {
+  transform: translateY(-2px);
+  background: #45f070;
+}
+
+.cta-ghost {
+  background: transparent;
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.cta-ghost:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--mint);
+}
+
+.phase:hover .phase-index {
+  color: var(--lime);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-media,
+  .hero-copy > *,
+  .accent-line {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .rise {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+@media (max-width: 860px) {
+  .shell {
+    width: min(1120px, calc(100% - 32px));
+  }
+
+  .desktop-nav {
+    display: none !important;
+  }
+
+  .dbit-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  .split-2,
+  .benefit-grid,
+  .proof-grid,
+  .own-grid,
+  .team-grid,
+  .gcc-phase-row {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .team-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .dbit-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .hero-actions {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+}
