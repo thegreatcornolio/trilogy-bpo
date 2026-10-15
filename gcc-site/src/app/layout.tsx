@@ -18,9 +18,9 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Trilogy Global Capability Centre · DBOT",
+  title: "Trilogy Global Capability Centre · DBIT",
   description:
-    "Design, Build, Operate, Transfer — Trilogy’s risk-mitigated roadmap to a fully owned Global Capability Centre in South Africa, with transparent costing and a fixed management fee.",
+    "Design, Build, Innovate, Transfer — Trilogy’s risk-mitigated roadmap to a fully owned Global Capability Centre in South Africa. Open-book costing, fixed management fee, path to ownership.",
   applicationName: "Trilogy GCC",
 };
 

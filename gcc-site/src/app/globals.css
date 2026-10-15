@@ -221,8 +221,15 @@ button {
   .benefit-grid,
   .proof-grid,
   .own-grid,
+  .team-grid,
   .gcc-phase-row {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .team-grid {
+    grid-template-columns: 1fr 1fr !important;
   }
 }
 
