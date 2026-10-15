@@ -220,7 +220,8 @@ button {
   .split-2,
   .benefit-grid,
   .proof-grid,
-  .own-grid {
+  .own-grid,
+  .gcc-phase-row {
     grid-template-columns: 1fr !important;
   }
 }

@@ -1,110 +1,24 @@
 import Image from "next/image";
-
-const BRIEF_PDF = "/trilogy-dbot-solution-brief.pdf";
-
-const nav = [
-  { label: "Why GCC", href: "#why" },
-  { label: "DBOT", href: "#dbot" },
-  { label: "Commercial", href: "#commercial" },
-  { label: "Brief", href: BRIEF_PDF },
-  { label: "Contact", href: "#contact" },
-];
-
-const saDrivers = [
-  "Cost reduction",
-  "English competency",
-  "Accent acceptability",
-  "Cultural compatibility",
-  "Data protection compliance",
-  "Quality of service",
-];
-
-const routes = [
-  {
-    index: "01",
-    title: "Outsourcing",
-    body: "Partner with a competent South African outsourcing provider under a managed contract.",
-  },
-  {
-    index: "02",
-    title: "Captive, own resources",
-    body: "Establish a captive centre in South Africa using only your own team and capital.",
-  },
-  {
-    index: "03",
-    title: "Captive with DBOT",
-    body: "Phased Design, Build, Operate and Transfer with a local partner — the focus of this brief.",
-    highlight: true,
-  },
-];
-
-const phases = [
-  {
-    index: "01",
-    letter: "D",
-    title: "Design",
-    body: "Due diligence, gap analysis, solution design, implementation, change and project plans.",
-  },
-  {
-    index: "02",
-    letter: "B",
-    title: "Build",
-    body: "Total solution implemented at the location of choice, governed by a dedicated project team.",
-  },
-  {
-    index: "03",
-    letter: "O",
-    title: "Operate",
-    body: "Full operational strategy run for a defined period to stabilise service levels and quality.",
-  },
-  {
-    index: "04",
-    letter: "T",
-    title: "Transfer",
-    body: "Operations, technology, facilities, people, knowledge and IP transferred to you.",
-  },
-];
-
-const riskBenefits = [
-  {
-    title: "Risk-averse localisation",
-    body: "Mitigate labour law, culture, facilities and vendor pitfalls before you take ownership.",
-  },
-  {
-    title: "Limited — or no — CAPEX",
-    body: "Optional OPEX rent-to-own model so green-field build cost need not sit on your balance sheet.",
-  },
-  {
-    title: "Speed to savings",
-    body: "Rapid mobilisation and a fixed timeline to go-live, ROI and anticipated cost savings.",
-  },
-  {
-    title: "Local best practice, instantly",
-    body: "Immediate access to South African hiring, training, MIS, legal and admin infrastructure.",
-  },
-];
-
-const commercialPoints = [
-  {
-    title: "Transparent costing",
-    body: "Costs presented openly by DBOT phase — Design, Build, Operate, Transfer — with transfer typically at 24 or 36 months.",
-  },
-  {
-    title: "Fixed management fee",
-    body: "Trilogy’s management fee is fixed, so the commercial model stays clear as the centre scales.",
-  },
-  {
-    title: "OPEX rent-to-own",
-    body: "Full bill of materials on a 36-month payment plan — site, equipment and facilities owned by you at month 36.",
-  },
-];
-
-const transferSupport = [
-  "Continuous improvement",
-  "Active benchmarking",
-  "Business continuity & DR",
-  "Capacity overflow",
-];
+import {
+  BRIEF_PDF,
+  advantages,
+  benefits,
+  commercialPoints,
+  comparisons,
+  costPath,
+  innovate,
+  migrationScope,
+  nav,
+  owns,
+  phases,
+  proof,
+  proposition,
+  routes,
+  saDrivers,
+  transferSupport,
+  turnkey,
+  whoBenefits,
+} from "@/lib/content";
 
 export default function HomePage() {
   return (
@@ -139,7 +53,7 @@ export default function HomePage() {
               style={{ height: 36, width: "auto" }}
             />
           </a>
-          <nav className="desktop-nav" style={{ display: "flex", gap: 28, alignItems: "center" }}>
+          <nav className="desktop-nav" style={{ display: "flex", gap: 22, alignItems: "center" }}>
             {nav.map((item) => (
               <a
                 key={item.href}
@@ -161,6 +75,7 @@ export default function HomePage() {
       </header>
 
       <main id="top">
+        {/* Hero */}
         <section
           style={{
             position: "relative",
@@ -223,15 +138,15 @@ export default function HomePage() {
             <p
               style={{
                 margin: "22px 0 0",
-                maxWidth: "40ch",
+                maxWidth: "42ch",
                 fontSize: "clamp(16px, 2vw, 19px)",
                 fontWeight: 300,
                 lineHeight: 1.55,
                 color: "var(--on-dark-muted)",
               }}
             >
-              Design, Build, Operate, Transfer — mitigating the risks of building a captive centre
-              offshore, for any type of operation.
+              Design, Build, Operate, Transfer — your risk-mitigated roadmap to a fully owned Global
+              Capability Centre in South Africa.
             </p>
             <div
               className="hero-actions"
@@ -262,8 +177,94 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Why SA + three routes */}
-        <section id="why" style={{ padding: "96px 0", background: "var(--white)" }}>
+        {/* Proposition — from live GCC page */}
+        <section id="proposition" style={{ padding: "96px 0", background: "var(--white)" }}>
+          <div className="shell">
+            <p className="mono rise" style={{ margin: 0, fontSize: 12, color: "var(--forest)" }}>
+              The GCC proposition
+            </p>
+            <h2
+              className="rise"
+              style={{
+                margin: "14px 0 0",
+                maxWidth: "16ch",
+                fontSize: "clamp(30px, 4.4vw, 52px)",
+                fontWeight: 200,
+                letterSpacing: "-0.02em",
+                lineHeight: 1.05,
+              }}
+            >
+              From vendor to owner.
+            </h2>
+            <p
+              className="rise"
+              style={{
+                margin: "20px 0 0",
+                maxWidth: "58ch",
+                fontSize: 17,
+                fontWeight: 300,
+                lineHeight: 1.7,
+                color: "var(--ink-muted)",
+              }}
+            >
+              Establish a Global Capability Centre in South Africa that functions as a seamless
+              extension of your headquarters — transitioning from third-party dependency to a
+              fully-owned global asset.
+            </p>
+
+            <div
+              className="dbit-grid rise"
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+                gap: 28,
+                marginTop: 48,
+                paddingTop: 40,
+                borderTop: "1px solid rgba(14,27,42,0.1)",
+              }}
+            >
+              {proposition.map((item, i) => (
+                <div key={item.title}>
+                  <div className="mono" style={{ fontSize: 12, color: "var(--forest)" }}>
+                    0{i + 1}
+                  </div>
+                  <h3 style={{ margin: "10px 0 0", fontSize: 22, fontWeight: 500 }}>{item.title}</h3>
+                  <p
+                    style={{
+                      margin: "12px 0 0",
+                      fontSize: 15.5,
+                      lineHeight: 1.65,
+                      color: "var(--ink-muted)",
+                      fontWeight: 300,
+                    }}
+                  >
+                    {item.body}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <p
+              className="rise"
+              style={{
+                margin: "40px 0 0",
+                maxWidth: "68ch",
+                fontSize: 14,
+                lineHeight: 1.65,
+                color: "rgba(14,27,42,0.5)",
+                fontWeight: 300,
+                fontStyle: "italic",
+              }}
+            >
+              By 2026, 50% of global enterprises are projected to transition from traditional BPO to
+              Build-Operate-Transfer models to foster internal innovation rather than just task
+              execution.
+            </p>
+          </div>
+        </section>
+
+        {/* Why SA + three routes — from brief */}
+        <section id="why" style={{ padding: "96px 0", background: "var(--fog)" }}>
           <div className="shell">
             <p className="mono rise" style={{ margin: 0, fontSize: 12, color: "var(--forest)" }}>
               Why South Africa
@@ -273,7 +274,7 @@ export default function HomePage() {
               style={{
                 margin: "14px 0 0",
                 maxWidth: "18ch",
-                fontSize: "clamp(30px, 4.4vw, 52px)",
+                fontSize: "clamp(30px, 4.4vw, 48px)",
                 fontWeight: 200,
                 letterSpacing: "-0.02em",
                 lineHeight: 1.05,
@@ -281,30 +282,10 @@ export default function HomePage() {
             >
               Three routes offshore. One clear path to ownership.
             </h2>
-            <p
-              className="rise"
-              style={{
-                margin: "20px 0 0",
-                maxWidth: "54ch",
-                fontSize: 17,
-                fontWeight: 300,
-                lineHeight: 1.7,
-                color: "var(--ink-muted)",
-              }}
-            >
-              Offshoring to South Africa is driven by cost, English competency, accent acceptability,
-              cultural fit, data protection and service quality. How you get there depends on
-              strategy.
-            </p>
 
             <div
               className="rise"
-              style={{
-                display: "flex",
-                flexWrap: "wrap",
-                gap: "10px 18px",
-                marginTop: 28,
-              }}
+              style={{ display: "flex", flexWrap: "wrap", gap: "10px 18px", marginTop: 28 }}
             >
               {saDrivers.map((item) => (
                 <span
@@ -328,7 +309,7 @@ export default function HomePage() {
                 display: "grid",
                 gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
                 gap: 24,
-                marginTop: 56,
+                marginTop: 48,
               }}
             >
               {routes.map((route) => (
@@ -346,7 +327,7 @@ export default function HomePage() {
                     Route {route.index}
                     {route.highlight ? " · Focus of this brief" : ""}
                   </p>
-                  <h3 style={{ margin: "12px 0 0", fontSize: 24, fontWeight: 500 }}>{route.title}</h3>
+                  <h3 style={{ margin: "12px 0 0", fontSize: 22, fontWeight: 500 }}>{route.title}</h3>
                   <p
                     style={{
                       margin: "12px 0 0",
@@ -369,34 +350,34 @@ export default function HomePage() {
         <section id="dbot" style={{ padding: "96px 0", background: "var(--ink)", color: "var(--white)" }}>
           <div className="shell">
             <p className="mono rise" style={{ margin: 0, fontSize: 12, color: "var(--mint)" }}>
-              The DBOT roadmap
+              The DBOT framework
             </p>
             <h2
               className="rise"
               style={{
                 margin: "14px 0 0",
-                maxWidth: "18ch",
+                maxWidth: "16ch",
                 fontSize: "clamp(30px, 4.4vw, 52px)",
                 fontWeight: 200,
                 letterSpacing: "-0.02em",
                 lineHeight: 1.05,
               }}
             >
-              Design. Build. Operate. Transfer.
+              Your roadmap to ownership.
             </h2>
             <p
               className="rise"
               style={{
                 margin: "18px 0 0",
-                maxWidth: "50ch",
+                maxWidth: "54ch",
                 fontSize: 16.5,
                 fontWeight: 300,
                 lineHeight: 1.65,
                 color: "var(--on-dark-muted)",
               }}
             >
-              A hybrid between outsourcing and a DIY captive — turnkey implementation with Trilogy
-              and local experts, then ownership transfers to you.
+              Design → Build → Operate → Transfer. A proven pathway that mitigates risk at every stage
+              while building toward full ownership — applied across South Africa for more than 20 years.
             </p>
 
             <div
@@ -410,21 +391,14 @@ export default function HomePage() {
             >
               {phases.map((phase) => (
                 <div
-                  key={phase.index}
+                  key={phase.key}
                   className="phase rise"
                   style={{
                     padding: "28px 0 0",
                     borderTop: "1px solid rgba(255,255,255,0.16)",
                   }}
                 >
-                  <div
-                    className="phase-index mono"
-                    style={{
-                      fontSize: 12,
-                      color: "rgba(255,255,255,0.45)",
-                      transition: "color 0.25s",
-                    }}
-                  >
+                  <div className="phase-index mono" style={{ fontSize: 12, color: "var(--mint)" }}>
                     {phase.index} · {phase.letter}
                   </div>
                   <h3 style={{ margin: "14px 0 0", fontSize: 26, fontWeight: 400 }}>{phase.title}</h3>
@@ -444,9 +418,54 @@ export default function HomePage() {
             </div>
 
             <div
+              className="own-grid rise"
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr",
+                gap: 28,
+                marginTop: 44,
+              }}
+            >
+              <div>
+                <p className="mono" style={{ margin: 0, fontSize: 12, color: "var(--mint)" }}>
+                  Risk mitigation
+                </p>
+                <p
+                  style={{
+                    margin: "10px 0 0",
+                    fontSize: 15.5,
+                    lineHeight: 1.65,
+                    color: "var(--on-dark-muted)",
+                    fontWeight: 300,
+                  }}
+                >
+                  DBOT is a de-risking engine — local compliance, labour law, facilities and vendor
+                  ecosystems handled by operators who have done this before.
+                </p>
+              </div>
+              <div>
+                <p className="mono" style={{ margin: 0, fontSize: 12, color: "var(--mint)" }}>
+                  Speed to value
+                </p>
+                <p
+                  style={{
+                    margin: "10px 0 0",
+                    fontSize: 15.5,
+                    lineHeight: 1.65,
+                    color: "var(--on-dark-muted)",
+                    fontWeight: 300,
+                  }}
+                >
+                  Ready-state infrastructure and local licences reduce typical GCC setup time by 4–6
+                  months compared to solo market entry.
+                </p>
+              </div>
+            </div>
+
+            <div
               className="rise"
               style={{
-                marginTop: 56,
+                marginTop: 40,
                 display: "flex",
                 flexWrap: "wrap",
                 gap: 12,
@@ -474,11 +493,101 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Benefits / risk mitigation */}
-        <section id="advantage" style={{ padding: "96px 0", background: "var(--fog)" }}>
+        {/* Phase detail + migration scope */}
+        <section style={{ padding: "96px 0", background: "var(--white)" }}>
           <div className="shell">
             <p className="mono rise" style={{ margin: 0, fontSize: 12, color: "var(--forest)" }}>
-              How DBOT mitigates risk
+              Migration — a phased approach
+            </p>
+            <h2
+              className="rise"
+              style={{
+                margin: "14px 0 0",
+                maxWidth: "18ch",
+                fontSize: "clamp(30px, 4.4vw, 48px)",
+                fontWeight: 200,
+                letterSpacing: "-0.02em",
+                lineHeight: 1.05,
+              }}
+            >
+              Holistic planning. Precise delivery.
+            </h2>
+            <p
+              className="rise"
+              style={{
+                margin: "18px 0 0",
+                maxWidth: "54ch",
+                fontSize: 16.5,
+                fontWeight: 300,
+                lineHeight: 1.7,
+                color: "var(--ink-muted)",
+              }}
+            >
+              Success depends on planning every dimension of the programme — not just seats and systems.
+            </p>
+
+            <div
+              className="rise"
+              style={{ display: "flex", flexWrap: "wrap", gap: 10, marginTop: 28 }}
+            >
+              {migrationScope.map((item) => (
+                <span
+                  key={item}
+                  className="mono"
+                  style={{
+                    fontSize: 11,
+                    padding: "8px 12px",
+                    border: "1px solid rgba(14,27,42,0.12)",
+                    color: "rgba(14,27,42,0.7)",
+                  }}
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+
+            <div style={{ marginTop: 48 }}>
+              {phases.map((phase, i) => (
+                <div
+                  key={phase.key}
+                  className="rise gcc-phase-row"
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "120px 1fr",
+                    gap: 24,
+                    padding: "28px 0",
+                    borderTop: i === 0 ? "1px solid rgba(14,27,42,0.1)" : undefined,
+                    borderBottom: "1px solid rgba(14,27,42,0.1)",
+                  }}
+                >
+                  <div>
+                    <div className="mono" style={{ fontSize: 12, color: "var(--forest)" }}>
+                      {phase.index}
+                    </div>
+                    <div style={{ marginTop: 6, fontSize: 18, fontWeight: 500 }}>{phase.title}</div>
+                  </div>
+                  <p
+                    style={{
+                      margin: 0,
+                      fontSize: 15.5,
+                      lineHeight: 1.7,
+                      color: "var(--ink-muted)",
+                      fontWeight: 300,
+                    }}
+                  >
+                    {phase.detail}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Benefits */}
+        <section id="benefits" style={{ padding: "96px 0", background: "var(--fog)" }}>
+          <div className="shell">
+            <p className="mono rise" style={{ margin: 0, fontSize: 12, color: "var(--forest)" }}>
+              Benefits of DBOT
             </p>
             <h2
               className="rise"
@@ -491,29 +600,542 @@ export default function HomePage() {
                 lineHeight: 1.05,
               }}
             >
-              Captive upside without the solo-build risk.
+              Control, savings, freedom to innovate.
             </h2>
 
             <div
               className="benefit-grid"
               style={{
                 display: "grid",
-                gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
-                gap: "36px 40px",
+                gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+                gap: 28,
                 marginTop: 48,
               }}
             >
-              {riskBenefits.map((item) => (
+              {benefits.map((item) => (
                 <div key={item.title} className="rise">
-                  <h3 style={{ margin: 0, fontSize: 22, fontWeight: 500 }}>{item.title}</h3>
+                  <div
+                    style={{
+                      fontSize: "clamp(40px, 5vw, 56px)",
+                      fontWeight: 300,
+                      letterSpacing: "-0.03em",
+                      color: "var(--forest)",
+                      fontVariantNumeric: "tabular-nums",
+                    }}
+                  >
+                    {item.stat}
+                  </div>
+                  <h3 style={{ margin: "12px 0 0", fontSize: 20, fontWeight: 500 }}>{item.title}</h3>
                   <p
                     style={{
                       margin: "10px 0 0",
-                      maxWidth: "42ch",
+                      maxWidth: "32ch",
+                      fontSize: 15,
+                      fontWeight: 300,
+                      lineHeight: 1.65,
+                      color: "var(--ink-muted)",
+                    }}
+                  >
+                    {item.body}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <div
+              className="proof-grid rise"
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
+                gap: 1,
+                marginTop: 64,
+                background: "var(--mist)",
+                border: "1px solid var(--mist)",
+              }}
+            >
+              {proof.map((item) => (
+                <div key={item.label} style={{ background: "var(--white)", padding: "28px 22px" }}>
+                  <div style={{ fontSize: 32, fontWeight: 400, letterSpacing: "-0.02em" }}>
+                    {item.value}
+                  </div>
+                  <p className="mono" style={{ margin: "10px 0 0", fontSize: 11, color: "var(--ink-muted)" }}>
+                    {item.label}
+                  </p>
+                  <p
+                    style={{
+                      margin: "10px 0 0",
+                      fontSize: 13.5,
+                      fontWeight: 300,
+                      lineHeight: 1.5,
+                      color: "var(--ink-muted)",
+                    }}
+                  >
+                    {item.body}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Ownership + comparisons */}
+        <section style={{ padding: "96px 0", background: "var(--white)" }}>
+          <div className="shell">
+            <p className="mono rise" style={{ margin: 0, fontSize: 12, color: "var(--forest)" }}>
+              The Trilogy GCC lifecycle
+            </p>
+            <h2
+              className="rise"
+              style={{
+                margin: "14px 0 0",
+                maxWidth: "16ch",
+                fontSize: "clamp(30px, 4.4vw, 48px)",
+                fontWeight: 200,
+                letterSpacing: "-0.02em",
+                lineHeight: 1.05,
+              }}
+            >
+              Shared risk. Clear ownership.
+            </h2>
+
+            <div
+              className="own-grid"
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr",
+                gap: 40,
+                marginTop: 48,
+              }}
+            >
+              <div className="rise" style={{ paddingTop: 8, borderTop: "3px solid var(--forest)" }}>
+                <h3 style={{ margin: "16px 0 0", fontSize: 18, fontWeight: 500 }}>
+                  What Trilogy owns early
+                </h3>
+                <ul style={{ margin: "18px 0 0", padding: 0, listStyle: "none" }}>
+                  {owns.trilogy.map((item) => (
+                    <li
+                      key={item}
+                      style={{
+                        display: "flex",
+                        gap: 10,
+                        padding: "10px 0",
+                        fontSize: 15,
+                        fontWeight: 300,
+                        lineHeight: 1.5,
+                        color: "rgba(14,27,42,0.72)",
+                        borderBottom: "1px solid rgba(14,27,42,0.08)",
+                      }}
+                    >
+                      <span style={{ color: "var(--forest)", fontWeight: 700 }}>+</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="rise" style={{ paddingTop: 8, borderTop: "3px solid var(--ink)" }}>
+                <h3 style={{ margin: "16px 0 0", fontSize: 18, fontWeight: 500 }}>
+                  What you own from day one
+                </h3>
+                <ul style={{ margin: "18px 0 0", padding: 0, listStyle: "none" }}>
+                  {owns.client.map((item) => (
+                    <li
+                      key={item}
+                      style={{
+                        display: "flex",
+                        gap: 10,
+                        padding: "10px 0",
+                        fontSize: 15,
+                        fontWeight: 300,
+                        lineHeight: 1.5,
+                        color: "rgba(14,27,42,0.72)",
+                        borderBottom: "1px solid rgba(14,27,42,0.08)",
+                      }}
+                    >
+                      <span style={{ color: "var(--ink)", fontWeight: 700 }}>+</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <div
+              className="own-grid rise"
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr",
+                gap: 28,
+                marginTop: 56,
+              }}
+            >
+              {comparisons.map((item) => (
+                <div
+                  key={item.title}
+                  style={{ paddingBottom: 8, borderBottom: "1px solid rgba(14,27,42,0.1)" }}
+                >
+                  <h3 style={{ margin: 0, fontSize: 17, fontWeight: 500 }}>{item.title}</h3>
+                  <p
+                    style={{
+                      margin: "12px 0 20px",
+                      fontSize: 15,
+                      lineHeight: 1.65,
+                      color: "var(--ink-muted)",
+                      fontWeight: 300,
+                    }}
+                  >
+                    {item.body}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Cost path */}
+        <section style={{ padding: "96px 0", background: "var(--fog)" }}>
+          <div className="shell">
+            <p className="mono rise" style={{ margin: 0, fontSize: 12, color: "var(--forest)" }}>
+              DBOT evolution
+            </p>
+            <h2
+              className="rise"
+              style={{
+                margin: "14px 0 0",
+                maxWidth: "20ch",
+                fontSize: "clamp(30px, 4.4vw, 48px)",
+                fontWeight: 200,
+                letterSpacing: "-0.02em",
+                lineHeight: 1.05,
+              }}
+            >
+              Compounding savings on the path to a GCC.
+            </h2>
+            <p
+              className="rise"
+              style={{
+                margin: "18px 0 0",
+                maxWidth: "52ch",
+                fontSize: 16,
+                fontWeight: 300,
+                lineHeight: 1.65,
+                color: "var(--ink-muted)",
+              }}
+            >
+              Midpoint model of labour arbitrage, GCC ownership and AI deflection stacking on the same
+              cost base.
+            </p>
+
+            <div
+              className="dbit-grid"
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
+                gap: 16,
+                marginTop: 44,
+              }}
+            >
+              {costPath.map((item, i) => (
+                <div
+                  key={item.stage}
+                  className="rise"
+                  style={{
+                    padding: "22px 18px",
+                    background: "var(--white)",
+                    borderTop: i === 0 ? "3px solid var(--mist)" : "3px solid var(--lime)",
+                  }}
+                >
+                  <p className="mono" style={{ margin: 0, fontSize: 11, color: "var(--ink-muted)" }}>
+                    {item.stage}
+                  </p>
+                  <p
+                    style={{
+                      margin: "12px 0 0",
+                      fontSize: 15,
+                      fontWeight: 300,
+                      lineHeight: 1.5,
+                      color: "var(--ink)",
+                    }}
+                  >
+                    {item.label}
+                  </p>
+                  {item.save ? (
+                    <p
+                      style={{
+                        margin: "14px 0 0",
+                        fontSize: 22,
+                        fontWeight: 400,
+                        color: "var(--forest)",
+                        letterSpacing: "-0.02em",
+                      }}
+                    >
+                      {item.save}
+                    </p>
+                  ) : null}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Innovate during Operate */}
+        <section style={{ padding: "96px 0", background: "var(--ink)", color: "var(--white)" }}>
+          <div className="shell">
+            <p className="mono rise" style={{ margin: 0, fontSize: 12, color: "var(--mint)" }}>
+              Innovation by design
+            </p>
+            <h2
+              className="rise"
+              style={{
+                margin: "14px 0 0",
+                maxWidth: "16ch",
+                fontSize: "clamp(30px, 4.4vw, 48px)",
+                fontWeight: 200,
+                letterSpacing: "-0.02em",
+                lineHeight: 1.05,
+              }}
+            >
+              {innovate.title}
+            </h2>
+            <p
+              className="rise"
+              style={{
+                margin: "18px 0 0",
+                maxWidth: "52ch",
+                fontSize: 16.5,
+                fontWeight: 300,
+                lineHeight: 1.65,
+                color: "var(--on-dark-muted)",
+              }}
+            >
+              {innovate.lead}
+            </p>
+            <div
+              className="dbit-grid"
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+                gap: 28,
+                marginTop: 44,
+              }}
+            >
+              {innovate.points.map((item) => (
+                <div
+                  key={item.title}
+                  className="rise"
+                  style={{ borderTop: "1px solid rgba(255,255,255,0.14)", paddingTop: 20 }}
+                >
+                  <h3 style={{ margin: 0, fontSize: 18, fontWeight: 500, color: "var(--lime)" }}>
+                    {item.title}
+                  </h3>
+                  <p
+                    style={{
+                      margin: "12px 0 0",
+                      fontSize: 15,
+                      lineHeight: 1.65,
+                      color: "var(--on-dark-muted)",
+                      fontWeight: 300,
+                    }}
+                  >
+                    {item.body}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Delivery: advantages + turnkey */}
+        <section id="delivery" style={{ padding: "96px 0", background: "var(--white)" }}>
+          <div className="shell">
+            <p className="mono rise" style={{ margin: 0, fontSize: 12, color: "var(--forest)" }}>
+              How we deliver
+            </p>
+            <h2
+              className="rise"
+              style={{
+                margin: "14px 0 0",
+                maxWidth: "18ch",
+                fontSize: "clamp(30px, 4.4vw, 48px)",
+                fontWeight: 200,
+                letterSpacing: "-0.02em",
+                lineHeight: 1.05,
+              }}
+            >
+              Built for purpose. Funded as OPEX.
+            </h2>
+
+            <div
+              className="own-grid"
+              style={{
+                display: "grid",
+                gridTemplateColumns: "1fr 1fr",
+                gap: 28,
+                marginTop: 44,
+              }}
+            >
+              {advantages.map((item) => (
+                <div
+                  key={item.title}
+                  className="rise"
+                  style={{ borderTop: "1px solid rgba(14,27,42,0.12)", paddingTop: 18 }}
+                >
+                  <h3 style={{ margin: 0, fontSize: 18, fontWeight: 500 }}>{item.title}</h3>
+                  <p
+                    style={{
+                      margin: "10px 0 0",
                       fontSize: 15.5,
                       fontWeight: 300,
                       lineHeight: 1.65,
                       color: "var(--ink-muted)",
+                    }}
+                  >
+                    {item.body}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <p
+              className="mono rise"
+              style={{ margin: "64px 0 0", fontSize: 12, color: "var(--forest)" }}
+            >
+              Turnkey build
+            </p>
+            <h3
+              className="rise"
+              style={{
+                margin: "12px 0 0",
+                fontSize: "clamp(26px, 3vw, 36px)",
+                fontWeight: 300,
+                letterSpacing: "-0.02em",
+              }}
+            >
+              Site. Systems. People.
+            </h3>
+
+            <div
+              className="dbit-grid"
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+                gap: 28,
+                marginTop: 36,
+              }}
+            >
+              {turnkey.map((block) => (
+                <div key={block.title} className="rise">
+                  <h4 style={{ margin: 0, fontSize: 18, fontWeight: 500 }}>{block.title}</h4>
+                  <ul style={{ margin: "16px 0 0", padding: 0, listStyle: "none" }}>
+                    {block.items.map((item) => (
+                      <li
+                        key={item}
+                        style={{
+                          padding: "10px 0",
+                          borderBottom: "1px solid rgba(14,27,42,0.08)",
+                          fontSize: 14.5,
+                          fontWeight: 300,
+                          lineHeight: 1.45,
+                          color: "var(--ink-muted)",
+                        }}
+                      >
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Who benefits */}
+        <section style={{ padding: "96px 0", background: "var(--fog)" }}>
+          <div className="shell">
+            <p className="mono rise" style={{ margin: 0, fontSize: 12, color: "var(--forest)" }}>
+              Who this is for
+            </p>
+            <h2
+              className="rise"
+              style={{
+                margin: "14px 0 0",
+                maxWidth: "16ch",
+                fontSize: "clamp(30px, 4.4vw, 48px)",
+                fontWeight: 200,
+                letterSpacing: "-0.02em",
+                lineHeight: 1.05,
+              }}
+            >
+              Ready to own the next stage.
+            </h2>
+            <div style={{ display: "grid", gap: 18, marginTop: 40, maxWidth: "64ch" }}>
+              {whoBenefits.map((item, i) => (
+                <p
+                  key={item}
+                  className="rise"
+                  style={{
+                    margin: 0,
+                    fontSize: 17,
+                    fontWeight: 300,
+                    lineHeight: 1.6,
+                    color: "var(--ink)",
+                    paddingLeft: 18,
+                    borderLeft: "3px solid var(--lime)",
+                  }}
+                >
+                  <span className="mono" style={{ fontSize: 11, color: "var(--forest)", marginRight: 10 }}>
+                    0{i + 1}
+                  </span>
+                  {item}
+                </p>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Commercial + brief */}
+        <section id="commercial" style={{ padding: "96px 0", background: "var(--white)" }}>
+          <div className="shell">
+            <p className="mono rise" style={{ margin: 0, fontSize: 12, color: "var(--forest)" }}>
+              Commercial model
+            </p>
+            <h2
+              className="rise"
+              style={{
+                margin: "14px 0 0",
+                maxWidth: "20ch",
+                fontSize: "clamp(30px, 4.4vw, 48px)",
+                fontWeight: 200,
+                letterSpacing: "-0.02em",
+                lineHeight: 1.05,
+              }}
+            >
+              Transparent costing. Fixed management fee.
+            </h2>
+
+            <div
+              className="dbit-grid"
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+                gap: 28,
+                marginTop: 48,
+              }}
+            >
+              {commercialPoints.map((item) => (
+                <div
+                  key={item.title}
+                  className="rise"
+                  style={{ paddingTop: 20, borderTop: "1px solid rgba(14,27,42,0.12)" }}
+                >
+                  <h3 style={{ margin: 0, fontSize: 20, fontWeight: 500 }}>{item.title}</h3>
+                  <p
+                    style={{
+                      margin: "12px 0 0",
+                      fontSize: 15.5,
+                      fontWeight: 300,
+                      lineHeight: 1.65,
+                      color: "var(--ink-muted)",
+                      maxWidth: "34ch",
                     }}
                   >
                     {item.body}
@@ -591,116 +1213,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Commercial */}
-        <section id="commercial" style={{ padding: "96px 0", background: "var(--white)" }}>
-          <div className="shell">
-            <p className="mono rise" style={{ margin: 0, fontSize: 12, color: "var(--forest)" }}>
-              Commercial model
-            </p>
-            <h2
-              className="rise"
-              style={{
-                margin: "14px 0 0",
-                maxWidth: "20ch",
-                fontSize: "clamp(30px, 4.4vw, 48px)",
-                fontWeight: 200,
-                letterSpacing: "-0.02em",
-                lineHeight: 1.05,
-              }}
-            >
-              Transparent costing. Fixed management fee.
-            </h2>
-
-            <div
-              className="dbit-grid"
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
-                gap: 28,
-                marginTop: 48,
-              }}
-            >
-              {commercialPoints.map((item) => (
-                <div
-                  key={item.title}
-                  className="rise"
-                  style={{
-                    paddingTop: 20,
-                    borderTop: "1px solid rgba(14,27,42,0.12)",
-                  }}
-                >
-                  <h3 style={{ margin: 0, fontSize: 20, fontWeight: 500 }}>{item.title}</h3>
-                  <p
-                    style={{
-                      margin: "12px 0 0",
-                      fontSize: 15.5,
-                      fontWeight: 300,
-                      lineHeight: 1.65,
-                      color: "var(--ink-muted)",
-                      maxWidth: "34ch",
-                    }}
-                  >
-                    {item.body}
-                  </p>
-                </div>
-              ))}
-            </div>
-
-            <div
-              className="own-grid rise"
-              style={{
-                display: "grid",
-                gridTemplateColumns: "1fr 1fr",
-                gap: 32,
-                marginTop: 56,
-                padding: "32px 0 0",
-                borderTop: "1px solid rgba(14,27,42,0.1)",
-              }}
-            >
-              <div>
-                <p className="mono" style={{ margin: 0, fontSize: 11, color: "var(--ink-muted)" }}>
-                  CAPEX path
-                </p>
-                <h3 style={{ margin: "10px 0 0", fontSize: 22, fontWeight: 500 }}>Green-field build</h3>
-                <p
-                  style={{
-                    margin: "10px 0 0",
-                    fontSize: 15.5,
-                    fontWeight: 300,
-                    lineHeight: 1.65,
-                    color: "var(--ink-muted)",
-                    maxWidth: "36ch",
-                  }}
-                >
-                  You meet the CAPEX for site, equipment and facilities — full ownership from day one
-                  of the build.
-                </p>
-              </div>
-              <div>
-                <p className="mono" style={{ margin: 0, fontSize: 11, color: "var(--forest)" }}>
-                  OPEX path · Chosen by many GCC clients
-                </p>
-                <h3 style={{ margin: "10px 0 0", fontSize: 22, fontWeight: 500 }}>
-                  Trilogy rent-to-own
-                </h3>
-                <p
-                  style={{
-                    margin: "10px 0 0",
-                    fontSize: 15.5,
-                    fontWeight: 300,
-                    lineHeight: 1.65,
-                    color: "var(--ink-muted)",
-                    maxWidth: "36ch",
-                  }}
-                >
-                  Full bill of materials on a 36-month plan. At month 36, the site, equipment and
-                  facilities are yours.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* Contact */}
         <section
           id="contact"
@@ -723,13 +1235,13 @@ export default function HomePage() {
           />
           <div className="shell" style={{ position: "relative" }}>
             <p className="mono rise" style={{ margin: 0, fontSize: 12, color: "var(--mint)" }}>
-              Next step
+              A safe pair of hands
             </p>
             <h2
               className="rise"
               style={{
                 margin: "14px 0 0",
-                maxWidth: "16ch",
+                maxWidth: "18ch",
                 fontSize: "clamp(34px, 5vw, 58px)",
                 fontWeight: 200,
                 letterSpacing: "-0.02em",
@@ -742,15 +1254,16 @@ export default function HomePage() {
               className="rise"
               style={{
                 margin: "20px 0 0",
-                maxWidth: "44ch",
+                maxWidth: "48ch",
                 fontSize: 17,
                 fontWeight: 300,
                 lineHeight: 1.65,
                 color: "var(--on-dark-muted)",
               }}
             >
-              Tell us where you are — outsourcing, captive DIY, or starting fresh — and we’ll map a
-              DBOT path with transparent costing.
+              Tenured BPO executives who have built more than 30 contact centres over 25 years —
+              including successful companies later acquired by international groups. Tell us where you
+              are on the journey and we’ll map a DBOT path that fits.
             </p>
             <div className="rise" style={{ display: "flex", flexWrap: "wrap", gap: 14, marginTop: 36 }}>
               <a href="mailto:kobusvdw@trilogybpo.com" className="cta">
