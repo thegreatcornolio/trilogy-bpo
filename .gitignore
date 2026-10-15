@@ -66,3 +66,9 @@ _experiments/
 /video/
 /index.txt
 /7717357-hd_1280_720_25fps.mp4
+
+# GCC microsite local install/build
+gcc-site/node_modules
+gcc-site/.next
+gcc-site/out
+
