@@ -64,7 +64,7 @@ export const teamGroups: { title: string; members: TeamMember[] }[] = [
       },
       {
         name: "Craig Shalekoff",
-        role: "CTO & Founder",
+        role: "GCC CEO & Founder",
         img: "/proposal/team/craig-shalekoff.png",
         linkedin: "https://www.linkedin.com/in/craig-shalekoff-digital-tribe-bpo/",
       },
@@ -121,7 +121,7 @@ export const teamGroups: { title: string; members: TeamMember[] }[] = [
       },
       {
         name: "Craig Shalekoff",
-        role: "CTO & Founder",
+        role: "GCC CEO & Founder",
         img: "/proposal/team/craig-shalekoff.png",
         linkedin: "https://www.linkedin.com/in/craig-shalekoff-digital-tribe-bpo/",
       },
