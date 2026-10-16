@@ -1,13 +1,15 @@
 import Image from "next/image";
+import BenefitsDials from "@/components/BenefitsDials";
+import CapeSights from "@/components/CapeSights";
+import CostPathChart from "@/components/CostPathChart";
+import DbitFlow from "@/components/DbitFlow";
 import SaMap from "@/components/SaMap";
 import TeamSection from "@/components/TeamSection";
 import {
   awards,
-  benefits,
   brandLogos,
   caseStudies,
   commercialModels,
-  costPath,
   dbitLayers,
   dbitPhases,
   featuredBadges,
@@ -18,7 +20,6 @@ import {
   overviewBullets,
   overviewIntro,
   overviewStats,
-  provenResults,
   teamGroups,
   trackRecord,
   turnkeyIt,
@@ -223,13 +224,34 @@ export default function HomePage() {
         {/* Overview */}
         <section id="overview" style={{ padding: "96px 0", background: "var(--white)" }}>
           <div className="shell">
-            <SectionTitle max="18ch">From outsourcing to ownership.</SectionTitle>
-            <Lead>{overviewIntro}</Lead>
+            <h2
+              className="rise"
+              style={{
+                margin: "14px 0 0",
+                fontSize: "clamp(30px, 4.4vw, 48px)",
+                fontWeight: 200,
+                letterSpacing: "-0.02em",
+                lineHeight: 1.05,
+              }}
+            >
+              From outsourcing to ownership.
+            </h2>
             <p
               className="rise"
               style={{
                 margin: "18px 0 0",
-                maxWidth: "58ch",
+                fontSize: 16.5,
+                fontWeight: 300,
+                lineHeight: 1.7,
+                color: "var(--ink-muted)",
+              }}
+            >
+              {overviewIntro}
+            </p>
+            <p
+              className="rise"
+              style={{
+                margin: "18px 0 0",
                 fontSize: 16.5,
                 fontWeight: 300,
                 lineHeight: 1.7,
@@ -241,7 +263,7 @@ export default function HomePage() {
 
             <ul
               className="rise"
-              style={{ margin: "28px 0 0", padding: 0, listStyle: "none", maxWidth: "64ch" }}
+              style={{ margin: "28px 0 0", padding: 0, listStyle: "none" }}
             >
               {overviewBullets.map((item) => (
                 <li
@@ -353,7 +375,7 @@ export default function HomePage() {
             <SectionTitle max="16ch">One team, 20 years.</SectionTitle>
             <Lead>
               The same founders and EXCO team have worked together across every company in this
-              journey — from CCN through to Trilogy Digital.
+              journey — from CCN through to Trilogy GCC.
             </Lead>
             <figure className="journey-figure rise">
               <Image
@@ -465,6 +487,13 @@ export default function HomePage() {
                 ))}
               </ul>
             </div>
+
+            <div style={{ marginTop: 56 }}>
+              <p className="mono rise" style={{ margin: "0 0 16px", fontSize: 12, color: "var(--mint)" }}>
+                Cape Town lifestyle
+              </p>
+              <CapeSights />
+            </div>
           </div>
         </section>
 
@@ -520,42 +549,20 @@ export default function HomePage() {
         </section>
 
         {/* DBIT */}
-        <section id="dbit" style={{ padding: "96px 0", background: "var(--ink)", color: "var(--white)" }}>
+        <section id="dbit" style={{ padding: "96px 0", background: "var(--fog)" }}>
           <div className="shell">
-            <SectionLabel onDark>The DBIT methodology</SectionLabel>
-            <SectionTitle max="18ch">Design. Build. Innovate. Transfer.</SectionTitle>
-            <Lead onDark>
+            <SectionLabel>The DBIT methodology</SectionLabel>
+            <SectionTitle max="28ch">The DBIT Methodology — Design, Build, Innovate & Transfer</SectionTitle>
+            <Lead>
               A phased, holistic build — not a facilities fit-out on its own. DBIT covers every layer
               of the operation so localisation risk is designed out, not discovered at go-live.
             </Lead>
 
-            <div
-              className="dbit-grid"
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
-                gap: 20,
-                marginTop: 52,
-              }}
-            >
-              {dbitPhases.map((phase) => (
-                <div
-                  key={phase.index}
-                  className="phase rise"
-                  style={{ padding: "28px 0 0", borderTop: "1px solid rgba(255,255,255,0.16)" }}
-                >
-                  <div className="phase-index mono" style={{ fontSize: 12, color: "var(--mint)" }}>
-                    {phase.index} · {phase.letter}
-                  </div>
-                  <h3 style={{ margin: "14px 0 0", fontSize: 26, fontWeight: 400 }}>{phase.title}</h3>
-                  <p style={{ margin: "12px 0 0", fontSize: 14.5, fontWeight: 300, lineHeight: 1.6, color: "var(--on-dark-muted)" }}>
-                    {phase.body}
-                  </p>
-                </div>
-              ))}
+            <div style={{ marginTop: 40 }}>
+              <DbitFlow />
             </div>
 
-            <p className="mono rise" style={{ margin: "56px 0 0", fontSize: 12, color: "var(--mint)" }}>
+            <p className="mono rise" style={{ margin: "56px 0 0", fontSize: 12, color: "var(--forest)" }}>
               How DBIT works — every layer
             </p>
             <div
@@ -568,9 +575,9 @@ export default function HomePage() {
               }}
             >
               {dbitLayers.map((item) => (
-                <div key={item.title} className="rise" style={{ borderTop: "1px solid rgba(255,255,255,0.12)", paddingTop: 16 }}>
-                  <h4 style={{ margin: 0, fontSize: 16, fontWeight: 500, color: "var(--lime)" }}>{item.title}</h4>
-                  <p style={{ margin: "10px 0 0", fontSize: 14.5, fontWeight: 300, lineHeight: 1.55, color: "var(--on-dark-muted)" }}>
+                <div key={item.title} className="rise" style={{ borderTop: "1px solid rgba(14,27,42,0.12)", paddingTop: 16 }}>
+                  <h4 style={{ margin: 0, fontSize: 16, fontWeight: 500, color: "var(--forest)" }}>{item.title}</h4>
+                  <p style={{ margin: "10px 0 0", fontSize: 14.5, fontWeight: 300, lineHeight: 1.55, color: "var(--ink-muted)" }}>
                     {item.body}
                   </p>
                 </div>
@@ -612,85 +619,21 @@ export default function HomePage() {
         </section>
 
         {/* Benefits + savings */}
-        <section style={{ padding: "96px 0", background: "var(--fog)" }}>
+        <section id="benefits" style={{ padding: "96px 0", background: "var(--white)" }}>
           <div className="shell">
-            <SectionLabel>Benefits of DBIT</SectionLabel>
-            <SectionTitle max="20ch">Control, savings, freedom to innovate.</SectionTitle>
+            <SectionTitle max="20ch">The Benefits of DBIT</SectionTitle>
+            <Lead>
+              Building your own capability centre through DBIT delivers advantages across multiple
+              dimensions — beyond cost savings, you gain strategic control, operational flexibility
+              and the freedom to innovate without constraints.
+            </Lead>
 
-            <div
-              className="benefit-grid"
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
-                gap: 28,
-                marginTop: 48,
-              }}
-            >
-              {benefits.map((item) => (
-                <div key={item.title} className="rise">
-                  <div style={{ fontSize: "clamp(36px, 5vw, 48px)", fontWeight: 300, color: "var(--forest)", letterSpacing: "-0.03em" }}>
-                    {item.stat}
-                  </div>
-                  <h3 style={{ margin: "10px 0 0", fontSize: 20, fontWeight: 500 }}>{item.title}</h3>
-                  <p style={{ margin: "10px 0 0", fontSize: 15, fontWeight: 300, lineHeight: 1.6, color: "var(--ink-muted)", maxWidth: "36ch" }}>
-                    {item.body}
-                  </p>
-                </div>
-              ))}
+            <div style={{ marginTop: 48 }}>
+              <BenefitsDials />
             </div>
 
-            <p className="mono rise" style={{ margin: "64px 0 0", fontSize: 12, color: "var(--forest)" }}>
-              Compounding savings
-            </p>
-            <h3 className="rise" style={{ margin: "12px 0 0", fontSize: "clamp(24px, 3vw, 34px)", fontWeight: 300, letterSpacing: "-0.02em" }}>
-              From no savings to ~61% off an in-house cost base.
-            </h3>
-            <div
-              className="dbit-grid"
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
-                gap: 14,
-                marginTop: 32,
-              }}
-            >
-              {costPath.map((item, i) => (
-                <div
-                  key={item.stage}
-                  className="rise"
-                  style={{
-                    padding: "20px 16px",
-                    background: "var(--white)",
-                    borderTop: i === 0 ? "3px solid var(--mist)" : "3px solid var(--lime)",
-                  }}
-                >
-                  <p className="mono" style={{ margin: 0, fontSize: 10, color: "var(--ink-muted)" }}>{item.stage}</p>
-                  <p style={{ margin: "10px 0 0", fontSize: 14.5, fontWeight: 300, lineHeight: 1.45 }}>{item.label}</p>
-                  {item.save ? (
-                    <p style={{ margin: "12px 0 0", fontSize: 20, color: "var(--forest)", fontWeight: 400 }}>{item.save}</p>
-                  ) : null}
-                </div>
-              ))}
-            </div>
-
-            <div
-              className="dbit-grid rise"
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
-                gap: 20,
-                marginTop: 40,
-              }}
-            >
-              {provenResults.map((item) => (
-                <div key={item.label} style={{ padding: "22px", background: "var(--white)" }}>
-                  <div style={{ fontSize: 28, fontWeight: 400, color: "var(--forest)" }}>{item.value}</div>
-                  <p className="mono" style={{ margin: "8px 0 0", fontSize: 11, color: "var(--ink-muted)" }}>{item.label}</p>
-                  <p style={{ margin: "10px 0 0", fontSize: 14, fontWeight: 300, lineHeight: 1.5, color: "var(--ink-muted)" }}>
-                    {item.body}
-                  </p>
-                </div>
-              ))}
+            <div style={{ marginTop: 64 }}>
+              <CostPathChart />
             </div>
           </div>
         </section>
