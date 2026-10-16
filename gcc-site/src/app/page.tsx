@@ -96,7 +96,7 @@ export default function HomePage() {
             gap: 24,
           }}
         >
-          <a href="#top" aria-label="Trilogy Global Capability Centre">
+          <a href="#top" aria-label="Trilogy Global Capability Centres">
             <Image
               src="/logo-gcc.png"
               alt="trilogy Global Capability Centres"
