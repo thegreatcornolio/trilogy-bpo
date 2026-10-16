@@ -1150,6 +1150,9 @@ button {
 }
 
 .gcc-savings__step {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
   opacity: 0;
   transform: translateY(10px);
   transition:
@@ -1193,13 +1196,16 @@ button {
 
 .gcc-savings__step-desc {
   margin-top: 0.25rem;
+  margin-bottom: 0.55rem;
   font-size: 0.75rem;
   line-height: 1.45;
   color: rgba(14, 27, 42, 0.55);
+  flex: 1;
 }
 
 .gcc-savings__step-pill {
-  margin-top: 0.55rem;
+  margin-top: auto;
+  align-self: flex-start;
   font-size: 0.65rem;
 }
 
