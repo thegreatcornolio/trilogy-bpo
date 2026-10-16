@@ -99,7 +99,7 @@ export default function HomePage() {
           <a href="#top" aria-label="Trilogy Global Capability Centre">
             <Image
               src="/logo-gcc.png"
-              alt="trilogy Global Capability Centre"
+              alt="trilogy Global Capability Centres"
               width={220}
               height={60}
               priority
@@ -163,7 +163,7 @@ export default function HomePage() {
           >
             <Image
               src="/logo-gcc.png"
-              alt="trilogy Global Capability Centre"
+              alt="trilogy Global Capability Centres"
               width={420}
               height={114}
               priority
@@ -896,7 +896,7 @@ export default function HomePage() {
         >
           <Image
             src="/logo-gcc.png"
-            alt="trilogy Global Capability Centre"
+            alt="trilogy Global Capability Centres"
             width={180}
             height={48}
             style={{ height: 28, width: "auto", opacity: 0.9 }}
