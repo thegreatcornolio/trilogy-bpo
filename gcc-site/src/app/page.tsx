@@ -100,10 +100,10 @@ export default function HomePage() {
             <Image
               src="/logo-gcc.png"
               alt="trilogy Global Capability Centres"
-              width={220}
-              height={60}
+              width={280}
+              height={74}
               priority
-              style={{ height: 36, width: "auto" }}
+              style={{ height: 44, width: "auto" }}
             />
           </a>
           <nav className="desktop-nav" style={{ display: "flex", gap: 20, alignItems: "center" }}>
@@ -162,15 +162,20 @@ export default function HomePage() {
             style={{ position: "relative", zIndex: 1, padding: "120px 0 72px" }}
           >
             <Image
+              className="hero-logo"
               src="/logo-gcc.png"
               alt="trilogy Global Capability Centres"
-              width={420}
-              height={114}
+              width={900}
+              height={238}
               priority
               style={{
-                height: "clamp(52px, 8vw, 78px)",
+                display: "block",
+                height: "clamp(88px, 14vw, 148px)",
                 width: "auto",
-                marginBottom: 28,
+                maxWidth: "min(92vw, 720px)",
+                margin: "0 0 32px",
+                objectFit: "contain",
+                objectPosition: "left center",
               }}
             />
             <h1
@@ -897,9 +902,9 @@ export default function HomePage() {
           <Image
             src="/logo-gcc.png"
             alt="trilogy Global Capability Centres"
-            width={180}
-            height={48}
-            style={{ height: 28, width: "auto", opacity: 0.9 }}
+            width={240}
+            height={64}
+            style={{ height: 36, width: "auto", opacity: 0.95 }}
           />
           <p className="mono" style={{ margin: 0, fontSize: 10.5 }}>
             © {new Date().getFullYear()} Trilogy · DBIT · Global Capability Centres · Cape Town
