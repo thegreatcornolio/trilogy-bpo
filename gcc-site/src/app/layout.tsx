@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Archivo, IBM_Plex_Mono } from "next/font/google";
+import { Lexend, IBM_Plex_Mono } from "next/font/google";
 import RiseObserver from "@/components/RiseObserver";
 import "./globals.css";
 
-const archivo = Archivo({
-  variable: "--font-archivo",
+const lexend = Lexend({
+  variable: "--font-lexend",
   subsets: ["latin"],
   weight: ["200", "300", "400", "500", "600", "700"],
   display: "swap",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-GB" className={`${archivo.variable} ${plexMono.variable}`}>
+    <html lang="en-GB" className={`${lexend.variable} ${plexMono.variable}`}>
       <body>
         {children}
         <RiseObserver />

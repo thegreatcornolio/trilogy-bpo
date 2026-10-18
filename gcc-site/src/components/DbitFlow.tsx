@@ -75,6 +75,7 @@ export default function DbitFlow() {
           <article key={phase.title} className="dbit-flow__card">
             <div className="dbit-flow__card-head">{phase.title}</div>
             <div className="dbit-flow__card-body">{phase.body}</div>
+            <div className="dbit-flow__card-foot" aria-hidden="true" />
           </article>
         ))}
       </div>

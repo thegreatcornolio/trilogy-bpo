@@ -92,7 +92,7 @@ export default function HomePage() {
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            height: 72,
+            height: 80,
             gap: 24,
           }}
         >
@@ -100,10 +100,10 @@ export default function HomePage() {
             <Image
               src="/logo-gcc.png"
               alt="trilogy Global Capability Centres"
-              width={280}
-              height={74}
+              width={320}
+              height={84}
               priority
-              style={{ height: 44, width: "auto" }}
+              style={{ height: 56, width: "auto", maxWidth: "min(52vw, 220px)" }}
             />
           </a>
           <nav className="desktop-nav" style={{ display: "flex", gap: 20, alignItems: "center" }}>
@@ -165,15 +165,15 @@ export default function HomePage() {
               className="hero-logo"
               src="/logo-gcc.png"
               alt="trilogy Global Capability Centres"
-              width={900}
-              height={238}
+              width={675}
+              height={178}
               priority
               style={{
                 display: "block",
-                height: "clamp(88px, 14vw, 148px)",
+                height: "clamp(66px, 10.5vw, 111px)",
                 width: "auto",
-                maxWidth: "min(92vw, 720px)",
-                margin: "0 0 32px",
+                maxWidth: "min(92vw, 540px)",
+                margin: "0 0 28px",
                 objectFit: "contain",
                 objectPosition: "left center",
               }}
@@ -383,14 +383,24 @@ export default function HomePage() {
               journey — from CCN through to Trilogy GCC.
             </Lead>
             <figure className="journey-figure rise">
-              <Image
-                src="/proposal/one-team-20-years.png"
-                alt="Management Journey and UK Client Experience — One Team, 20 Years timeline"
-                width={1400}
-                height={720}
-                sizes="(max-width: 1120px) 100vw, 1120px"
-                style={{ width: "100%", height: "auto" }}
-              />
+              <div className="journey-figure__stack">
+                <Image
+                  src="/proposal/one-team-20-years-a.png"
+                  alt="One Team, 20 Years — CCN, Aegis and Genii Ai"
+                  width={1240}
+                  height={1440}
+                  sizes="(max-width: 1120px) 100vw, 1120px"
+                  style={{ width: "100%", height: "auto" }}
+                />
+                <Image
+                  src="/proposal/one-team-20-years-b.png"
+                  alt="One Team, 20 Years — Digital Tribe through Trilogy GCC"
+                  width={1600}
+                  height={1440}
+                  sizes="(max-width: 1120px) 100vw, 1120px"
+                  style={{ width: "100%", height: "auto" }}
+                />
+              </div>
             </figure>
           </div>
         </section>
