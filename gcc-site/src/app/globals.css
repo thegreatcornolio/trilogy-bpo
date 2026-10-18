@@ -898,9 +898,9 @@ button {
 }
 
 .dbit-flow__card-body {
-  flex: 1 1 auto;
+  flex: 0 0 auto;
   background: #f3f5f8;
-  padding: 16px 16px 14px;
+  padding: 16px;
   font-size: 14px;
   font-weight: 300;
   line-height: 1.55;
@@ -908,10 +908,10 @@ button {
   min-height: 9.5rem;
 }
 
+/* Grows to fill equal-height grid space — white bottom on every card */
 .dbit-flow__card-foot {
-  flex: 0 0 auto;
-  height: 22px;
-  margin-top: auto;
+  flex: 1 1 auto;
+  min-height: 22px;
   background: #fff;
 }
 
