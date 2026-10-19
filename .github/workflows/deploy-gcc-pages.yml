@@ -1,0 +1,50 @@
+name: Deploy GCC microsite to GitHub Pages
+
+# Publishes gcc-site → https://web.trilogybpo.com/trilogy-gcc/
+# (GitHub Pages + Cloudflare DNS already front this domain)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "gcc-site/**"
+      - ".github/workflows/deploy-gcc-pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: deploy-gcc-pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: gcc-site/package-lock.json
+
+      - name: Install & build GCC site
+        working-directory: gcc-site
+        run: |
+          npm ci
+          npm run build:pages
+
+      - name: Publish to gh-pages /trilogy-gcc
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./gcc-site/out
+          destination_dir: trilogy-gcc
+          keep_files: true
+          enable_jekyll: false
+          commit_message: "Deploy GCC microsite to /trilogy-gcc"
