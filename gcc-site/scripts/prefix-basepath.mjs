@@ -2,6 +2,9 @@
 /**
  * Next 16 static export + turbopack can leave public/ asset URLs unprefixed
  * when basePath is set. Rewrite absolute same-origin asset paths after build.
+ *
+ * Only touch HTML/JS/CSS/TXT — never rewrite .svg/.xml body content (that
+ * corrupts self-closing tags like fill="#fff"/>).
  */
 import fs from "node:fs";
 import path from "node:path";
@@ -14,30 +17,32 @@ if (!base) {
   process.exit(0);
 }
 
-const TEXT_EXT = new Set([".html", ".js", ".css", ".txt", ".json", ".xml", ".svg"]);
+const TEXT_EXT = new Set([".html", ".js", ".css", ".txt", ".json"]);
 
+/** Only rewrite paths that look like site assets / Next routes */
 function shouldRewrite(urlPath) {
   if (!urlPath.startsWith("/")) return false;
   if (urlPath.startsWith("//")) return false;
   if (urlPath.startsWith(base + "/") || urlPath === base) return false;
-  // Leave external-looking and special schemes alone
   if (urlPath.startsWith("/api")) return false;
+  // Must look like a real path (file, _next, or app route) — avoid SVG junk like "/>"
+  if (!/^\/(?:_next|proposal|logo-|icon|favicon|apple-|cape-|offer-|brand-|trilogy-|[a-z0-9_-]+\/)/i.test(urlPath)
+    && !/^\/(?:[a-z0-9_.@-]+\.(?:png|jpe?g|webp|gif|svg|ico|mp4|pdf|css|js|woff2?|txt|html?))(?:\?.*)?$/i.test(urlPath)
+    && !/^\/(?:404\/?|icon\.png|favicon\.ico)(?:\?.*)?$/i.test(urlPath)) {
+    return false;
+  }
   return true;
 }
 
 function rewriteContent(content) {
-  // href="/...", src="/...", url(/...), url("/...")
   return content
     .replace(/(["'`])(\/(?!\/)[^"'`]*?)\1/g, (full, quote, urlPath) => {
-      // Only rewrite path-like strings that look like site assets / routes
       if (!shouldRewrite(urlPath)) return full;
-      // Skip obvious non-asset tokens (too short, no slash after, etc.) is ok — prefixing /404 is fine under basePath
-      if (urlPath.startsWith("/trilogy-gcc")) return full;
       return `${quote}${base}${urlPath}${quote}`;
     })
-    .replace(/url\(\s*(\/[^)"'\s]+)\s*\)/g, (full, urlPath) => {
+    .replace(/url\(\s*(['"]?)(\/[^)"'\s]+)\1\s*\)/g, (full, quote, urlPath) => {
       if (!shouldRewrite(urlPath)) return full;
-      return `url(${base}${urlPath})`;
+      return `url(${quote}${base}${urlPath}${quote})`;
     });
 }
 
