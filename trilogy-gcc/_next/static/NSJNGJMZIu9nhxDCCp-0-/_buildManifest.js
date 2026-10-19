@@ -5,7 +5,7 @@ self.__BUILD_MANIFEST = {
     "fallback": []
   },
   "sortedPages": [
-    "/trilogy-gcc/_app",
-    "/trilogy-gcc/_error"
+    "/_app",
+    "/_error"
   ]
 };self.__BUILD_MANIFEST_CB && self.__BUILD_MANIFEST_CB()
