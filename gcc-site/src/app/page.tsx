@@ -3,6 +3,7 @@ import BenefitsDials from "@/components/BenefitsDials";
 import CapeSights from "@/components/CapeSights";
 import CostPathChart from "@/components/CostPathChart";
 import DbitFlow from "@/components/DbitFlow";
+import MobileNav from "@/components/MobileNav";
 import SaMap from "@/components/SaMap";
 import TeamSection from "@/components/TeamSection";
 import {
@@ -121,12 +122,14 @@ export default function HomePage() {
               Talk to us
             </a>
           </nav>
+          <MobileNav />
         </div>
       </header>
 
       <main id="top">
         {/* ===== HERO — preserved as requested ===== */}
         <section
+          className="hero"
           style={{
             position: "relative",
             minHeight: "100svh",

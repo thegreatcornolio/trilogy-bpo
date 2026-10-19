@@ -204,6 +204,123 @@ button {
   }
 }
 
+/* —— Mobile nav (hamburger) —— */
+.mobile-nav {
+  display: none;
+  align-items: center;
+}
+
+.mobile-nav__toggle {
+  position: relative;
+  z-index: 60;
+  width: 44px;
+  height: 44px;
+  margin: 0;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 4px;
+  background: rgba(8, 16, 24, 0.35);
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.mobile-nav__bar {
+  display: block;
+  width: 18px;
+  height: 2px;
+  border-radius: 1px;
+  background: #fff;
+  transition:
+    transform 0.22s ease,
+    opacity 0.22s ease;
+}
+
+.mobile-nav__toggle.is-open .mobile-nav__bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.mobile-nav__toggle.is-open .mobile-nav__bar:nth-child(2) {
+  opacity: 0;
+}
+.mobile-nav__toggle.is-open .mobile-nav__bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.mobile-nav__panel {
+  position: fixed;
+  top: 80px;
+  left: 0;
+  right: 0;
+  z-index: 55;
+  padding: 20px 20px 28px;
+  background: rgba(8, 16, 24, 0.96);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(16px);
+  transform: translateY(-8px);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.22s ease,
+    transform 0.22s ease;
+}
+
+.mobile-nav__panel.is-open {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-nav__panel:not(.is-open) {
+  visibility: hidden;
+}
+
+.mobile-nav__links {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: min(1120px, calc(100% - 0px));
+  margin-inline: auto;
+}
+
+.mobile-nav__link {
+  display: block;
+  padding: 14px 4px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.88);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.mobile-nav__link:hover,
+.mobile-nav__link:focus-visible {
+  color: var(--lime);
+}
+
+.mobile-nav__cta {
+  margin-top: 18px;
+  width: 100%;
+}
+
+.mobile-nav__backdrop {
+  position: fixed;
+  inset: 80px 0 0;
+  z-index: 50;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.22s ease;
+}
+
+.mobile-nav__backdrop.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 @media (max-width: 860px) {
   .shell {
     width: min(1120px, calc(100% - 32px));
@@ -211,6 +328,20 @@ button {
 
   .desktop-nav {
     display: none !important;
+  }
+
+  .mobile-nav {
+    display: flex;
+  }
+
+  /* Center hero logo, copy, and CTAs on mobile */
+  .hero {
+    align-items: center !important;
+  }
+
+  .hero .hero-copy {
+    padding: 96px 0 56px !important;
+    width: 100%;
   }
 
   .dbit-grid {
