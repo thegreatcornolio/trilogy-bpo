@@ -336,12 +336,42 @@ button {
 
   /* Center hero logo, copy, and CTAs on mobile */
   .hero {
-    align-items: center !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: stretch !important;
+    padding-top: 80px; /* clear fixed header */
+    box-sizing: border-box;
   }
 
   .hero .hero-copy {
-    padding: 96px 0 56px !important;
+    padding: 20px 0 32px !important;
     width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero .hero-logo {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    object-position: center center !important;
+  }
+
+  .hero .hero-copy h1,
+  .hero .hero-copy p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero .hero-actions {
+    justify-content: center !important;
+    width: 100%;
+  }
+
+  .hero .accent-line {
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .dbit-grid {
