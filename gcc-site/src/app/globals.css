@@ -679,21 +679,19 @@ button {
   display: block;
 }
 
-/* Two stacked halves so timeline type stays readable (esp. mobile) */
-.journey-figure__stack {
-  display: grid;
-  gap: 10px;
-  background: var(--ink);
-}
-
-.journey-figure__stack img {
-  width: 100%;
-  height: auto;
-  display: block;
-  background: #0e1b2a;
+.journey-figure__mobile {
+  display: none !important;
 }
 
 @media (max-width: 720px) {
+  .journey-figure__desktop {
+    display: none !important;
+  }
+
+  .journey-figure__mobile {
+    display: block !important;
+  }
+
   .journey-figure {
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);

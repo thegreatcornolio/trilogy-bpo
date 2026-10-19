@@ -383,24 +383,24 @@ export default function HomePage() {
               journey — from CCN through to Trilogy GCC.
             </Lead>
             <figure className="journey-figure rise">
-              <div className="journey-figure__stack">
-                <Image
-                  src="/proposal/one-team-20-years-a.png"
-                  alt="One Team, 20 Years — CCN, Aegis and Genii Ai"
-                  width={1240}
-                  height={1440}
-                  sizes="(max-width: 1120px) 100vw, 1120px"
-                  style={{ width: "100%", height: "auto" }}
-                />
-                <Image
-                  src="/proposal/one-team-20-years-b.png"
-                  alt="One Team, 20 Years — Digital Tribe through Trilogy GCC"
-                  width={1600}
-                  height={1440}
-                  sizes="(max-width: 1120px) 100vw, 1120px"
-                  style={{ width: "100%", height: "auto" }}
-                />
-              </div>
+              <Image
+                className="journey-figure__desktop"
+                src="/proposal/one-team-20-years-desktop.webp"
+                alt="Management Journey and UK Client Experience — One Team, 20 Years timeline"
+                width={2400}
+                height={1350}
+                sizes="(max-width: 1120px) 100vw, 1120px"
+                style={{ width: "100%", height: "auto" }}
+              />
+              <Image
+                className="journey-figure__mobile"
+                src="/proposal/one-team-20-years-mobile.webp"
+                alt="Management Journey and UK Client Experience — One Team, 20 Years timeline"
+                width={1800}
+                height={3200}
+                sizes="100vw"
+                style={{ width: "100%", height: "auto" }}
+              />
             </figure>
           </div>
         </section>
