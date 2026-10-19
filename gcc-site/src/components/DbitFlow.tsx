@@ -41,7 +41,7 @@ export default function DbitFlow() {
           }
         }
       },
-      { threshold: 0.28, rootMargin: "0px 0px -8% 0px" },
+      { threshold: 0.18, rootMargin: "0px 0px -6% 0px" },
     );
     io.observe(root);
     return () => io.disconnect();
@@ -70,15 +70,34 @@ export default function DbitFlow() {
         </svg>
         <span className="dbit-flow__pulse" />
       </div>
-      <div className="dbit-flow__cards">
-        {phases.map((phase) => (
-          <article key={phase.title} className="dbit-flow__card">
-            <div className="dbit-flow__card-head">{phase.title}</div>
-            <div className="dbit-flow__card-body">{phase.body}</div>
-            <div className="dbit-flow__card-foot" aria-hidden="true" />
-          </article>
+
+      <ol className="dbit-flow__cards">
+        {phases.map((phase, index) => (
+          <li key={phase.title} className="dbit-flow__step">
+            <article className="dbit-flow__card">
+              <div className="dbit-flow__card-head">
+                <span className="dbit-flow__step-num" aria-hidden="true">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <span className="dbit-flow__step-title">{phase.title}</span>
+              </div>
+              <div className="dbit-flow__card-body">{phase.body}</div>
+              <div className="dbit-flow__card-foot" aria-hidden="true" />
+            </article>
+
+            {index < phases.length - 1 ? (
+              <div className="dbit-flow__connector" aria-hidden="true">
+                <span className="dbit-flow__connector-line" />
+                <span className="dbit-flow__connector-pulse" />
+                <span className="dbit-flow__then">
+                  Then
+                  <span className="dbit-flow__chevron" />
+                </span>
+              </div>
+            ) : null}
+          </li>
         ))}
-      </div>
+      </ol>
     </div>
   );
 }
