@@ -352,10 +352,19 @@ button {
     align-items: center;
   }
 
-  .hero .hero-logo {
+  .hero .hero-logo,
+  .hero .hero-brand {
     margin-left: auto !important;
     margin-right: auto !important;
     object-position: center center !important;
+  }
+
+  .hero .hero-brand {
+    align-items: center !important;
+  }
+
+  .hero .hero-brand .brand-lockup__sub {
+    text-align: center;
   }
 
   .hero .hero-copy h1,

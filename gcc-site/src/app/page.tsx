@@ -1,5 +1,6 @@
 import Image from "next/image";
 import BenefitsDials from "@/components/BenefitsDials";
+import BrandLockup from "@/components/BrandLockup";
 import CapeSights from "@/components/CapeSights";
 import CostPathChart from "@/components/CostPathChart";
 import DbitFlow from "@/components/DbitFlow";
@@ -98,14 +99,7 @@ export default function HomePage() {
           }}
         >
           <a href="#top" aria-label="Trilogy Global Capability Centres">
-            <Image
-              src="/logo-gcc.png"
-              alt="trilogy Global Capability Centres"
-              width={320}
-              height={84}
-              priority
-              style={{ height: 56, width: "auto", maxWidth: "min(52vw, 220px)" }}
-            />
+            <BrandLockup size="nav" />
           </a>
           <nav className="desktop-nav" style={{ display: "flex", gap: 20, alignItems: "center" }}>
             {nav.map((item) => (
@@ -164,23 +158,9 @@ export default function HomePage() {
             className="shell hero-copy"
             style={{ position: "relative", zIndex: 1, padding: "120px 0 72px" }}
           >
-            <Image
-              className="hero-logo"
-              src="/logo-gcc.png"
-              alt="trilogy Global Capability Centres"
-              width={675}
-              height={178}
-              priority
-              style={{
-                display: "block",
-                height: "clamp(66px, 10.5vw, 111px)",
-                width: "auto",
-                maxWidth: "min(92vw, 540px)",
-                margin: "0 0 28px",
-                objectFit: "contain",
-                objectPosition: "left center",
-              }}
-            />
+            <div style={{ margin: "0 0 28px" }}>
+              <BrandLockup size="hero" className="hero-brand" />
+            </div>
             <h1
               style={{
                 margin: 0,
@@ -912,13 +892,7 @@ export default function HomePage() {
             justifyContent: "space-between",
           }}
         >
-          <Image
-            src="/logo-gcc.png"
-            alt="trilogy Global Capability Centres"
-            width={240}
-            height={64}
-            style={{ height: 36, width: "auto", opacity: 0.95 }}
-          />
+          <BrandLockup size="footer" />
           <p className="mono" style={{ margin: 0, fontSize: 10.5 }}>
             © {new Date().getFullYear()} Trilogy · DBIT · Global Capability Centres · Cape Town
           </p>
