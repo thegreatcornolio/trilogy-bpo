@@ -7,6 +7,7 @@
     "dev:gcc": "npm run dev --prefix gcc-site",
     "build": "next build",
     "build:gcc": "npm run build --prefix gcc-site",
+    "build:gcc:pages": "npm run build:pages --prefix gcc-site",
     "start": "next start",
     "lint": "eslint"
   },
