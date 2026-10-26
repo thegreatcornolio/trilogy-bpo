@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useId, useState } from "react";
-import { nav } from "@/lib/content";
+import { nav, type NavItem } from "@/lib/content";
 
-export default function MobileNav() {
+export default function MobileNav({ items = nav as readonly NavItem[] }: { items?: readonly NavItem[] }) {
   const [open, setOpen] = useState(false);
   const panelId = useId();
 
@@ -42,7 +42,7 @@ export default function MobileNav() {
         aria-hidden={!open}
       >
         <nav className="mobile-nav__links" aria-label="Mobile">
-          {nav.map((item) => (
+          {items.map((item) => (
             <a
               key={item.href}
               href={item.href}

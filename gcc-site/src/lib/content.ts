@@ -13,6 +13,19 @@ export const nav = [
   { label: "Contact", href: "#contact" },
 ] as const;
 
+/** Nav for the hidden briefing page — omits sections already on trilogybpo.com */
+export const navBriefing = [
+  { label: "Overview", href: "#overview" },
+  { label: "Journey", href: "#journey" },
+  { label: "Footprint", href: "#footprint" },
+  { label: "DBIT", href: "#dbit" },
+  { label: "Cases", href: "#cases" },
+  { label: "Commercial", href: "#commercial" },
+  { label: "Contact", href: "#contact" },
+] as const;
+
+export type NavItem = { label: string; href: string };
+
 export const overviewIntro =
   "Trilogy GCC allows you to move beyond outsourcing. Design, Build, Innovate, Transfer — your risk-mitigated roadmap to a fully-owned Center of Excellence in South Africa.";
 
