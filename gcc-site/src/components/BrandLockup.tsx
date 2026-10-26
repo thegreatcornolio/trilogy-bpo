@@ -5,75 +5,47 @@ type BrandLockupProps = {
   className?: string;
 };
 
+/** Official Trilogy + Global Capability Centres lockup (dark-bg / light wordmark). */
+const LOCKUP = {
+  src: "/logo/trilogy-gcc-lockup-dark.png",
+  width: 839,
+  height: 254,
+} as const;
+
 const sizes = {
   nav: {
-    width: 220,
-    height: 48,
-    logoHeight: 36,
-    subSize: 9.5,
-    gap: 3,
+    height: 44,
+    maxWidth: "min(56vw, 210px)",
   },
   hero: {
-    width: 420,
-    height: 92,
-    logoHeight: "clamp(52px, 9vw, 88px)" as const,
-    subSize: "clamp(12px, 1.8vw, 15px)" as const,
-    gap: 10,
+    height: "clamp(64px, 12vw, 112px)" as const,
+    maxWidth: "min(92vw, 520px)",
   },
   footer: {
-    width: 180,
-    height: 40,
-    logoHeight: 28,
-    subSize: 9,
-    gap: 3,
+    height: 34,
+    maxWidth: "180px",
   },
 } as const;
 
 export default function BrandLockup({ size = "nav", className = "" }: BrandLockupProps) {
   const s = sizes[size];
-  const logoHeight = s.logoHeight;
 
   return (
-    <div
-      className={`brand-lockup brand-lockup--${size}${className ? ` ${className}` : ""}`}
+    <Image
+      src={LOCKUP.src}
+      alt="trilogy Global Capability Centres"
+      width={LOCKUP.width}
+      height={LOCKUP.height}
+      priority={size !== "footer"}
+      className={`brand-lockup brand-lockup--${size}${size === "hero" ? " hero-logo hero-brand" : ""}${className ? ` ${className}` : ""}`}
       style={{
-        display: "inline-flex",
-        flexDirection: "column",
-        alignItems: "flex-start",
-        gap: s.gap,
-        lineHeight: 1,
+        display: "block",
+        height: s.height,
+        width: "auto",
+        maxWidth: s.maxWidth,
+        objectFit: "contain",
+        objectPosition: size === "hero" ? "left center" : "left center",
       }}
-    >
-      <Image
-        src="/logo/trilogy-logo-light.png"
-        alt="trilogy"
-        width={s.width}
-        height={s.height}
-        priority={size !== "footer"}
-        className={size === "hero" ? "hero-logo" : undefined}
-        style={{
-          display: "block",
-          height: logoHeight,
-          width: "auto",
-          maxWidth: size === "nav" ? "min(48vw, 200px)" : size === "hero" ? "min(88vw, 420px)" : "160px",
-          objectFit: "contain",
-          objectPosition: "left center",
-        }}
-      />
-      <span
-        className="brand-lockup__sub mono"
-        style={{
-          margin: 0,
-          fontSize: s.subSize,
-          fontWeight: 500,
-          letterSpacing: "0.14em",
-          textTransform: "uppercase",
-          color: "var(--mint)",
-          whiteSpace: "nowrap",
-        }}
-      >
-        Global Capability Centres
-      </span>
-    </div>
+    />
   );
 }

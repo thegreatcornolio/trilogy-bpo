@@ -359,14 +359,6 @@ button {
     object-position: center center !important;
   }
 
-  .hero .hero-brand {
-    align-items: center !important;
-  }
-
-  .hero .hero-brand .brand-lockup__sub {
-    text-align: center;
-  }
-
   .hero .hero-copy h1,
   .hero .hero-copy p {
     margin-left: auto;
