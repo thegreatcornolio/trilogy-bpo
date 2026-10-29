@@ -1794,4 +1794,128 @@ button {
   .gcc-savings__line {
     stroke-dashoffset: 0;
   }
+
+  .test-kitchen-visual,
+  .test-kitchen-visual__frame,
+  .test-kitchen-visual__glow,
+  .test-kitchen-visual__img {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    filter: none !important;
+  }
+}
+
+/* —— Test Kitchen / AI visual —— */
+.test-kitchen-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: 40px 56px;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .test-kitchen-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .test-kitchen-visual {
+    max-width: 420px;
+    margin-inline: auto;
+  }
+}
+
+.test-kitchen-visual {
+  position: relative;
+  isolation: isolate;
+}
+
+.test-kitchen-visual__glow {
+  position: absolute;
+  inset: 6% 4%;
+  border-radius: 50%;
+  background:
+    radial-gradient(ellipse at 50% 62%, rgba(47, 232, 92, 0.42), transparent 58%),
+    radial-gradient(ellipse at 55% 40%, rgba(120, 210, 255, 0.12), transparent 55%);
+  opacity: 0;
+  transform: scale(0.65);
+  filter: blur(2px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.test-kitchen-visual__frame {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  background: transparent;
+  opacity: 0;
+  transform: translateY(36px) scale(0.86);
+  filter: drop-shadow(0 18px 40px rgba(47, 232, 92, 0.18));
+}
+
+.test-kitchen-visual.is-inview .test-kitchen-visual__frame {
+  opacity: 1;
+  animation:
+    test-kitchen-pop 1.05s cubic-bezier(0.16, 1, 0.3, 1) both,
+    test-kitchen-float 4.8s ease-in-out 1.05s infinite;
+}
+
+.test-kitchen-visual.is-inview .test-kitchen-visual__glow {
+  opacity: 1;
+  transform: scale(1);
+  animation: test-kitchen-glow 3.2s ease-in-out 0.35s infinite;
+}
+
+.test-kitchen-visual__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transform: scale(1.08);
+  transition: transform 1.15s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.test-kitchen-visual.is-inview .test-kitchen-visual__img {
+  transform: scale(1);
+}
+
+@keyframes test-kitchen-pop {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.84);
+  }
+  55% {
+    opacity: 1;
+    transform: translateY(-10px) scale(1.045);
+  }
+  78% {
+    transform: translateY(3px) scale(0.985);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes test-kitchen-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes test-kitchen-glow {
+  0%,
+  100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.12);
+  }
 }

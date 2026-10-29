@@ -5,6 +5,7 @@ import CostPathChart from "@/components/CostPathChart";
 import DbitFlow from "@/components/DbitFlow";
 import MobileNav from "@/components/MobileNav";
 import SaMap from "@/components/SaMap";
+import TestKitchenVisual from "@/components/TestKitchenVisual";
 import {
   caseStudies,
   commercialModels,
@@ -481,41 +482,59 @@ export default function GccSitePage({ variant = "full" }: { variant?: GccSiteVar
             <div style={{ marginTop: 64 }}>
               <CostPathChart />
             </div>
+          </div>
+        </section>
 
-            <div style={{ marginTop: 72 }}>
-              <SectionLabel>{testKitchen.kicker}</SectionLabel>
-              <SectionTitle max="24ch">{testKitchen.title}</SectionTitle>
-              <Lead>{testKitchen.lead}</Lead>
-              <div
-                className="dbit-grid"
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
-                  gap: 24,
-                  marginTop: 40,
-                }}
-              >
-                {testKitchen.unlocks.map((item) => (
-                  <div
-                    key={item.title}
-                    className="rise"
-                    style={{ borderTop: "2px solid var(--lime)", paddingTop: 18 }}
-                  >
-                    <h3 style={{ margin: 0, fontSize: 18, fontWeight: 500 }}>{item.title}</h3>
-                    <p
-                      style={{
-                        margin: "12px 0 0",
-                        fontSize: 15,
-                        fontWeight: 300,
-                        lineHeight: 1.6,
-                        color: "var(--ink-muted)",
-                      }}
-                    >
-                      {item.body}
-                    </p>
-                  </div>
-                ))}
+        {/* Test Kitchen / AI — dark blue with animated visual */}
+        <section
+          id="test-kitchen"
+          style={{
+            padding: "96px 0",
+            background:
+              "radial-gradient(ellipse 80% 70% at 78% 42%, rgba(47, 232, 92, 0.08), transparent 55%), linear-gradient(165deg, #132338 0%, var(--ink) 42%, var(--ink-deep) 100%)",
+            color: "var(--white)",
+            overflow: "hidden",
+          }}
+        >
+          <div className="shell">
+            <div className="test-kitchen-grid">
+              <div>
+                <SectionLabel onDark>{testKitchen.kicker}</SectionLabel>
+                <SectionTitle max="22ch">{testKitchen.title}</SectionTitle>
+                <Lead onDark>{testKitchen.lead}</Lead>
               </div>
+              <TestKitchenVisual />
+            </div>
+
+            <div
+              className="dbit-grid"
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+                gap: 24,
+                marginTop: 56,
+              }}
+            >
+              {testKitchen.unlocks.map((item) => (
+                <div
+                  key={item.title}
+                  className="rise"
+                  style={{ borderTop: "2px solid var(--lime)", paddingTop: 18 }}
+                >
+                  <h3 style={{ margin: 0, fontSize: 18, fontWeight: 500 }}>{item.title}</h3>
+                  <p
+                    style={{
+                      margin: "12px 0 0",
+                      fontSize: 15,
+                      fontWeight: 300,
+                      lineHeight: 1.6,
+                      color: "var(--on-dark-muted)",
+                    }}
+                  >
+                    {item.body}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
         </section>
