@@ -8,11 +8,11 @@ import BoardAccordion from "@/components/BoardAccordion";
 import { BrandMarquee } from "@/components/BrandMarquee";
 import FaqJsonLd from "@/components/FaqJsonLd";
 import FaqSection from "@/components/FaqSection";
-import OfferingsTabs from "@/components/OfferingsTabs";
 import PageJsonLd from "@/components/PageJsonLd";
 import { SavingsCalculator } from "@/components/SavingsCalculator";
 import SectionKicker from "@/components/SectionKicker";
 import { TechStackTrack } from "@/components/TechStackTrack";
+import TrilogyGroupPaths from "@/components/TrilogyGroupPaths";
 import {
   aiJourney,
   aiProducts,
@@ -179,7 +179,7 @@ export default function HomePage() {
       </section>
 
       {/* Trilogy Group */}
-      <section id="group" style={{ padding: "88px 0 40px", background: "#fff" }}>
+      <section id="group" style={{ padding: "96px 0", background: "#fff" }}>
         <div className="container">
           <SectionKicker>{trilogyGroup.kicker}</SectionKicker>
           <SectionTitle>{trilogyGroup.title}</SectionTitle>
@@ -196,99 +196,7 @@ export default function HomePage() {
           >
             {trilogyGroup.lead}
           </p>
-          <div
-            className="rise group-grid"
-            style={{
-              marginTop: 40,
-              display: "grid",
-              gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
-              gap: 18,
-            }}
-          >
-            {trilogyGroup.members.map((member, index) => (
-              <Link
-                key={member.key}
-                href={member.href}
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: 10,
-                  padding: "26px 24px",
-                  borderRadius: 14,
-                  border: "1px solid rgba(14,27,42,.1)",
-                  background: index === 0 ? "#0E1B2A" : "#F7F5F0",
-                  color: index === 0 ? "#fff" : "#0E1B2A",
-                  textDecoration: "none",
-                  minHeight: "100%",
-                  transition: "transform .2s ease, border-color .2s ease",
-                }}
-              >
-                <div
-                  className="mono"
-                  style={{
-                    fontSize: 11.5,
-                    letterSpacing: ".14em",
-                    textTransform: "uppercase",
-                    color: index === 0 ? "#2FE85C" : "#0E7C46",
-                  }}
-                >
-                  {String(index + 1).padStart(2, "0")} · {member.tag}
-                </div>
-                <div style={{ fontSize: "clamp(20px, 2.2vw, 26px)", fontWeight: 500, letterSpacing: "-.02em" }}>
-                  {member.name}
-                </div>
-                <p
-                  style={{
-                    margin: 0,
-                    fontSize: 15,
-                    lineHeight: 1.6,
-                    fontWeight: 300,
-                    color: index === 0 ? "rgba(255,255,255,.72)" : "rgba(14,27,42,.64)",
-                    flex: 1,
-                  }}
-                >
-                  {member.body}
-                </p>
-                <span
-                  className="mono"
-                  style={{
-                    marginTop: 8,
-                    fontSize: 12,
-                    letterSpacing: ".1em",
-                    textTransform: "uppercase",
-                    color: index === 0 ? "#2FE85C" : "#0E7C46",
-                  }}
-                >
-                  Explore →
-                </span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Offerings */}
-      <section id="offerings" style={{ padding: "56px 0 96px", background: "#fff" }}>
-        <div className="container">
-          <SectionKicker>Three offerings · GCC · Digital · Ai</SectionKicker>
-          <SectionTitle>From outsourcing to ownership.</SectionTitle>
-          <p
-            className="rise"
-            style={{
-              margin: "18px 0 0",
-              maxWidth: "54ch",
-              fontSize: 16.5,
-              lineHeight: 1.7,
-              color: "rgba(14,27,42,.64)",
-              fontWeight: 300,
-            }}
-          >
-            Stand up your own Global Capability Centre with DBIT, outsource through Trilogy Digital, or layer in
-            autonomous CX — the same operator family, the same South African delivery.
-          </p>
-          <div style={{ marginTop: 40 }}>
-            <OfferingsTabs defaultKey="gcc" />
-          </div>
+          <TrilogyGroupPaths />
         </div>
       </section>
 

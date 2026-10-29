@@ -25,7 +25,7 @@ export const navLinks: NavItem[] = [
   { label: "Partners", href: "/#partners" },
 ];
 
-/** Homepage — Trilogy Group of Companies (above the three offerings). */
+/** Homepage — Trilogy Group of Companies. */
 export const trilogyGroup = {
   kicker: "Trilogy Group",
   title: "One operator family. Three ways in.",
@@ -37,6 +37,9 @@ export const trilogyGroup = {
       tag: "Global Capability Centres",
       body: "Design, build, innovate and transfer your own centre in South Africa — ownership with DBIT.",
       href: "/trilogy-gcc/",
+      image: "/img/cape-town.jpg",
+      video: "/7717357-hd_1280_720_25fps.mp4",
+      imageAlt: "Cape Town — home of Trilogy Global Capability Centres",
     },
     {
       key: "digital",
@@ -44,6 +47,9 @@ export const trilogyGroup = {
       tag: "Outsourced CX delivery",
       body: "Turnkey contact centre outsourcing for UK, US and EMEA — voice, digital and AI-enabled delivery.",
       href: "/trilogy-digital/",
+      image: "/img/offer-bpo.png",
+      video: "/video/offer-bpo.mp4",
+      imageAlt: "Digital contact-centre floor with AI-enabled delivery",
     },
     {
       key: "ai",
@@ -51,6 +57,9 @@ export const trilogyGroup = {
       tag: "Autonomous CX platform",
       body: "Agent-in-the-loop AI for service, sales, marketing and collections — live with clients today.",
       href: "/trilogy-ai/",
+      image: "/img/offer-ai.png",
+      video: "/video/offer-ai.mp4",
+      imageAlt: "Human and AI collaboration for autonomous CX",
     },
   ],
 } as const;
