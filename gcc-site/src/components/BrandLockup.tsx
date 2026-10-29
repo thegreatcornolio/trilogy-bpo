@@ -6,8 +6,8 @@ type BrandLockupProps = {
 };
 
 /**
- * Same trilogy mark + wordmark as the main landing header everywhere.
- * Light wordmark for dark GCC chrome (nav / hero / footer).
+ * Nav and footer keep the light trilogy wordmark (same mark as the landing menu).
+ * The hero does not use that logo — only the coloured Global Capability Centres stack.
  */
 const LOGO = {
   src: "/logo/trilogy-logo-light.png",
@@ -20,17 +20,35 @@ const sizes = {
     height: 44,
     maxWidth: "min(56vw, 200px)",
   },
-  hero: {
-    height: "clamp(56px, 10vw, 88px)" as const,
-    maxWidth: "min(92vw, 420px)",
-  },
   footer: {
     height: 34,
     maxWidth: "160px",
   },
 } as const;
 
+/** Colours sampled from the approved Global / Capability / Centres wordmark. */
+const WORDMARK = [
+  { text: "Global", color: "#F8F8F8" },
+  { text: "Capability", color: "#90E078" },
+  { text: "Centres", color: "#D0E880" },
+] as const;
+
 export default function BrandLockup({ size = "nav", className = "" }: BrandLockupProps) {
+  if (size === "hero") {
+    return (
+      <span
+        className={`hero-gcc-wordmark hero-logo hero-brand${className ? ` ${className}` : ""}`}
+        aria-label="Global Capability Centres"
+      >
+        {WORDMARK.map((line) => (
+          <span key={line.text} style={{ color: line.color }}>
+            {line.text}
+          </span>
+        ))}
+      </span>
+    );
+  }
+
   const s = sizes[size];
 
   return (
@@ -39,8 +57,8 @@ export default function BrandLockup({ size = "nav", className = "" }: BrandLocku
       alt="trilogy"
       width={LOGO.width}
       height={LOGO.height}
-      priority={size !== "footer"}
-      className={`brand-lockup brand-lockup--${size}${size === "hero" ? " hero-logo hero-brand" : ""}${className ? ` ${className}` : ""}`}
+      priority={size === "nav"}
+      className={`brand-lockup brand-lockup--${size}${className ? ` ${className}` : ""}`}
       style={{
         display: "block",
         height: s.height,

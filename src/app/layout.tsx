@@ -131,7 +131,7 @@ export default function RootLayout({
             三
           </span>
           <Header />
-          <div style={{ position: "relative", zIndex: 1 }}>{children}</div>
+          <div style={{ position: "relative", zIndex: 1, paddingTop: 80 }}>{children}</div>
           <Footer />
         </div>
       </body>

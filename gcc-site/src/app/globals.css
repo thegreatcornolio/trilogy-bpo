@@ -94,6 +94,19 @@ button {
   animation: hero-ken 8s cubic-bezier(0.16, 0.84, 0.44, 1) both;
 }
 
+/* Hero brand line: coloured Global / Capability / Centres, no trilogy mark. */
+.hero-gcc-wordmark {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: clamp(28px, 4.6vw, 44px);
+  letter-spacing: -0.03em;
+  line-height: 0.98;
+}
+
 .hero-copy > * {
   opacity: 0;
   animation: fade-up 0.9s cubic-bezier(0.16, 0.84, 0.44, 1) forwards;
@@ -357,6 +370,11 @@ button {
     margin-left: auto !important;
     margin-right: auto !important;
     object-position: center center !important;
+  }
+
+  .hero .hero-gcc-wordmark {
+    align-items: center;
+    text-align: center;
   }
 
   .hero .hero-copy h1,

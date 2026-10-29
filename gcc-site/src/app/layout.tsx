@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
-import { Lexend, IBM_Plex_Mono } from "next/font/google";
+import localFont from "next/font/local";
+import { IBM_Plex_Mono } from "next/font/google";
 import RiseObserver from "@/components/RiseObserver";
 import "./globals.css";
 
-const lexend = Lexend({
+// Self-hosted so `next dev` does not depend on Google Fonts' extensionless kit URLs.
+const lexend = localFont({
+  src: "../fonts/lexend-latin.woff2",
   variable: "--font-lexend",
-  subsets: ["latin"],
-  weight: ["200", "300", "400", "500", "600", "700"],
+  weight: "200 700",
   display: "swap",
 });
 

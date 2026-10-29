@@ -69,7 +69,7 @@ export default function HomePage() {
       <FaqJsonLd faqs={homeFaqs} />
       <PageJsonLd path="/" name={homeTitle} description={site.description} />
       {/* Hero */}
-      <section style={{ position: "relative", minHeight: "92vh", color: "#fff", overflow: "hidden" }}>
+      <section style={{ position: "relative", minHeight: "92vh", marginTop: -80, color: "#fff", overflow: "hidden" }}>
         <div style={{ position: "absolute", inset: 0, background: "#0A121A" }}>
           <AutoVideo src="/video/hero.mp4" poster="/img/hero-fem.png" objectPosition="center right" />
           <div
@@ -82,7 +82,7 @@ export default function HomePage() {
             }}
           />
         </div>
-        <div className="container" style={{ position: "relative", zIndex: 1, paddingTop: 88, paddingBottom: 64 }}>
+        <div className="container" style={{ position: "relative", zIndex: 1, paddingTop: 128, paddingBottom: 64 }}>
           <div className="rise" style={{ maxWidth: 640 }}>
             <div className="mono" style={{ fontSize: 12, letterSpacing: ".16em", color: "rgba(247,245,240,.7)" }}>
               · AI-enabled BPO · UK · US · EMEA
