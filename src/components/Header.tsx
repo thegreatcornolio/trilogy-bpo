@@ -5,13 +5,31 @@ import Link from "next/link";
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { nav, type NavItem } from "@/lib/content";
 
+/** Match GCC microsite nav: light mono links on dark glass. */
 const linkStyle: CSSProperties = {
   fontFamily: "var(--font-mono)",
   fontSize: 11,
-  letterSpacing: ".16em",
+  letterSpacing: ".12em",
   textTransform: "uppercase",
-  color: "rgba(255,255,255,.78)",
-  textDecoration: "none",
+  color: "rgba(255,255,255,0.78)",
+  position: "relative",
+};
+
+const ctaStyle: CSSProperties = {
+  display: "inline-flex",
+  alignItems: "center",
+  justifyContent: "center",
+  padding: "10px 16px",
+  borderRadius: 2,
+  border: "none",
+  background: "#2FE85C",
+  color: "#0E1B2A",
+  fontFamily: "var(--font-mono)",
+  fontSize: 12,
+  fontWeight: 600,
+  letterSpacing: ".08em",
+  textTransform: "uppercase",
+  whiteSpace: "nowrap",
 };
 
 function ServicesDropdown({ item }: { item: Extract<NavItem, { children: unknown }> }) {
@@ -46,7 +64,7 @@ function ServicesDropdown({ item }: { item: Extract<NavItem, { children: unknown
         aria-expanded={open}
         aria-haspopup="menu"
         onClick={() => setOpen((v) => !v)}
-        className="nav-link nav-acc-green"
+        className="site-nav-link"
         style={{
           ...linkStyle,
           display: "inline-flex",
@@ -82,17 +100,17 @@ function ServicesDropdown({ item }: { item: Extract<NavItem, { children: unknown
             left: "50%",
             transform: "translateX(-50%)",
             paddingTop: 10,
-            minWidth: 160,
+            minWidth: 180,
             zIndex: 60,
           }}
         >
           <div
             style={{
-              background: "rgba(8,16,24,.96)",
-              border: "1px solid rgba(255,255,255,.1)",
-              borderRadius: 2,
+              background: "rgba(8,16,24,0.96)",
+              border: "1px solid rgba(255,255,255,0.1)",
+              borderRadius: 4,
               padding: "8px 0",
-              boxShadow: "0 12px 32px rgba(0,0,0,.28)",
+              backdropFilter: "blur(14px)",
             }}
           >
             {item.children.map((child) => (
@@ -105,16 +123,16 @@ function ServicesDropdown({ item }: { item: Extract<NavItem, { children: unknown
                   ...linkStyle,
                   display: "block",
                   padding: "10px 18px",
-                  color: "rgba(255,255,255,.78)",
+                  color: "rgba(255,255,255,0.82)",
                   whiteSpace: "nowrap",
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.background = "rgba(255,255,255,.06)";
+                  e.currentTarget.style.background = "rgba(47,232,92,0.12)";
                   e.currentTarget.style.color = "#2FE85C";
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.background = "transparent";
-                  e.currentTarget.style.color = "rgba(255,255,255,.78)";
+                  e.currentTarget.style.color = "rgba(255,255,255,0.82)";
                 }}
               >
                 {child.label}
@@ -133,14 +151,13 @@ export function Header() {
 
   return (
     <header
+      className="site-header"
       style={{
-        position: "fixed",
+        position: "sticky",
         top: 0,
-        left: 0,
-        right: 0,
         zIndex: 50,
         borderBottom: "1px solid rgba(255,255,255,0.08)",
-        background: "rgba(8, 16, 24, 0.92)",
+        background: "rgba(8, 16, 24, 0.55)",
         backdropFilter: "blur(14px)",
         WebkitBackdropFilter: "blur(14px)",
       }}
@@ -155,7 +172,12 @@ export function Header() {
           gap: 24,
         }}
       >
-        <Link href="/" aria-label="Trilogy home" className="header-logo-link" style={{ display: "inline-flex", flex: "none", alignItems: "center", minWidth: 0 }}>
+        <Link
+          href="/"
+          aria-label="Trilogy home"
+          className="header-logo-link"
+          style={{ display: "inline-flex", flex: "none", alignItems: "center", minWidth: 0 }}
+        >
           <Image
             src="/logo/trilogy-logo-light.png"
             alt="Trilogy"
@@ -163,7 +185,7 @@ export function Header() {
             height={262}
             priority
             className="header-logo"
-            style={{ height: 44, width: "auto", maxWidth: "min(56vw, 200px)" }}
+            style={{ height: 44, width: "auto", maxWidth: "100%" }}
           />
         </Link>
 
@@ -173,30 +195,13 @@ export function Header() {
               item.children ? (
                 <ServicesDropdown key={item.label} item={item} />
               ) : (
-                <Link key={item.href} href={item.href} className="nav-link nav-acc-green" style={linkStyle}>
+                <Link key={item.href} href={item.href} className="site-nav-link" style={linkStyle}>
                   {item.label}
                 </Link>
               ),
             )}
           </div>
-          <Link
-            href="/#contact"
-            className="nav-cta"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              justifyContent: "center",
-              padding: "10px 16px",
-              borderRadius: 2,
-              background: "#2FE85C",
-              color: "#0E1B2A",
-              fontWeight: 600,
-              fontSize: 13,
-              letterSpacing: "0.02em",
-              whiteSpace: "nowrap",
-              textDecoration: "none",
-            }}
-          >
+          <Link href="/#contact" className="nav-cta site-nav-cta" style={ctaStyle}>
             Get in Touch
           </Link>
           <button
@@ -206,22 +211,22 @@ export function Header() {
             className="nav-burger"
             onClick={() => setOpen((v) => !v)}
             style={{
-              width: 44,
-              height: 44,
+              width: 40,
+              height: 40,
               borderRadius: 4,
-              border: "1px solid rgba(255,255,255,0.22)",
-              background: "rgba(8, 16, 24, 0.35)",
+              border: "1px solid rgba(255,255,255,0.18)",
+              background: "rgba(255,255,255,0.06)",
               cursor: "pointer",
               alignItems: "center",
               justifyContent: "center",
               flexDirection: "column",
-              gap: 5,
+              gap: 4,
               flex: "none",
             }}
           >
-            <span style={{ display: "block", width: 18, height: 2, borderRadius: 1, background: "#fff" }} />
-            <span style={{ display: "block", width: 18, height: 2, borderRadius: 1, background: "#fff" }} />
-            <span style={{ display: "block", width: 18, height: 2, borderRadius: 1, background: "#fff" }} />
+            <span style={{ display: "block", width: 16, height: 2, background: "#fff" }} />
+            <span style={{ display: "block", width: 16, height: 2, background: "#fff" }} />
+            <span style={{ display: "block", width: 16, height: 2, background: "#fff" }} />
           </button>
         </nav>
       </div>
@@ -230,12 +235,12 @@ export function Header() {
         <div
           className="nav-mobile-panel"
           style={{
-            borderTop: "1px solid rgba(255,255,255,.1)",
-            padding: "8px 28px 22px",
+            borderTop: "1px solid rgba(255,255,255,0.08)",
+            padding: "16px 28px 22px",
             display: "flex",
             flexDirection: "column",
-            gap: 4,
-            background: "rgba(8, 16, 24, 0.96)",
+            gap: 14,
+            background: "rgba(8,16,24,0.96)",
           }}
         >
           {nav.map((item) =>
@@ -273,7 +278,7 @@ export function Header() {
                         style={{
                           ...linkStyle,
                           fontSize: 12,
-                          color: "rgba(255,255,255,.7)",
+                          color: "rgba(255,255,255,.65)",
                         }}
                       >
                         {child.label}
@@ -296,6 +301,13 @@ export function Header() {
               </Link>
             ),
           )}
+          <Link
+            href="/#contact"
+            onClick={() => setOpen(false)}
+            style={{ ...ctaStyle, marginTop: 8, alignSelf: "flex-start" }}
+          >
+            Get in Touch
+          </Link>
         </div>
       ) : null}
     </header>
