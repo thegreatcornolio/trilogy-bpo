@@ -1881,20 +1881,20 @@ button {
 }
 
 .test-kitchen-visual.is-inview .test-kitchen-visual__bob {
-  animation: test-kitchen-float 4.8s ease-in-out 1.15s infinite;
+  animation: test-kitchen-float 4.8s ease-in-out 1.7s infinite;
 }
 
 .test-kitchen-visual__frame {
   overflow: hidden;
   background: transparent;
   opacity: 0;
-  transform: translateY(48px) scale(0.78);
+  transform: translateY(56px) scale(0.72);
   filter: drop-shadow(0 22px 48px rgba(47, 232, 92, 0.22));
   will-change: transform, opacity;
 }
 
 .test-kitchen-visual.is-inview .test-kitchen-visual__frame {
-  animation: test-kitchen-pop 1.15s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: test-kitchen-pop 1.55s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .test-kitchen-visual.is-inview .test-kitchen-visual__glow {
@@ -1918,14 +1918,14 @@ button {
 @keyframes test-kitchen-pop {
   0% {
     opacity: 0;
-    transform: translateY(52px) scale(0.76);
+    transform: translateY(64px) scale(0.68);
   }
-  58% {
+  55% {
     opacity: 1;
-    transform: translateY(-14px) scale(1.06);
+    transform: translateY(-18px) scale(1.08);
   }
-  78% {
-    transform: translateY(4px) scale(0.98);
+  75% {
+    transform: translateY(6px) scale(0.97);
   }
   100% {
     opacity: 1;
