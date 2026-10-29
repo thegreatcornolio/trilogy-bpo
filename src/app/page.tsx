@@ -1,20 +1,18 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { AgentDemo } from "@/components/AgentDemo";
 import AwardsTimeline from "@/components/AwardsTimeline";
 import { AutoVideo } from "@/components/AutoVideo";
 import BoardAccordion from "@/components/BoardAccordion";
 import { BrandMarquee } from "@/components/BrandMarquee";
 import FaqJsonLd from "@/components/FaqJsonLd";
 import FaqSection from "@/components/FaqSection";
-import OfferingsTabs from "@/components/OfferingsTabs";
 import PageJsonLd from "@/components/PageJsonLd";
 import { SavingsCalculator } from "@/components/SavingsCalculator";
 import SectionKicker from "@/components/SectionKicker";
 import { TechStackTrack } from "@/components/TechStackTrack";
+import TrilogyGroupPaths from "@/components/TrilogyGroupPaths";
 import {
-  aiJourney,
   aiProducts,
   complianceMarks,
   evp,
@@ -25,6 +23,7 @@ import {
   membershipMarks,
   site,
   teamGroups,
+  trilogyGroup,
   whySa,
 } from "@/lib/content";
 import { homeFaqs, pageMetadata } from "@/lib/seo";
@@ -36,9 +35,10 @@ export const metadata: Metadata = pageMetadata({
   description: site.description,
   path: "/",
   keywords: [
+    "Global Capability Centre South Africa",
+    "GCC Cape Town DBIT",
     "AI-enabled BPO South Africa",
     "contact centre outsourcing Cape Town",
-    "Global Capability Centre South Africa",
     "ISO 27001 certified BPO",
     "PCI DSS compliant contact centre",
     "UK GDPR compliant BPO",
@@ -85,7 +85,7 @@ export default function HomePage() {
         <div className="container" style={{ position: "relative", zIndex: 1, paddingTop: 88, paddingBottom: 64 }}>
           <div className="rise" style={{ maxWidth: 640 }}>
             <div className="mono" style={{ fontSize: 12, letterSpacing: ".16em", color: "rgba(247,245,240,.7)" }}>
-              · AI-enabled BPO · UK · US · EMEA
+              · GCC · Digital · AI · UK · US · EMEA
             </div>
             <h1
               style={{
@@ -103,20 +103,20 @@ export default function HomePage() {
             <p
               style={{
                 margin: "22px 0 0",
-                maxWidth: "46ch",
+                maxWidth: "48ch",
                 fontSize: 17,
                 fontWeight: 300,
                 lineHeight: 1.65,
                 color: "rgba(247,245,240,.78)",
               }}
             >
-              Making customer engagement offshoring easy. Trilogy BPO is an offshore Business Process Outsourcing
-              company in South Africa, helping UK and USA companies augment their customer experience while cutting
-              the cost of customer service and sales.
+              Outsource with us, or build your own Global Capability Centre in South Africa. Trilogy designs, builds
+              and runs AI-enabled contact centres for UK, US and EMEA brands — and transfers ownership when you are
+              ready via our DBIT method.
             </p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginTop: 30 }}>
               <Link
-                href="#offerings"
+                href="/trilogy-gcc/"
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
@@ -129,10 +129,10 @@ export default function HomePage() {
                   fontSize: 15,
                 }}
               >
-                See the three offerings →
+                Explore Trilogy GCC →
               </Link>
               <Link
-                href="#contact"
+                href="#group"
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
@@ -143,7 +143,7 @@ export default function HomePage() {
                   fontSize: 15,
                 }}
               >
-                Talk to us
+                Meet Trilogy Group
               </Link>
             </div>
           </div>
@@ -176,56 +176,32 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Offerings */}
-      <section id="offerings" style={{ padding: "96px 0", background: "#fff" }}>
+      {/* Trilogy Group */}
+      <section id="group" style={{ padding: "96px 0", background: "#fff" }}>
         <div className="container">
-          <SectionKicker>Three offerings</SectionKicker>
-          <SectionTitle>Your journey, your choice.</SectionTitle>
-          <div style={{ marginTop: 40 }}>
-            <OfferingsTabs />
-          </div>
-        </div>
-      </section>
-
-      {/* Agent demo */}
-      <section style={{ padding: "96px 0", background: "#F7F5F0" }}>
-        <div className="container">
-          <div
+          <SectionKicker>{trilogyGroup.kicker}</SectionKicker>
+          <SectionTitle>{trilogyGroup.title}</SectionTitle>
+          <p
+            className="rise"
             style={{
-              display: "grid",
-              gridTemplateColumns: "1fr 1.05fr",
-              gap: 48,
-              alignItems: "center",
+              margin: "18px 0 0",
+              maxWidth: "56ch",
+              fontSize: 16.5,
+              lineHeight: 1.7,
+              color: "rgba(14,27,42,.64)",
+              fontWeight: 300,
             }}
-            className="demo-grid"
           >
-            <div>
-              <SectionKicker>Trilogy Ai · Live</SectionKicker>
-              <SectionTitle>Agent-in-the-loop, in real time.</SectionTitle>
-              <p
-                className="rise"
-                style={{
-                  margin: "18px 0 0",
-                  maxWidth: "42ch",
-                  fontSize: 16.5,
-                  lineHeight: 1.7,
-                  color: "rgba(14,27,42,.64)",
-                  fontWeight: 300,
-                }}
-              >
-                Autonomous CX handles the conversation; a human approves the moment judgement, escalation or
-                compliance is needed. Watch a refund resolve itself.
-              </p>
-            </div>
-            <AgentDemo />
-          </div>
+            {trilogyGroup.lead}
+          </p>
+          <TrilogyGroupPaths />
         </div>
       </section>
 
-      {/* Team */}
+      {/* Meet the Team */}
       <section id="team" style={{ padding: "96px 0", background: "#fff" }}>
         <div className="container">
-          <SectionKicker>The team</SectionKicker>
+          <SectionKicker>Meet the team</SectionKicker>
           <SectionTitle>Run by people who have done this before, many times over.</SectionTitle>
           <p
             className="rise"
@@ -242,32 +218,19 @@ export default function HomePage() {
             operational sites in under six weeks. They know what it takes to get customer experience right, first
             time.
           </p>
-          {teamGroups
-            .filter((group) => group.title !== "Board Members")
-            .map((group) => (
-            <div key={group.title} style={{ marginTop: 48 }}>
-              <div
-                className="mono rise"
-                style={{
-                  fontSize: 12,
-                  letterSpacing: ".14em",
-                  textTransform: "uppercase",
-                  color: "#0E7C46",
-                  fontWeight: 700,
-                  marginBottom: 22,
-                }}
-              >
-                {group.title}
-              </div>
-              <div
-                className="team-grid rise"
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
-                  gap: 22,
-                }}
-              >
-                {group.members.map((member) => {
+          <div
+            className="team-grid rise"
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
+              gap: 22,
+              marginTop: 48,
+            }}
+          >
+            {teamGroups
+              .filter((group) => group.title !== "Board Members")
+              .flatMap((group) => group.members)
+              .map((member) => {
                   const inner = (
                     <>
                       <div
@@ -328,7 +291,7 @@ export default function HomePage() {
                   if (member.linkedin) {
                     return (
                       <a
-                        key={`${group.title}-${member.name}`}
+                        key={member.name}
                         href={member.linkedin}
                         target="_blank"
                         rel="noreferrer"
@@ -341,17 +304,86 @@ export default function HomePage() {
                   }
 
                   return (
-                    <div key={`${group.title}-${member.name}`} style={{ display: "block" }}>
+                    <div key={member.name} style={{ display: "block" }}>
                       {inner}
                     </div>
                   );
                 })}
-              </div>
-            </div>
-          ))}
+          </div>
           <BoardAccordion
             members={teamGroups.find((g) => g.title === "Board Members")?.members ?? []}
           />
+        </div>
+      </section>
+      {/* EVP */}
+      <section style={{ padding: "96px 0", background: "#F7F5F0" }}>
+        <div className="container">
+          <SectionKicker>Our People · Our Promise</SectionKicker>
+          <SectionTitle>When people thrive, business follows.</SectionTitle>
+          <p
+            className="rise"
+            style={{
+              margin: "18px 0 0",
+              maxWidth: "58ch",
+              fontSize: 16.5,
+              lineHeight: 1.7,
+              color: "rgba(14,27,42,.64)",
+              fontWeight: 300,
+            }}
+          >
+            At Trilogy BPO our employee value proposition is built on one unshakeable belief. We invest in the people
+            who serve your customers, because engaged, supported teams deliver the experiences that build loyalty and
+            growth.
+          </p>
+          <div
+            className="evp-grid rise"
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+              gap: 18,
+              marginTop: 40,
+            }}
+          >
+            {evp.map((item) => (
+              <div
+                key={item.title}
+                style={{
+                  background: "#fff",
+                  border: "1px solid rgba(14,27,42,.08)",
+                  borderRadius: 14,
+                  padding: 24,
+                }}
+              >
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden>
+                  {item.shapes.map((shape, i) =>
+                    "c" in shape && shape.c ? (
+                      <circle
+                        key={i}
+                        cx={shape.c.cx}
+                        cy={shape.c.cy}
+                        r={shape.c.r}
+                        stroke="#0E7C46"
+                        strokeWidth="1.5"
+                      />
+                    ) : "d" in shape && shape.d ? (
+                      <path
+                        key={i}
+                        d={shape.d}
+                        stroke="#0E7C46"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    ) : null,
+                  )}
+                </svg>
+                <h3 style={{ margin: "16px 0 0", fontSize: 17, fontWeight: 500 }}>{item.title}</h3>
+                <p style={{ margin: "10px 0 0", fontSize: 14.5, lineHeight: 1.6, color: "rgba(14,27,42,.62)", fontWeight: 300 }}>
+                  {item.body}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -560,78 +592,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* EVP */}
-      <section style={{ padding: "96px 0", background: "#F7F5F0" }}>
-        <div className="container">
-          <SectionKicker>Our People · Our Promise</SectionKicker>
-          <SectionTitle>When people thrive, business follows.</SectionTitle>
-          <p
-            className="rise"
-            style={{
-              margin: "18px 0 0",
-              maxWidth: "58ch",
-              fontSize: 16.5,
-              lineHeight: 1.7,
-              color: "rgba(14,27,42,.64)",
-              fontWeight: 300,
-            }}
-          >
-            At Trilogy BPO our employee value proposition is built on one unshakeable belief. We invest in the people
-            who serve your customers, because engaged, supported teams deliver the experiences that build loyalty and
-            growth.
-          </p>
-          <div
-            className="evp-grid rise"
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
-              gap: 18,
-              marginTop: 40,
-            }}
-          >
-            {evp.map((item) => (
-              <div
-                key={item.title}
-                style={{
-                  background: "#fff",
-                  border: "1px solid rgba(14,27,42,.08)",
-                  borderRadius: 14,
-                  padding: 24,
-                }}
-              >
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden>
-                  {item.shapes.map((shape, i) =>
-                    "c" in shape && shape.c ? (
-                      <circle
-                        key={i}
-                        cx={shape.c.cx}
-                        cy={shape.c.cy}
-                        r={shape.c.r}
-                        stroke="#0E7C46"
-                        strokeWidth="1.5"
-                      />
-                    ) : "d" in shape && shape.d ? (
-                      <path
-                        key={i}
-                        d={shape.d}
-                        stroke="#0E7C46"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    ) : null,
-                  )}
-                </svg>
-                <h3 style={{ margin: "16px 0 0", fontSize: 17, fontWeight: 500 }}>{item.title}</h3>
-                <p style={{ margin: "10px 0 0", fontSize: 14.5, lineHeight: 1.6, color: "rgba(14,27,42,.62)", fontWeight: 300 }}>
-                  {item.body}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Brands */}
       <section style={{ padding: "96px 0", background: "#fff" }}>
         <div className="container">
@@ -800,43 +760,6 @@ export default function HomePage() {
           </p>
           <AwardsTimeline />
           <FaqSection title="Common questions about Trilogy BPO" faqs={homeFaqs} />
-        </div>
-      </section>
-
-      {/* AI journey */}
-      <section style={{ padding: "96px 0", background: "#fff" }}>
-        <div className="container">
-          <SectionKicker>Trilogy Ai</SectionKicker>
-          <SectionTitle>Opportunities for AI across the customer journey.</SectionTitle>
-          <div
-            className="ai-grid rise"
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
-              gap: 18,
-              marginTop: 40,
-            }}
-          >
-            {aiJourney.map((item) => (
-              <div
-                key={item.title}
-                style={{
-                  border: "1px solid rgba(14,27,42,.1)",
-                  borderRadius: 14,
-                  padding: 24,
-                  background: "#fff",
-                }}
-              >
-                <div className="mono" style={{ fontSize: 11.5, color: "#0E7C46", letterSpacing: ".1em" }}>
-                  {item.kicker}
-                </div>
-                <h3 style={{ margin: "12px 0 0", fontSize: 17, fontWeight: 500 }}>{item.title}</h3>
-                <p style={{ margin: "10px 0 0", fontSize: 14.5, lineHeight: 1.6, color: "rgba(14,27,42,.62)", fontWeight: 300 }}>
-                  {item.body}
-                </p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
