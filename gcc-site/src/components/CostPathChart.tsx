@@ -2,38 +2,32 @@
 
 import { useEffect, useRef } from "react";
 
-/** Cost declining from 100% in-house UK/USA captive to ~39% after innovation. */
+/** Midpoint model from approved Oct 2026 deck — ends ~45% before AI unlocks. */
 const stages = [
   {
     cost: 100,
     label: "100%",
     name: "In-house captive (UK/USA)",
-    desc: "100% of cost — starting base",
+    desc: "Starting base",
     pill: null as string | null,
   },
   {
-    cost: 65,
-    label: "~65%",
-    name: "BPO Outsourcer",
-    desc: "~65% of cost · labour arbitrage",
-    pill: "≈35% lower",
+    cost: 60,
+    label: "~60%",
+    name: "BPO outsourcer",
+    desc: "Labour arbitrage · ≈40% lower",
+    pill: "≈40% lower",
   },
   {
-    cost: 47,
-    label: "~47%",
+    cost: 45,
+    label: "~45%",
     name: "Trilogy DBOT",
-    desc: "~47% of cost · own your centre",
-    pill: "Further ≈18%",
-  },
-  {
-    cost: 39,
-    label: "~39%",
-    name: "Plus Innovation",
-    desc: "~39% of cost · tech deflection",
-    pill: "Further ≈8%",
+    desc: "Own your centre · further 20–30%",
+    pill: "Further 20–30%",
   },
 ] as const;
 
+const END_COST = 45;
 const CHART_BOTTOM = 212;
 const CHART_TOP = 16;
 const CHART_H = CHART_BOTTOM - CHART_TOP;
@@ -64,8 +58,8 @@ export default function CostPathChart() {
       const total = root.querySelector<HTMLElement>("[data-gcc-total]");
       const pill = root.querySelector<HTMLElement>("[data-gcc-pill]");
       if (reduce) {
-        if (total) total.innerHTML = `39<span>%</span>`;
-        if (pill) pill.textContent = "39% of in-house cost";
+        if (total) total.innerHTML = `${END_COST}<span>%</span>`;
+        if (pill) pill.textContent = `${END_COST}% of in-house cost`;
         return;
       }
       const start = performance.now();
@@ -73,8 +67,7 @@ export default function CostPathChart() {
       const tick = (now: number) => {
         const t = Math.min(1, (now - start) / duration);
         const eased = 1 - Math.pow(1 - t, 3);
-        // Animate from 100 down to 39
-        const current = Math.round(100 - (100 - 39) * eased);
+        const current = Math.round(100 - (100 - END_COST) * eased);
         if (total) total.innerHTML = `${current}<span>%</span>`;
         if (pill) pill.textContent = `${current}% of in-house cost`;
         if (t < 1) requestAnimationFrame(tick);
@@ -102,7 +95,7 @@ export default function CostPathChart() {
     return () => io.disconnect();
   }, []);
 
-  const xs = [54, 124, 194, 264];
+  const xs = [70, 159, 248];
   const points = stages.map((s, i) => ({ x: xs[i], y: yFor(s.cost), ...s }));
   const lineD = points.map((p, i) => `${i === 0 ? "M" : "L"} ${p.x} ${p.y.toFixed(2)}`).join(" ");
   const areaD = `${lineD} L ${points[points.length - 1].x} ${CHART_BOTTOM} L ${points[0].x} ${CHART_BOTTOM} Z`;
@@ -114,9 +107,11 @@ export default function CostPathChart() {
       data-animate="gcc-savings"
       aria-label="Cost path from in-house captive to GCC"
     >
-      <div className="gcc-savings__eyebrow">DBIT evolution</div>
+      <div className="gcc-savings__eyebrow">Cost evolution</div>
       <h4 className="gcc-savings__title">Cost path from an in-house captive to a GCC.</h4>
-      <p className="gcc-savings__lead">Start at 100% UK/USA cost — then compound reductions as maturity rises</p>
+      <p className="gcc-savings__lead">
+        Start at 100% UK/USA cost — then compound reductions as maturity rises
+      </p>
 
       <div className="gcc-savings__layout">
         <div className="gcc-savings__summary">
@@ -128,8 +123,8 @@ export default function CostPathChart() {
             100% of in-house cost
           </div>
           <p className="gcc-savings__summary-note">
-            Midpoint model: labour arbitrage, GCC ownership and AI deflection stacking on the same
-            cost base — from 100% in-house UK/USA down to ~39%.
+            Midpoint model: labour arbitrage, then GCC ownership, stacking on the same cost base —
+            from 100% in-house UK/USA down to around 45%. AI unlocks are additional.
           </p>
         </div>
 
@@ -140,7 +135,7 @@ export default function CostPathChart() {
             width="100%"
             height="auto"
             role="img"
-            aria-label="Animated chart of declining cost across four DBIT stages"
+            aria-label="Animated chart of declining cost across three DBIT stages"
           >
             <defs>
               <linearGradient id="gccArea" x1="0" y1="1" x2="0" y2="0">
@@ -197,13 +192,7 @@ export default function CostPathChart() {
                       data-h={Math.max(0, yFor(points[i - 1].cost) - y).toFixed(2)}
                     />
                   ) : null}
-                  <circle
-                    className="gcc-savings__dot"
-                    cx={p.x}
-                    cy={p.y}
-                    r="0"
-                    data-r="5.5"
-                  />
+                  <circle className="gcc-savings__dot" cx={p.x} cy={p.y} r="0" data-r="5.5" />
                   <text className="gcc-savings__pct" x={p.x} y={p.y - 12} textAnchor="middle">
                     {p.label}
                   </text>

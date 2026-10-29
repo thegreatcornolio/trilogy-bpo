@@ -1,35 +1,28 @@
 import Image from "next/image";
 import BenefitsDials from "@/components/BenefitsDials";
 import BrandLockup from "@/components/BrandLockup";
-import CapeSights from "@/components/CapeSights";
 import CostPathChart from "@/components/CostPathChart";
 import DbitFlow from "@/components/DbitFlow";
 import MobileNav from "@/components/MobileNav";
 import SaMap from "@/components/SaMap";
-import TeamSection from "@/components/TeamSection";
+import TestKitchenVisual from "@/components/TestKitchenVisual";
 import {
-  awards,
-  brandLogos,
   caseStudies,
   commercialModels,
   dbitLayers,
   dbitPhases,
-  featuredBadges,
   incentivePillars,
-  locationWins,
   nav,
-  navBriefing,
   overviewBody,
   overviewBullets,
   overviewIntro,
   overviewStats,
-  teamGroups,
+  testKitchen,
   trackRecord,
   turnkeyIt,
   turnkeySite,
   turnkeyStaff,
   whoBenefits,
-  whySa,
   type NavItem,
 } from "@/lib/content";
 
@@ -80,13 +73,12 @@ function Lead({ children, onDark = false }: { children: React.ReactNode; onDark?
 }
 
 /**
- * `full` — public GCC microsite (all sections).
- * `briefing` — hidden page for partners already familiar with trilogybpo.com;
- *              drops Team, Awards, Brands, Why SA, and shared overview stats.
+ * `full` — public GCC microsite (DBIT deep-dive; company brochure lives on trilogybpo.com).
+ * `briefing` — same spine, but drops shared overview stats for partners who already know the brand.
  */
 export default function GccSitePage({ variant = "full" }: { variant?: GccSiteVariant }) {
   const exclusive = variant === "briefing";
-  const navItems: readonly NavItem[] = exclusive ? navBriefing : nav;
+  const navItems: readonly NavItem[] = nav;
 
   return (
     <>
@@ -101,28 +93,32 @@ export default function GccSitePage({ variant = "full" }: { variant?: GccSiteVar
         }}
       >
         <div
-          className="shell"
+          className="shell shell--header"
           style={{
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
             height: 80,
-            gap: 24,
+            gap: 20,
           }}
         >
           <a href="#top" aria-label="Trilogy Global Capability Centres">
             <BrandLockup size="nav" />
           </a>
-          <nav className="desktop-nav" style={{ display: "flex", gap: 20, alignItems: "center" }}>
-            {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="nav-link mono"
-                style={{ fontSize: 11, color: "rgba(255,255,255,0.78)" }}
-              >
-                {item.label}
-              </a>
+          <nav className="desktop-nav" style={{ display: "flex", gap: 14, alignItems: "center" }}>
+            {navItems.map((item, index) => (
+              <span key={item.href} style={{ display: "contents" }}>
+                {item.href.startsWith("#") && index > 0 && !navItems[index - 1].href.startsWith("#") ? (
+                  <span className="nav-divider" aria-hidden />
+                ) : null}
+                <a
+                  href={item.href}
+                  className="nav-link mono"
+                  style={{ fontSize: 11, color: "rgba(255,255,255,0.78)" }}
+                >
+                  {item.label}
+                </a>
+              </span>
             ))}
             <a href="#contact" className="cta" style={{ padding: "10px 16px", fontSize: 13 }}>
               Talk to us
@@ -183,7 +179,7 @@ export default function GccSitePage({ variant = "full" }: { variant?: GccSiteVar
                 letterSpacing: "-0.03em",
               }}
             >
-              From outsourcing to ownership.
+              From offshoring to ownership.
             </h1>
             <p
               style={{
@@ -195,8 +191,8 @@ export default function GccSitePage({ variant = "full" }: { variant?: GccSiteVar
                 color: "var(--on-dark-muted)",
               }}
             >
-              Design, Build, Operate, Transfer — your risk-mitigated roadmap to a fully owned Global
-              Capability Centre in South Africa.
+              Design, Build, Innovate, Transfer — your risk-mitigated roadmap to a fully owned Global
+              Capability Centre in South Africa, while still leveraging cost savings.
             </p>
             <div
               className="hero-actions"
@@ -307,60 +303,6 @@ export default function GccSitePage({ variant = "full" }: { variant?: GccSiteVar
           </div>
         </section>
 
-        {/* Team — already on trilogybpo.com */}
-        {!exclusive ? (
-        <section id="team" style={{ padding: "96px 0", background: "var(--fog)" }}>
-          <div className="shell">
-            <SectionLabel>Meet the team</SectionLabel>
-            <SectionTitle>Leadership that has built this before.</SectionTitle>
-            <Lead>
-              Tenured BPO executives who have built more than 30 contact centres over 25 years —
-              including three successful companies later acquired by international groups.
-            </Lead>
-
-            <TeamSection groups={[...teamGroups]} />
-          </div>
-        </section>
-        ) : null}
-
-        {/* Awards — already on trilogybpo.com */}
-        {!exclusive ? (
-        <section style={{ padding: "96px 0", background: "var(--white)" }}>
-          <div className="shell">
-            <SectionLabel>Awards, certifications & memberships</SectionLabel>
-            <SectionTitle max="22ch">Recognised by the industry.</SectionTitle>
-            <Lead>
-              Over nearly a decade, our award record reflects consistent industry leadership across
-              outsourcing, technology and social impact.
-            </Lead>
-
-            <div className="awards-panel rise">
-              <ol className="awards-timeline" data-animate="timeline">
-                {awards.map((item) => (
-                  <li key={item.year} className="reveal-item">
-                    <div className="awards-timeline__year">{item.year}</div>
-                    <div className="awards-timeline__body">
-                      {item.text}
-                      {"pill" in item && item.pill ? (
-                        <span className="award-pill">{item.pill}</span>
-                      ) : null}
-                    </div>
-                  </li>
-                ))}
-              </ol>
-            </div>
-
-            <div className="badge-row rise">
-              {featuredBadges.map((badge) => (
-                <div key={badge.name} className="badge-card">
-                  <Image src={badge.src} alt={badge.name} width={280} height={120} />
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-        ) : null}
-
         {/* Footprint map */}
         <section id="footprint" style={{ padding: "96px 0", background: "var(--fog)" }}>
           <div className="shell">
@@ -405,117 +347,6 @@ export default function GccSitePage({ variant = "full" }: { variant?: GccSiteVar
             </figure>
           </div>
         </section>
-
-        {/* Brands marquee — already on trilogybpo.com */}
-        {!exclusive ? (
-        <section id="brands" style={{ padding: "96px 0", background: "var(--fog)" }}>
-          <div className="shell">
-            <SectionTitle max="20ch">Brands Our Leadership Has Delivered For</SectionTitle>
-            <p
-              className="rise"
-              style={{
-                margin: "18px 0 0",
-                fontSize: 22,
-                fontWeight: 600,
-                letterSpacing: "-0.01em",
-              }}
-            >
-              25 years behind the world&apos;s brands.
-            </p>
-            <Lead>
-              Over the past 25 years, Trilogy&apos;s leadership has managed over 30 contact centres
-              for some of the world&apos;s most recognised brands. That gives us insight into the
-              challenges and opportunities of offshore customer-service delivery, with deep vertical
-              expertise across telecommunications, utilities, retail, fast food, insurance and
-              technology.
-            </Lead>
-          </div>
-
-          <div className="brand-marquee rise" aria-label="Brand logos">
-            <div className="brand-marquee__viewport">
-              <div className="brand-marquee__track">
-                {[...brandLogos, ...brandLogos].map((brand, i) => (
-                  <div key={`${brand.file}-${i}`} className="brand-marquee__item">
-                    <Image
-                      src={`/proposal/clients/${brand.file}.png`}
-                      alt={brand.alt}
-                      width={140}
-                      height={40}
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-        ) : null}
-
-        {/* Why SA — already on trilogybpo.com */}
-        {!exclusive ? (
-        <section id="why-sa" style={{ padding: "96px 0", background: "var(--ink)", color: "var(--white)" }}>
-          <div className="shell">
-            <SectionLabel onDark>Why South Africa / Why Cape Town</SectionLabel>
-            <SectionTitle max="18ch">The location that wins.</SectionTitle>
-            <Lead onDark>
-              South Africa has consistently been ranked the second most attractive BPO location
-              globally. Cape Town is the premium hub — deep English-language and UK cultural
-              alignment, a mature ecosystem, and compelling cost advantages.
-            </Lead>
-
-            <div
-              className="benefit-grid"
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
-                gap: 28,
-                marginTop: 48,
-              }}
-            >
-              {whySa.map((item) => (
-                <div key={item.title} className="rise" style={{ borderTop: "1px solid rgba(255,255,255,0.14)", paddingTop: 18 }}>
-                  <div style={{ fontSize: 36, fontWeight: 300, color: "var(--lime)", letterSpacing: "-0.02em" }}>
-                    {item.stat}
-                  </div>
-                  <h3 style={{ margin: "10px 0 0", fontSize: 20, fontWeight: 500 }}>{item.title}</h3>
-                  <p style={{ margin: "10px 0 0", fontSize: 15, fontWeight: 300, lineHeight: 1.6, color: "var(--on-dark-muted)" }}>
-                    {item.body}
-                  </p>
-                </div>
-              ))}
-            </div>
-
-            <div style={{ marginTop: 56 }}>
-              <p className="mono rise" style={{ margin: 0, fontSize: 12, color: "var(--mint)" }}>
-                Why the location wins
-              </p>
-              <ul className="rise" style={{ margin: "20px 0 0", padding: 0, listStyle: "none" }}>
-                {locationWins.map((item) => (
-                  <li
-                    key={item}
-                    style={{
-                      padding: "12px 0",
-                      borderBottom: "1px solid rgba(255,255,255,0.1)",
-                      fontSize: 15,
-                      fontWeight: 300,
-                      lineHeight: 1.55,
-                      color: "rgba(255,255,255,0.78)",
-                    }}
-                  >
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div style={{ marginTop: 56 }}>
-              <p className="mono rise" style={{ margin: "0 0 16px", fontSize: 12, color: "var(--mint)" }}>
-                Cape Town lifestyle
-              </p>
-              <CapeSights />
-            </div>
-          </div>
-        </section>
-        ) : null}
 
         {/* Challenge + solution */}
         <section style={{ padding: "96px 0", background: "var(--white)" }}>
@@ -654,6 +485,60 @@ export default function GccSitePage({ variant = "full" }: { variant?: GccSiteVar
 
             <div style={{ marginTop: 64 }}>
               <CostPathChart />
+            </div>
+          </div>
+        </section>
+
+        {/* Test Kitchen / AI — dark blue with animated visual */}
+        <section
+          id="test-kitchen"
+          style={{
+            padding: "96px 0",
+            background:
+              "radial-gradient(ellipse 80% 70% at 78% 42%, rgba(47, 232, 92, 0.08), transparent 55%), linear-gradient(165deg, #132338 0%, var(--ink) 42%, var(--ink-deep) 100%)",
+            color: "var(--white)",
+            overflow: "hidden",
+          }}
+        >
+          <div className="shell">
+            <div className="test-kitchen-grid">
+              <div>
+                <SectionLabel onDark>{testKitchen.kicker}</SectionLabel>
+                <SectionTitle max="22ch">{testKitchen.title}</SectionTitle>
+                <Lead onDark>{testKitchen.lead}</Lead>
+              </div>
+              <TestKitchenVisual />
+            </div>
+
+            <div
+              className="dbit-grid"
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+                gap: 24,
+                marginTop: 56,
+              }}
+            >
+              {testKitchen.unlocks.map((item) => (
+                <div
+                  key={item.title}
+                  className="rise"
+                  style={{ borderTop: "2px solid var(--lime)", paddingTop: 18 }}
+                >
+                  <h3 style={{ margin: 0, fontSize: 18, fontWeight: 500 }}>{item.title}</h3>
+                  <p
+                    style={{
+                      margin: "12px 0 0",
+                      fontSize: 15,
+                      fontWeight: 300,
+                      lineHeight: 1.6,
+                      color: "var(--on-dark-muted)",
+                    }}
+                  >
+                    {item.body}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -807,8 +692,10 @@ export default function GccSitePage({ variant = "full" }: { variant?: GccSiteVar
             <SectionLabel>Commercial models</SectionLabel>
             <SectionTitle max="20ch">A path to ownership — not a locked-in BPO tax.</SectionTitle>
             <Lead>
-              Trilogy will also assist you to apply and administer DTIC job-creation grants — circa
-              $7,500 per job created — from application through to payment.
+              Trilogy will also apply for and administer all available DTIC, government and local tax
+              incentives on your behalf — which can add up to substantial savings. For example, while
+              the programme is open, Global Business Services (GBS) funding can unlock around $7,500
+              (approx. £5,600) per job created.
             </Lead>
 
             <div
@@ -857,40 +744,68 @@ export default function GccSitePage({ variant = "full" }: { variant?: GccSiteVar
           </div>
         </section>
 
-        {/* Contact */}
-        <section
-          id="contact"
-          style={{
-            position: "relative",
-            padding: "110px 0",
-            background: "var(--ink-deep)",
-            color: "var(--white)",
-            overflow: "hidden",
-          }}
-        >
-          <div
-            aria-hidden
-            style={{
-              position: "absolute",
-              inset: 0,
-              background:
-                "radial-gradient(ellipse at 80% 20%, rgba(46,232,92,0.16), transparent 42%), radial-gradient(ellipse at 10% 90%, rgba(140,224,129,0.1), transparent 40%)",
-            }}
-          />
-          <div className="shell" style={{ position: "relative" }}>
-            <SectionLabel onDark>Next step</SectionLabel>
-            <SectionTitle max="16ch">Ready to own your South African centre?</SectionTitle>
-            <Lead onDark>
-              Tell us where you are — in-house, outsourced, or starting fresh — and we’ll map a DBIT
-              path with open-book costing and a fixed management fee.
-            </Lead>
-            <div className="rise" style={{ display: "flex", flexWrap: "wrap", gap: 14, marginTop: 36 }}>
-              <a href="mailto:sales@trilogybpo.com" className="cta">
-                Email sales@trilogybpo.com
+        <section id="contact" style={{ padding: "96px 0", background: "#0E1B2A", color: "#fff" }}>
+          <div className="shell" style={{ textAlign: "center" }}>
+            <h2
+              className="rise"
+              style={{
+                margin: "0 auto",
+                maxWidth: "18ch",
+                fontSize: "clamp(30px, 4vw, 48px)",
+                fontWeight: 400,
+                letterSpacing: "-0.02em",
+                lineHeight: 1.15,
+              }}
+            >
+              Turn customer service into a competitive advantage.
+            </h2>
+            <div
+              className="rise"
+              style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: 12, marginTop: 28 }}
+            >
+              <a
+                href="mailto:info@trilogybpo.com"
+                style={{
+                  display: "inline-flex",
+                  padding: "14px 22px",
+                  borderRadius: 999,
+                  background: "#2FE85C",
+                  color: "#0A1F12",
+                  fontWeight: 600,
+                }}
+              >
+                Get in Touch
               </a>
-              <a href="mailto:kobusvdw@trilogybpo.com" className="cta cta-ghost">
-                Email Kobus · CEO
+              <a
+                href="https://wa.me/27719691163?text=hi"
+                target="_blank"
+                rel="noreferrer"
+                style={{
+                  display: "inline-flex",
+                  padding: "14px 22px",
+                  borderRadius: 999,
+                  border: "1px solid rgba(255,255,255,.3)",
+                  color: "#fff",
+                }}
+              >
+                WhatsApp us
               </a>
+            </div>
+            <div
+              className="mono rise"
+              style={{
+                marginTop: 28,
+                fontSize: 12,
+                letterSpacing: ".1em",
+                color: "rgba(247,245,240,.55)",
+                display: "flex",
+                justifyContent: "center",
+                gap: 24,
+                flexWrap: "wrap",
+              }}
+            >
+              <span>UK +44 7458 158591</span>
+              <span>SA +27 73 668 6096</span>
             </div>
           </div>
         </section>

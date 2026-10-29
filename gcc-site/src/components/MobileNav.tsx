@@ -42,15 +42,19 @@ export default function MobileNav({ items = nav as readonly NavItem[] }: { items
         aria-hidden={!open}
       >
         <nav className="mobile-nav__links" aria-label="Mobile">
-          {items.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="mobile-nav__link mono"
-              onClick={() => setOpen(false)}
-            >
-              {item.label}
-            </a>
+          {items.map((item, index) => (
+            <span key={item.href} style={{ display: "contents" }}>
+              {item.href.startsWith("#") && index > 0 && !items[index - 1].href.startsWith("#") ? (
+                <span className="mobile-nav__divider" aria-hidden />
+              ) : null}
+              <a
+                href={item.href}
+                className="mobile-nav__link mono"
+                onClick={() => setOpen(false)}
+              >
+                {item.label}
+              </a>
+            </span>
           ))}
           <a
             href="#contact"

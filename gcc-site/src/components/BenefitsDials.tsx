@@ -4,24 +4,19 @@ import { useEffect, useRef } from "react";
 
 const dials = [
   {
-    pct: 50,
+    pct: 55,
     title: "Cheaper Than Onshoring",
-    body: "Achieve 50–60% cost savings compared to maintaining operations in high-cost markets while accessing the same quality talent and capabilities.",
+    body: "50–60% cost savings compared to maintaining operations in high-cost markets, with the same quality talent and capabilities.",
   },
   {
-    pct: 35,
+    pct: 25,
     title: "Cheaper Than Outsourcing",
-    body: "Global Capability Centres provide 20–30% additional savings compared to traditional BPO outsourcing by eliminating vendor margins and overhead.",
-  },
-  {
-    pct: 40,
-    title: "Further Savings Through Deflection",
-    body: "Implement aggressive automation, digital deflection and AI strategies without restrictions, driving an additional 15–20% cost reduction over time.",
+    body: "20–30% additional savings versus traditional BPO outsourcing by eliminating vendor margins and overhead.",
   },
   {
     pct: 100,
     title: "More Control",
-    body: "Maintain complete ownership and control over operations, technology decisions, data security and strategic direction — critical for long-term competitive advantage.",
+    body: "Complete ownership of operations, technology decisions, data security and strategic direction.",
   },
 ] as const;
 

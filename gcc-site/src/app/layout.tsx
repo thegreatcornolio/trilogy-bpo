@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
-import { Lexend, IBM_Plex_Mono } from "next/font/google";
+import localFont from "next/font/local";
+import { IBM_Plex_Mono } from "next/font/google";
 import RiseObserver from "@/components/RiseObserver";
 import "./globals.css";
 
-const lexend = Lexend({
+// Self-hosted so `next dev` does not depend on Google Fonts' extensionless kit URLs.
+const lexend = localFont({
+  src: "../fonts/lexend-latin.woff2",
   variable: "--font-lexend",
-  subsets: ["latin"],
-  weight: ["200", "300", "400", "500", "600", "700"],
+  weight: "200 700",
   display: "swap",
 });
 
@@ -24,12 +26,12 @@ export const metadata: Metadata = {
   applicationName: "Trilogy GCC",
   icons: {
     icon: [
-      { url: "/favicon.ico?v=trilogy-mark", sizes: "32x32" },
-      { url: "/icon-48.png?v=trilogy-mark", sizes: "48x48", type: "image/png" },
-      { url: "/icon-192.png?v=trilogy-mark", sizes: "192x192", type: "image/png" },
-      { url: "/icon-512.png?v=trilogy-mark", sizes: "512x512", type: "image/png" },
+      { url: "/favicon.ico?v=trilogy-lines", sizes: "any" },
+      { url: "/icon-48.png?v=trilogy-lines", sizes: "48x48", type: "image/png" },
+      { url: "/icon-192.png?v=trilogy-lines", sizes: "192x192", type: "image/png" },
+      { url: "/icon-512.png?v=trilogy-lines", sizes: "512x512", type: "image/png" },
     ],
-    apple: [{ url: "/apple-touch-icon.png?v=trilogy-mark", sizes: "180x180" }],
+    apple: [{ url: "/apple-touch-icon.png?v=trilogy-lines", sizes: "180x180" }],
   },
 };
 

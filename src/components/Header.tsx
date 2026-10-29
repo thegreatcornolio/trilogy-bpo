@@ -5,12 +5,31 @@ import Link from "next/link";
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { nav, type NavItem } from "@/lib/content";
 
+/** Match GCC microsite nav: light mono links on dark glass. */
 const linkStyle: CSSProperties = {
   fontFamily: "var(--font-mono)",
-  fontSize: 11.5,
+  fontSize: 11,
   letterSpacing: ".12em",
   textTransform: "uppercase",
-  color: "rgba(14,27,42,.72)",
+  color: "rgba(255,255,255,0.78)",
+  position: "relative",
+};
+
+const ctaStyle: CSSProperties = {
+  display: "inline-flex",
+  alignItems: "center",
+  justifyContent: "center",
+  padding: "10px 16px",
+  borderRadius: 2,
+  border: "none",
+  background: "#2FE85C",
+  color: "#0E1B2A",
+  fontFamily: "var(--font-mono)",
+  fontSize: 12,
+  fontWeight: 600,
+  letterSpacing: ".08em",
+  textTransform: "uppercase",
+  whiteSpace: "nowrap",
 };
 
 function ServicesDropdown({ item }: { item: Extract<NavItem, { children: unknown }> }) {
@@ -45,6 +64,7 @@ function ServicesDropdown({ item }: { item: Extract<NavItem, { children: unknown
         aria-expanded={open}
         aria-haspopup="menu"
         onClick={() => setOpen((v) => !v)}
+        className="site-nav-link"
         style={{
           ...linkStyle,
           display: "inline-flex",
@@ -65,7 +85,7 @@ function ServicesDropdown({ item }: { item: Extract<NavItem, { children: unknown
             height: 0,
             borderLeft: "3.5px solid transparent",
             borderRight: "3.5px solid transparent",
-            borderTop: "4px solid rgba(14,27,42,.55)",
+            borderTop: "4px solid rgba(255,255,255,.55)",
             transform: open ? "rotate(180deg)" : "none",
             transition: "transform .2s",
           }}
@@ -80,17 +100,17 @@ function ServicesDropdown({ item }: { item: Extract<NavItem, { children: unknown
             left: "50%",
             transform: "translateX(-50%)",
             paddingTop: 10,
-            minWidth: 160,
+            minWidth: 180,
             zIndex: 60,
           }}
         >
           <div
             style={{
-              background: "#fff",
-              border: "1px solid rgba(14,27,42,.1)",
-              borderRadius: 12,
+              background: "rgba(8,16,24,0.96)",
+              border: "1px solid rgba(255,255,255,0.1)",
+              borderRadius: 4,
               padding: "8px 0",
-              boxShadow: "0 12px 32px rgba(14,27,42,.1)",
+              backdropFilter: "blur(14px)",
             }}
           >
             {item.children.map((child) => (
@@ -103,16 +123,16 @@ function ServicesDropdown({ item }: { item: Extract<NavItem, { children: unknown
                   ...linkStyle,
                   display: "block",
                   padding: "10px 18px",
-                  color: "rgba(14,27,42,.78)",
+                  color: "rgba(255,255,255,0.82)",
                   whiteSpace: "nowrap",
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.background = "#F4F7F9";
-                  e.currentTarget.style.color = "#0E7C46";
+                  e.currentTarget.style.background = "rgba(47,232,92,0.12)";
+                  e.currentTarget.style.color = "#2FE85C";
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.background = "transparent";
-                  e.currentTarget.style.color = "rgba(14,27,42,.78)";
+                  e.currentTarget.style.color = "rgba(255,255,255,0.82)";
                 }}
               >
                 {child.label}
@@ -131,12 +151,13 @@ export function Header() {
 
   return (
     <header
+      className="site-header"
       style={{
         position: "sticky",
         top: 0,
         zIndex: 50,
-        borderBottom: "1px solid rgba(14,27,42,.1)",
-        background: "rgba(255,255,255,.85)",
+        borderBottom: "1px solid rgba(255,255,255,0.08)",
+        background: "rgba(8, 16, 24, 0.55)",
         backdropFilter: "blur(14px)",
         WebkitBackdropFilter: "blur(14px)",
       }}
@@ -147,52 +168,40 @@ export function Header() {
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          paddingTop: 16,
-          paddingBottom: 16,
-          gap: 20,
+          height: 80,
+          gap: 24,
         }}
       >
-        <Link href="/" aria-label="Trilogy home" className="header-logo-link" style={{ display: "inline-flex", flex: "none", alignItems: "center", minWidth: 0 }}>
+        <Link
+          href="/"
+          aria-label="Trilogy home"
+          className="header-logo-link"
+          style={{ display: "inline-flex", flex: "none", alignItems: "center", minWidth: 0 }}
+        >
           <Image
-            src="/logo/trilogy-logo.png"
+            src="/logo/trilogy-logo-light.png"
             alt="Trilogy"
-            width={5280}
-            height={1100}
+            width={1200}
+            height={262}
             priority
             className="header-logo"
-            style={{ height: 68, width: "auto", maxWidth: "100%" }}
+            style={{ height: 44, width: "auto", maxWidth: "100%" }}
           />
         </Link>
 
-        <nav className="header-nav" style={{ display: "flex", alignItems: "center", gap: 18, flex: "none" }}>
-          <div className="nav-desktop" style={{ display: "flex", alignItems: "center", gap: 18 }}>
+        <nav className="header-nav" style={{ display: "flex", alignItems: "center", gap: 20, flex: "none" }}>
+          <div className="nav-desktop" style={{ display: "flex", alignItems: "center", gap: 20 }}>
             {nav.map((item) =>
               item.children ? (
                 <ServicesDropdown key={item.label} item={item} />
               ) : (
-                <Link key={item.href} href={item.href} style={linkStyle}>
+                <Link key={item.href} href={item.href} className="site-nav-link" style={linkStyle}>
                   {item.label}
                 </Link>
               ),
             )}
           </div>
-          <Link
-            href="/#contact"
-            className="nav-cta"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              padding: "10px 18px",
-              borderRadius: 999,
-              background: "#0E1B2A",
-              color: "#fff",
-              fontFamily: "var(--font-mono)",
-              fontSize: 11.5,
-              letterSpacing: ".12em",
-              textTransform: "uppercase",
-              whiteSpace: "nowrap",
-            }}
-          >
+          <Link href="/#contact" className="nav-cta site-nav-cta" style={ctaStyle}>
             Get in Touch
           </Link>
           <button
@@ -204,9 +213,9 @@ export function Header() {
             style={{
               width: 40,
               height: 40,
-              borderRadius: 10,
-              border: "1px solid rgba(14,27,42,.12)",
-              background: "#fff",
+              borderRadius: 4,
+              border: "1px solid rgba(255,255,255,0.18)",
+              background: "rgba(255,255,255,0.06)",
               cursor: "pointer",
               alignItems: "center",
               justifyContent: "center",
@@ -215,9 +224,9 @@ export function Header() {
               flex: "none",
             }}
           >
-            <span style={{ display: "block", width: 16, height: 2, background: "#0E1B2A" }} />
-            <span style={{ display: "block", width: 16, height: 2, background: "#0E1B2A" }} />
-            <span style={{ display: "block", width: 16, height: 2, background: "#0E1B2A" }} />
+            <span style={{ display: "block", width: 16, height: 2, background: "#fff" }} />
+            <span style={{ display: "block", width: 16, height: 2, background: "#fff" }} />
+            <span style={{ display: "block", width: 16, height: 2, background: "#fff" }} />
           </button>
         </nav>
       </div>
@@ -226,12 +235,12 @@ export function Header() {
         <div
           className="nav-mobile-panel"
           style={{
-            borderTop: "1px solid rgba(14,27,42,.08)",
+            borderTop: "1px solid rgba(255,255,255,0.08)",
             padding: "16px 28px 22px",
             display: "flex",
             flexDirection: "column",
             gap: 14,
-            background: "#fff",
+            background: "rgba(8,16,24,0.96)",
           }}
         >
           {nav.map((item) =>
@@ -255,7 +264,7 @@ export function Header() {
                   }}
                 >
                   {item.label}
-                  <span aria-hidden style={{ color: "rgba(14,27,42,.45)" }}>
+                  <span aria-hidden style={{ color: "rgba(255,255,255,.45)" }}>
                     {servicesOpen ? "−" : "+"}
                   </span>
                 </button>
@@ -269,7 +278,7 @@ export function Header() {
                         style={{
                           ...linkStyle,
                           fontSize: 12,
-                          color: "rgba(14,27,42,.6)",
+                          color: "rgba(255,255,255,.65)",
                         }}
                       >
                         {child.label}
@@ -292,6 +301,13 @@ export function Header() {
               </Link>
             ),
           )}
+          <Link
+            href="/#contact"
+            onClick={() => setOpen(false)}
+            style={{ ...ctaStyle, marginTop: 8, alignSelf: "flex-start" }}
+          >
+            Get in Touch
+          </Link>
         </div>
       ) : null}
     </header>

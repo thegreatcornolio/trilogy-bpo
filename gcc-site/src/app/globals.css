@@ -72,12 +72,12 @@ button {
   }
 }
 
-@keyframes hero-ken {
+@keyframes hero-pan {
   from {
-    transform: scale(1.08);
+    transform: scale(1.18) translate3d(2%, 2%, 0);
   }
   to {
-    transform: scale(1);
+    transform: scale(1.18) translate3d(-3%, -4%, 0);
   }
 }
 
@@ -91,7 +91,39 @@ button {
 }
 
 .hero-media {
-  animation: hero-ken 8s cubic-bezier(0.16, 0.84, 0.44, 1) both;
+  animation: hero-pan 26s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.shell--header {
+  width: min(1360px, calc(100% - 40px));
+}
+
+.nav-divider {
+  width: 1px;
+  height: 14px;
+  flex: none;
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.mobile-nav__divider {
+  display: block;
+  height: 1px;
+  margin: 8px 0;
+  background: rgba(255, 255, 255, 0.16);
+}
+
+/* Hero brand line: coloured Global / Capability / Centres, no trilogy mark. */
+.hero-gcc-wordmark {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: clamp(28px, 4.6vw, 44px);
+  letter-spacing: -0.03em;
+  line-height: 0.98;
 }
 
 .hero-copy > * {
@@ -321,6 +353,16 @@ button {
   pointer-events: auto;
 }
 
+@media (max-width: 1240px) {
+  .desktop-nav {
+    display: none !important;
+  }
+
+  .mobile-nav {
+    display: flex;
+  }
+}
+
 @media (max-width: 860px) {
   .shell {
     width: min(1120px, calc(100% - 32px));
@@ -357,6 +399,11 @@ button {
     margin-left: auto !important;
     margin-right: auto !important;
     object-position: center center !important;
+  }
+
+  .hero .hero-gcc-wordmark {
+    align-items: center;
+    text-align: center;
   }
 
   .hero .hero-copy h1,
@@ -1134,7 +1181,7 @@ button {
 
 @media (min-width: 640px) {
   .dials {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -1775,5 +1822,135 @@ button {
 
   .gcc-savings__line {
     stroke-dashoffset: 0;
+  }
+
+  .test-kitchen-visual,
+  .test-kitchen-visual__bob,
+  .test-kitchen-visual__frame,
+  .test-kitchen-visual__glow,
+  .test-kitchen-visual__img {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    filter: none !important;
+  }
+}
+
+/* —— Test Kitchen / AI visual —— */
+.test-kitchen-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: 40px 56px;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .test-kitchen-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .test-kitchen-visual {
+    max-width: 420px;
+    margin-inline: auto;
+  }
+}
+
+.test-kitchen-visual {
+  position: relative;
+  isolation: isolate;
+}
+
+.test-kitchen-visual__glow {
+  position: absolute;
+  inset: 6% 4%;
+  border-radius: 50%;
+  background:
+    radial-gradient(ellipse at 50% 62%, rgba(47, 232, 92, 0.42), transparent 58%),
+    radial-gradient(ellipse at 55% 40%, rgba(120, 210, 255, 0.12), transparent 55%);
+  opacity: 0;
+  transform: scale(0.65);
+  filter: blur(2px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.test-kitchen-visual__bob {
+  position: relative;
+  z-index: 1;
+}
+
+.test-kitchen-visual.is-inview .test-kitchen-visual__bob {
+  animation: test-kitchen-float 4.8s ease-in-out 1.7s infinite;
+}
+
+.test-kitchen-visual__frame {
+  overflow: hidden;
+  background: transparent;
+  opacity: 0;
+  transform: translateY(56px) scale(0.72);
+  filter: drop-shadow(0 22px 48px rgba(47, 232, 92, 0.22));
+  will-change: transform, opacity;
+}
+
+.test-kitchen-visual.is-inview .test-kitchen-visual__frame {
+  animation: test-kitchen-pop 1.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.test-kitchen-visual.is-inview .test-kitchen-visual__glow {
+  opacity: 1;
+  transform: scale(1);
+  animation: test-kitchen-glow 3.2s ease-in-out 0.35s infinite;
+}
+
+.test-kitchen-visual__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transform: scale(1.12);
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.05s;
+}
+
+.test-kitchen-visual.is-inview .test-kitchen-visual__img {
+  transform: scale(1);
+}
+
+@keyframes test-kitchen-pop {
+  0% {
+    opacity: 0;
+    transform: translateY(64px) scale(0.68);
+  }
+  55% {
+    opacity: 1;
+    transform: translateY(-18px) scale(1.08);
+  }
+  75% {
+    transform: translateY(6px) scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes test-kitchen-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes test-kitchen-glow {
+  0%,
+  100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.12);
   }
 }

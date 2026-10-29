@@ -24,11 +24,11 @@ export function Footer() {
         >
           <div>
             <Image
-              src="/logo/trilogy-deck-dark.png"
+              src="/logo/trilogy-logo-light.png"
               alt="Trilogy"
-              width={768}
-              height={192}
-              style={{ height: 52, width: "auto", filter: "brightness(0) invert(1)" }}
+              width={1200}
+              height={262}
+              style={{ height: 44, width: "auto" }}
             />
             <p
               style={{

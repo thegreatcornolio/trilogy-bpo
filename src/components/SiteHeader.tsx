@@ -38,12 +38,12 @@ export default function SiteHeader() {
           style={{ display: "inline-flex", flex: "none" }}
         >
           <Image
-            src="/logo/trilogy-deck-light.png"
+            src="/logo/trilogy-logo.png"
             alt="Trilogy"
-            width={768}
-            height={192}
+            width={5280}
+            height={1100}
             priority
-            style={{ height: 26, width: "auto" }}
+            style={{ height: 40, width: "auto" }}
           />
         </Link>
 
