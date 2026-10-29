@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import PageJsonLd from "@/components/PageJsonLd";
 import { pageMetadata } from "@/lib/seo";
+import ContactCallout from "@/components/ContactCallout";
 import SectionKicker from "@/components/SectionKicker";
 import AiMetrics from "@/components/AiMetrics";
 import ServiceHero from "@/components/ServiceHero";
@@ -13,7 +13,6 @@ import {
   aiHumanLoop,
   aiProducts,
   aiProposition,
-  company,
 } from "@/lib/content";
 
 export const metadata: Metadata = pageMetadata({
@@ -446,69 +445,7 @@ export default function TrilogyAiPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section style={{ padding: "88px 0", background: "#0E1B2A", color: "#F7F5F0" }}>
-        <div className="container" style={{ maxWidth: 820 }}>
-          <SectionKicker onDark>Built inside real BPO constraints</SectionKicker>
-          <h2
-            className="rise"
-            style={{
-              margin: "14px 0 0",
-              fontSize: "clamp(28px, 3.6vw, 42px)",
-              fontWeight: 400,
-              letterSpacing: "-.02em",
-              lineHeight: 1.15,
-            }}
-          >
-            Ready to upgrade your contact centre — not replace it?
-          </h2>
-          <p
-            className="rise"
-            style={{
-              margin: "20px 0 0",
-              fontSize: 16.5,
-              lineHeight: 1.7,
-              color: "rgba(247,245,240,.68)",
-              fontWeight: 300,
-            }}
-          >
-            See ACE live with real agents, real customers and human override where it matters. Book a session with the
-            operators who built it.
-          </p>
-          <div className="rise" style={{ marginTop: 36, display: "flex", flexWrap: "wrap", gap: 14, alignItems: "center" }}>
-            <Link
-              href={company.booking}
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                padding: "14px 24px",
-                borderRadius: 999,
-                background: "#2FE85C",
-                color: "#0E1B2A",
-                fontFamily: "var(--font-mono)",
-                fontSize: 12,
-                letterSpacing: ".12em",
-                textTransform: "uppercase",
-                fontWeight: 600,
-              }}
-            >
-              Book an Ai session
-            </Link>
-            <Link
-              href="/trilogy-gcc"
-              className="mono"
-              style={{
-                fontSize: 12,
-                letterSpacing: ".12em",
-                color: "rgba(247,245,240,.55)",
-                textTransform: "uppercase",
-              }}
-            >
-              Explore Trilogy GCC →
-            </Link>
-          </div>
-        </div>
-      </section>
+      <ContactCallout />
     </main>
   );
 }

@@ -744,40 +744,68 @@ export default function GccSitePage({ variant = "full" }: { variant?: GccSiteVar
           </div>
         </section>
 
-        {/* Contact */}
-        <section
-          id="contact"
-          style={{
-            position: "relative",
-            padding: "110px 0",
-            background: "var(--ink-deep)",
-            color: "var(--white)",
-            overflow: "hidden",
-          }}
-        >
-          <div
-            aria-hidden
-            style={{
-              position: "absolute",
-              inset: 0,
-              background:
-                "radial-gradient(ellipse at 80% 20%, rgba(46,232,92,0.16), transparent 42%), radial-gradient(ellipse at 10% 90%, rgba(140,224,129,0.1), transparent 40%)",
-            }}
-          />
-          <div className="shell" style={{ position: "relative" }}>
-            <SectionLabel onDark>Next step</SectionLabel>
-            <SectionTitle max="16ch">Ready to own your South African centre?</SectionTitle>
-            <Lead onDark>
-              Tell us where you are — in-house, outsourced, or starting fresh — and we’ll map a DBIT
-              path with open-book costing and a fixed management fee.
-            </Lead>
-            <div className="rise" style={{ display: "flex", flexWrap: "wrap", gap: 14, marginTop: 36 }}>
-              <a href="mailto:sales@trilogybpo.com" className="cta">
-                Email sales@trilogybpo.com
+        <section id="contact" style={{ padding: "96px 0", background: "#0E1B2A", color: "#fff" }}>
+          <div className="shell" style={{ textAlign: "center" }}>
+            <h2
+              className="rise"
+              style={{
+                margin: "0 auto",
+                maxWidth: "18ch",
+                fontSize: "clamp(30px, 4vw, 48px)",
+                fontWeight: 400,
+                letterSpacing: "-0.02em",
+                lineHeight: 1.15,
+              }}
+            >
+              Turn customer service into a competitive advantage.
+            </h2>
+            <div
+              className="rise"
+              style={{ display: "flex", justifyContent: "center", flexWrap: "wrap", gap: 12, marginTop: 28 }}
+            >
+              <a
+                href="mailto:info@trilogybpo.com"
+                style={{
+                  display: "inline-flex",
+                  padding: "14px 22px",
+                  borderRadius: 999,
+                  background: "#2FE85C",
+                  color: "#0A1F12",
+                  fontWeight: 600,
+                }}
+              >
+                Get in Touch
               </a>
-              <a href="mailto:kobusvdw@trilogybpo.com" className="cta cta-ghost">
-                Email Kobus · CEO
+              <a
+                href="https://wa.me/27719691163?text=hi"
+                target="_blank"
+                rel="noreferrer"
+                style={{
+                  display: "inline-flex",
+                  padding: "14px 22px",
+                  borderRadius: 999,
+                  border: "1px solid rgba(255,255,255,.3)",
+                  color: "#fff",
+                }}
+              >
+                WhatsApp us
               </a>
+            </div>
+            <div
+              className="mono rise"
+              style={{
+                marginTop: 28,
+                fontSize: 12,
+                letterSpacing: ".1em",
+                color: "rgba(247,245,240,.55)",
+                display: "flex",
+                justifyContent: "center",
+                gap: 24,
+                flexWrap: "wrap",
+              }}
+            >
+              <span>UK +44 7458 158591</span>
+              <span>SA +27 73 668 6096</span>
             </div>
           </div>
         </section>

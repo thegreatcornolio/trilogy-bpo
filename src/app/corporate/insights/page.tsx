@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { insightsPapers, insightsPosts } from "@/lib/content";
+import ContactCallout from "@/components/ContactCallout";
 import Link from "next/link";
 import PageJsonLd from "@/components/PageJsonLd";
 import { pageMetadata } from "@/lib/seo";
@@ -19,6 +20,7 @@ export const metadata: Metadata = pageMetadata({
 
 export default function InsightsIndexPage() {
   return (
+    <>
     <main style={{ padding: "88px 0 96px", background: "#F7F5F0" }}>
       <PageJsonLd
         path="/corporate/insights/"
@@ -96,5 +98,7 @@ export default function InsightsIndexPage() {
         ) : null}
       </div>
     </main>
+    <ContactCallout />
+    </>
   );
 }
