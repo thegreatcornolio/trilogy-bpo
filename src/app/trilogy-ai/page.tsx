@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { AgentDemo } from "@/components/AgentDemo";
 import PageJsonLd from "@/components/PageJsonLd";
 import { pageMetadata } from "@/lib/seo";
 import SectionKicker from "@/components/SectionKicker";
@@ -11,6 +12,7 @@ import {
   aiFailVsSucceed,
   aiHero,
   aiHumanLoop,
+  aiJourney,
   aiProducts,
   aiProposition,
   company,
@@ -47,6 +49,110 @@ export default function TrilogyAiPage() {
         meta="ACE · Autonomous Customer Engagement"
         objectPosition="center"
       />
+
+      {/* Live demo */}
+      <section style={{ padding: "96px 0", background: "#F7F5F0" }}>
+        <div className="container">
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "1fr 1.05fr",
+              gap: 48,
+              alignItems: "center",
+            }}
+            className="demo-grid"
+          >
+            <div>
+              <SectionKicker>Trilogy Ai · Live</SectionKicker>
+              <h2
+                className="rise"
+                style={{
+                  margin: 0,
+                  fontSize: "clamp(28px, 3.6vw, 44px)",
+                  fontWeight: 400,
+                  letterSpacing: "-.02em",
+                  lineHeight: 1.15,
+                  color: "#0E1B2A",
+                }}
+              >
+                Agent-in-the-loop, in real time.
+              </h2>
+              <p
+                className="rise"
+                style={{
+                  margin: "18px 0 0",
+                  maxWidth: "42ch",
+                  fontSize: 16.5,
+                  lineHeight: 1.7,
+                  color: "rgba(14,27,42,.64)",
+                  fontWeight: 300,
+                }}
+              >
+                Autonomous CX handles the conversation; a human approves the moment judgement, escalation or
+                compliance is needed. Watch a refund resolve itself.
+              </p>
+            </div>
+            <AgentDemo />
+          </div>
+        </div>
+      </section>
+
+      {/* Opportunities across the journey */}
+      <section style={{ padding: "96px 0", background: "#fff" }}>
+        <div className="container">
+          <SectionKicker>Trilogy Ai</SectionKicker>
+          <h2
+            className="rise"
+            style={{
+              margin: 0,
+              fontSize: "clamp(28px, 3.6vw, 44px)",
+              fontWeight: 400,
+              letterSpacing: "-.02em",
+              lineHeight: 1.15,
+              color: "#0E1B2A",
+            }}
+          >
+            Opportunities for AI across the customer journey.
+          </h2>
+          <div
+            className="ai-grid rise"
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+              gap: 18,
+              marginTop: 40,
+            }}
+          >
+            {aiJourney.map((item) => (
+              <div
+                key={item.title}
+                style={{
+                  border: "1px solid rgba(14,27,42,.1)",
+                  borderRadius: 14,
+                  padding: 24,
+                  background: "#fff",
+                }}
+              >
+                <div className="mono" style={{ fontSize: 11.5, color: "#0E7C46", letterSpacing: ".1em" }}>
+                  {item.kicker}
+                </div>
+                <h3 style={{ margin: "12px 0 0", fontSize: 17, fontWeight: 500 }}>{item.title}</h3>
+                <p
+                  style={{
+                    margin: "10px 0 0",
+                    fontSize: 14.5,
+                    lineHeight: 1.6,
+                    color: "rgba(14,27,42,.62)",
+                    fontWeight: 300,
+                  }}
+                >
+                  {item.body}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Proposition */}
       <section style={{ padding: "88px 0", background: "#fff" }}>

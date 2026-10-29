@@ -118,9 +118,9 @@ export default function TrilogyDigitalPage() {
               maxWidth: "72ch",
             }}
           >
-            <strong style={{ fontWeight: 600, color: "#0E1B2A" }}>Trilogy Group</strong> brings together Trilogy BPO,
-            Trilogy GCC, Trilogy Ai and Trilogy Digital — complementary businesses under one operator-led family.
-            Trilogy Digital is the delivery JV built for UK programmes from South Africa.
+            <strong style={{ fontWeight: 600, color: "#0E1B2A" }}>Trilogy Group</strong> brings together Trilogy GCC,
+            Trilogy Digital and Trilogy Ai — complementary businesses under one operator-led family. Trilogy Digital
+            is the delivery JV built for UK programmes from South Africa.
           </p>
         </div>
       </section>
@@ -321,8 +321,8 @@ export default function TrilogyDigitalPage() {
               fontWeight: 300,
             }}
           >
-            Through Trilogy Digital and the wider Trilogy Group, clients can choose BPO outsourcing, a GCC build, or Ai
-            platform access.
+            Through Trilogy Digital and the wider Trilogy Group, clients can choose outsourced CX delivery, a GCC
+            build, or Ai platform access.
           </p>
           <div
             className="rise"
