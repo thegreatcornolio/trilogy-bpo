@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+
+Host: https://www.trilogybpo.com
+Sitemap: https://www.trilogybpo.com/sitemap.xml
