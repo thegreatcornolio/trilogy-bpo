@@ -24,24 +24,27 @@ export default function TestKitchenVisual() {
           }
         }
       },
-      { threshold: 0.28, rootMargin: "0px 0px -6% 0px" },
+      { threshold: 0.2, rootMargin: "0px 0px -8% 0px" },
     );
     io.observe(root);
     return () => io.disconnect();
   }, []);
 
   return (
-    <div ref={rootRef} className="test-kitchen-visual" aria-hidden={false}>
+    <div ref={rootRef} className="test-kitchen-visual">
       <div className="test-kitchen-visual__glow" aria-hidden />
-      <div className="test-kitchen-visual__frame">
-        <Image
-          src="/proposal/test-kitchen-ai.jpg"
-          alt="Trilogy AI Test Kitchen — luminous test tube representing innovation lab"
-          width={1152}
-          height={864}
-          sizes="(max-width: 900px) 100vw, 44vw"
-          className="test-kitchen-visual__img"
-        />
+      <div className="test-kitchen-visual__bob">
+        <div className="test-kitchen-visual__frame">
+          <Image
+            src="/proposal/test-kitchen-ai.jpg"
+            alt="Trilogy AI Test Kitchen — luminous test tube representing innovation lab"
+            width={1152}
+            height={864}
+            sizes="(max-width: 900px) 100vw, 44vw"
+            className="test-kitchen-visual__img"
+            priority={false}
+          />
+        </div>
       </div>
     </div>
   );
