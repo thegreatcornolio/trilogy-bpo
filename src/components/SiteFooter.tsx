@@ -27,11 +27,11 @@ export default function SiteFooter() {
       >
         <div style={{ maxWidth: "32ch" }}>
           <Image
-            src="/logo/trilogy-deck-dark.png"
+            src="/logo/trilogy-logo-light.png"
             alt="Trilogy"
-            width={768}
-            height={192}
-            style={{ height: 26, width: "auto" }}
+            width={1200}
+            height={262}
+            style={{ height: 36, width: "auto" }}
           />
           <p
             style={{
