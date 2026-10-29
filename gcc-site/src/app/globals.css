@@ -72,12 +72,12 @@ button {
   }
 }
 
-@keyframes hero-ken {
+@keyframes hero-pan {
   from {
-    transform: scale(1.08);
+    transform: scale(1.18) translate3d(2%, 2%, 0);
   }
   to {
-    transform: scale(1);
+    transform: scale(1.18) translate3d(-3%, -4%, 0);
   }
 }
 
@@ -91,7 +91,26 @@ button {
 }
 
 .hero-media {
-  animation: hero-ken 8s cubic-bezier(0.16, 0.84, 0.44, 1) both;
+  animation: hero-pan 26s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.shell--header {
+  width: min(1360px, calc(100% - 40px));
+}
+
+.nav-divider {
+  width: 1px;
+  height: 14px;
+  flex: none;
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.mobile-nav__divider {
+  display: block;
+  height: 1px;
+  margin: 8px 0;
+  background: rgba(255, 255, 255, 0.16);
 }
 
 /* Hero brand line: coloured Global / Capability / Centres, no trilogy mark. */
@@ -332,6 +351,16 @@ button {
 .mobile-nav__backdrop.is-open {
   opacity: 1;
   pointer-events: auto;
+}
+
+@media (max-width: 1240px) {
+  .desktop-nav {
+    display: none !important;
+  }
+
+  .mobile-nav {
+    display: flex;
+  }
 }
 
 @media (max-width: 860px) {

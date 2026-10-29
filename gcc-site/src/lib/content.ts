@@ -2,8 +2,17 @@
 
 export const BRIEF_PDF = "/trilogy-dbot-solution-brief.pdf";
 
-/** Public + briefing nav — company brochure sections live on trilogybpo.com */
+/** Main marketing site. GCC is published under web.trilogybpo.com/trilogy-gcc/. */
+const MAIN_SITE = "https://www.trilogybpo.com";
+
+/**
+ * Public + briefing nav. Landing pages come first, then in-page anchors.
+ * Company brochure sections live on trilogybpo.com.
+ */
 export const nav = [
+  { label: "Home", href: `${MAIN_SITE}/` },
+  { label: "Trilogy Digital", href: `${MAIN_SITE}/trilogy-digital/` },
+  { label: "Trilogy Ai", href: `${MAIN_SITE}/trilogy-ai/` },
   { label: "Overview", href: "#overview" },
   { label: "Footprint", href: "#footprint" },
   { label: "Journey", href: "#journey" },

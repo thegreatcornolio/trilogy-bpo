@@ -93,28 +93,32 @@ export default function GccSitePage({ variant = "full" }: { variant?: GccSiteVar
         }}
       >
         <div
-          className="shell"
+          className="shell shell--header"
           style={{
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
             height: 80,
-            gap: 24,
+            gap: 20,
           }}
         >
           <a href="#top" aria-label="Trilogy Global Capability Centres">
             <BrandLockup size="nav" />
           </a>
-          <nav className="desktop-nav" style={{ display: "flex", gap: 20, alignItems: "center" }}>
-            {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="nav-link mono"
-                style={{ fontSize: 11, color: "rgba(255,255,255,0.78)" }}
-              >
-                {item.label}
-              </a>
+          <nav className="desktop-nav" style={{ display: "flex", gap: 14, alignItems: "center" }}>
+            {navItems.map((item, index) => (
+              <span key={item.href} style={{ display: "contents" }}>
+                {item.href.startsWith("#") && index > 0 && !navItems[index - 1].href.startsWith("#") ? (
+                  <span className="nav-divider" aria-hidden />
+                ) : null}
+                <a
+                  href={item.href}
+                  className="nav-link mono"
+                  style={{ fontSize: 11, color: "rgba(255,255,255,0.78)" }}
+                >
+                  {item.label}
+                </a>
+              </span>
             ))}
             <a href="#contact" className="cta" style={{ padding: "10px 16px", fontSize: 13 }}>
               Talk to us
