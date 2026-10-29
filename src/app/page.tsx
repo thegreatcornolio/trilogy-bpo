@@ -36,9 +36,10 @@ export const metadata: Metadata = pageMetadata({
   description: site.description,
   path: "/",
   keywords: [
+    "Global Capability Centre South Africa",
+    "GCC Cape Town DBIT",
     "AI-enabled BPO South Africa",
     "contact centre outsourcing Cape Town",
-    "Global Capability Centre South Africa",
     "ISO 27001 certified BPO",
     "PCI DSS compliant contact centre",
     "UK GDPR compliant BPO",
@@ -85,7 +86,7 @@ export default function HomePage() {
         <div className="container" style={{ position: "relative", zIndex: 1, paddingTop: 88, paddingBottom: 64 }}>
           <div className="rise" style={{ maxWidth: 640 }}>
             <div className="mono" style={{ fontSize: 12, letterSpacing: ".16em", color: "rgba(247,245,240,.7)" }}>
-              · AI-enabled BPO · UK · US · EMEA
+              · BPO · GCC · AI · UK · US · EMEA
             </div>
             <h1
               style={{
@@ -103,20 +104,20 @@ export default function HomePage() {
             <p
               style={{
                 margin: "22px 0 0",
-                maxWidth: "46ch",
+                maxWidth: "48ch",
                 fontSize: 17,
                 fontWeight: 300,
                 lineHeight: 1.65,
                 color: "rgba(247,245,240,.78)",
               }}
             >
-              Making customer engagement offshoring easy. Trilogy BPO is an offshore Business Process Outsourcing
-              company in South Africa, helping UK and USA companies augment their customer experience while cutting
-              the cost of customer service and sales.
+              Outsource with us, or build your own Global Capability Centre in South Africa. Trilogy designs, builds
+              and runs AI-enabled contact centres for UK, US and EMEA brands — and transfers ownership when you are
+              ready via our DBIT method.
             </p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 12, marginTop: 30 }}>
               <Link
-                href="#offerings"
+                href="/trilogy-gcc/"
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
@@ -129,10 +130,10 @@ export default function HomePage() {
                   fontSize: 15,
                 }}
               >
-                See the three offerings →
+                Explore Trilogy GCC →
               </Link>
               <Link
-                href="#contact"
+                href="#offerings"
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
@@ -143,7 +144,7 @@ export default function HomePage() {
                   fontSize: 15,
                 }}
               >
-                Talk to us
+                See all offerings
               </Link>
             </div>
           </div>
@@ -179,10 +180,24 @@ export default function HomePage() {
       {/* Offerings */}
       <section id="offerings" style={{ padding: "96px 0", background: "#fff" }}>
         <div className="container">
-          <SectionKicker>Three offerings</SectionKicker>
-          <SectionTitle>Your journey, your choice.</SectionTitle>
+          <SectionKicker>Three offerings · BPO · GCC · Ai</SectionKicker>
+          <SectionTitle>From outsourcing to ownership.</SectionTitle>
+          <p
+            className="rise"
+            style={{
+              margin: "18px 0 0",
+              maxWidth: "54ch",
+              fontSize: 16.5,
+              lineHeight: 1.7,
+              color: "rgba(14,27,42,.64)",
+              fontWeight: 300,
+            }}
+          >
+            Start with a turnkey outsourced centre, stand up your own Global Capability Centre with DBIT, or layer in
+            autonomous CX — the same operator family, the same South African delivery.
+          </p>
           <div style={{ marginTop: 40 }}>
-            <OfferingsTabs />
+            <OfferingsTabs defaultKey="gcc" />
           </div>
         </div>
       </section>

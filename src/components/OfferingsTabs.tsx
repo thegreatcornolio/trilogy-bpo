@@ -6,8 +6,16 @@ import AutoVideo from "@/components/AutoVideo";
 import { offerings } from "@/lib/content";
 import { forest, ink, lime, line, mono, panel } from "@/lib/theme";
 
-export default function OfferingsTabs() {
-  const [active, setActive] = useState(0);
+export default function OfferingsTabs({
+  defaultKey = "bpo",
+}: {
+  defaultKey?: (typeof offerings)[number]["key"];
+}) {
+  const initial = Math.max(
+    0,
+    offerings.findIndex((offering) => offering.key === defaultKey),
+  );
+  const [active, setActive] = useState(initial === -1 ? 0 : initial);
   const [hovered, setHovered] = useState<number | null>(null);
   const panelRef = useRef<HTMLDivElement>(null);
   const current = offerings[active];
