@@ -2,27 +2,19 @@
 
 export const BRIEF_PDF = "/trilogy-dbot-solution-brief.pdf";
 
+/** Public + briefing nav — company brochure sections live on trilogybpo.com */
 export const nav = [
   { label: "Overview", href: "#overview" },
-  { label: "Team", href: "#team" },
+  { label: "Footprint", href: "#footprint" },
   { label: "Journey", href: "#journey" },
-  { label: "Why SA", href: "#why-sa" },
   { label: "DBIT", href: "#dbit" },
   { label: "Cases", href: "#cases" },
   { label: "Commercial", href: "#commercial" },
   { label: "Contact", href: "#contact" },
 ] as const;
 
-/** Nav for the hidden briefing page — omits sections already on trilogybpo.com */
-export const navBriefing = [
-  { label: "Overview", href: "#overview" },
-  { label: "Journey", href: "#journey" },
-  { label: "Footprint", href: "#footprint" },
-  { label: "DBIT", href: "#dbit" },
-  { label: "Cases", href: "#cases" },
-  { label: "Commercial", href: "#commercial" },
-  { label: "Contact", href: "#contact" },
-] as const;
+/** Alias kept for briefing page imports */
+export const navBriefing = nav;
 
 export type NavItem = { label: string; href: string };
 
@@ -77,7 +69,7 @@ export const teamGroups: { title: string; members: TeamMember[] }[] = [
       },
       {
         name: "Craig Shalekoff",
-        role: "GCC CEO & Founder",
+        role: "CTIO",
         img: "/proposal/team/craig-shalekoff.png",
         linkedin: "https://www.linkedin.com/in/craig-shalekoff-digital-tribe-bpo/",
       },
@@ -134,7 +126,7 @@ export const teamGroups: { title: string; members: TeamMember[] }[] = [
       },
       {
         name: "Craig Shalekoff",
-        role: "GCC CEO & Founder",
+        role: "CTIO",
         img: "/proposal/team/craig-shalekoff.png",
         linkedin: "https://www.linkedin.com/in/craig-shalekoff-digital-tribe-bpo/",
       },
@@ -324,18 +316,50 @@ export const dbitLayers = [
 ] as const;
 
 export const benefits = [
-  { stat: "50–60%", title: "Cheaper than onshoring", body: "Cost savings vs high-cost markets while accessing the same quality talent and capabilities." },
-  { stat: "20–30%", title: "Cheaper than outsourcing", body: "Additional savings vs traditional BPO by eliminating vendor margins and overhead." },
-  { stat: "15–20%", title: "Further via deflection", body: "Automation, digital deflection and AI without vendor constraints." },
-  { stat: "100%", title: "More control", body: "Complete ownership of operations, technology, data security and strategic direction." },
+  {
+    stat: "50–60%",
+    title: "Cheaper than onshoring",
+    body: "Cost savings compared to maintaining operations in high-cost markets, with the same quality talent and capabilities.",
+  },
+  {
+    stat: "20–30%",
+    title: "Cheaper than outsourcing",
+    body: "Additional savings versus traditional BPO outsourcing by eliminating vendor margins and overhead.",
+  },
+  {
+    stat: "Full",
+    title: "More control",
+    body: "Complete ownership of operations, technology decisions, data security and strategic direction.",
+  },
 ] as const;
 
+/** Midpoint model from approved Oct 2026 GCC deck — main path ends ~45%. */
 export const costPath = [
-  { stage: "In-house / on-shore", label: "100% of cost — no savings yet", save: null },
-  { stage: "Trilogy BPO", label: "~65% of cost · labour arbitrage", save: "≈35%" },
-  { stage: "Trilogy DBIT", label: "~47% of cost · own your centre", save: "Further ≈18%" },
-  { stage: "Innovation", label: "~39% of cost · tech deflection", save: "Further ≈8%" },
+  { stage: "In-house captive (UK/USA)", label: "100% of cost — starting base", save: null },
+  { stage: "BPO outsourcer", label: "~60% of cost · labour arbitrage", save: "≈40% lower" },
+  { stage: "Trilogy DBOT", label: "~45% of cost · own your centre", save: "Further 20–30%" },
 ] as const;
+
+export const testKitchen = {
+  kicker: "By Trilogy · AI & innovation lab",
+  title: "Go further with Trilogy DBIT — our AI and Test Kitchen.",
+  lead:
+    "Once your centre is stable, Trilogy’s AI platform and Test Kitchen let you prototype, test and prove new ways of serving customers on your own journeys before rolling them out — with no vendor margin standing in the way.",
+  unlocks: [
+    {
+      title: "Digital deflection",
+      body: "Self-service for routine contacts that never need an agent.",
+    },
+    {
+      title: "AI-assisted agents",
+      body: "Real-time guidance, summaries and automated QA on every interaction.",
+    },
+    {
+      title: "Autonomous resolution",
+      body: "Where journeys allow — potentially a further 15–20% off the DBOT cost base.",
+    },
+  ],
+} as const;
 
 export const provenResults = [
   { value: "20–30%", label: "Margin removal", body: "Immediate reduction versus offshore BPO by eliminating vendor markup." },
