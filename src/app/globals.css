@@ -383,6 +383,7 @@ body {
   .evp-grid,
   .ai-grid,
   .demo-grid,
+  .group-grid,
   .why-wrap,
   .footer-grid {
     grid-template-columns: 1fr !important;

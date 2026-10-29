@@ -18,13 +18,42 @@ export type NavItem =
     };
 
 export const navLinks: NavItem[] = [
-  { label: "Trilogy BPO", href: "/trilogy-bpo" },
-  { label: "Trilogy Digital", href: "/trilogy-digital" },
   { label: "Trilogy GCC", href: "/trilogy-gcc" },
+  { label: "Trilogy Digital", href: "/trilogy-digital" },
   { label: "Trilogy Ai", href: "/trilogy-ai" },
   { label: "Team", href: "/#team" },
   { label: "Partners", href: "/#partners" },
 ];
+
+/** Homepage — Trilogy Group of Companies (above the three offerings). */
+export const trilogyGroup = {
+  kicker: "Trilogy Group",
+  title: "One operator family. Three ways in.",
+  lead: "Trilogy Group brings together Global Capability Centres, outsourced CX delivery and autonomous AI — complementary businesses under one South African operator-led family.",
+  members: [
+    {
+      key: "gcc",
+      name: "Trilogy GCC",
+      tag: "Global Capability Centres",
+      body: "Design, build, innovate and transfer your own centre in South Africa — ownership with DBIT.",
+      href: "/trilogy-gcc/",
+    },
+    {
+      key: "digital",
+      name: "Trilogy Digital",
+      tag: "Outsourced CX delivery",
+      body: "Turnkey contact centre outsourcing for UK, US and EMEA — voice, digital and AI-enabled delivery.",
+      href: "/trilogy-digital/",
+    },
+    {
+      key: "ai",
+      name: "Trilogy Ai",
+      tag: "Autonomous CX platform",
+      body: "Agent-in-the-loop AI for service, sales, marketing and collections — live with clients today.",
+      href: "/trilogy-ai/",
+    },
+  ],
+} as const;
 
 export const heroStats = [
   { value: "30+", label: "Contact centres built worldwide" },
@@ -53,24 +82,6 @@ export type Offering = {
 export const offerings: Offering[] = [
   {
     index: "01",
-    key: "bpo",
-    name: "Trilogy BPO",
-    kicker: "Outsourced contact centre",
-    headline: "From voice, to digital, to autonomous CX.",
-    body: "A turnkey contact centre on a fully integrated platform: voice, email, chat and back-office. Outsource marketing, customer service, sales, collections or retentions, with predictive AI/ML, RPA, analytics and live reporting built in.",
-    points: [
-      "Turnkey digital + autonomous",
-      "Predictive AI / ML + RPA",
-      "Voice · email · chat · back-office",
-    ],
-    image: "/img/offer-bpo.png",
-    video: "/video/offer-bpo.mp4",
-    imageAlt:
-      "A contact-centre floor at night, rows of human agents in headsets lit by the green glow of their monitors, with an android among them.",
-    href: "/trilogy-bpo",
-  },
-  {
-    index: "02",
     key: "gcc",
     name: "Trilogy GCC",
     kicker: "Global Capability Centres",
@@ -86,6 +97,24 @@ export const offerings: Offering[] = [
     imageAlt:
       "A team reviewing a glowing green holographic building floorplate in a dark fit-out space.",
     href: "/trilogy-gcc",
+  },
+  {
+    index: "02",
+    key: "digital",
+    name: "Trilogy Digital",
+    kicker: "Outsourced contact centre",
+    headline: "From voice, to digital, to autonomous CX.",
+    body: "A turnkey contact centre on a fully integrated platform: voice, email, chat and back-office. Outsource marketing, customer service, sales, collections or retentions, with predictive AI/ML, RPA, analytics and live reporting built in.",
+    points: [
+      "Turnkey digital + autonomous",
+      "Predictive AI / ML + RPA",
+      "Voice · email · chat · back-office",
+    ],
+    image: "/img/offer-bpo.png",
+    video: "/video/offer-bpo.mp4",
+    imageAlt:
+      "A contact-centre floor at night, rows of human agents in headsets lit by the green glow of their monitors, with an android among them.",
+    href: "/trilogy-digital",
   },
   {
     index: "03",
@@ -1096,7 +1125,7 @@ export const digitalSites = [
 export const digitalOfferings = [
   {
     index: "01",
-    name: "Trilogy BPO",
+    name: "Trilogy Digital",
     tag: "Your Contract, Your Choice",
     body: "Outsource your contact centre to Trilogy in South Africa. Modern technology platforms in a ready state — just add humans — spanning voice, digital channels and AI-powered automation at significantly reduced cost.",
   },

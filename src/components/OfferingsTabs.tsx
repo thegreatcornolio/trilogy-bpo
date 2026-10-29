@@ -7,7 +7,7 @@ import { offerings } from "@/lib/content";
 import { forest, ink, lime, line, mono, panel } from "@/lib/theme";
 
 export default function OfferingsTabs({
-  defaultKey = "bpo",
+  defaultKey = "gcc",
 }: {
   defaultKey?: (typeof offerings)[number]["key"];
 }) {
