@@ -7,9 +7,8 @@ export const BRIEF_PDF = "/trilogy-dbot-solution-brief.pdf";
  * (/trilogy-gcc) does not prefix sibling product pages on web.trilogybpo.com.
  */
 export const primaryNav = [
-  { label: "Trilogy BPO", href: "/trilogy-bpo/" },
-  { label: "Trilogy Digital", href: "/trilogy-digital/" },
   { label: "Trilogy GCC", href: "/trilogy-gcc/" },
+  { label: "Trilogy Digital", href: "/trilogy-digital/" },
   { label: "Trilogy Ai", href: "/trilogy-ai/" },
 ] as const;
 

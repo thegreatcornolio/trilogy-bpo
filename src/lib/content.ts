@@ -19,9 +19,8 @@ export type NavItem =
 
 /** Global top-bar links — same on every page. Page sections live in the right anchor rail. */
 export const primaryNav: NavItem[] = [
-  { label: "Trilogy BPO", href: "/trilogy-bpo" },
-  { label: "Trilogy Digital", href: "/trilogy-digital" },
   { label: "Trilogy GCC", href: "/trilogy-gcc" },
+  { label: "Trilogy Digital", href: "/trilogy-digital" },
   { label: "Trilogy Ai", href: "/trilogy-ai" },
 ];
 
@@ -39,19 +38,14 @@ export const pageAnchorsByPath: Record<string, PageAnchor[]> = {
     { label: "Insights", href: "#insights" },
     { label: "Contact", href: "#contact" },
   ],
-  "/trilogy-bpo": [
-    { label: "Operate", href: "#operate" },
-    { label: "Digital", href: "#digital" },
-    { label: "Why AI", href: "#why-ai" },
-    { label: "Achievements", href: "#achievements" },
-    { label: "Test Kitchen", href: "#test-kitchen" },
-    { label: "Contact", href: "#contact" },
-  ],
   "/trilogy-digital": [
     { label: "Overview", href: "#overview" },
     { label: "Why us", href: "#why" },
     { label: "What we do", href: "#what-we-do" },
-    { label: "Footprint", href: "#footprint" },
+    { label: "Operate", href: "#operate" },
+    { label: "Why AI", href: "#why-ai" },
+    { label: "Achievements", href: "#achievements" },
+    { label: "Test Kitchen", href: "#test-kitchen" },
     { label: "AI suite", href: "#ai-suite" },
     { label: "Contact", href: "#contact" },
   ],
