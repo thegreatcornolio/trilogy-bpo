@@ -52,9 +52,23 @@ export default function TrilogyDigitalPage() {
           { name: "Trilogy Digital", path: "/trilogy-digital/" },
         ]}
       />
-      {/* Hero — Trilogy Group identity */}
-      <section style={{ padding: "88px 0 64px", background: "#0E1B2A", color: "#F7F5F0" }}>
-        <div className="container">
+      {/* Hero — full viewport, copy bottom-aligned like GCC */}
+      <section
+        data-anchor-theme="dark"
+        style={{
+          position: "relative",
+          minHeight: "100svh",
+          display: "flex",
+          alignItems: "flex-end",
+          background: "#0E1B2A",
+          color: "#F7F5F0",
+          overflow: "hidden",
+        }}
+      >
+        <div
+          className="container"
+          style={{ position: "relative", zIndex: 1, width: "100%", paddingTop: 120, paddingBottom: 72 }}
+        >
           <div
             className="rise"
             style={{
