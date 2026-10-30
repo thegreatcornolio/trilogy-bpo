@@ -5,12 +5,14 @@ import Link from "next/link";
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { primaryNav, type NavItem } from "@/lib/content";
 
+/** Identical on every product link — no current/visited greying. */
 const linkStyle: CSSProperties = {
   fontFamily: "var(--font-mono)",
   fontSize: 11.5,
   letterSpacing: ".12em",
   textTransform: "uppercase",
-  color: "rgba(14,27,42,.72)",
+  color: "rgba(14, 27, 42, 0.72)",
+  textDecoration: "none",
 };
 
 function ServicesDropdown({ item }: { item: Extract<NavItem, { children: unknown }> }) {

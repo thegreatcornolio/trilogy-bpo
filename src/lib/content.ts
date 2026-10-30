@@ -17,11 +17,11 @@ export type NavItem =
       children: { label: string; href: string }[];
     };
 
-/** Global top-bar links — same on every page. Page sections live in the right anchor rail. */
+/** Global top-bar links — same on every page (main + GCC microsite). */
 export const primaryNav: NavItem[] = [
-  { label: "Trilogy GCC", href: "/trilogy-gcc" },
-  { label: "Trilogy Digital", href: "/trilogy-digital" },
-  { label: "Trilogy Ai", href: "/trilogy-ai" },
+  { label: "Trilogy GCC", href: "/trilogy-gcc/" },
+  { label: "Trilogy Digital", href: "/trilogy-digital/" },
+  { label: "Trilogy Ai", href: "/trilogy-ai/" },
 ];
 
 /** @deprecated Use primaryNav — kept as alias for footer/header imports. */

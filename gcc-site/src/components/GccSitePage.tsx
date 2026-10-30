@@ -3,8 +3,8 @@ import BenefitsDials from "@/components/BenefitsDials";
 import BrandLockup from "@/components/BrandLockup";
 import CostPathChart from "@/components/CostPathChart";
 import DbitFlow from "@/components/DbitFlow";
-import MobileNav from "@/components/MobileNav";
 import SaMap from "@/components/SaMap";
+import SiteHeader from "@/components/SiteHeader";
 import TestKitchenVisual from "@/components/TestKitchenVisual";
 import PageAnchorNav from "@/components/PageAnchorNav";
 import {
@@ -14,7 +14,6 @@ import {
   dbitPhases,
   incentivePillars,
   pageAnchors,
-  primaryNav,
   overviewBody,
   overviewBullets,
   overviewIntro,
@@ -25,7 +24,6 @@ import {
   turnkeySite,
   turnkeyStaff,
   whoBenefits,
-  type NavItem,
 } from "@/lib/content";
 
 export type GccSiteVariant = "full" | "briefing";
@@ -80,51 +78,10 @@ function Lead({ children, onDark = false }: { children: React.ReactNode; onDark?
  */
 export default function GccSitePage({ variant = "full" }: { variant?: GccSiteVariant }) {
   const exclusive = variant === "briefing";
-  const navItems: readonly NavItem[] = primaryNav;
 
   return (
     <>
-      <header
-        style={{
-          position: "fixed",
-          inset: "0 0 auto",
-          zIndex: 40,
-          backdropFilter: "blur(14px)",
-          background: "rgba(8, 16, 24, 0.55)",
-          borderBottom: "1px solid rgba(255,255,255,0.08)",
-        }}
-      >
-        <div
-          className="shell shell--header"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            height: 80,
-            gap: 20,
-          }}
-        >
-          <a href="/" aria-label="Trilogy home">
-            <BrandLockup size="nav" />
-          </a>
-          <nav className="desktop-nav" style={{ display: "flex", gap: 14, alignItems: "center" }}>
-            {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="nav-link mono"
-                style={{ fontSize: 11, color: "rgba(255, 255, 255, 0.82)" }}
-              >
-                {item.label}
-              </a>
-            ))}
-            <a href="#contact" className="cta" style={{ padding: "10px 16px", fontSize: 13 }}>
-              Talk to us
-            </a>
-          </nav>
-          <MobileNav items={navItems} />
-        </div>
-      </header>
+      <SiteHeader />
 
       <PageAnchorNav items={pageAnchors} />
 

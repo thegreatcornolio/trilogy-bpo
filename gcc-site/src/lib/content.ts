@@ -6,6 +6,7 @@ export const BRIEF_PDF = "/trilogy-dbot-solution-brief.pdf";
  * Same global top-bar as the main site. Root-absolute paths so basePath
  * (/trilogy-gcc) does not prefix sibling product pages on web.trilogybpo.com.
  */
+/** Same product top-bar as the main site (web.trilogybpo.com). */
 export const primaryNav = [
   { label: "Trilogy GCC", href: "/trilogy-gcc/" },
   { label: "Trilogy Digital", href: "/trilogy-digital/" },
