@@ -1,52 +1,60 @@
 "use client";
 
 import Image from "next/image";
-import { useState, type CSSProperties } from "react";
+import { useEffect, useState, type CSSProperties } from "react";
 import { primaryNav } from "@/lib/content";
 
-/** Same chrome as the main web.trilogybpo.com Header — light bar, identical link color. */
+/** Same transparent chrome as the main site — light writing over the hero. */
 const linkStyle: CSSProperties = {
   fontFamily: "var(--font-mono)",
   fontSize: 11.5,
   letterSpacing: ".12em",
   textTransform: "uppercase",
-  color: "rgba(14, 27, 42, 0.72)",
+  color: "rgba(255, 255, 255, 0.92)",
   textDecoration: "none",
 };
 
 export default function SiteHeader() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="site-header">
-      <div className="site-header__inner shell shell--header">
-        <a href="/" aria-label="Trilogy home" className="site-header__logo">
+    <header className={`site-chrome${scrolled ? " is-scrolled" : ""}${open ? " is-open" : ""}`}>
+      <div className="site-chrome__inner shell">
+        <a href="/" aria-label="Trilogy home" className="site-chrome__logo">
           <Image
-            src="/logo/trilogy-logo.png"
+            src="/logo/trilogy-logo-light.png"
             alt="Trilogy"
-            width={5280}
-            height={1100}
+            width={1200}
+            height={262}
             priority
-            className="site-header__logo-img"
+            className="site-chrome__logo-img"
           />
         </a>
 
-        <nav className="site-header__nav" aria-label="Primary">
-          <div className="site-header__desktop">
+        <nav className="site-chrome__nav" aria-label="Primary">
+          <div className="site-chrome__desktop">
             {primaryNav.map((item) => (
-              <a key={item.href} href={item.href} className="site-header__link" style={linkStyle}>
+              <a key={item.href} href={item.href} className="site-chrome__link" style={linkStyle}>
                 {item.label}
               </a>
             ))}
           </div>
-          <a href="/#contact" className="site-header__cta">
+          <a href="/#contact" className="site-chrome__cta">
             Get in Touch
           </a>
           <button
             type="button"
             aria-label="Toggle navigation"
             aria-expanded={open}
-            className="site-header__burger"
+            className="site-chrome__burger"
             onClick={() => setOpen((v) => !v)}
           >
             <span />
@@ -57,23 +65,19 @@ export default function SiteHeader() {
       </div>
 
       {open ? (
-        <div className="site-header__mobile">
+        <div className="site-chrome__mobile">
           {primaryNav.map((item) => (
             <a
               key={item.href}
               href={item.href}
-              className="site-header__link"
+              className="site-chrome__link"
               style={{ ...linkStyle, fontSize: 12 }}
               onClick={() => setOpen(false)}
             >
               {item.label}
             </a>
           ))}
-          <a
-            href="/#contact"
-            className="site-header__cta site-header__cta--mobile"
-            onClick={() => setOpen(false)}
-          >
+          <a href="/#contact" className="site-chrome__cta" onClick={() => setOpen(false)}>
             Get in Touch
           </a>
         </div>
