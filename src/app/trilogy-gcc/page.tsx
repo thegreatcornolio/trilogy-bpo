@@ -55,7 +55,7 @@ export default function TrilogyGccPage() {
       />
 
       {/* Proposition */}
-      <section style={{ padding: "88px 0", background: "#fff" }}>
+      <section id="proposition" style={{ padding: "88px 0", background: "#fff" }}>
         <div className="container">
           <SectionKicker>The GCC proposition</SectionKicker>
           <h2
@@ -129,7 +129,7 @@ export default function TrilogyGccPage() {
       </section>
 
       {/* DBIT Framework */}
-      <section style={{ padding: "88px 0", background: "#0c1926", color: "#F7F5F0" }}>
+      <section id="dbit" data-anchor-theme="dark" style={{ padding: "88px 0", background: "#0c1926", color: "#F7F5F0" }}>
         <div className="container">
           <SectionKicker onDark>The DBIT framework</SectionKicker>
           <h2
@@ -216,7 +216,7 @@ export default function TrilogyGccPage() {
       </section>
 
       {/* Benefits */}
-      <section style={{ padding: "88px 0", background: "#F7F5F0" }}>
+      <section id="benefits" style={{ padding: "88px 0", background: "#F7F5F0" }}>
         <div className="container">
           <SectionKicker>Benefits of DBIT</SectionKicker>
           <h2
@@ -272,7 +272,7 @@ export default function TrilogyGccPage() {
       </section>
 
       {/* Ownership split + comparisons */}
-      <section style={{ padding: "88px 0", background: "#fff" }}>
+      <section id="lifecycle" style={{ padding: "88px 0", background: "#fff" }}>
         <div className="container">
           <SectionKicker>The Trilogy GCC lifecycle</SectionKicker>
           <h2
@@ -437,7 +437,7 @@ export default function TrilogyGccPage() {
       </section>
 
       {/* Phase detail */}
-      <section style={{ padding: "88px 0", background: "#fff" }}>
+      <section id="migration" style={{ padding: "88px 0", background: "#fff" }}>
         <div className="container">
           <SectionKicker>Migration — a phased approach</SectionKicker>
           <h2

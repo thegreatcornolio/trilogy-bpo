@@ -17,13 +17,55 @@ export type NavItem =
       children: { label: string; href: string }[];
     };
 
-export const navLinks: NavItem[] = [
-  { label: "Trilogy GCC", href: "/trilogy-gcc" },
-  { label: "Trilogy Digital", href: "/trilogy-digital" },
-  { label: "Trilogy Ai", href: "/trilogy-ai" },
-  { label: "Team", href: "/#team" },
-  { label: "Partners", href: "/#partners" },
+/** Global top-bar links — same on every page (main + GCC microsite). */
+export const primaryNav: NavItem[] = [
+  { label: "Trilogy GCC", href: "/trilogy-gcc/" },
+  { label: "Trilogy Digital", href: "/trilogy-digital/" },
+  { label: "Trilogy Ai", href: "/trilogy-ai/" },
 ];
+
+/** @deprecated Use primaryNav — kept as alias for footer/header imports. */
+export const navLinks: NavItem[] = primaryNav;
+
+export type PageAnchor = { label: string; href: string };
+
+/** In-page anchors for the right-side rail, keyed by pathname (no trailing slash). */
+export const pageAnchorsByPath: Record<string, PageAnchor[]> = {
+  "/": [
+    { label: "Group", href: "#group" },
+    { label: "Team", href: "#team" },
+    { label: "Partners", href: "#partners" },
+    { label: "Insights", href: "#insights" },
+    { label: "Contact", href: "#contact" },
+  ],
+  "/trilogy-digital": [
+    { label: "Overview", href: "#overview" },
+    { label: "Why us", href: "#why" },
+    { label: "What we do", href: "#what-we-do" },
+    { label: "Operate", href: "#operate" },
+    { label: "Why AI", href: "#why-ai" },
+    { label: "Achievements", href: "#achievements" },
+    { label: "Test Kitchen", href: "#test-kitchen" },
+    { label: "AI suite", href: "#ai-suite" },
+    { label: "Contact", href: "#contact" },
+  ],
+  "/trilogy-ai": [
+    { label: "Live", href: "#live" },
+    { label: "Proposition", href: "#proposition" },
+    { label: "Where AI", href: "#where-ai" },
+    { label: "Human loop", href: "#human-loop" },
+    { label: "ACE", href: "#ace" },
+    { label: "Contact", href: "#contact" },
+  ],
+  "/trilogy-gcc": [
+    { label: "Proposition", href: "#proposition" },
+    { label: "DBIT", href: "#dbit" },
+    { label: "Benefits", href: "#benefits" },
+    { label: "Lifecycle", href: "#lifecycle" },
+    { label: "Migration", href: "#migration" },
+    { label: "Contact", href: "#contact" },
+  ],
+};
 
 /** Homepage — Trilogy Group of Companies. */
 export const trilogyGroup = {

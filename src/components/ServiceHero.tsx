@@ -13,7 +13,7 @@ type Props = {
   objectPosition?: string;
 };
 
-/** Full-bleed video hero used on GCC / Ai service pages. */
+/** Full-bleed video hero — fits the window, copy sits low like GCC. */
 export default function ServiceHero({
   kicker,
   title,
@@ -29,7 +29,7 @@ export default function ServiceHero({
     <section
       style={{
         position: "relative",
-        minHeight: "78vh",
+        minHeight: "100svh",
         display: "flex",
         alignItems: "flex-end",
         color: "#F7F5F0",

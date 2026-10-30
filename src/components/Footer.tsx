@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { nav, site } from "@/lib/content";
+import { primaryNav, site } from "@/lib/content";
 
 export function Footer() {
   return (
@@ -52,7 +52,7 @@ export function Footer() {
               Navigate
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-              {nav.flatMap((item) =>
+              {primaryNav.flatMap((item) =>
                 item.children
                   ? item.children.map((child) => (
                       <Link
