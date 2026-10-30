@@ -10,6 +10,43 @@ function normalizePath(pathname: string | null): string {
   return pathname;
 }
 
+function luminance(r: number, g: number, b: number) {
+  return (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255;
+}
+
+function parseRgb(color: string): [number, number, number] | null {
+  const m = color.match(/rgba?\(\s*([\d.]+)\s*,\s*([\d.]+)\s*,\s*([\d.]+)/i);
+  if (!m) return null;
+  return [Number(m[1]), Number(m[2]), Number(m[3])];
+}
+
+/** True when the backdrop behind the rail is dark enough that ink-colored dots would disappear. */
+function isDarkBehindRail(): boolean {
+  if (typeof document === "undefined") return false;
+  const x = Math.max(0, window.innerWidth - 36);
+  const y = Math.round(window.innerHeight * 0.5);
+  // Temporarily ignore the rail itself when hit-testing
+  const rail = document.querySelector(".page-anchor-nav") as HTMLElement | null;
+  const prev = rail?.style.pointerEvents;
+  if (rail) rail.style.pointerEvents = "none";
+  const el = document.elementFromPoint(x, y) as HTMLElement | null;
+  if (rail) rail.style.pointerEvents = prev ?? "";
+
+  let node: HTMLElement | null = el;
+  while (node && node !== document.body) {
+    const bg = getComputedStyle(node).backgroundColor;
+    const rgb = parseRgb(bg);
+    if (rgb) {
+      const [r, g, b] = rgb;
+      const alphaMatch = bg.match(/rgba?\([^)]+,\s*([\d.]+)\s*\)/i);
+      const alpha = alphaMatch ? Number(alphaMatch[1]) : 1;
+      if (alpha > 0.35) return luminance(r, g, b) < 0.45;
+    }
+    node = node.parentElement;
+  }
+  return false;
+}
+
 export default function PageAnchorNav({ anchors }: { anchors?: PageAnchor[] }) {
   const pathname = usePathname();
   const items = useMemo(() => {
@@ -18,12 +55,11 @@ export default function PageAnchorNav({ anchors }: { anchors?: PageAnchor[] }) {
   }, [anchors, pathname]);
 
   const [active, setActive] = useState<string>("");
+  const [onDark, setOnDark] = useState(false);
 
   useEffect(() => {
     if (!items.length) return;
-    const ids = items
-      .map((item) => item.href.replace(/^#/, ""))
-      .filter(Boolean);
+    const ids = items.map((item) => item.href.replace(/^#/, "")).filter(Boolean);
     const elements = ids
       .map((id) => document.getElementById(id))
       .filter((el): el is HTMLElement => Boolean(el));
@@ -42,11 +78,32 @@ export default function PageAnchorNav({ anchors }: { anchors?: PageAnchor[] }) {
     return () => io.disconnect();
   }, [items]);
 
+  useEffect(() => {
+    if (!items.length) return;
+    let ticking = false;
+    const update = () => {
+      ticking = false;
+      setOnDark(isDarkBehindRail());
+    };
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, [items, active]);
+
   if (!items.length) return null;
 
   return (
     <nav
-      className="page-anchor-nav"
+      className={`page-anchor-nav${onDark ? " is-on-dark" : ""}`}
       aria-label="On this page"
     >
       <ul className="page-anchor-nav__list">

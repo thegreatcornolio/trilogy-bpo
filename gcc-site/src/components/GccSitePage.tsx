@@ -113,7 +113,7 @@ export default function GccSitePage({ variant = "full" }: { variant?: GccSiteVar
                 key={item.href}
                 href={item.href}
                 className="nav-link mono"
-                style={{ fontSize: 11, color: "rgba(255,255,255,0.78)" }}
+                style={{ fontSize: 11 }}
               >
                 {item.label}
               </a>
