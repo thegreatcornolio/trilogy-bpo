@@ -48,7 +48,7 @@ export default function TrilogyBpoPage() {
       />
 
       {/* How we operate */}
-      <section style={{ padding: "88px 0", background: "#fff" }}>
+      <section id="operate" style={{ padding: "88px 0", background: "#fff" }}>
         <div className="container">
           <SectionKicker>How and where we operate</SectionKicker>
           <h2
@@ -105,7 +105,7 @@ export default function TrilogyBpoPage() {
       </section>
 
       {/* Digital contact centres */}
-      <section style={{ padding: "88px 0", background: "#F7F5F0" }}>
+      <section id="digital" style={{ padding: "88px 0", background: "#F7F5F0" }}>
         <div className="container">
           <SectionKicker>Digital contact centres</SectionKicker>
           <h2
@@ -164,7 +164,7 @@ export default function TrilogyBpoPage() {
       </section>
 
       {/* Why AI-enabled BPO */}
-      <section style={{ padding: "88px 0", background: "#0c1926", color: "#F7F5F0" }}>
+      <section id="why-ai" style={{ padding: "88px 0", background: "#0c1926", color: "#F7F5F0" }}>
         <div className="container">
           <SectionKicker onDark>Why AI-enabled BPO wins</SectionKicker>
           <h2
@@ -249,7 +249,7 @@ export default function TrilogyBpoPage() {
       </section>
 
       {/* Achievements */}
-      <section style={{ padding: "88px 0", background: "#fff" }}>
+      <section id="achievements" style={{ padding: "88px 0", background: "#fff" }}>
         <div className="container">
           <SectionKicker>Our achievements</SectionKicker>
           <h2
@@ -311,7 +311,7 @@ export default function TrilogyBpoPage() {
       </section>
 
       {/* Test Kitchen */}
-      <section style={{ padding: "88px 0", background: "#0E1B2A", color: "#F7F5F0" }}>
+      <section id="test-kitchen" style={{ padding: "88px 0", background: "#0E1B2A", color: "#F7F5F0" }}>
         <div className="container">
           <SectionKicker onDark>AI Test Kitchen for BPO</SectionKicker>
           <h2

@@ -126,7 +126,7 @@ export default function TrilogyDigitalPage() {
       </section>
 
       {/* Overview */}
-      <section style={{ padding: "72px 0", background: "#fff" }}>
+      <section id="overview" style={{ padding: "72px 0", background: "#fff" }}>
         <div className="container" style={{ maxWidth: 860 }}>
           <SectionKicker>Company overview</SectionKicker>
           <h2 className="rise" style={{ margin: "4px 0 0", fontSize: "clamp(26px, 3vw, 36px)", fontWeight: 400 }}>
@@ -183,7 +183,7 @@ export default function TrilogyDigitalPage() {
       </section>
 
       {/* Why */}
-      <section style={{ padding: "72px 0", background: "#F7F5F0" }}>
+      <section id="why" style={{ padding: "72px 0", background: "#F7F5F0" }}>
         <div className="container">
           <SectionKicker>Why Trilogy Digital</SectionKicker>
           <h2 className="rise" style={{ margin: "4px 0 0", fontSize: "clamp(26px, 3vw, 36px)", fontWeight: 400 }}>
@@ -219,7 +219,7 @@ export default function TrilogyDigitalPage() {
       </section>
 
       {/* What we do + footprint */}
-      <section style={{ padding: "72px 0", background: "#fff" }}>
+      <section id="what-we-do" style={{ padding: "72px 0", background: "#fff" }}>
         <div className="container">
           <SectionKicker>What we do</SectionKicker>
           <h2 className="rise" style={{ margin: "4px 0 0", fontSize: "clamp(26px, 3vw, 36px)", fontWeight: 400 }}>
@@ -267,7 +267,7 @@ export default function TrilogyDigitalPage() {
             ))}
           </div>
 
-          <div style={{ marginTop: 56 }}>
+          <div id="footprint" style={{ marginTop: 56 }}>
             <SectionKicker>Our footprint</SectionKicker>
             <h2 className="rise" style={{ margin: "4px 0 0", fontSize: "clamp(26px, 3vw, 36px)", fontWeight: 400 }}>
               Five sites, two cities
@@ -391,7 +391,7 @@ export default function TrilogyDigitalPage() {
       </section>
 
       {/* AI suite */}
-      <section className="td-ai-suite" style={{ padding: "72px 0", background: "#0E1B2A", color: "#F7F5F0" }}>
+      <section id="ai-suite" className="td-ai-suite" style={{ padding: "72px 0", background: "#0E1B2A", color: "#F7F5F0" }}>
         <div className="container">
           <SectionKicker onDark>Proprietary AI suite</SectionKicker>
           <h2 className="rise" style={{ margin: "4px 0 0", fontSize: "clamp(26px, 3vw, 36px)", fontWeight: 400 }}>

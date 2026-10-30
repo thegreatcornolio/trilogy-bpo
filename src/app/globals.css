@@ -666,3 +666,108 @@ body {
     border-top: none;
   }
 }
+
+/* —— Right-side page anchor rail —— */
+.page-anchor-nav {
+  position: fixed;
+  top: 50%;
+  right: 18px;
+  z-index: 35;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.page-anchor-nav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+  pointer-events: auto;
+}
+
+.page-anchor-nav__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  color: rgba(14, 27, 42, 0.42);
+  text-decoration: none;
+  font-family: var(--font-plex-mono), "IBM Plex Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+.page-anchor-nav__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(14, 27, 42, 0.28);
+  background: transparent;
+  flex: none;
+  order: 2;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.page-anchor-nav__label {
+  order: 1;
+  opacity: 0;
+  transform: translateX(6px);
+  max-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    max-width 0.25s ease;
+}
+
+.page-anchor-nav__link:hover,
+.page-anchor-nav__link:focus-visible,
+.page-anchor-nav__link.is-active {
+  color: var(--color-ink);
+}
+
+.page-anchor-nav__link:hover .page-anchor-nav__label,
+.page-anchor-nav__link:focus-visible .page-anchor-nav__label,
+.page-anchor-nav__link.is-active .page-anchor-nav__label {
+  opacity: 1;
+  transform: none;
+  max-width: 14ch;
+}
+
+.page-anchor-nav__link.is-active .page-anchor-nav__dot {
+  background: var(--color-lime);
+  border-color: var(--color-lime);
+  box-shadow: 0 0 0 3px rgba(47, 232, 92, 0.22);
+  transform: scale(1.15);
+}
+
+.page-anchor-nav__link:hover .page-anchor-nav__dot,
+.page-anchor-nav__link:focus-visible .page-anchor-nav__dot {
+  border-color: var(--color-forest);
+}
+
+@media (max-width: 1100px) {
+  .page-anchor-nav {
+    right: 10px;
+  }
+
+  .page-anchor-nav__label {
+    display: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .page-anchor-nav {
+    display: none;
+  }
+}

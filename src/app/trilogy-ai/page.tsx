@@ -51,7 +51,7 @@ export default function TrilogyAiPage() {
       />
 
       {/* Live demo */}
-      <section style={{ padding: "96px 0", background: "#F7F5F0" }}>
+      <section id="live" style={{ padding: "96px 0", background: "#F7F5F0" }}>
         <div className="container">
           <div
             style={{
@@ -155,7 +155,7 @@ export default function TrilogyAiPage() {
       </section>
 
       {/* Proposition */}
-      <section style={{ padding: "88px 0", background: "#fff" }}>
+      <section id="proposition" style={{ padding: "88px 0", background: "#fff" }}>
         <div className="container">
           <SectionKicker>The AI proposition</SectionKicker>
           <h2
@@ -213,7 +213,7 @@ export default function TrilogyAiPage() {
       </section>
 
       {/* Where AI applies */}
-      <section style={{ padding: "88px 0", background: "#F7F5F0" }}>
+      <section id="where-ai" style={{ padding: "88px 0", background: "#F7F5F0" }}>
         <div className="container">
           <SectionKicker>Where Trilogy applies AI</SectionKicker>
           <h2
@@ -286,7 +286,7 @@ export default function TrilogyAiPage() {
       </section>
 
       {/* Human in the loop */}
-      <section style={{ padding: "88px 0", background: "#0c1926", color: "#F7F5F0" }}>
+      <section id="human-loop" style={{ padding: "88px 0", background: "#0c1926", color: "#F7F5F0" }}>
         <div className="container">
           <SectionKicker onDark>Human-in-the-loop</SectionKicker>
           <h2
@@ -467,7 +467,7 @@ export default function TrilogyAiPage() {
       </section>
 
       {/* ACE suite */}
-      <section style={{ padding: "88px 0", background: "#F7F5F0" }}>
+      <section id="ace" style={{ padding: "88px 0", background: "#F7F5F0" }}>
         <div className="container">
           <SectionKicker>ACE · Autonomous Customer Engagement</SectionKicker>
           <h2

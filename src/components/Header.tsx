@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState, type CSSProperties } from "react";
-import { nav, type NavItem } from "@/lib/content";
+import { primaryNav, type NavItem } from "@/lib/content";
 
 const linkStyle: CSSProperties = {
   fontFamily: "var(--font-mono)",
@@ -166,7 +166,7 @@ export function Header() {
 
         <nav className="header-nav" style={{ display: "flex", alignItems: "center", gap: 18, flex: "none" }}>
           <div className="nav-desktop" style={{ display: "flex", alignItems: "center", gap: 18 }}>
-            {nav.map((item) =>
+            {primaryNav.map((item) =>
               item.children ? (
                 <ServicesDropdown key={item.label} item={item} />
               ) : (
@@ -234,7 +234,7 @@ export function Header() {
             background: "#fff",
           }}
         >
-          {nav.map((item) =>
+          {primaryNav.map((item) =>
             item.children ? (
               <div key={item.label}>
                 <button
