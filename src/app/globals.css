@@ -152,14 +152,18 @@ body {
   }
 }
 
-/* Nav underline — keep visited links from turning browser-blue */
-.header-nav a:link,
-.header-nav a:visited,
-.header-nav a:hover,
-.header-nav a:active,
+/* Nav underline — keep visited links from turning browser-blue (exclude CTA) */
+.header-nav a:not(.nav-cta):link,
+.header-nav a:not(.nav-cta):visited,
+.header-nav a:not(.nav-cta):hover,
+.header-nav a:not(.nav-cta):active,
+.header-nav a:not(.nav-cta):focus,
 .nav-desktop a:link,
-.nav-desktop a:visited {
-  color: rgba(14, 27, 42, 0.72);
+.nav-desktop a:visited,
+.nav-desktop a:hover,
+.nav-desktop a:active,
+.nav-desktop a:focus {
+  color: rgba(14, 27, 42, 0.72) !important;
   text-decoration: none;
 }
 

@@ -20,12 +20,16 @@ function parseRgb(color: string): [number, number, number] | null {
   return [Number(m[1]), Number(m[2]), Number(m[3])];
 }
 
+function alphaOf(color: string): number {
+  const m = color.match(/rgba?\([^)]+,\s*([\d.]+)\s*\)/i);
+  return m ? Number(m[1]) : 1;
+}
+
 /** True when the backdrop behind the rail is dark enough that ink-colored dots would disappear. */
 function isDarkBehindRail(): boolean {
   if (typeof document === "undefined") return false;
   const x = Math.max(0, window.innerWidth - 36);
   const y = Math.round(window.innerHeight * 0.5);
-  // Temporarily ignore the rail itself when hit-testing
   const rail = document.querySelector(".page-anchor-nav") as HTMLElement | null;
   const prev = rail?.style.pointerEvents;
   if (rail) rail.style.pointerEvents = "none";
@@ -33,17 +37,28 @@ function isDarkBehindRail(): boolean {
   if (rail) rail.style.pointerEvents = prev ?? "";
 
   let node: HTMLElement | null = el;
-  while (node && node !== document.body) {
-    const bg = getComputedStyle(node).backgroundColor;
+  while (node && node !== document.documentElement) {
+    if (node === document.body) break;
+
+    const theme = node.getAttribute("data-anchor-theme");
+    if (theme === "dark") return true;
+    if (theme === "light") return false;
+
+    const styles = getComputedStyle(node);
+    const bg = styles.backgroundColor;
     const rgb = parseRgb(bg);
-    if (rgb) {
-      const [r, g, b] = rgb;
-      const alphaMatch = bg.match(/rgba?\([^)]+,\s*([\d.]+)\s*\)/i);
-      const alpha = alphaMatch ? Number(alphaMatch[1]) : 1;
-      if (alpha > 0.35) return luminance(r, g, b) < 0.45;
+    if (rgb && alphaOf(bg) > 0.35) {
+      return luminance(rgb[0], rgb[1], rgb[2]) < 0.48;
     }
+
+    const fg = parseRgb(styles.color);
+    if (fg && luminance(fg[0], fg[1], fg[2]) > 0.75 && node.tagName === "SECTION") {
+      return true;
+    }
+
     node = node.parentElement;
   }
+
   return false;
 }
 

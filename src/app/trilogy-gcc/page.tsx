@@ -129,7 +129,7 @@ export default function TrilogyGccPage() {
       </section>
 
       {/* DBIT Framework */}
-      <section id="dbit" style={{ padding: "88px 0", background: "#0c1926", color: "#F7F5F0" }}>
+      <section id="dbit" data-anchor-theme="dark" style={{ padding: "88px 0", background: "#0c1926", color: "#F7F5F0" }}>
         <div className="container">
           <SectionKicker onDark>The DBIT framework</SectionKicker>
           <h2

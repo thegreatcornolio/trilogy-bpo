@@ -811,7 +811,7 @@ export default function HomePage() {
       </section>
 
       {/* Partners */}
-      <section id="partners" style={{ padding: "96px 0", background: "#0c1926", color: "#F7F5F0" }}>
+      <section id="partners" data-anchor-theme="dark" style={{ padding: "96px 0", background: "#0c1926", color: "#F7F5F0" }}>
         <div className="container">
           <SectionKicker onDark>Ecosystem</SectionKicker>
           <h2
@@ -931,7 +931,7 @@ export default function HomePage() {
       </section>
 
       {/* Contact */}
-      <section id="contact" style={{ padding: "96px 0", background: "#0E1B2A", color: "#fff" }}>
+      <section id="contact" data-anchor-theme="dark" style={{ padding: "96px 0", background: "#0E1B2A", color: "#fff" }}>
         <div className="container" style={{ textAlign: "center" }}>
           <h2
             className="rise"

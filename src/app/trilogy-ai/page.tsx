@@ -286,7 +286,7 @@ export default function TrilogyAiPage() {
       </section>
 
       {/* Human in the loop */}
-      <section id="human-loop" style={{ padding: "88px 0", background: "#0c1926", color: "#F7F5F0" }}>
+      <section id="human-loop" data-anchor-theme="dark" style={{ padding: "88px 0", background: "#0c1926", color: "#F7F5F0" }}>
         <div className="container">
           <SectionKicker onDark>Human-in-the-loop</SectionKicker>
           <h2

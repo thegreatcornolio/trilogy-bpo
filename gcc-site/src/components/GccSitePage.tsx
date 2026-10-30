@@ -113,7 +113,7 @@ export default function GccSitePage({ variant = "full" }: { variant?: GccSiteVar
                 key={item.href}
                 href={item.href}
                 className="nav-link mono"
-                style={{ fontSize: 11 }}
+                style={{ fontSize: 11, color: "rgba(255, 255, 255, 0.82)" }}
               >
                 {item.label}
               </a>
@@ -132,6 +132,7 @@ export default function GccSitePage({ variant = "full" }: { variant?: GccSiteVar
         {/* ===== HERO — preserved as requested ===== */}
         <section
           className="hero"
+          data-anchor-theme="dark"
           style={{
             position: "relative",
             minHeight: "100svh",
@@ -492,9 +493,11 @@ export default function GccSitePage({ variant = "full" }: { variant?: GccSiteVar
         {/* Test Kitchen / AI — dark blue with animated visual */}
         <section
           id="test-kitchen"
+          data-anchor-theme="dark"
           style={{
             padding: "96px 0",
-            background:
+            backgroundColor: "#132338",
+            backgroundImage:
               "radial-gradient(ellipse 80% 70% at 78% 42%, rgba(47, 232, 92, 0.08), transparent 55%), linear-gradient(165deg, #132338 0%, var(--ink) 42%, var(--ink-deep) 100%)",
             color: "var(--white)",
             overflow: "hidden",
@@ -744,7 +747,11 @@ export default function GccSitePage({ variant = "full" }: { variant?: GccSiteVar
           </div>
         </section>
 
-        <section id="contact" style={{ padding: "96px 0", background: "#0E1B2A", color: "#fff" }}>
+        <section
+          id="contact"
+          data-anchor-theme="dark"
+          style={{ padding: "96px 0", background: "#0E1B2A", color: "#fff" }}
+        >
           <div className="shell" style={{ textAlign: "center" }}>
             <h2
               className="rise"

@@ -399,7 +399,7 @@ export default function TrilogyDigitalPage() {
       </section>
 
       {/* AI suite */}
-      <section id="ai-suite" className="td-ai-suite" style={{ padding: "72px 0", background: "#0E1B2A", color: "#F7F5F0" }}>
+      <section id="ai-suite" data-anchor-theme="dark" className="td-ai-suite" style={{ padding: "72px 0", background: "#0E1B2A", color: "#F7F5F0" }}>
         <div className="container">
           <SectionKicker onDark>Proprietary AI suite</SectionKicker>
           <h2 className="rise" style={{ margin: "4px 0 0", fontSize: "clamp(26px, 3vw, 36px)", fontWeight: 400 }}>
@@ -752,7 +752,7 @@ export default function TrilogyDigitalPage() {
         </div>
       </section>
 
-      <section id="why-ai" style={{ padding: "88px 0", background: "#0c1926", color: "#F7F5F0" }}>
+      <section id="why-ai" data-anchor-theme="dark" style={{ padding: "88px 0", background: "#0c1926", color: "#F7F5F0" }}>
         <div className="container">
           <SectionKicker onDark>Why AI-enabled BPO wins</SectionKicker>
           <h2
@@ -899,7 +899,7 @@ export default function TrilogyDigitalPage() {
         </div>
       </section>
 
-      <section id="test-kitchen" style={{ padding: "88px 0", background: "#0E1B2A", color: "#F7F5F0" }}>
+      <section id="test-kitchen" data-anchor-theme="dark" style={{ padding: "88px 0", background: "#0E1B2A", color: "#F7F5F0" }}>
         <div className="container">
           <SectionKicker onDark>AI Test Kitchen for BPO</SectionKicker>
           <h2
