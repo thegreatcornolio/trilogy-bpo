@@ -19,14 +19,20 @@ if (!base) {
 
 const TEXT_EXT = new Set([".html", ".js", ".css", ".txt", ".json"]);
 
+/** Sibling product / main-site routes — must stay root-absolute (not under /trilogy-gcc). */
+const MAIN_SITE_ROUTES =
+  /^\/(?:trilogy-(?:digital|ai|bpo)|privacy|corporate)(?:\/|$)/i;
+
 /** Only rewrite paths that look like site assets / Next routes */
 function shouldRewrite(urlPath) {
   if (!urlPath.startsWith("/")) return false;
   if (urlPath.startsWith("//")) return false;
   if (urlPath.startsWith(base + "/") || urlPath === base) return false;
   if (urlPath.startsWith("/api")) return false;
+  // Keep Home and sibling product pages on the main site origin
+  if (urlPath === "/" || MAIN_SITE_ROUTES.test(urlPath)) return false;
   // Must look like a real path (file, _next, or app route) — avoid SVG junk like "/>"
-  if (!/^\/(?:_next|proposal|logo-|icon|favicon|apple-|cape-|offer-|brand-|trilogy-|[a-z0-9_-]+\/)/i.test(urlPath)
+  if (!/^\/(?:_next|proposal|logo|logo-|icon|favicon|apple-|cape-|offer-|brand-|trilogy-|[a-z0-9_-]+\/)/i.test(urlPath)
     && !/^\/(?:[a-z0-9_.@-]+\.(?:png|jpe?g|webp|gif|svg|ico|mp4|pdf|css|js|woff2?|txt|html?))(?:\?.*)?$/i.test(urlPath)
     && !/^\/(?:404\/?|icon\.png|favicon\.ico)(?:\?.*)?$/i.test(urlPath)) {
     return false;
