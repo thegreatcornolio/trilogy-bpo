@@ -6,11 +6,9 @@ import SectionKicker from "@/components/SectionKicker";
 import {
   awards,
   bpoAchievements,
-  bpoHero,
   bpoKitchenDiff,
   bpoKitchenPhases,
   bpoOperate,
-  bpoPillars,
   bpoWhyAi,
   company,
   digitalAiSuite,
@@ -120,8 +118,8 @@ export default function TrilogyDigitalPage() {
               color: "rgba(247,245,240,.72)",
             }}
           >
-            Part of the Trilogy Group of Companies — a purpose-built CX joint venture between Trilogy BPO and CXG,
-            delivering UK outsourcing from South Africa at scale.
+            Purpose-built CX joint venture for UK outsourcing from South Africa — high-performance contact centre
+            operations, digital channels and human-in-the-loop AI. Decades of expertise, ready to scale.
           </p>
         </div>
       </section>
@@ -325,318 +323,8 @@ export default function TrilogyDigitalPage() {
         </div>
       </section>
 
-      {/* Group offerings available through Digital */}
-      <section style={{ padding: "72px 0", background: "#F7F5F0" }}>
-        <div className="container">
-          <SectionKicker>Trilogy Group offerings</SectionKicker>
-          <h2 className="rise" style={{ margin: "4px 0 0", fontSize: "clamp(26px, 3vw, 36px)", fontWeight: 400 }}>
-            Three paths, one group.
-          </h2>
-          <p
-            className="rise"
-            style={{
-              margin: "14px 0 0",
-              maxWidth: "54ch",
-              fontSize: 15.5,
-              lineHeight: 1.65,
-              color: "rgba(14,27,42,.62)",
-              fontWeight: 300,
-            }}
-          >
-            Through Trilogy Digital and the wider Trilogy Group, clients can choose outsourced CX delivery, a GCC
-            build, or Ai platform access.
-          </p>
-          <div
-            className="rise"
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
-              gap: 16,
-              marginTop: 28,
-            }}
-          >
-            {digitalOfferings.map((item) => {
-              const body = (
-                <>
-                  <div className="mono" style={{ fontSize: 11, letterSpacing: ".12em", color: "#0E7C46" }}>
-                    {item.index} · {item.tag}
-                  </div>
-                  <h3 style={{ margin: "10px 0 0", fontSize: 18, fontWeight: 500 }}>{item.name}</h3>
-                  <p style={{ margin: "12px 0 0", fontSize: 14.5, lineHeight: 1.65, color: "rgba(14,27,42,.64)", fontWeight: 300 }}>
-                    {item.body}
-                  </p>
-                  {"href" in item && item.href ? (
-                    <span className="mono" style={{ display: "inline-block", marginTop: 14, fontSize: 11, letterSpacing: ".1em", color: "#0E7C46" }}>
-                      Explore →
-                    </span>
-                  ) : null}
-                </>
-              );
-
-              if ("href" in item && item.href) {
-                return (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    style={{
-                      display: "block",
-                      border: "1px solid rgba(14,27,42,.1)",
-                      borderRadius: 14,
-                      padding: 24,
-                      background: "#fff",
-                      color: "inherit",
-                      textDecoration: "none",
-                    }}
-                  >
-                    {body}
-                  </Link>
-                );
-              }
-
-              return (
-                <div
-                  key={item.name}
-                  style={{
-                    display: "block",
-                    border: "1px solid rgba(14,27,42,.1)",
-                    borderRadius: 14,
-                    padding: 24,
-                    background: "#fff",
-                  }}
-                >
-                  {body}
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* AI suite */}
-      <section id="ai-suite" data-anchor-theme="dark" className="td-ai-suite" style={{ padding: "72px 0", background: "#0E1B2A", color: "#F7F5F0" }}>
-        <div className="container">
-          <SectionKicker onDark>Proprietary AI suite</SectionKicker>
-          <h2 className="rise" style={{ margin: "4px 0 0", fontSize: "clamp(26px, 3vw, 36px)", fontWeight: 400 }}>
-            Built in-house. Not white-labelled.
-          </h2>
-          <p className="rise" style={{ margin: "14px 0 0", color: "rgba(247,245,240,.66)", fontWeight: 300 }}>
-            Six AI platforms developed and owned by Trilogy.
-          </p>
-          <div className="rise td-ai" style={{ marginTop: 28 }}>
-            {digitalAiSuite.map((item) => (
-              <div
-                key={item.name}
-                className="td-card"
-                style={{
-                  border: "1px solid rgba(255,255,255,.1)",
-                  borderRadius: 14,
-                  padding: 22,
-                  background: "rgba(255,255,255,.03)",
-                }}
-              >
-                <div style={{ color: "#2FE85C", fontWeight: 500, fontSize: 17 }}>{item.name}</div>
-                <div className="mono" style={{ marginTop: 8, fontSize: 11.5, color: "rgba(247,245,240,.55)" }}>
-                  {item.body}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Tech & awards */}
-      <section style={{ padding: "72px 0", background: "#fff" }}>
-        <div className="container">
-          <SectionKicker>Technology, AI &amp; security</SectionKicker>
-          <h2 className="rise" style={{ margin: "4px 0 0", fontSize: "clamp(26px, 3vw, 36px)", fontWeight: 400 }}>
-            Enterprise-ready. Cloud-hosted. Compliant.
-          </h2>
-          <p
-            className="rise"
-            style={{
-              margin: "16px 0 0",
-              maxWidth: "62ch",
-              fontSize: 16,
-              lineHeight: 1.7,
-              color: "rgba(14,27,42,.64)",
-              fontWeight: 300,
-            }}
-          >
-            Technology-agnostic delivery as a virtual operational extension of your existing stack. Systems are 100%
-            cloud hosted on Microsoft Azure (UK South/West). {digitalComplianceIntro}{" "}
-            <Link href="/privacy/" style={{ color: "#0E7C46", fontWeight: 500 }}>
-              Read our Privacy Policy
-            </Link>
-            .
-          </p>
-          <div
-            className="rise"
-            style={{
-              marginTop: 28,
-              display: "grid",
-              gap: 16,
-              maxWidth: 720,
-            }}
-          >
-            {digitalComplianceCredentials.map((item) => (
-              <div
-                key={item.name}
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "72px 1fr",
-                  gap: 16,
-                  alignItems: "start",
-                }}
-              >
-                <div
-                  style={{
-                    width: 72,
-                    height: 72,
-                    borderRadius: 12,
-                    border: "1px solid rgba(14,27,42,.08)",
-                    background: "#fff",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    padding: 8,
-                  }}
-                >
-                  <Image
-                    src={item.logo}
-                    alt={item.term}
-                    width={56}
-                    height={48}
-                    style={{ width: "100%", height: "auto", objectFit: "contain" }}
-                  />
-                </div>
-                <div>
-                  <div
-                    className="mono"
-                    style={{
-                      fontSize: 11.5,
-                      letterSpacing: ".12em",
-                      color: "#0E7C46",
-                      fontWeight: 700,
-                    }}
-                  >
-                    {item.term}
-                  </div>
-                  <p
-                    style={{
-                      margin: "6px 0 0",
-                      fontSize: 15,
-                      lineHeight: 1.6,
-                      color: "rgba(14,27,42,.72)",
-                      fontWeight: 300,
-                    }}
-                  >
-                    {item.body}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-          <ul
-            className="rise"
-            style={{
-              margin: "28px 0 0",
-              padding: 0,
-              listStyle: "none",
-              display: "grid",
-              gap: 10,
-              maxWidth: 640,
-            }}
-          >
-            {[
-              "Cyber Essentials+ aligned with Huntress EPP for endpoints",
-              "Strategic partnerships with InfoBip, AWS, Azure, Zendesk",
-              "System integration and development partnership with BBD and Codified",
-            ].map((item) => (
-              <li
-                key={item}
-                style={{
-                  display: "flex",
-                  gap: 10,
-                  fontSize: 15,
-                  lineHeight: 1.5,
-                  color: "rgba(14,27,42,.72)",
-                  fontWeight: 300,
-                }}
-              >
-                <span style={{ color: "#0E7C46", fontWeight: 700, flex: "none" }}>+</span>
-                {item}
-              </li>
-            ))}
-          </ul>
-
-          <div style={{ marginTop: 56 }}>
-            <SectionKicker>Awards</SectionKicker>
-            <div className="rise" style={{ marginTop: 16, display: "grid", gap: 0 }}>
-              {awards.map((award) => (
-                <div
-                  key={award.year}
-                  style={{
-                    display: "grid",
-                    gridTemplateColumns: "120px 1fr",
-                    gap: 16,
-                    padding: "14px 0",
-                    borderTop: "1px solid rgba(14,27,42,.08)",
-                  }}
-                >
-                  <div className="mono" style={{ fontSize: 13, color: "#0E7C46" }}>
-                    {award.year}
-                  </div>
-                  <div style={{ fontSize: 15, lineHeight: 1.55, color: "rgba(14,27,42,.75)", fontWeight: 300 }}>
-                    {award.text}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* —— Former Trilogy BPO content (outsourced CX) —— */}
-      <section
-        id="outsourced-cx"
-        style={{ padding: "88px 0 64px", background: "#0E1B2A", color: "#F7F5F0" }}
-      >
-        <div className="container">
-          <SectionKicker onDark>{bpoHero.kicker}</SectionKicker>
-          <h2
-            className="rise"
-            style={{
-              margin: "14px 0 0",
-              fontSize: "clamp(36px, 5vw, 56px)",
-              fontWeight: 400,
-              letterSpacing: "-.03em",
-            }}
-          >
-            {bpoHero.title}
-          </h2>
-          <p
-            className="rise"
-            style={{
-              margin: "18px 0 0",
-              maxWidth: "54ch",
-              fontSize: 17,
-              lineHeight: 1.65,
-              fontWeight: 300,
-              color: "rgba(247,245,240,.72)",
-            }}
-          >
-            {bpoHero.lead}
-          </p>
-          <p
-            className="mono rise"
-            style={{ margin: "22px 0 0", fontSize: 11, letterSpacing: ".12em", color: "rgba(247,245,240,.45)" }}
-          >
-            AI-enabled BPO · UK · US · EMEA
-          </p>
-        </div>
-      </section>
-
-      <section id="operate" style={{ padding: "88px 0", background: "#fff" }}>
+      {/* Outsourced CX delivery — unique content from former Trilogy BPO page */}
+      <section id="operate" style={{ padding: "88px 0", background: "#F7F5F0" }}>
         <div className="container">
           <SectionKicker>How and where we operate</SectionKicker>
           <h2
@@ -688,72 +376,6 @@ export default function TrilogyDigitalPage() {
                     margin: "12px 0 0",
                     fontSize: 15.5,
                     lineHeight: 1.65,
-                    color: "rgba(14,27,42,.64)",
-                    fontWeight: 300,
-                  }}
-                >
-                  {item.body}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="digital" style={{ padding: "88px 0", background: "#F7F5F0" }}>
-        <div className="container">
-          <SectionKicker>Digital contact centres</SectionKicker>
-          <h2
-            className="rise"
-            style={{
-              margin: "14px 0 0",
-              maxWidth: "24ch",
-              fontSize: "clamp(28px, 3.6vw, 42px)",
-              fontWeight: 400,
-              letterSpacing: "-.02em",
-            }}
-          >
-            State-of-the-art platforms. Ready. Just add humans.
-          </h2>
-          <p
-            className="rise"
-            style={{
-              margin: "16px 0 0",
-              maxWidth: "58ch",
-              fontSize: 16,
-              lineHeight: 1.7,
-              color: "rgba(14,27,42,.64)",
-              fontWeight: 300,
-            }}
-          >
-            Outsource service, sales, retention and collections on a fully automated AI/ML predictive engagement
-            platform — with a human agent in the loop to fulfil the process.
-          </p>
-          <div
-            className="rise t-3"
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
-              gap: 20,
-              marginTop: 40,
-            }}
-          >
-            {bpoPillars.map((item) => (
-              <div
-                key={item.title}
-                style={{
-                  background: "#fff",
-                  border: "1px solid rgba(14,27,42,.08)",
-                  borderRadius: 14,
-                  padding: "24px 22px",
-                }}
-              >
-                <h3 style={{ margin: 0, fontSize: 17, fontWeight: 500 }}>{item.title}</h3>
-                <p
-                  style={{
-                    margin: "12px 0 0",
-                    fontSize: 14.5,
-                    lineHeight: 1.6,
                     color: "rgba(14,27,42,.64)",
                     fontWeight: 300,
                   }}
@@ -1104,6 +726,278 @@ export default function TrilogyDigitalPage() {
           </div>
         </div>
       </section>
+
+      {/* Group offerings available through Digital */}
+      <section style={{ padding: "72px 0", background: "#F7F5F0" }}>
+        <div className="container">
+          <SectionKicker>Trilogy Group offerings</SectionKicker>
+          <h2 className="rise" style={{ margin: "4px 0 0", fontSize: "clamp(26px, 3vw, 36px)", fontWeight: 400 }}>
+            Three paths, one group.
+          </h2>
+          <p
+            className="rise"
+            style={{
+              margin: "14px 0 0",
+              maxWidth: "54ch",
+              fontSize: 15.5,
+              lineHeight: 1.65,
+              color: "rgba(14,27,42,.62)",
+              fontWeight: 300,
+            }}
+          >
+            Through Trilogy Digital and the wider Trilogy Group, clients can choose outsourced CX delivery, a GCC
+            build, or Ai platform access.
+          </p>
+          <div
+            className="rise"
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
+              gap: 16,
+              marginTop: 28,
+            }}
+          >
+            {digitalOfferings.map((item) => {
+              const body = (
+                <>
+                  <div className="mono" style={{ fontSize: 11, letterSpacing: ".12em", color: "#0E7C46" }}>
+                    {item.index} · {item.tag}
+                  </div>
+                  <h3 style={{ margin: "10px 0 0", fontSize: 18, fontWeight: 500 }}>{item.name}</h3>
+                  <p style={{ margin: "12px 0 0", fontSize: 14.5, lineHeight: 1.65, color: "rgba(14,27,42,.64)", fontWeight: 300 }}>
+                    {item.body}
+                  </p>
+                  {"href" in item && item.href ? (
+                    <span className="mono" style={{ display: "inline-block", marginTop: 14, fontSize: 11, letterSpacing: ".1em", color: "#0E7C46" }}>
+                      Explore →
+                    </span>
+                  ) : null}
+                </>
+              );
+
+              if ("href" in item && item.href) {
+                return (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    style={{
+                      display: "block",
+                      border: "1px solid rgba(14,27,42,.1)",
+                      borderRadius: 14,
+                      padding: 24,
+                      background: "#fff",
+                      color: "inherit",
+                      textDecoration: "none",
+                    }}
+                  >
+                    {body}
+                  </Link>
+                );
+              }
+
+              return (
+                <div
+                  key={item.name}
+                  style={{
+                    display: "block",
+                    border: "1px solid rgba(14,27,42,.1)",
+                    borderRadius: 14,
+                    padding: 24,
+                    background: "#fff",
+                  }}
+                >
+                  {body}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* AI suite */}
+      <section id="ai-suite" data-anchor-theme="dark" className="td-ai-suite" style={{ padding: "72px 0", background: "#0E1B2A", color: "#F7F5F0" }}>
+        <div className="container">
+          <SectionKicker onDark>Proprietary AI suite</SectionKicker>
+          <h2 className="rise" style={{ margin: "4px 0 0", fontSize: "clamp(26px, 3vw, 36px)", fontWeight: 400 }}>
+            Built in-house. Not white-labelled.
+          </h2>
+          <p className="rise" style={{ margin: "14px 0 0", color: "rgba(247,245,240,.66)", fontWeight: 300 }}>
+            Six AI platforms developed and owned by Trilogy.
+          </p>
+          <div className="rise td-ai" style={{ marginTop: 28 }}>
+            {digitalAiSuite.map((item) => (
+              <div
+                key={item.name}
+                className="td-card"
+                style={{
+                  border: "1px solid rgba(255,255,255,.1)",
+                  borderRadius: 14,
+                  padding: 22,
+                  background: "rgba(255,255,255,.03)",
+                }}
+              >
+                <div style={{ color: "#2FE85C", fontWeight: 500, fontSize: 17 }}>{item.name}</div>
+                <div className="mono" style={{ marginTop: 8, fontSize: 11.5, color: "rgba(247,245,240,.55)" }}>
+                  {item.body}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Tech & awards */}
+      <section id="compliance" style={{ padding: "72px 0", background: "#fff" }}>
+        <div className="container">
+          <SectionKicker>Technology, AI &amp; security</SectionKicker>
+          <h2 className="rise" style={{ margin: "4px 0 0", fontSize: "clamp(26px, 3vw, 36px)", fontWeight: 400 }}>
+            Enterprise-ready. Cloud-hosted. Compliant.
+          </h2>
+          <p
+            className="rise"
+            style={{
+              margin: "16px 0 0",
+              maxWidth: "62ch",
+              fontSize: 16,
+              lineHeight: 1.7,
+              color: "rgba(14,27,42,.64)",
+              fontWeight: 300,
+            }}
+          >
+            Technology-agnostic delivery as a virtual operational extension of your existing stack. Systems are 100%
+            cloud hosted on Microsoft Azure (UK South/West). {digitalComplianceIntro}{" "}
+            <Link href="/privacy/" style={{ color: "#0E7C46", fontWeight: 500 }}>
+              Read our Privacy Policy
+            </Link>
+            .
+          </p>
+          <div
+            className="rise"
+            style={{
+              marginTop: 28,
+              display: "grid",
+              gap: 16,
+              maxWidth: 720,
+            }}
+          >
+            {digitalComplianceCredentials.map((item) => (
+              <div
+                key={item.name}
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "72px 1fr",
+                  gap: 16,
+                  alignItems: "start",
+                }}
+              >
+                <div
+                  style={{
+                    width: 72,
+                    height: 72,
+                    borderRadius: 12,
+                    border: "1px solid rgba(14,27,42,.08)",
+                    background: "#fff",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    padding: 8,
+                  }}
+                >
+                  <Image
+                    src={item.logo}
+                    alt={item.term}
+                    width={56}
+                    height={48}
+                    style={{ width: "100%", height: "auto", objectFit: "contain" }}
+                  />
+                </div>
+                <div>
+                  <div
+                    className="mono"
+                    style={{
+                      fontSize: 11.5,
+                      letterSpacing: ".12em",
+                      color: "#0E7C46",
+                      fontWeight: 700,
+                    }}
+                  >
+                    {item.term}
+                  </div>
+                  <p
+                    style={{
+                      margin: "6px 0 0",
+                      fontSize: 15,
+                      lineHeight: 1.6,
+                      color: "rgba(14,27,42,.72)",
+                      fontWeight: 300,
+                    }}
+                  >
+                    {item.body}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <ul
+            className="rise"
+            style={{
+              margin: "28px 0 0",
+              padding: 0,
+              listStyle: "none",
+              display: "grid",
+              gap: 10,
+              maxWidth: 640,
+            }}
+          >
+            {[
+              "Cyber Essentials+ aligned with Huntress EPP for endpoints",
+              "Strategic partnerships with InfoBip, AWS, Azure, Zendesk",
+              "System integration and development partnership with BBD and Codified",
+            ].map((item) => (
+              <li
+                key={item}
+                style={{
+                  display: "flex",
+                  gap: 10,
+                  fontSize: 15,
+                  lineHeight: 1.5,
+                  color: "rgba(14,27,42,.72)",
+                  fontWeight: 300,
+                }}
+              >
+                <span style={{ color: "#0E7C46", fontWeight: 700, flex: "none" }}>+</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+
+          <div style={{ marginTop: 56 }}>
+            <SectionKicker>Awards</SectionKicker>
+            <div className="rise" style={{ marginTop: 16, display: "grid", gap: 0 }}>
+              {awards.map((award) => (
+                <div
+                  key={award.year}
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "120px 1fr",
+                    gap: 16,
+                    padding: "14px 0",
+                    borderTop: "1px solid rgba(14,27,42,.08)",
+                  }}
+                >
+                  <div className="mono" style={{ fontSize: 13, color: "#0E7C46" }}>
+                    {award.year}
+                  </div>
+                  <div style={{ fontSize: 15, lineHeight: 1.55, color: "rgba(14,27,42,.75)", fontWeight: 300 }}>
+                    {award.text}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
     </main>
   );
 }

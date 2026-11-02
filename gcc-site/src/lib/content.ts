@@ -8,6 +8,7 @@ export const BRIEF_PDF = "/trilogy-dbot-solution-brief.pdf";
  */
 /** Same product top-bar as the main site (web.trilogybpo.com). */
 export const primaryNav = [
+  { label: "Home", href: "/" },
   { label: "Trilogy GCC", href: "/trilogy-gcc/" },
   { label: "Trilogy Digital", href: "/trilogy-digital/" },
   { label: "Trilogy Ai", href: "/trilogy-ai/" },

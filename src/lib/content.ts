@@ -19,6 +19,7 @@ export type NavItem =
 
 /** Global top-bar links — same on every page (main + GCC microsite). */
 export const primaryNav: NavItem[] = [
+  { label: "Home", href: "/" },
   { label: "Trilogy GCC", href: "/trilogy-gcc/" },
   { label: "Trilogy Digital", href: "/trilogy-digital/" },
   { label: "Trilogy Ai", href: "/trilogy-ai/" },
@@ -47,7 +48,7 @@ export const pageAnchorsByPath: Record<string, PageAnchor[]> = {
     { label: "Achievements", href: "#achievements" },
     { label: "Test Kitchen", href: "#test-kitchen" },
     { label: "AI suite", href: "#ai-suite" },
-    { label: "Contact", href: "#contact" },
+    { label: "Compliance", href: "#compliance" },
   ],
   "/trilogy-ai": [
     { label: "Live", href: "#live" },
@@ -1192,6 +1193,7 @@ export const digitalOfferings = [
     name: "Trilogy Ai",
     tag: "Platform Access",
     body: 'License our award-winning AI-enabled digital and autonomous platforms for service, sales, marketing and collections — always deployed "human in the loop."',
+    href: "/trilogy-ai/",
   },
 ] as const;
 
