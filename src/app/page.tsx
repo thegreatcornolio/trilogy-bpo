@@ -68,8 +68,17 @@ export default function HomePage() {
     <main>
       <FaqJsonLd faqs={homeFaqs} />
       <PageJsonLd path="/" name={homeTitle} description={site.description} />
-      {/* Hero */}
-      <section style={{ position: "relative", minHeight: "92vh", color: "#fff", overflow: "hidden" }}>
+      {/* Hero — full viewport, copy bottom-aligned like GCC */}
+      <section
+        style={{
+          position: "relative",
+          minHeight: "100svh",
+          display: "flex",
+          alignItems: "flex-end",
+          color: "#fff",
+          overflow: "hidden",
+        }}
+      >
         <div style={{ position: "absolute", inset: 0, background: "#0A121A" }}>
           <AutoVideo src="/video/hero.mp4" poster="/img/hero-fem.png" objectPosition="center right" />
           <div
@@ -78,11 +87,14 @@ export default function HomePage() {
               position: "absolute",
               inset: 0,
               background:
-                "linear-gradient(90deg, rgba(8,14,22,.88) 0%, rgba(8,14,22,.55) 48%, rgba(8,14,22,.18) 100%)",
+                "linear-gradient(90deg, rgba(8,14,22,.88) 0%, rgba(8,14,22,.55) 48%, rgba(8,14,22,.18) 100%), linear-gradient(180deg, rgba(8,14,22,.35) 0%, rgba(8,14,22,.12) 42%, rgba(8,14,22,.82) 100%)",
             }}
           />
         </div>
-        <div className="container" style={{ position: "relative", zIndex: 1, paddingTop: 88, paddingBottom: 64 }}>
+        <div
+          className="container"
+          style={{ position: "relative", zIndex: 1, width: "100%", paddingTop: 120, paddingBottom: 72 }}
+        >
           <div className="rise" style={{ maxWidth: 640 }}>
             <div className="mono" style={{ fontSize: 12, letterSpacing: ".16em", color: "rgba(247,245,240,.7)" }}>
               · GCC · Digital · AI · UK · US · EMEA
@@ -811,7 +823,7 @@ export default function HomePage() {
       </section>
 
       {/* Partners */}
-      <section id="partners" style={{ padding: "96px 0", background: "#0c1926", color: "#F7F5F0" }}>
+      <section id="partners" data-anchor-theme="dark" style={{ padding: "96px 0", background: "#0c1926", color: "#F7F5F0" }}>
         <div className="container">
           <SectionKicker onDark>Ecosystem</SectionKicker>
           <h2
@@ -931,7 +943,7 @@ export default function HomePage() {
       </section>
 
       {/* Contact */}
-      <section id="contact" style={{ padding: "96px 0", background: "#0E1B2A", color: "#fff" }}>
+      <section id="contact" data-anchor-theme="dark" style={{ padding: "96px 0", background: "#0E1B2A", color: "#fff" }}>
         <div className="container" style={{ textAlign: "center" }}>
           <h2
             className="rise"

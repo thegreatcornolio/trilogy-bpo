@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Archivo, IBM_Plex_Mono } from "next/font/google";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import PageAnchorNav from "@/components/PageAnchorNav";
 import RiseObserver from "@/components/RiseObserver";
 import JsonLd from "@/components/JsonLd";
 import { site } from "@/lib/content";
@@ -131,6 +132,7 @@ export default function RootLayout({
             三
           </span>
           <Header />
+          <PageAnchorNav />
           <div style={{ position: "relative", zIndex: 1 }}>{children}</div>
           <Footer />
         </div>
