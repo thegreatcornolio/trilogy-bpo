@@ -17,14 +17,95 @@ export type NavItem =
       children: { label: string; href: string }[];
     };
 
-export const navLinks: NavItem[] = [
-  { label: "Trilogy BPO", href: "/trilogy-bpo" },
-  { label: "Trilogy Digital", href: "/trilogy-digital" },
-  { label: "Trilogy GCC", href: "/trilogy-gcc" },
-  { label: "Trilogy Ai", href: "/trilogy-ai" },
-  { label: "Team", href: "/#team" },
-  { label: "Partners", href: "/#partners" },
+/** Global top-bar links — same on every page (main + GCC microsite). */
+export const primaryNav: NavItem[] = [
+  { label: "Home", href: "/" },
+  { label: "Trilogy GCC", href: "/trilogy-gcc/" },
+  { label: "Trilogy Digital", href: "/trilogy-digital/" },
+  { label: "Trilogy Ai", href: "/trilogy-ai/" },
 ];
+
+/** @deprecated Use primaryNav — kept as alias for footer/header imports. */
+export const navLinks: NavItem[] = primaryNav;
+
+export type PageAnchor = { label: string; href: string };
+
+/** In-page anchors for the right-side rail, keyed by pathname (no trailing slash). */
+export const pageAnchorsByPath: Record<string, PageAnchor[]> = {
+  "/": [
+    { label: "Group", href: "#group" },
+    { label: "Team", href: "#team" },
+    { label: "Partners", href: "#partners" },
+    { label: "Insights", href: "#insights" },
+    { label: "Contact", href: "#contact" },
+  ],
+  "/trilogy-digital": [
+    { label: "Overview", href: "#overview" },
+    { label: "Why us", href: "#why" },
+    { label: "What we do", href: "#what-we-do" },
+    { label: "Operate", href: "#operate" },
+    { label: "Why AI", href: "#why-ai" },
+    { label: "Achievements", href: "#achievements" },
+    { label: "Test Kitchen", href: "#test-kitchen" },
+    { label: "AI suite", href: "#ai-suite" },
+    { label: "Compliance", href: "#compliance" },
+  ],
+  "/trilogy-ai": [
+    { label: "Live", href: "#live" },
+    { label: "Proposition", href: "#proposition" },
+    { label: "Where AI", href: "#where-ai" },
+    { label: "Human loop", href: "#human-loop" },
+    { label: "ACE", href: "#ace" },
+    { label: "Contact", href: "#contact" },
+  ],
+  "/trilogy-gcc": [
+    { label: "Proposition", href: "#proposition" },
+    { label: "DBIT", href: "#dbit" },
+    { label: "Benefits", href: "#benefits" },
+    { label: "Lifecycle", href: "#lifecycle" },
+    { label: "Migration", href: "#migration" },
+    { label: "Contact", href: "#contact" },
+  ],
+};
+
+/** Homepage — Trilogy Group of Companies. */
+export const trilogyGroup = {
+  kicker: "Trilogy Group",
+  title: "One operator family. Three ways in.",
+  lead: "Trilogy Group brings together Global Capability Centres, outsourced CX delivery and autonomous AI — complementary businesses under one South African operator-led family.",
+  members: [
+    {
+      key: "gcc",
+      name: "Trilogy GCC",
+      tag: "Global Capability Centres",
+      body: "Design, build, innovate and transfer your own centre in South Africa — ownership with DBIT.",
+      href: "/trilogy-gcc/",
+      image: "/img/cape-town.jpg",
+      video: "/7717357-hd_1280_720_25fps.mp4",
+      imageAlt: "Cape Town — home of Trilogy Global Capability Centres",
+    },
+    {
+      key: "digital",
+      name: "Trilogy Digital",
+      tag: "Outsourced CX delivery",
+      body: "Turnkey contact centre outsourcing for UK, US and EMEA — voice, digital and AI-enabled delivery.",
+      href: "/trilogy-digital/",
+      image: "/img/offer-bpo.png",
+      video: "/video/offer-bpo.mp4",
+      imageAlt: "Digital contact-centre floor with AI-enabled delivery",
+    },
+    {
+      key: "ai",
+      name: "Trilogy Ai",
+      tag: "Autonomous CX platform",
+      body: "Agent-in-the-loop AI for service, sales, marketing and collections — live with clients today.",
+      href: "/trilogy-ai/",
+      image: "/img/offer-ai.png",
+      video: "/video/offer-ai.mp4",
+      imageAlt: "Human and AI collaboration for autonomous CX",
+    },
+  ],
+} as const;
 
 export const heroStats = [
   { value: "30+", label: "Contact centres built worldwide" },
@@ -53,8 +134,26 @@ export type Offering = {
 export const offerings: Offering[] = [
   {
     index: "01",
-    key: "bpo",
-    name: "Trilogy BPO",
+    key: "gcc",
+    name: "Trilogy GCC",
+    kicker: "Global Capability Centres",
+    headline: "From vendor to owner — your GCC in South Africa.",
+    body: "Design, Build, Innovate & Transfer a high-performance Global Capability Centre with the same operators who have stood up 30+ centres. Local labour law, compliance, facilities and talent — delivered fast, compliant and low-risk, then handed to you.",
+    points: [
+      "DBIT: Design · Build · Innovate · Transfer",
+      "100 seats live in six weeks",
+      "Own the centre · keep the economics",
+    ],
+    image: "/img/offer-gcc.png",
+    video: "/video/offer-gcc.mp4",
+    imageAlt:
+      "A team reviewing a glowing green holographic building floorplate in a dark fit-out space.",
+    href: "/trilogy-gcc",
+  },
+  {
+    index: "02",
+    key: "digital",
+    name: "Trilogy Digital",
     kicker: "Outsourced contact centre",
     headline: "From voice, to digital, to autonomous CX.",
     body: "A turnkey contact centre on a fully integrated platform: voice, email, chat and back-office. Outsource marketing, customer service, sales, collections or retentions, with predictive AI/ML, RPA, analytics and live reporting built in.",
@@ -67,25 +166,7 @@ export const offerings: Offering[] = [
     video: "/video/offer-bpo.mp4",
     imageAlt:
       "A contact-centre floor at night, rows of human agents in headsets lit by the green glow of their monitors, with an android among them.",
-    href: "/trilogy-bpo",
-  },
-  {
-    index: "02",
-    key: "gcc",
-    name: "Trilogy GCC",
-    kicker: "Global Capability Centres",
-    headline: "Build your own centre in South Africa.",
-    body: "We help international BPOs and enterprises stand up high-performance Global Capability Centres using our proven DBIT method: Design, Build, Innovate & Transfer. Deep local expertise in labour law, compliance, facilities and vendor ecosystems makes delivery fast, compliant and low-risk.",
-    points: [
-      "DBIT: Design · Build · Innovate · Transfer",
-      "100 seats live in six weeks",
-      "Compliance, facilities & people",
-    ],
-    image: "/img/offer-gcc.png",
-    video: "/video/offer-gcc.mp4",
-    imageAlt:
-      "A team reviewing a glowing green holographic building floorplate in a dark fit-out space.",
-    href: "/trilogy-gcc",
+    href: "/trilogy-digital",
   },
   {
     index: "03",
@@ -1096,7 +1177,7 @@ export const digitalSites = [
 export const digitalOfferings = [
   {
     index: "01",
-    name: "Trilogy BPO",
+    name: "Trilogy Digital",
     tag: "Your Contract, Your Choice",
     body: "Outsource your contact centre to Trilogy in South Africa. Modern technology platforms in a ready state — just add humans — spanning voice, digital channels and AI-powered automation at significantly reduced cost.",
   },
@@ -1112,6 +1193,7 @@ export const digitalOfferings = [
     name: "Trilogy Ai",
     tag: "Platform Access",
     body: 'License our award-winning AI-enabled digital and autonomous platforms for service, sales, marketing and collections — always deployed "human in the loop."',
+    href: "/trilogy-ai/",
   },
 ] as const;
 
@@ -1476,7 +1558,7 @@ export const site = {
   name: company.name,
   tagline: "Human empathy meets AI efficiency.",
   description:
-    "AI-enabled BPO and Global Capability Centres from Cape Town. Trilogy BPO is ISO 27001 certified and PCI DSS, UK GDPR and POPIA compliant — contact centre outsourcing for UK, US and EMEA brands.",
+    "Build a Global Capability Centre in South Africa, or outsource with AI-enabled BPO. Trilogy designs, builds and runs contact centres for UK, US and EMEA brands — ISO 27001, PCI DSS, UK GDPR and POPIA compliant.",
   email: company.email,
   phones: { uk: company.phoneUk, sa: company.phoneSa },
   whatsapp: company.whatsapp,
