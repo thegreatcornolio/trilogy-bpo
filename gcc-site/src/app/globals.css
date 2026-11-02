@@ -137,9 +137,9 @@ button {
 
 .site-chrome__logo-img {
   display: block;
-  height: 36px;
+  height: 45px;
   width: auto;
-  max-width: min(48vw, 168px);
+  max-width: min(52vw, 210px);
   object-fit: contain;
   object-position: left center;
 }
@@ -236,7 +236,7 @@ button {
   }
 
   .site-chrome__logo-img {
-    height: 30px;
+    height: 38px;
   }
 }
 

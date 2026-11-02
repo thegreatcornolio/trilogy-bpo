@@ -13,7 +13,6 @@ import SectionKicker from "@/components/SectionKicker";
 import { TechStackTrack } from "@/components/TechStackTrack";
 import TrilogyGroupPaths from "@/components/TrilogyGroupPaths";
 import {
-  aiProducts,
   complianceMarks,
   evp,
   heroStats,
@@ -772,53 +771,6 @@ export default function HomePage() {
           </p>
           <AwardsTimeline />
           <FaqSection title="Common questions about Trilogy BPO" faqs={homeFaqs} />
-        </div>
-      </section>
-
-      {/* AI products */}
-      <section style={{ padding: "96px 0", background: "#0E1B2A", color: "#F7F5F0" }}>
-        <div className="container">
-          <SectionKicker onDark>Our AI-enabled point solutions</SectionKicker>
-          <h2
-            className="rise"
-            style={{
-              margin: "14px 0 0",
-              fontSize: "clamp(28px, 3.6vw, 44px)",
-              fontWeight: 400,
-              letterSpacing: "-.02em",
-            }}
-          >
-            A platform of proven .ai products.
-          </h2>
-          <div
-            className="ai-grid rise"
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
-              gap: 18,
-              marginTop: 40,
-            }}
-          >
-            {aiProducts.map((item) => (
-              <div
-                key={item.name}
-                style={{
-                  border: "1px solid rgba(255,255,255,.1)",
-                  borderRadius: 14,
-                  padding: 24,
-                  background: "rgba(255,255,255,.03)",
-                }}
-              >
-                <div style={{ fontSize: 20, fontWeight: 500, color: "#2FE85C" }}>{item.name}</div>
-                <div className="mono" style={{ marginTop: 8, fontSize: 11.5, color: "rgba(247,245,240,.5)" }}>
-                  {item.kicker}
-                </div>
-                <p style={{ margin: "14px 0 0", fontSize: 14.5, lineHeight: 1.65, color: "rgba(247,245,240,.66)", fontWeight: 300 }}>
-                  {item.body}
-                </p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
