@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import DigitalHero from "@/components/DigitalHero";
 import PageJsonLd from "@/components/PageJsonLd";
 import SectionKicker from "@/components/SectionKicker";
 import {
@@ -50,79 +51,7 @@ export default function TrilogyDigitalPage() {
           { name: "Trilogy Digital", path: "/trilogy-digital/" },
         ]}
       />
-      {/* Hero — full viewport, copy bottom-aligned like GCC */}
-      <section
-        data-anchor-theme="dark"
-        style={{
-          position: "relative",
-          minHeight: "100svh",
-          display: "flex",
-          alignItems: "flex-end",
-          background: "#0E1B2A",
-          color: "#F7F5F0",
-          overflow: "hidden",
-        }}
-      >
-        <div
-          className="container"
-          style={{ position: "relative", zIndex: 1, width: "100%", paddingTop: 120, paddingBottom: 72 }}
-        >
-          <div
-            className="rise"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 10,
-              flexWrap: "wrap",
-              marginBottom: 18,
-            }}
-          >
-            <span
-              className="mono"
-              style={{
-                display: "inline-block",
-                padding: "8px 14px",
-                borderRadius: 4,
-                background: "#2FE85C",
-                color: "#0E1B2A",
-                fontSize: 12,
-                fontWeight: 700,
-                letterSpacing: ".12em",
-              }}
-            >
-              A Trilogy Group Company
-            </span>
-            <SectionKicker onDark style={{ marginBottom: 0 }}>
-              Human Led · Ai-enabled
-            </SectionKicker>
-          </div>
-          <h1
-            className="rise"
-            style={{
-              margin: 0,
-              fontSize: "clamp(40px, 6vw, 64px)",
-              fontWeight: 400,
-              letterSpacing: "-.03em",
-            }}
-          >
-            Trilogy Digital.
-          </h1>
-          <p
-            className="rise"
-            style={{
-              margin: "18px 0 0",
-              maxWidth: "54ch",
-              fontSize: 17,
-              lineHeight: 1.65,
-              fontWeight: 300,
-              color: "rgba(247,245,240,.72)",
-            }}
-          >
-            Purpose-built CX joint venture for UK outsourcing from South Africa — high-performance contact centre
-            operations, digital channels and human-in-the-loop AI. Decades of expertise, ready to scale.
-          </p>
-        </div>
-      </section>
+      <DigitalHero />
 
       {/* Group callout */}
       <section style={{ padding: "28px 0", background: "#F7F5F0", borderBottom: "1px solid rgba(14,27,42,.08)" }}>

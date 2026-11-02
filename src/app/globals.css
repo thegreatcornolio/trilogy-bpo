@@ -968,3 +968,67 @@ body {
     display: none;
   }
 }
+
+/* —— Trilogy Digital hero (Africa map + scroll parallax) —— */
+.digital-hero {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  color: #f7f5f0;
+  background: #050b14;
+}
+
+.digital-hero__media {
+  position: absolute;
+  inset: -10% -6% -14%;
+  z-index: 0;
+  transform: translate3d(0, 0, 0) scale(1.08);
+  transform-origin: 55% 42%;
+  will-change: transform;
+}
+
+.digital-hero__img {
+  object-fit: cover;
+  object-position: 58% 42%;
+  animation: digital-hero-pan 32s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.digital-hero__veil {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(5, 11, 20, 0.88) 0%, rgba(5, 11, 20, 0.55) 42%, rgba(5, 11, 20, 0.22) 72%, rgba(5, 11, 20, 0.35) 100%),
+    linear-gradient(180deg, rgba(5, 11, 20, 0.45) 0%, rgba(5, 11, 20, 0.12) 38%, rgba(5, 11, 20, 0.82) 100%);
+  pointer-events: none;
+}
+
+.digital-hero__copy {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding-top: 120px;
+  padding-bottom: 72px;
+}
+
+@keyframes digital-hero-pan {
+  from {
+    transform: scale(1.04) translate3d(1.5%, 1%, 0);
+  }
+  to {
+    transform: scale(1.12) translate3d(-2.5%, -2%, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .digital-hero__img {
+    animation: none;
+  }
+
+  .digital-hero__media {
+    inset: 0;
+    transform: none !important;
+  }
+}
