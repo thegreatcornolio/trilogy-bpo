@@ -4,10 +4,10 @@ import Link from "next/link";
 import DigitalHero from "@/components/DigitalHero";
 import PageJsonLd from "@/components/PageJsonLd";
 import SectionKicker from "@/components/SectionKicker";
+import TestKitchenVisual from "@/components/TestKitchenVisual";
 import {
   awards,
   bpoAchievements,
-  bpoKitchenDiff,
   bpoKitchenPhases,
   bpoOperate,
   bpoWhyAi,
@@ -19,6 +19,7 @@ import {
   digitalOfferings,
   digitalSites,
   digitalStats,
+  digitalTestKitchen,
   digitalWhy,
 } from "@/lib/content";
 import { pageMetadata } from "@/lib/seo";
@@ -86,10 +87,10 @@ export default function TrilogyDigitalPage() {
             style={{ marginTop: 22, display: "grid", gap: 16, fontSize: 16.5, lineHeight: 1.7, color: "rgba(14,27,42,.68)", fontWeight: 300 }}
           >
             <p style={{ margin: 0 }}>
-              Trilogy Digital (Pty) Ltd is a purpose-built customer experience (CX) joint venture between Trilogy BPO
-              and CXG. Operating as a single integrated entity, the partnership marries CXG&apos;s 27-year operational
-              tenure and scale within the South African market to Trilogy&apos;s deep expertise in managing UK campaigns
-              and delivering advanced digital and AI capabilities.
+              Trilogy Digital (Pty) Ltd is a purpose-built customer experience (CX) joint venture between the Trilogy
+              Group and CXG. Operating as a single integrated entity, the partnership marries CXG&apos;s 27-year
+              operational tenure and scale within the South African market to Trilogy&apos;s deep expertise in managing
+              UK campaigns and delivering advanced digital and AI capabilities.
             </p>
             <p style={{ margin: 0 }}>
               The combined leadership team brings over 25 years of industry expertise, having previously established and
@@ -464,55 +465,71 @@ export default function TrilogyDigitalPage() {
         </div>
       </section>
 
-      <section id="test-kitchen" data-anchor-theme="dark" style={{ padding: "88px 0", background: "#0E1B2A", color: "#F7F5F0" }}>
+      {/* Test Kitchen — copied from GCC (GCC keeps its own) */}
+      <section
+        id="test-kitchen"
+        data-anchor-theme="dark"
+        style={{
+          padding: "96px 0",
+          backgroundColor: "#132338",
+          backgroundImage:
+            "radial-gradient(ellipse 80% 70% at 78% 42%, rgba(47, 232, 92, 0.08), transparent 55%), linear-gradient(165deg, #132338 0%, #0E1B2A 42%, #081018 100%)",
+          color: "#F7F5F0",
+          overflow: "hidden",
+        }}
+      >
         <div className="container">
-          <SectionKicker onDark>AI Test Kitchen for BPO</SectionKicker>
-          <h2
-            className="rise"
-            style={{
-              margin: "14px 0 0",
-              maxWidth: "20ch",
-              fontSize: "clamp(28px, 3.6vw, 42px)",
-              fontWeight: 400,
-              letterSpacing: "-.02em",
-            }}
-          >
-            Prove value. Reduce risk. Then scale.
-          </h2>
-          <p
-            className="rise"
-            style={{
-              margin: "18px 0 0",
-              maxWidth: "56ch",
-              fontSize: 16.5,
-              lineHeight: 1.7,
-              color: "rgba(247,245,240,.66)",
-              fontWeight: 300,
-            }}
-          >
-            Not a lab. Not a POC. Not a vendor demo. A controlled, real-data environment where AI, automation and
-            digital deflection are proven before deployment — answering one question: what will materially reduce cost
-            or improve CX without breaking live operations?
-          </p>
+          <div className="test-kitchen-grid">
+            <div>
+              <SectionKicker onDark>{digitalTestKitchen.kicker}</SectionKicker>
+              <h2
+                className="rise"
+                style={{
+                  margin: "14px 0 0",
+                  maxWidth: "22ch",
+                  fontSize: "clamp(28px, 3.6vw, 42px)",
+                  fontWeight: 400,
+                  letterSpacing: "-.02em",
+                }}
+              >
+                {digitalTestKitchen.title}
+              </h2>
+              <p
+                className="rise"
+                style={{
+                  margin: "18px 0 0",
+                  maxWidth: "56ch",
+                  fontSize: 16.5,
+                  lineHeight: 1.7,
+                  color: "rgba(247,245,240,.66)",
+                  fontWeight: 300,
+                }}
+              >
+                {digitalTestKitchen.lead}
+              </p>
+            </div>
+            <TestKitchenVisual />
+          </div>
+
           <div
             className="rise t-3"
             style={{
               display: "grid",
               gridTemplateColumns: "repeat(3, minmax(0, 1fr))",
               gap: 24,
-              marginTop: 44,
+              marginTop: 56,
             }}
           >
-            {bpoKitchenDiff.map((item) => (
-              <div key={item.title} style={{ borderTop: "1px solid rgba(255,255,255,.14)", paddingTop: 18 }}>
-                <h3 style={{ margin: 0, fontSize: 17, fontWeight: 500, color: "#2FE85C" }}>{item.title}</h3>
+            {digitalTestKitchen.unlocks.map((item) => (
+              <div key={item.title} style={{ borderTop: "2px solid #2FE85C", paddingTop: 18 }}>
+                <h3 style={{ margin: 0, fontSize: 18, fontWeight: 500 }}>{item.title}</h3>
                 <p
                   style={{
-                    margin: "10px 0 0",
-                    fontSize: 14.5,
+                    margin: "12px 0 0",
+                    fontSize: 15,
+                    fontWeight: 300,
                     lineHeight: 1.6,
                     color: "rgba(247,245,240,.66)",
-                    fontWeight: 300,
                   }}
                 >
                   {item.body}
@@ -520,20 +537,6 @@ export default function TrilogyDigitalPage() {
               </div>
             ))}
           </div>
-          <p
-            className="rise"
-            style={{
-              margin: "36px 0 0",
-              fontSize: 14,
-              lineHeight: 1.65,
-              color: "rgba(247,245,240,.5)",
-              fontStyle: "italic",
-              maxWidth: "62ch",
-            }}
-          >
-            Only 30% of AI projects make it past the pilot stage and deliver real business value (Gartner). The Test
-            Kitchen exists to fix that failure point.
-          </p>
         </div>
       </section>
 
@@ -606,8 +609,8 @@ export default function TrilogyDigitalPage() {
               fontWeight: 300,
             }}
           >
-            Turn Test Kitchen insights into BPO operational excellence. Fail fast, learn quickly, and scale only what
-            is proven — then migrate seamlessly into your live environment.
+            Turn Test Kitchen insights into Digital operational excellence. Fail fast, learn quickly, and scale only
+            what is proven — then migrate seamlessly into your live environment.
           </p>
           <div className="rise" style={{ marginTop: 36, display: "flex", flexWrap: "wrap", gap: 14, alignItems: "center" }}>
             <Link

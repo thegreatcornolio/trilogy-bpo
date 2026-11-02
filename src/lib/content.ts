@@ -35,7 +35,6 @@ export const pageAnchorsByPath: Record<string, PageAnchor[]> = {
   "/": [
     { label: "Group", href: "#group" },
     { label: "Team", href: "#team" },
-    { label: "Partners", href: "#partners" },
     { label: "Insights", href: "#insights" },
     { label: "Contact", href: "#contact" },
   ],
@@ -56,6 +55,7 @@ export const pageAnchorsByPath: Record<string, PageAnchor[]> = {
     { label: "Where AI", href: "#where-ai" },
     { label: "Human loop", href: "#human-loop" },
     { label: "ACE", href: "#ace" },
+    { label: "Partners", href: "#partners" },
     { label: "Contact", href: "#contact" },
   ],
   "/trilogy-gcc": [
@@ -1254,30 +1254,52 @@ export const complianceTerms = {
 
 /** Homepage copy under Accredited, awarded, trusted. */
 export const homepageComplianceBody =
-  "Security, compliance and trust are built into how we operate. Trilogy BPO is ISO 27001 certified and PCI DSS compliant, with operations aligned to the requirements of the UK General Data Protection Regulation (GDPR) and South Africa's Protection of Personal Information Act (POPIA). These standards support our commitment to information security, payment data protection and responsible handling of customer information.";
+  "Security, compliance and trust are built into how we operate. Trilogy Digital is ISO 27001 certified and PCI DSS compliant, with operations aligned to the requirements of the UK General Data Protection Regulation (GDPR) and South Africa's Protection of Personal Information Act (POPIA). These standards support our commitment to information security, payment data protection and responsible handling of customer information.";
+
+/** Copied from GCC Test Kitchen — Trilogy Digital page (GCC keeps its own). */
+export const digitalTestKitchen = {
+  kicker: "By Trilogy · AI & innovation lab",
+  title: "Go further with Trilogy Digital — our AI and Test Kitchen.",
+  lead:
+    "Once your operation is stable, Trilogy’s AI platform and Test Kitchen let you prototype, test and prove new ways of serving customers on your own journeys before rolling them out — with no vendor margin standing in the way.",
+  unlocks: [
+    {
+      title: "Digital deflection",
+      body: "Self-service for routine contacts that never need an agent.",
+    },
+    {
+      title: "AI-assisted agents",
+      body: "Real-time guidance, summaries and automated QA on every interaction.",
+    },
+    {
+      title: "Autonomous resolution",
+      body: "Where journeys allow — potentially a further 15–20% off the operating cost base.",
+    },
+  ],
+} as const;
 
 /** Trilogy Digital — Technology, AI & security credentials. */
 export const digitalComplianceIntro =
-  "Trilogy BPO operates with information security and data protection at the core of its technology and customer operations.";
+  "Trilogy Digital operates with information security and data protection at the core of its technology and customer operations.";
 
 export const digitalComplianceCredentials = [
   {
     name: "ISO 27001",
     term: complianceTerms.iso27001,
     logo: "/pool/accreditations/iso-27001.png",
-    body: "Trilogy BPO is ISO 27001 certified, demonstrating our commitment to internationally recognised information security management standards.",
+    body: "Trilogy Digital is ISO 27001 certified, demonstrating our commitment to internationally recognised information security management standards.",
   },
   {
     name: "PCI DSS",
     term: complianceTerms.pciDss,
     logo: "/pool/accreditations/pci-dss.png",
-    body: "Trilogy BPO is PCI DSS compliant, supporting the secure handling and protection of payment card data across relevant customer operations.",
+    body: "Trilogy Digital is PCI DSS compliant, supporting the secure handling and protection of payment card data across relevant customer operations.",
   },
   {
     name: "UK GDPR",
     term: complianceTerms.ukGdpr,
     logo: "/pool/accreditations/gdpr.png",
-    body: "Trilogy BPO is UK GDPR compliant, supporting the lawful and secure processing of personal data for our UK clients.",
+    body: "Trilogy Digital is UK GDPR compliant, supporting the lawful and secure processing of personal data for our UK clients.",
   },
   {
     name: "POPIA",

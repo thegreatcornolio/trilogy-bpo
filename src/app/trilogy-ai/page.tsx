@@ -6,6 +6,7 @@ import { pageMetadata } from "@/lib/seo";
 import SectionKicker from "@/components/SectionKicker";
 import AiMetrics from "@/components/AiMetrics";
 import ServiceHero from "@/components/ServiceHero";
+import { TechStackTrack } from "@/components/TechStackTrack";
 import {
   aiApplicationAreas,
   aiBottomLine,
@@ -552,8 +553,43 @@ export default function TrilogyAiPage() {
         </div>
       </section>
 
+      {/* Partners — moved from homepage */}
+      <section id="partners" data-anchor-theme="dark" style={{ padding: "96px 0", background: "#0c1926", color: "#F7F5F0" }}>
+        <div className="container">
+          <SectionKicker onDark>Ecosystem</SectionKicker>
+          <h2
+            className="rise"
+            style={{
+              margin: 0,
+              fontSize: "clamp(28px, 3.6vw, 44px)",
+              fontWeight: 400,
+              letterSpacing: "-.02em",
+              lineHeight: 1.15,
+              color: "#fff",
+            }}
+          >
+            Our technology partners.
+          </h2>
+          <p
+            className="rise"
+            style={{
+              margin: "18px 0 40px",
+              maxWidth: "58ch",
+              fontSize: 16.5,
+              lineHeight: 1.7,
+              color: "rgba(247,245,240,.66)",
+              fontWeight: 300,
+            }}
+          >
+            We deliver on a curated ecosystem of best-of-breed technology partners, end to end: channel, orchestration,
+            automation, the ML engine and analytics.
+          </p>
+          <TechStackTrack />
+        </div>
+      </section>
+
       {/* CTA */}
-      <section style={{ padding: "88px 0", background: "#0E1B2A", color: "#F7F5F0" }}>
+      <section id="contact" style={{ padding: "88px 0", background: "#0E1B2A", color: "#F7F5F0" }}>
         <div className="container" style={{ maxWidth: 820 }}>
           <SectionKicker onDark>Built inside real BPO constraints</SectionKicker>
           <h2
