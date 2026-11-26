@@ -11,12 +11,12 @@ export const dynamic = "force-static";
  */
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
+  // /trilogy-gcc/ intentionally omitted — noindex + robots Disallow (SEO/AEO/GEO).
   const routes: { path: string; priority: number }[] = [
     { path: "/", priority: 1 },
     { path: "/trilogy-bpo/", priority: 0.8 },
     { path: "/trilogy-ai/", priority: 0.8 },
     { path: "/trilogy-digital/", priority: 0.8 },
-    { path: "/trilogy-gcc/", priority: 0.8 },
     { path: "/corporate/insights/", priority: 0.6 },
     { path: "/privacy/", priority: 0.4 },
   ];

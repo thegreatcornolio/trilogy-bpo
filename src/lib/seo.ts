@@ -219,23 +219,39 @@ export function breadcrumbLd(crumbs: Crumb[]) {
  * Builds a page's metadata with a unique title/description plus a self-
  * referencing canonical and matching Open Graph / Twitter tags. `path` should
  * be the route with its trailing slash (e.g. "/trilogy-gcc/").
+ *
+ * Pass `indexable: false` to emit noindex/nofollow (SEO + AEO/GEO opt-out).
  */
 export function pageMetadata({
   title,
   description,
   path,
   keywords,
+  indexable = true,
 }: {
   title: string;
   description: string;
   path: string;
   keywords?: string[];
+  indexable?: boolean;
 }): Metadata {
   return {
     title,
     description,
-    ...(keywords?.length ? { keywords } : {}),
-    alternates: { canonical: path },
+    ...(keywords?.length && indexable ? { keywords } : {}),
+    ...(indexable ? { alternates: { canonical: path } } : {}),
+    robots: indexable
+      ? undefined
+      : {
+          index: false,
+          follow: false,
+          nocache: true,
+          googleBot: {
+            index: false,
+            follow: false,
+            noimageindex: true,
+          },
+        },
     openGraph: {
       type: "website",
       siteName: SITE_NAME,
